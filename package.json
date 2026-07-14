@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "analysis:build": "node scripts/analysis-build.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",

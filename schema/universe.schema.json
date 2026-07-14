@@ -18,24 +18,174 @@
         "author": { "type": "string" }
       }
     },
+    "analysisConfig": {
+      "$ref": "#/$defs/analysisConfig",
+      "default": {
+        "enabled": false,
+        "engines": {
+          "continuity": false,
+          "causality": false,
+          "knowledge": false,
+          "connections": false,
+          "plausibility": false
+        }
+      }
+    },
     "modules": {
       "type": "array",
       "items": { "$ref": "#/$defs/module" }
     }
   },
   "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "referenceArray": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" },
+      "uniqueItems": true
+    },
+    "analysisConfig": {
+      "type": "object",
+      "required": ["enabled", "engines"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "engines": {
+          "type": "object",
+          "required": ["continuity", "causality", "knowledge", "connections", "plausibility"],
+          "properties": {
+            "continuity": { "type": "boolean" },
+            "causality": { "type": "boolean" },
+            "knowledge": { "type": "boolean" },
+            "connections": { "type": "boolean" },
+            "plausibility": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "properties": {
+        "goals": { "$ref": "#/$defs/stringArray" },
+        "fears": { "$ref": "#/$defs/stringArray" },
+        "beliefs": { "$ref": "#/$defs/stringArray" },
+        "constraints": { "$ref": "#/$defs/stringArray" },
+        "requiredKnowledge": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "temporal": {
+      "type": "object",
+      "properties": {
+        "start": { "type": "string", "minLength": 1 },
+        "end": { "type": "string", "minLength": 1 },
+        "precision": { "enum": ["exact", "day", "month", "year", "relative", "unknown"] }
+      }
+    },
+    "knowledgeChange": {
+      "type": "object",
+      "required": ["characterRef"],
+      "properties": {
+        "characterRef": { "$ref": "#/$defs/id" },
+        "learns": { "$ref": "#/$defs/stringArray" },
+        "forgets": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "stateChange": {
+      "type": "object",
+      "required": ["entityRef", "path", "to"],
+      "properties": {
+        "entityRef": { "$ref": "#/$defs/id" },
+        "path": { "type": "string", "minLength": 1 },
+        "from": { "type": ["string", "number", "boolean"] },
+        "to": { "type": ["string", "number", "boolean"] }
+      }
+    },
+    "continuityRuleId": {
+      "enum": ["character-dead-acting", "incompatible-simultaneous-locations", "incompatible-age", "effect-before-cause", "missing-cause-reference", "undeclared-causal-cycle", "important-event-without-cause", "declared-cause-without-consequence", "broken-causal-chain", "knowledge-used-before-learning", "remembered-after-forgetting", "revelation-received-after-acting", "knowledge-attributed-to-missing-character", "temporally-ambiguous-knowledge-change"]
+    },
+    "continuityException": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": { "enum": ["resurrection", "copy", "simulation", "flashback", "vision", "non-physical-appearance", "travel", "duplication", "teleportation", "projection", "prophecy", "time-travel", "retrocausality", "causal-loop", "world-exception"] },
+        "ruleIds": { "type": "array", "items": { "$ref": "#/$defs/continuityRuleId" }, "uniqueItems": true },
+        "subjectRefs": { "$ref": "#/$defs/referenceArray" },
+        "scope": { "enum": ["event", "universe"] }
+      }
+    },
+    "continuity": {
+      "type": "object",
+      "properties": {
+        "life": {
+          "type": "object",
+          "properties": {
+            "birth": { "$ref": "#/$defs/temporal" },
+            "death": { "$ref": "#/$defs/temporal" }
+          }
+        },
+        "ageAssertions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["entityRef", "age"],
+            "properties": {
+              "entityRef": { "$ref": "#/$defs/id" },
+              "age": { "type": "integer", "minimum": 0 }
+            }
+          }
+        },
+        "exceptions": { "type": "array", "items": { "$ref": "#/$defs/continuityException" } }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "required": ["id", "type", "title"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "type": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "refs": { "$ref": "#/$defs/referenceArray" },
+        "foreshadowing": { "$ref": "#/$defs/referenceArray" },
+        "development": { "type": "number", "minimum": 0, "maximum": 100 },
+        "importance": { "type": "number", "minimum": 0, "maximum": 100 },
+        "narrativeTime": { "type": "number", "minimum": 0, "maximum": 100 },
+        "quality": { "type": "number", "minimum": 0, "maximum": 100 },
+        "sequence": { "type": "integer", "minimum": 0 },
+        "analysis": { "$ref": "#/$defs/analysis" },
+        "temporal": { "$ref": "#/$defs/temporal" },
+        "locationRefs": { "$ref": "#/$defs/referenceArray" },
+        "participantRefs": { "$ref": "#/$defs/referenceArray" },
+        "causes": { "$ref": "#/$defs/referenceArray" },
+        "effects": { "$ref": "#/$defs/referenceArray" },
+        "knowledgeChanges": { "type": "array", "items": { "$ref": "#/$defs/knowledgeChange" } },
+        "stateChanges": { "type": "array", "items": { "$ref": "#/$defs/stateChange" } },
+        "continuity": { "$ref": "#/$defs/continuity" }
+      }
+    },
     "module": {
       "type": "object",
       "required": ["id", "title", "type", "icon", "order", "visibility", "renderer", "content"],
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+        "id": { "$ref": "#/$defs/id" },
         "title": { "type": "string" },
         "type": { "type": "string" },
         "icon": { "type": "string" },
         "order": { "type": "number" },
         "visibility": { "enum": ["navigation", "hidden", "developer"] },
         "renderer": { "type": "string" },
-        "content": { "type": "object" }
+        "content": {
+          "type": "object",
+          "properties": {
+            "items": { "type": "array", "items": { "$ref": "#/$defs/entity" } }
+          }
+        }
       }
     }
   }

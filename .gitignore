@@ -2,6 +2,7 @@
 node_modules/
 dist/
 coverage/
+data/derived/
 
 # Local environment and editor files
 .env
@@ -16,4 +17,3 @@ Thumbs.db
 *.log
 *.tmp
 *.temp
-
