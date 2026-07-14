@@ -2,14 +2,18 @@
 
 ## Alcance y resultado
 
-Validación de solo lectura de `data/universe_master.json` ejecutada con `npm run validate:canon` el 14 de julio de 2026. El archivo fuente no se modifica: se migra en memoria de esquema `3.2.0` a `3.5.0`, se valida y se compilan índices derivados separados.
+Validación de `data/universe_master.json` ejecutada el 14 de julio de 2026 después de aplicar el enriquecimiento autoral de la Fase 11. El archivo fuente conserva `schemaVersion` `3.2.0`; el cargador lo migra en memoria a `3.5.0` para validar y construir datos derivados separados.
 
-- Hash canónico migrado: `fnv1a64-e020c17d2e15924d`.
+- Hash canónico migrado: `fnv1a64-c7c855edd2c10c60`.
 - Versión del canon: `0.1.0` (`initial-canon`).
 - Motor derivado: `0.4.0`.
-- Estructura: 15 módulos, 95 entidades y 17 entidades de tipo `event`.
-- Validación: 0 errores, 0 referencias rotas y 0 IDs duplicados.
-- Resultado narrativo: 0 issues demostrables; esto no certifica ausencia de contradicciones porque la cobertura estructurada temporal, causal y cognitiva es insuficiente.
+- Estructura: 15 módulos, 95 entidades y 17 eventos.
+- Validación: 0 errores, 0 referencias rotas, 0 IDs duplicados y 0 warnings.
+- Patch aplicado: 47 adiciones sobre 20 entidades; 0 eliminaciones, cambios de ID, títulos o resúmenes.
+
+**Cero issues reales no significa cero contradicciones.**
+
+El resultado confirma consistencia estructural para los campos declarados. La cobertura sigue siendo insuficiente para certificar exactitud narrativa amplia o ausencia de falsos negativos.
 
 ## Módulos y cantidades
 
@@ -24,59 +28,55 @@ Validación de solo lectura de `data/universe_master.json` ejecutada con `npm ru
 | companies | 0 | arg | 0 |
 | franchise | 4 | **Total** | **95** |
 
-Tipos encontrados: `event` 17; `beat` 15; `mystery` 10; `character` 7; `symbol` 6; `role` 5; `technology` 5; `economic-concept` 3; `organization` 3; `economic-system` 2; `franchise-entry` 2; y 18 tipos con una entidad cada uno.
+El esquema admite tipos extensibles. Todas las entidades permanecen indexables, aunque solo algunos tipos y campos reciben reglas analíticas especializadas.
 
-El esquema admite tipos extensibles, por lo que no hay entidades “desconocidas” inválidas. Hay 53 entidades con tipos distintos de los seis tipos especializados por algunas reglas (`character`, `event`, `location`, `faction`, `symbol`, `mystery`); siguen siendo indexables y visibles, pero no todas reciben análisis especializado.
+## Cobertura estructurada
 
-## Cronología y cobertura
+| Área | Antes | Estado actual | Limitación |
+| --- | ---: | ---: | --- |
+| Temporal declarativa | 0/17 | 17/17 | Todos los valores son relativos; 0/17 tienen punto calculable |
+| Participantes | 0/17 | 17/17 | Participación no implica conocimiento compartido |
+| Ubicación | 0/17 | 2/17 | Solo se estructuró Nuevo Caguán donde está confirmado |
+| Causalidad | 0/17 | 2/17 | Solo dos eventos declaran `effects`; no hay cadenas completas |
+| Cambios de conocimiento | 0/17 | 3/17 | Tres declaraciones, todas temporalmente ambiguas |
+| `requiredKnowledge` | 0/17 | 0/17 | No existe evidencia canónica suficiente |
+| Cambios de estado | 0/17 | 3/17 | Muerte, desaparición y nueva capacidad de Clay |
+| Entidades con `analysis` | 0 | 3 | Solo objetivos explícitos de Clay, Amaranta y MEME |
+| Entidades con conexiones declaradas | 87/95 | 87/95 | Las aristas expresan estructura, no significado narrativo total |
 
-| Área | Evidencia real | Cobertura / resultado |
-| --- | --- | --- |
-| Cronología | 17 eventos en `TimelineIndex`; ninguno declara `temporal.start` | 0/17 con fecha estructurada; los 17 quedan sin fecha exacta |
-| Causalidad | Ningún evento declara `causes` o `effects` | 0/17; 1 evaluación insuficiente y 5 sin issue por ausencia de declaraciones aplicables |
-| Conocimiento | 0 `knowledgeChanges` y 0 `requiredKnowledge` | 0 declaraciones; 3 evaluaciones insuficientes y 2 sin issue |
-| Continuidad | No hay vida, edades o intervalos estructurados suficientes | 4/4 reglas devuelven información insuficiente |
-| Conexiones | 87/95 entidades declaran al menos una referencia; 304 aristas derivadas | Cobertura alta de enlaces explícitos heredados, no de significado semántico |
-| Plausibilidad | 0 entidades con `analysis`; 0 personajes con goals/beliefs/fears/constraints | No evaluable con cobertura útil; el sistema no genera hipótesis |
+Los motores permanecen desactivados por defecto en `analysisConfig`. Las mediciones invocan funciones puras sobre una copia validada y no escriben diagnósticos ni anotaciones en el canon.
 
-Todos los motores permanecen desactivados en la configuración migrada por defecto. Para el informe se invocaron sus funciones puras en memoria; esa operación no activó ni guardó configuración en el canon.
+## Grafo, observaciones e issues
 
-## Métricas, observaciones e issues
+- Grafo: 95 nodos y 343 aristas derivadas.
+- Topología: 9 componentes, 8 nodos aislados y 4 ciclos dirigidos.
+- Observaciones: 1 `central-character`, 8 `disconnected-component` y 8 `isolated-entity`.
+- Issues de conexiones: 0.
+- Issues de continuidad: 0; las 4 reglas devuelven información insuficiente.
+- Issues de causalidad: 0; 5 evaluaciones sin issue y 1 insuficiente.
+- Conocimiento: 3 observaciones `info` de `temporally-ambiguous-knowledge-change`, una por cada evento con declaración cognitiva relativa.
+- Nuevos issues de contradicción: 0.
 
-- Métricas de conexión: 95 nodos, 304 aristas, 9 componentes, 8 nodos aislados y 5 ciclos dirigidos.
-- Observaciones: 1 personaje central, 8 componentes desconectados y 8 entidades aisladas.
-- Issues de conexiones: 0, porque el canon no declara tipos de relación que exijan reciprocidad en el contrato actual.
-- Issues de continuidad, causalidad y conocimiento: 0 demostrables.
-- Datos insuficientes: continuidad 4 evaluaciones; causalidad 1; conocimiento 3.
+Una observación topológica no es un error narrativo. Los tres informes cognitivos expresan falta de comparabilidad temporal y no una contradicción. Los cuatro ciclos de referencias tampoco equivalen a ciclos causales.
 
-Una observación de aislamiento o centralidad no es un error narrativo. Un ciclo de referencias tampoco equivale a un ciclo causal: el canon no contiene `causes`/`effects` estructurados.
+## Integridad autoral
 
-## Posibles misterios intencionales
-
-El módulo canónico clasifica diez entidades como `mystery`: desaparición de Amaranta, Harry digital, límite del Destructor de Voluntades, mensaje previo al encuentro, muerte de Harry, naturaleza de la Gracia, objetivo de MEME, ola de posesiones, reconocimiento de Clay y “¿Amaranta nunca se fue?”. Esta lista procede del tipo explícito y no afirma que estén resueltos, sean contradicciones o deban corregirse.
-
-## Verificación manual mínima
-
-La “clasificación esperada” se limita a lo declarado en el propio canon: módulo y `type`. “Obtenida” es lo leído por el cargador y el índice, sin interpretación de la prosa.
-
-| Elemento | Módulo / tipo esperado | Obtenido | Relaciones principales declaradas | Fuentes canónicas comprobadas | Diagnósticos |
-| --- | --- | --- | --- | --- | --- |
-| Clay (`meme-clay`) | characters / character | Coincide | Amaranta, Harry, MEME, Nuevo Caguán, misión DEA, acto de Gracia; anticipa mensaje y archivos | entidad `meme-clay`; entrantes como premisa, DEA, Harry y beats | 0 issues; observación `central-character` |
-| Amaranta (`meme-amaranta`) | characters / character | Coincide | Clay, Harry, Gracia, linaje, inmolación; anticipa archivos y mensaje | entidad `meme-amaranta`; entrantes desde Clay, Harry, Gracia y misterios | 0 issues; 0 observaciones específicas |
-| Harry (`meme-harry`) | characters / character | Coincide | Clay, Amaranta, misterio de muerte, revelación digital; anticipa celular y copia | entidad `meme-harry`; entrantes desde muerte, copia y beats | 0 issues; 0 observaciones específicas |
-| MEME (`meme-meme`) | characters / character | Coincide | Clay, Amaranta, Gracia, mercado y deseo; anticipa servidores y réplica | entidad `meme-meme`; entrantes desde premisa, mercado, tecnología y beats | 0 issues; 0 observaciones específicas |
-| La Gracia (`meme-la-gracia`) | lore / metaphysical-system | Coincide | MEME, Amaranta y réplica del campo | entidad `meme-la-gracia`; entrantes desde temas, misterios y actos | 0 issues; 0 observaciones específicas |
-| Nuevo Caguán (`meme-nuevo-caguan`) | lore / location | Coincide | Amaranta, red de servidores y vigilancia local | entidad `meme-nuevo-caguan`; entrantes desde llegada, misión y misterios | 0 issues; 0 observaciones específicas |
-| Mercado de Futuros de la Voluntad (`meme-mercado-futuros-voluntad`) | market / market-system | Coincide | MEME, deseo como activo y financiarización | entidad del mercado; entrantes desde atención, contratos, propuesta y novela dos | 0 issues; 0 observaciones específicas |
-| Ministerio del Pánico (`meme-ministerio-del-panico`) | factions / faction | Coincide | MEME, economía del terror y Seekers | entidad de facción; entrantes desde roles, ascenso, miedo y novela dos | 0 issues; 0 observaciones específicas |
-| El celular agotado (`meme-celular-agotado-junto-a-harry`) | symbols / symbol | Coincide | Harry, Amaranta y muerte de Harry | entidad del símbolo; entrantes desde Harry, misterio y evento de muerte | 0 issues; 0 observaciones específicas |
-| Muerte de Harry (`meme-muerte-de-harry`) | timeline / event | Coincide | Harry, Clay, Amaranta, celular y misterio de muerte | entidad del evento; entrantes desde beat 03 y el celular | 0 issues; fecha estructurada ausente |
+- Los 95 IDs y los 95 resúmenes permanecen sin cambios.
+- La entidad Muerte de Harry conserva su título, resumen, referencias y misterio asociado; solo recibe temporalidad relativa, participante y cambio de estado ya declarados.
+- Los diez elementos de tipo `mystery` siguen abiertos; ninguno fue resuelto ni convertido en hecho.
+- No se añadieron fechas exactas, relaciones tipadas, creencias, miedos, restricciones ni `requiredKnowledge`.
+- El canon continúa separado de anotaciones, caché e índices derivados.
+- `data/derived/` es reconstruible mediante `npm run analysis:build` y permanece ignorado por Git.
 
 ## Limitaciones reales
 
-- La clasificación mínima de las diez entidades coincide, pero la verdad narrativa solo puede aprobarla el autor.
-- No es posible medir una tasa real de falsos negativos sobre continuidad, causalidad o conocimiento mientras el canon no declare los campos estructurados necesarios.
-- Las 304 aristas expresan referencias, no necesariamente relaciones recíprocas, causales o temporales.
-- Los ciclos, componentes e islas son observaciones topológicas; no justifican correcciones automáticas.
-- La plausibilidad no puede evaluarse automáticamente y no debe hacerlo: requiere una hipótesis del autor y datos analíticos opcionales.
-- Ningún resultado de este informe modifica el canon ni recomienda cambios narrativos automáticos.
+- El tiempo relativo no permite demostrar anterioridad entre eventos de una misma era ni acumular conocimiento en un punto exacto.
+- Dos relaciones causales no representan todavía cadenas causales completas.
+- Tres cambios cognitivos no permiten evaluar uso previo, olvido o reaprendizaje en toda la historia.
+- La continuidad carece de fechas, intervalos, edades y excepciones estructuradas suficientes para una cobertura amplia.
+- La plausibilidad solo dispone de tres objetivos; faltan los demás factores y siempre requiere una hipótesis explícita del autor.
+- Las 343 aristas no prueban reciprocidad, causalidad, presencia física ni importancia narrativa.
+- No puede medirse una tasa real de falsos negativos sin más canon estructurado y casos autorales de referencia.
+- Ningún diagnóstico autoriza una corrección automática del canon.
+
+Por tanto, el canon enriquecido es válido para este release candidate, pero no está narrativamente completo ni certificado como exhaustivo.

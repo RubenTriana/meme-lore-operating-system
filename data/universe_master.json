@@ -341,7 +341,12 @@
               "meme-nuevo-caguan",
               "meme-mision-dea-para-clay",
               "meme-acto-de-gracia-de-clay"
-            ]
+            ],
+            "analysis": {
+              "goals": [
+                "Descubrir qué ocurrió con su familia y qué busca MEME en Nuevo Caguán"
+              ]
+            }
           },
           {
             "id": "meme-amaranta",
@@ -371,7 +376,12 @@
               "meme-la-gracia",
               "meme-linaje-doce-tribus",
               "meme-inmolacion-de-amaranta"
-            ]
+            ],
+            "analysis": {
+              "goals": [
+                "Impedir que MEME capture o replique la Gracia y proteger a su linaje"
+              ]
+            }
           },
           {
             "id": "meme-harry",
@@ -429,7 +439,12 @@
               "meme-la-gracia",
               "meme-mercado-futuros-voluntad",
               "meme-deseo-como-activo"
-            ]
+            ],
+            "analysis": {
+              "goals": [
+                "Reducir la incertidumbre humana hasta volver estadísticamente improbable cualquier elección fuera de sus trayectorias previstas"
+              ]
+            }
           },
           {
             "id": "meme-director-dea",
@@ -543,6 +558,16 @@
               "meme-amaranta",
               "meme-nuevo-caguan",
               "meme-linaje-doce-tribus"
+            ],
+            "temporal": {
+              "start": "Antes de la novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-amaranta"
+            ],
+            "locationRefs": [
+              "meme-nuevo-caguan"
             ]
           },
           {
@@ -562,6 +587,13 @@
             "refs": [
               "meme-clay",
               "meme-fbi"
+            ],
+            "temporal": {
+              "start": "Antes de la novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-clay"
             ]
           },
           {
@@ -581,6 +613,14 @@
               "meme-clay",
               "meme-amaranta",
               "meme-formacion-de-clay-en-quantico"
+            ],
+            "temporal": {
+              "start": "Antes de la novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-clay",
+              "meme-amaranta"
             ]
           },
           {
@@ -600,6 +640,14 @@
               "meme-clay",
               "meme-amaranta",
               "meme-clay-conoce-a-amaranta"
+            ],
+            "temporal": {
+              "start": "Antes de la novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-clay",
+              "meme-amaranta"
             ]
           },
           {
@@ -616,6 +664,15 @@
               "harry"
             ],
             "refs": [
+              "meme-harry",
+              "meme-clay",
+              "meme-amaranta"
+            ],
+            "temporal": {
+              "start": "Antes de la novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
               "meme-harry",
               "meme-clay",
               "meme-amaranta"
@@ -641,6 +698,21 @@
               "meme-amaranta",
               "meme-celular-agotado-junto-a-harry",
               "meme-misterio-muerte-de-harry"
+            ],
+            "temporal": {
+              "start": "Antes de la novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-harry"
+            ],
+            "stateChanges": [
+              {
+                "entityRef": "meme-harry",
+                "path": "life.status",
+                "from": "alive",
+                "to": "dead"
+              }
             ]
           },
           {
@@ -661,6 +733,21 @@
               "meme-amaranta",
               "meme-clay",
               "meme-misterio-desaparicion-de-amaranta"
+            ],
+            "temporal": {
+              "start": "Antes de la novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-amaranta"
+            ],
+            "stateChanges": [
+              {
+                "entityRef": "meme-amaranta",
+                "path": "presence.status",
+                "from": "present",
+                "to": "missing"
+              }
             ]
           },
           {
@@ -683,6 +770,17 @@
               "meme-dea",
               "meme-maleta-boleto-direccion",
               "meme-nuevo-caguan"
+            ],
+            "temporal": {
+              "start": "Inicio de la novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-clay",
+              "meme-director-dea"
+            ],
+            "effects": [
+              "meme-llegada-de-clay-a-nuevo-caguan"
             ]
           },
           {
@@ -704,6 +802,16 @@
               "meme-hombre-de-la-tienda",
               "meme-nuevo-caguan",
               "meme-bus-vacio"
+            ],
+            "temporal": {
+              "start": "Novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-clay"
+            ],
+            "locationRefs": [
+              "meme-nuevo-caguan"
             ]
           },
           {
@@ -726,6 +834,21 @@
               "meme-archivos-de-amaranta",
               "meme-mensaje-sin-raices",
               "meme-misterio-mensaje-antes-del-encuentro"
+            ],
+            "temporal": {
+              "start": "Novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-clay"
+            ],
+            "knowledgeChanges": [
+              {
+                "characterRef": "meme-clay",
+                "learns": [
+                  "Amaranta grabó un mensaje dirigido a Clay antes de que se conocieran"
+                ]
+              }
             ]
           },
           {
@@ -748,6 +871,24 @@
               "meme-meme",
               "meme-copia-digital-de-harry",
               "meme-misterio-harry-digital"
+            ],
+            "temporal": {
+              "start": "Punto medio de la novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-clay",
+              "meme-meme",
+              "meme-copia-digital-de-harry"
+            ],
+            "knowledgeChanges": [
+              {
+                "characterRef": "meme-clay",
+                "learns": [
+                  "Existe una copia digital de Harry mantenida en un estado descrito como coma",
+                  "MEME utiliza la posibilidad de devolver a Harry como instrumento de negociación"
+                ]
+              }
             ]
           },
           {
@@ -769,6 +910,22 @@
               "meme-clay",
               "meme-harry",
               "meme-revelacion-harry-digital"
+            ],
+            "temporal": {
+              "start": "Novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-meme",
+              "meme-clay"
+            ],
+            "knowledgeChanges": [
+              {
+                "characterRef": "meme-clay",
+                "learns": [
+                  "MEME exige misiones a cambio de la promesa de devolverle a Harry"
+                ]
+              }
             ]
           },
           {
@@ -789,6 +946,14 @@
               "meme-amaranta",
               "meme-meme",
               "meme-red-de-servidores-nuevo-caguan"
+            ],
+            "temporal": {
+              "start": "Final de la novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-amaranta",
+              "meme-meme"
             ]
           },
           {
@@ -810,6 +975,17 @@
               "meme-la-gracia",
               "meme-meme",
               "meme-inmolacion-de-amaranta"
+            ],
+            "temporal": {
+              "start": "Final de la novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-clay",
+              "meme-meme"
+            ],
+            "effects": [
+              "meme-nacimiento-del-destructor-de-voluntades"
             ]
           },
           {
@@ -830,6 +1006,21 @@
               "meme-clay",
               "meme-meme",
               "meme-acto-de-gracia-de-clay"
+            ],
+            "temporal": {
+              "start": "Cierre de la novela 1",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-clay"
+            ],
+            "stateChanges": [
+              {
+                "entityRef": "meme-clay",
+                "path": "capabilities.destructor-of-wills",
+                "from": false,
+                "to": true
+              }
             ]
           },
           {
@@ -851,6 +1042,14 @@
               "meme-meme",
               "meme-subasta-del-deseo",
               "meme-mercado-futuros-voluntad"
+            ],
+            "temporal": {
+              "start": "Novela 2",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-clay",
+              "meme-meme"
             ]
           },
           {
@@ -871,6 +1070,14 @@
               "meme-ministerio-del-panico",
               "meme-seekers",
               "meme-economia-del-terror"
+            ],
+            "temporal": {
+              "start": "Novela 2",
+              "precision": "relative"
+            },
+            "participantRefs": [
+              "meme-ministerio-del-panico",
+              "meme-seekers"
             ]
           }
         ]
@@ -2048,7 +2255,7 @@
           {
             "id": "meme-novela-uno",
             "type": "franchise-entry",
-          "title": "Novela 1 — título pendiente",
+            "title": "Novela 1 — título pendiente",
             "summary": "Clay viaja a Nuevo Caguán para investigar la desaparición de Amaranta y la muerte de Harry, descubre la operación de MEME y termina convertido en el Destructor de Voluntades después de un acto de Gracia.",
             "status": "active",
             "priority": "critical",
@@ -2069,7 +2276,7 @@
           {
             "id": "meme-novela-dos",
             "type": "franchise-entry",
-          "title": "Novela 2 — título pendiente",
+            "title": "Novela 2 — título pendiente",
             "summary": "Clay, ya transformado, monetiza el deseo humano dentro de un mercado administrado por MEME mientras el Ministerio del Pánico y los Seekers expanden una economía de terror. Su trayectoria incluye una redención parcial todavía no cerrada.",
             "status": "draft",
             "priority": "critical",

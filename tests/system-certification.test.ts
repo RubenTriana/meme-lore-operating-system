@@ -78,7 +78,7 @@ describe('final experimental system certification', () => {
     expect(quickStart.match(/^\d+\./gm)).toHaveLength(10)
     expect(matrix).toContain('PASS WITH LIMITATIONS')
     expect(matrix).toContain('Protección del canon')
-    expect(report).toContain('fnv1a64-e020c17d2e15924d')
+    expect(report).toContain('fnv1a64-c7c855edd2c10c60')
     expect(report).toContain('Muerte de Harry')
   })
 
