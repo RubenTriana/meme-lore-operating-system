@@ -11,6 +11,7 @@ Measurements are real wall-clock results from the local release environment. The
 - Node: `v24.14.0`
 - OS: Windows `10.0.19045`
 - CPU: Intel Core i5-9400F at 2.90 GHz, 6 logical CPUs
+- Installed RAM: 47.93 GiB reported by Windows
 
 ## Results
 
@@ -27,3 +28,9 @@ Each generated universe produced two low-severity structural issues. `cache payl
 The first 10,000-entity run failed with `RangeError: Maximum call stack size exceeded` in causal cycle detection. The recursive SCC traversal was replaced with an iterative two-pass traversal. The 10,000-entity regression now completes, and the measured causal stage is 125.62 ms.
 
 Graphs remain the largest measured stage at 10,000 entities. No further optimization was made because the stage completed in 876.19 ms, betweenness is already bounded, and no correctness or release threshold failed. Re-run the benchmark before optimizing on a different target device.
+
+## Pre-certification reproduction
+
+The checkpoint repeated the command once on the same machine at `2026-07-14T14:57:03.229Z`. Graph time was 90.72 ms, 460.27 ms, and 828.54 ms for 1,000, 5,000, and 10,000 entities. The 10,000-entity value differs by -47.65 ms from the first run, illustrating normal run-to-run variation.
+
+There is still only one recorded sample per checkpoint, so no median, percentile, standard deviation, or reliable variability range is available. These measurements are an environment-specific reproducibility check, not a universal performance guarantee.
