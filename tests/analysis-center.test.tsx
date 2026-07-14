@@ -57,12 +57,16 @@ class TestAnalysisService implements AnalysisService {
 
 function modelFor(universe: Universe): UniverseContextValue {
   return {
+    baseUniverse: universe,
     validation: { valid: true, data: universe, errors: [], warnings: [] },
     migrated: [],
     isLoading: false,
     loadedAt: 0,
     importFile: async () => undefined,
     importPayload: () => undefined,
+    workspaceState: 'base',
+    openCandidate: () => undefined,
+    restoreBase: () => undefined,
     reset: () => undefined,
   }
 }
@@ -100,6 +104,7 @@ describe('analysis center', () => {
 
   beforeEach(() => {
     localStorage.clear()
+    useStudioStore.setState({ analysisEngines: { continuity: true, causality: true, knowledge: true, connections: true, plausibility: true } })
     ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
   })
 

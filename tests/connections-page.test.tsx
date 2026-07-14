@@ -8,6 +8,7 @@ import { ConnectionsPage } from '../src/pages/ConnectionsPage'
 import type { CompileUniverseOptions, AnalysisService } from '../src/services/analysis-service'
 import type { AnalysisSnapshot } from '../src/analysis/types'
 import type { Universe } from '../src/types/universe'
+import { useStudioStore } from '../src/store/useStudioStore'
 import { connectionsFixture } from './fixtures/connections-v3_5'
 
 const generatedAt = '2042-04-12T00:00:00.000Z'
@@ -28,7 +29,7 @@ class TestConnectionsService implements AnalysisService {
 }
 
 function modelFor(universe: Universe): UniverseContextValue {
-  return { validation: { valid: true, data: universe, errors: [], warnings: [] }, migrated: [], isLoading: false, loadedAt: 0, importFile: async () => undefined, importPayload: () => undefined, reset: () => undefined }
+  return { baseUniverse: universe, validation: { valid: true, data: universe, errors: [], warnings: [] }, migrated: [], isLoading: false, loadedAt: 0, importFile: async () => undefined, importPayload: () => undefined, workspaceState: 'base', openCandidate: () => undefined, restoreBase: () => undefined, reset: () => undefined }
 }
 
 async function renderPage(service: AnalysisService): Promise<{ container: HTMLDivElement; root: Root; cleanup: () => Promise<void> }> {
@@ -49,6 +50,7 @@ describe('connections page', () => {
   const snapshot = compileAnalysisSnapshot(structuredClone(connectionsFixture), undefined, { generatedAt })
 
   beforeEach(() => {
+    useStudioStore.setState({ analysisEngines: { continuity: true, causality: true, knowledge: true, connections: true, plausibility: true } })
     ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
     vi.stubGlobal('ResizeObserver', class { observe() {}; unobserve() {}; disconnect() {} })
   })

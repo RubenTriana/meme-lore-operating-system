@@ -4,11 +4,16 @@ import type { Universe, ValidationResult } from '@/types/universe'
 
 export interface UniverseContextValue {
   validation: ValidationResult
+  baseUniverse?: Universe
   migrated: string[]
   isLoading: boolean
   loadedAt: number
+  workspaceState: 'base' | 'candidate'
+  workspaceProposalId?: string
   importFile: (file: File) => Promise<void>
   importPayload: (payload: unknown) => void
+  openCandidate: (universe: Universe, proposalId: string) => void
+  restoreBase: () => void
   reset: () => void
 }
 

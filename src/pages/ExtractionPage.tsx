@@ -1,7 +1,7 @@
 import { AlertTriangle, ArrowLeft, CheckCircle2, Download, FileCheck2, Plus, ShieldCheck } from 'lucide-react'
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { analysisRoute } from '@/app/routes'
+import { Link, useNavigate } from 'react-router-dom'
+import { analysisRoute, proposalsRoute } from '@/app/routes'
 import { useUniverseModel } from '@/app/useUniverseModel'
 import { Badge, Button, Card } from '@/components/ui'
 import { MockNarrativeExtractionAdapter } from '@/extraction/mock-adapter'
@@ -10,11 +10,14 @@ import type { ExtractionPatchResult, ExtractionProposal, NarrativeSource, Propos
 import { buildExtractionPatch, reviewProposalItem, serializeExtractionPatch } from '@/extraction/workflow'
 import { downloadBlob } from '@/services/universe-loader'
 import { useStudioStore } from '@/store/useStudioStore'
+import { createProposal } from '@/proposals/workflow'
+import { proposalRepository } from '@/proposals/repository'
 
 const statusOptions: ProposalStatus[] = ['proposed', 'accepted', 'rejected']
 
 export function ExtractionPage() {
-  const { universe, validation, importPayload } = useUniverseModel()
+  const { universe, baseUniverse, validation } = useUniverseModel()
+  const navigate = useNavigate()
   const enabled = useStudioStore((state) => state.aiExtractionEnabled)
   const [source, setSource] = useState<NarrativeSource>({ id: 'manual-source', fragments: [{ id: 'fragment-1', text: '', selected: true, sourceLabel: 'Fragmento manual 1' }] })
   const [proposal, setProposal] = useState<ExtractionProposal>()
@@ -46,9 +49,11 @@ export function ExtractionPage() {
     try { downloadBlob(new Blob([serializeExtractionPatch(patchResult)], { type: 'application/json' }), `extraction-${source.id}-patch.json`); setError(undefined) }
     catch (caught) { setError(caught instanceof Error ? caught.message : 'No se pudo exportar el patch.') }
   }
-  const applyApprovedPatch = () => {
-    if (!patchResult?.validation.valid || !approved) return
-    importPayload(patchResult.patch); setApplied(true); setError(undefined)
+  const applyApprovedPatch = async () => {
+    if (!patchResult?.validation.valid || !approved || !baseUniverse) return
+    const quarantined = createProposal('assisted-extraction.patch.json', patchResult.patch, baseUniverse)
+    await proposalRepository.put(quarantined)
+    setApplied(true); setError(undefined); navigate(`${proposalsRoute}/${quarantined.id}`)
   }
   const spans = new Map(proposal?.sourceSpans.map((span) => [span.id, span]) ?? [])
   const itemCount = proposal ? proposal.proposedEntities.length + proposal.proposedEvents.length + proposal.proposedRelations.length : 0
@@ -68,7 +73,7 @@ export function ExtractionPage() {
         {proposal.proposedEvents.map((item) => <article key={item.proposalId}><Badge tone="amber">event</Badge><div><strong>{item.event.title}</strong><code>{item.event.id} → {item.moduleId}</code><small>{item.sourceSpanIds.map((id) => spans.get(id)?.text).filter(Boolean).join(' · ')}</small></div><select aria-label={`Estado ${item.proposalId}`} value={item.status} onChange={(event) => review('proposedEvents', item.proposalId, event.target.value as ProposalStatus)}>{statusOptions.map((status) => <option key={status}>{status}</option>)}</select></article>)}
         {proposal.proposedRelations.map((item) => <article key={item.proposalId}><Badge tone="green">relation</Badge><div><strong>{item.sourceRef} → {item.targetRef}</strong><code>{item.field}</code><small>{item.sourceSpanIds.map((id) => spans.get(id)?.text).filter(Boolean).join(' · ')}</small></div><select aria-label={`Estado ${item.proposalId}`} value={item.status} onChange={(event) => review('proposedRelations', item.proposalId, event.target.value as ProposalStatus)}>{statusOptions.map((status) => <option key={status}>{status}</option>)}</select></article>)}
       </div>{!itemCount && <p className="muted">El mock no encontró declaraciones explícitas completas.</p>}<Button onClick={preparePatch} disabled={!acceptedCount}><FileCheck2 size={16} /> Validar y preparar patch</Button></Card>}
-      {patchResult && <Card className="extraction-patch"><div className="section-heading"><div><p className="eyebrow">3–6 · Validación y aprobación</p><h2>Comparación antes / después</h2></div><Badge tone={patchResult.validation.valid ? 'green' : 'red'}>{patchResult.validation.valid ? 'schema valid' : 'invalid'}</Badge></div>{!patchResult.validation.valid && <ul className="extraction-warnings">{patchResult.validation.errors.map((issue) => <li key={`${issue.path}-${issue.message}`}><code>{issue.path}</code> {issue.message}</li>)}</ul>}<div className="extraction-comparison">{patchResult.comparison.map((item) => <article key={item.path}><code>{item.path}</code><div><span>Antes: {JSON.stringify(item.before) ?? '—'}</span><span>Después: {JSON.stringify(item.after) ?? '—'}</span></div></article>)}</div>{patchResult.validation.valid && <div className="extraction-approval"><Button className="button-secondary" onClick={exportPatch}><Download size={15} /> Exportar patch</Button><label><input type="checkbox" aria-label="Aprobar patch explícitamente" checked={approved} onChange={(event) => setApproved(event.target.checked)} /> Confirmo que revisé la comparación y apruebo aplicar únicamente este patch.</label><Button onClick={applyApprovedPatch} disabled={!approved || applied}><CheckCircle2 size={16} /> {applied ? 'Patch aplicado en memoria' : 'Aprobar y aplicar patch'}</Button></div>}<p className="extraction-canon-note">La propuesta nunca se escribe directamente. Solo el patch validado y aprobado entra por el cargador canónico existente.</p></Card>}
+      {patchResult && <Card className="extraction-patch"><div className="section-heading"><div><p className="eyebrow">3–6 · Validación y aprobación</p><h2>Comparación antes / después</h2></div><Badge tone={patchResult.validation.valid ? 'green' : 'red'}>{patchResult.validation.valid ? 'schema valid' : 'invalid'}</Badge></div>{!patchResult.validation.valid && <ul className="extraction-warnings">{patchResult.validation.errors.map((issue) => <li key={`${issue.path}-${issue.message}`}><code>{issue.path}</code> {issue.message}</li>)}</ul>}<div className="extraction-comparison">{patchResult.comparison.map((item) => <article key={item.path}><code>{item.path}</code><div><span>Antes: {JSON.stringify(item.before) ?? '—'}</span><span>Después: {JSON.stringify(item.after) ?? '—'}</span></div></article>)}</div>{patchResult.validation.valid && <div className="extraction-approval"><Button className="button-secondary" onClick={exportPatch}><Download size={15} /> Exportar patch</Button><label><input type="checkbox" aria-label="Aprobar patch explícitamente" checked={approved} onChange={(event) => setApproved(event.target.checked)} /> Confirmo que revisé la comparación y autorizo enviarla a cuarentena.</label><Button onClick={() => void applyApprovedPatch()} disabled={!approved || applied}><CheckCircle2 size={16} /> {applied ? 'Enviada a Propuestas' : 'Enviar al Centro de propuestas'}</Button></div>}<p className="extraction-canon-note">Aprobar aquí no aplica el patch. La propuesta entra en cuarentena para validación, simulación y decisión autoral.</p></Card>}
     </>}
   </div>
 }

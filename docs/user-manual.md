@@ -26,7 +26,7 @@ Abre la URL local que imprime Vite. Para comprobar una compilación final usa `n
 
 ## 5. Cómo cargar y validar un universo
 
-Al iniciar, la app carga `data/universe_master.json`. En Ajustes, **Import JSON** permite seleccionar una copia. El cargador migra en memoria versiones antiguas y valida esquema, IDs, referencias, fechas y duplicados. Un error impide analizar; una advertencia no cambia el archivo.
+Al iniciar, la app carga `data/universe_master.json`. En Ajustes, **Import JSON / patch** detecta el tipo: un patch entra siempre en cuarentena en `/proposals`; un master completo validado exige confirmación explícita antes de sustituir el workspace base. El cargador migra en memoria versiones antiguas y valida esquema, IDs, referencias, fechas y duplicados. Un error impide analizar; una advertencia no cambia el archivo.
 
 Ejemplo válido de entidad opcional:
 
@@ -52,7 +52,7 @@ Una entidad tiene `id`, `type` y `title`; puede añadir resumen, estado, priorid
 
 ## 8. Cómo ejecutar análisis
 
-En `/analysis`, pulsa **Analizar universo**. El Worker informa progreso y permite cancelar. Solo corren los motores con `analysisConfig.enabled: true` y su flag individual activo. En el canon migrado están desactivados por seguridad.
+En Settings, elige interruptores o un preset de motores; son preferencias locales y nunca alteran `analysisConfig`. En `/analysis`, pulsa **Analizar universo**. El Worker informa progreso y permite cancelar. Las simulaciones de propuestas pueden ejecutar temporalmente la selección local sobre base y candidato.
 
 ## 9. Análisis completo e incremental
 
@@ -100,9 +100,9 @@ En `/analysis/plausibility`, escribe una hipótesis, selecciona actor, acción y
 
 En `/analysis/extraction`, la función asistida está desactivada por defecto y solo existe un proveedor mock local. Selecciona fragmentos concretos. La salida es una propuesta con fuentes, nunca canon. No selecciones secretos ni archivos ajenos.
 
-## 19. Cómo aprobar un patch
+## 19. Cómo revisar y aprobar un patch
 
-El flujo es fuente → propuesta → revisión humana → validación → patch → aprobación explícita → canon. Acepta o rechaza cada propuesta, compara antes/después y exporta el patch. La interfaz no escribe directamente `universe_master.json`; aplica el patch solo mediante un proceso autoral revisado.
+Abre `/proposals`: importar → aislar → validar → diff → simular → analizar base y candidato → comparar → decidir. Aprobar exige confirmación, pero no cambia el workspace ni escribe `universe_master.json`. **Abrir candidato en workspace** es temporal y muestra una advertencia persistente; **Restaurar canon base** recupera la base. **Preparar promoción canónica** exporta artefactos para revisión y commit. Consulta [el procedimiento completo](proposal-workflow.md).
 
 ## 20. Cómo actualizar el canon
 

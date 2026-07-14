@@ -10,6 +10,8 @@ import { analysisRoute } from '@/app/routes'
 import { useUniverseModel } from '@/app/useUniverseModel'
 import { Badge, Button, Card, Progress } from '@/components/ui'
 import { createAnalysisService, type AnalysisService } from '@/services/analysis-service'
+import { withTemporaryEngines } from '@/proposals/workflow'
+import { useStudioStore } from '@/store/useStudioStore'
 
 export interface ConnectionsPageProps {
   serviceFactory?: () => AnalysisService
@@ -38,6 +40,7 @@ function graphEdges(edges: RelationEdge[]): Edge[] {
 
 export function ConnectionsPage({ serviceFactory = createAnalysisService }: ConnectionsPageProps) {
   const { universe, validation } = useUniverseModel()
+  const { analysisEngines, setAnalysisLastRunAt } = useStudioStore()
   const serviceRef = useRef<AnalysisService | null>(null)
   if (!serviceRef.current) serviceRef.current = serviceFactory()
   const [snapshot, setSnapshot] = useState<AnalysisSnapshot | undefined>(() => serviceRef.current?.getLatestSnapshot())
@@ -50,7 +53,8 @@ export function ConnectionsPage({ serviceFactory = createAnalysisService }: Conn
   const [depth, setDepth] = useState(2)
   useEffect(() => () => serviceRef.current?.dispose(), [])
 
-  const enabled = Boolean(universe?.analysisConfig?.enabled && universe.analysisConfig.engines.connections)
+  const analysisUniverse = useMemo(() => universe ? withTemporaryEngines(universe, analysisEngines) : undefined, [universe, analysisEngines])
+  const enabled = analysisEngines.connections
   const graph = snapshot?.compilation.relationGraph
   const connections = snapshot?.connections
   const entities = useMemo(() => new Map((universe?.modules ?? []).flatMap((module) => (module.content.items ?? []).map((entity) => [entity.id, { title: entity.title, type: entity.type }] as const))), [universe])
@@ -70,14 +74,15 @@ export function ConnectionsPage({ serviceFactory = createAnalysisService }: Conn
   const directNodeIds = [...directIds].filter((id) => id !== activeId).sort()
   const indirectIds = visibleNodeIds.filter((id) => id !== activeId && !directIds.has(id))
   const path = useMemo(() => graph && activeId && targetId ? shortestPath(graph, activeId, targetId, { edgeTypes: filterTypes, maxDepth: 8, maxVisited: 2_000 }) : undefined, [graph, activeId, targetId, filterTypes])
-  const stale = Boolean(universe && isAnalysisSnapshotStale(snapshot, universe))
+  const stale = Boolean(analysisUniverse && isAnalysisSnapshotStale(snapshot, analysisUniverse))
 
   const compile = async () => {
-    if (!universe || !enabled) return
+    if (!analysisUniverse || !enabled) return
     setCompiling(true); setError(undefined); setProgress({ value: 0.01, stage: 'en cola' })
     try {
-      const result = await serviceRef.current!.compileUniverse(universe, { onProgress: (next) => setProgress({ value: next.progress, stage: next.stage }) })
+      const result = await serviceRef.current!.compileUniverse(analysisUniverse, { onProgress: (next) => setProgress({ value: next.progress, stage: next.stage }) })
       setSnapshot(result); setProgress({ value: 1, stage: 'completado' })
+      setAnalysisLastRunAt(result.metadata.generatedAt)
       const firstId = result.compilation.relationGraph.nodes[0]?.id ?? ''
       setSelectedId((current) => current || firstId)
     } catch (caught) {
@@ -90,7 +95,7 @@ export function ConnectionsPage({ serviceFactory = createAnalysisService }: Conn
   const centralTitle = central ? entities.get(central.entityId)?.title ?? central.entityId : '—'
   return <div className="connections-page">
     <header className="module-hero analysis-hero"><div><p className="eyebrow">Análisis determinista</p><h1>Motor de conexiones</h1><p>Explora aislamiento, dependencia, centralidad y caminos sin interpretar prosa ni modificar el canon.</p></div><div className="analysis-actions"><Link className="button button-secondary" to={analysisRoute}><ArrowLeft size={16} /> Diagnósticos</Link><Button onClick={compile} disabled={!enabled || compiling}><Play size={16} /> Analizar conexiones</Button>{compiling && <Button className="button-secondary" onClick={() => serviceRef.current?.cancelCompilation()}><Ban size={16} /> Cancelar</Button>}</div></header>
-    {!enabled && <Card className="analysis-empty-state"><Network size={28} /><h2>Motor desactivado</h2><p>Activa `analysisConfig.engines.connections` para compilar métricas y observaciones.</p></Card>}
+    {!enabled && <Card className="analysis-empty-state"><Network size={28} /><h2>Motor desactivado</h2><p>Activa Conexiones en Settings. La preferencia local no modifica el canon.</p></Card>}
     {compiling && <Card className="analysis-runtime-card"><div className="analysis-runtime-heading"><h2>{progress.stage}</h2><strong>{Math.round(progress.value * 100)}%</strong></div><Progress value={progress.value * 100} /></Card>}
     {error && <Card className="analysis-runtime-card" role="alert"><p className="analysis-error">{error}</p></Card>}
     {enabled && !connections && !compiling && <Card className="analysis-empty-state"><Waypoints size={28} /><h2>Análisis no ejecutado</h2><p>Compila el universo para construir el instrumento de conexiones.</p></Card>}

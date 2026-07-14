@@ -13,6 +13,8 @@ import { createAnalysisService, type AnalysisService } from '@/services/analysis
 import { analysisDiagnosticBlob } from '@/services/analysis-export'
 import { AnalysisWorkerError } from '@/services/analysis-worker-client'
 import { downloadBlob } from '@/services/universe-loader'
+import { withTemporaryEngines } from '@/proposals/workflow'
+import { useStudioStore } from '@/store/useStudioStore'
 import quickStartUrl from '../../docs/quick-start.md?url'
 import userManualUrl from '../../docs/user-manual.md?url'
 
@@ -85,6 +87,7 @@ function EmptyState({ icon, title, detail }: { icon: ReactNode; title: string; d
 
 export function AnalysisPage({ serviceFactory = createAnalysisService }: AnalysisPageProps) {
   const { universe, validation } = useUniverseModel()
+  const { analysisEngines, setAnalysisLastRunAt } = useStudioStore()
   const serviceRef = useRef<AnalysisService | null>(null)
   if (!serviceRef.current) serviceRef.current = serviceFactory()
   const [snapshot, setSnapshot] = useState<AnalysisSnapshot | undefined>(() => serviceRef.current?.getLatestSnapshot())
@@ -100,8 +103,9 @@ export function AnalysisPage({ serviceFactory = createAnalysisService }: Analysi
 
   useEffect(() => () => { serviceRef.current?.dispose() }, [])
 
-  const analysisEnabled = Boolean(universe?.analysisConfig?.enabled && Object.values(universe.analysisConfig.engines).some(Boolean))
-  const stale = useMemo(() => universe ? isAnalysisSnapshotStale(snapshot, universe) : false, [snapshot, universe])
+  const analysisUniverse = useMemo(() => universe ? withTemporaryEngines(universe, analysisEngines) : undefined, [universe, analysisEngines])
+  const analysisEnabled = Object.values(analysisEngines).some(Boolean)
+  const stale = useMemo(() => analysisUniverse ? isAnalysisSnapshotStale(snapshot, analysisUniverse) : false, [snapshot, analysisUniverse])
   const issues = snapshot?.issues ?? emptyIssues
   const filteredIssues = useMemo(() => filterIssues(issues, annotations, filters), [issues, annotations, filters])
   const severityCounts = useMemo(() => issueCountBySeverity(issues), [issues])
@@ -127,13 +131,13 @@ export function AnalysisPage({ serviceFactory = createAnalysisService }: Analysi
   }
 
   const analyze = async () => {
-    if (!analysisEnabled || !universe) return
+    if (!analysisEnabled || !analysisUniverse) return
     const startedAt = performance.now()
     setError(undefined)
     setProgress({ value: 0.01, stage: 'en cola' })
     setState('compiling')
     try {
-      const compiled = await serviceRef.current!.compileUniverse(universe, {
+      const compiled = await serviceRef.current!.compileUniverse(analysisUniverse, {
         onProgress: (next) => setProgress({ value: next.progress, stage: next.stage }),
       })
       setSnapshot(compiled)
@@ -141,6 +145,7 @@ export function AnalysisPage({ serviceFactory = createAnalysisService }: Analysi
       setSelectedIssueId(compiled.issues[0]?.id)
       setState('complete')
       setProgress({ value: 1, stage: 'completado' })
+      setAnalysisLastRunAt(compiled.metadata.generatedAt)
     } catch (caught) {
       setDuration(performance.now() - startedAt)
       if (wasCancelled(caught)) {
@@ -186,7 +191,7 @@ export function AnalysisPage({ serviceFactory = createAnalysisService }: Analysi
       <Card><span>Hash del canon</span><strong>{meta?.sourceHash ?? '—'}</strong></Card><Card><span>Esquema / motor</span><strong>{meta ? `${meta.schemaVersion} / ${meta.engineVersion}` : `${universe.metadata.schemaVersion} / ${ANALYSIS_ENGINE_VERSION}`}</strong></Card><Card><span>Último análisis</span><strong>{formatDate(meta?.generatedAt)}</strong></Card><Card><span>Duración</span><strong>{formatDuration(duration)}</strong></Card><Card><span>Entidades / eventos</span><strong>{meta ? `${snapshot?.compilation.manifest.counts.entities ?? 0} / ${snapshot?.compilation.manifest.counts.events ?? 0}` : '—'}</strong></Card>
     </section>
 
-    {!analysisEnabled && <EmptyState icon={<ShieldCheck size={28} />} title="Motor desactivado" detail="El canon migrado conserva los motores analíticos desactivados. Habilita alguno explícitamente en analysisConfig para analizarlo." />}
+    {!analysisEnabled && <EmptyState icon={<ShieldCheck size={28} />} title="Motor desactivado" detail="Activa uno o más motores locales en Settings. Esta preferencia no modifica analysisConfig ni el canon." />}
     {analysisEnabled && state === 'cancelled' && <EmptyState icon={<Ban size={28} />} title="Análisis cancelado" detail="No se guardaron resultados parciales. Puedes iniciar un análisis nuevo cuando quieras." />}
     {analysisEnabled && state === 'error' && <EmptyState icon={<AlertCircle size={28} />} title="El Worker informó un error" detail={error ?? 'Reintenta el análisis; el canon y los últimos resultados válidos se preservan.'} />}
     {analysisEnabled && !snapshot && state !== 'cancelled' && state !== 'error' && <EmptyState icon={<Clock3 size={28} />} title="Análisis no ejecutado" detail="Ejecuta el Worker local para generar índices y diagnósticos de los motores habilitados." />}

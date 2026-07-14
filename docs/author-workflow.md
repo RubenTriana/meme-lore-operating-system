@@ -20,7 +20,9 @@ Use `/analysis/connections` for bounded neighborhoods and paths. Use `/analysis/
 
 ## Import assisted proposals
 
-Enable the local preference in Settings, select only intended fragments, review outbound disclosure, and generate a proposal. Set every item to proposed, accepted, or rejected. Prepare and validate the patch, inspect before/after values, export it if desired, then use the explicit approval checkbox. The proposal itself is never saved as canon.
+Enable the local preference in Settings, select only intended fragments, review outbound disclosure, and generate a proposal. Set every item to proposed, accepted, or rejected. Preparing the patch sends it to `/proposals`; it does not apply it. Validate, inspect the diff, simulate, compare and make an explicit author decision. Approval still does not write canon. Open a candidate only for temporary review, restore the base afterward, and export promotion artifacts for a separate repository commit.
+
+Direct patch imports follow the same quarantine path. Proposal records live in IndexedDB, candidate workspaces live in memory, and snapshots and annotations stay in their existing browser-local layers. See [proposal workflow](proposal-workflow.md).
 
 ## Recover and clean
 

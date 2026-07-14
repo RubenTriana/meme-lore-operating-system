@@ -1,0 +1,373 @@
+{
+  "operations": [
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-coherencia-bioelectromagnetica-gracia",
+      "value": {
+        "id": "meme-coherencia-bioelectromagnetica-gracia",
+        "type": "world-rule",
+        "title": "Coherencia bioelectromagnética de la Gracia",
+        "summary": "Dentro del universo narrativo, la Gracia se manifiesta como una capacidad humana universal de coherencia biológica, emocional y consciente. Algunos linajes poseen una predisposición genética que facilita la ampliación y estabilización de su campo bioelectromagnético, permitiéndoles entrar en resonancia con otros organismos y favorecer que recuperen su propio equilibrio.",
+        "status": "draft",
+        "priority": "critical",
+        "development": 78,
+        "tags": [
+          "gracia",
+          "coherencia",
+          "sanacion",
+          "bioelectromagnetismo",
+          "regla-del-mundo"
+        ],
+        "refs": [
+          "meme-la-gracia",
+          "meme-coste-de-la-gracia",
+          "meme-linaje-doce-tribus",
+          "meme-amaranta"
+        ],
+        "analysis": {
+          "constraints": [
+            "La predisposición genética facilita la capacidad, pero no concede superioridad humana.",
+            "La sanación no se impone sobre el paciente: ofrece un patrón de coherencia al que su organismo puede responder.",
+            "La intervención no garantiza curación.",
+            "Cualquier ser humano puede acceder en distintos grados a estados de coherencia mediante entrenamiento y transformación interior."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-portadores-nomadas-de-la-gracia",
+      "value": {
+        "id": "meme-portadores-nomadas-de-la-gracia",
+        "type": "world-concept",
+        "title": "Portadores nómadas de la Gracia",
+        "summary": "Los portadores de la Gracia aparecen con frecuencia en linajes migrantes, diásporas y comunidades históricamente perseguidas. Su nomadismo no es una propiedad racial ni una superioridad genética, sino la consecuencia de siglos de desplazamiento, ocultamiento, mezcla cultural y resistencia frente a instituciones que calificaron sus capacidades como brujería, fraude, enfermedad o amenaza.",
+        "status": "draft",
+        "priority": "critical",
+        "development": 80,
+        "tags": [
+          "gracia",
+          "nomadismo",
+          "migracion",
+          "diaspora",
+          "sur-global"
+        ],
+        "refs": [
+          "meme-linaje-doce-tribus",
+          "meme-la-gracia",
+          "meme-amaranta",
+          "meme-puntos-ciegos-del-sistema"
+        ],
+        "analysis": {
+          "constraints": [
+            "No presentar a pueblos reales como castas místicas o genéticamente superiores.",
+            "El nomadismo es principalmente una respuesta histórica de supervivencia y una práctica de baja fijación identitaria.",
+            "Los portadores actúan como guías porque sostienen una coherencia accesible a cualquier humano, no porque pertenezcan a una raza elegida.",
+            "Las comunidades vinculadas con la Gracia deben conservar intereses, contradicciones, conflictos internos y agencia propia."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-cisma-historico-de-la-coherencia",
+      "value": {
+        "id": "meme-cisma-historico-de-la-coherencia",
+        "type": "historical-conflict",
+        "title": "Cisma histórico de la coherencia",
+        "summary": "A lo largo de la historia se formó una división entre quienes subordinaban sus capacidades naturales a instituciones que definían lo permitido y quienes aceptaban sus dones y sostenían una conciencia coherente con su propia naturaleza. Los segundos fueron perseguidos sucesivamente mediante marcos religiosos, médicos, científicos, corporativos y algorítmicos.",
+        "status": "draft",
+        "priority": "high",
+        "development": 72,
+        "tags": [
+          "persecucion",
+          "instituciones",
+          "brujeria",
+          "coherencia",
+          "historia"
+        ],
+        "refs": [
+          "meme-coherencia-bioelectromagnetica-gracia",
+          "meme-portadores-nomadas-de-la-gracia",
+          "meme-meme",
+          "meme-la-gracia"
+        ],
+        "analysis": {
+          "constraints": [
+            "La persecución no debe atribuirse de manera exclusiva a una sola institución.",
+            "El antagonismo central es el monopolio institucional de la definición de lo real.",
+            "Los adaptados no son automáticamente malvados; muchos eligen seguridad, pertenencia o certeza."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-funcion-de-los-guias-del-despertar",
+      "value": {
+        "id": "meme-funcion-de-los-guias-del-despertar",
+        "type": "world-concept",
+        "title": "Guías del despertar",
+        "summary": "Los portadores de la Gracia no transmiten una superioridad genética. Funcionan como guías porque su presencia coherente puede ayudar a otras personas a recuperar regulación, memoria, atención y capacidad de elección. Su función profunda consiste en demostrar que la coherencia es una posibilidad humana general.",
+        "status": "draft",
+        "priority": "high",
+        "development": 68,
+        "tags": [
+          "despertar",
+          "guias",
+          "libertad",
+          "coherencia"
+        ],
+        "refs": [
+          "meme-coherencia-bioelectromagnetica-gracia",
+          "meme-portadores-nomadas-de-la-gracia",
+          "meme-tesis-libertad-estadistica",
+          "meme-meme"
+        ],
+        "analysis": {
+          "constraints": [
+            "Los guías no controlan la voluntad del otro.",
+            "La restauración de la elección debe oponerse temáticamente al control probabilístico de MEME.",
+            "La sanación física es solo una manifestación visible de una capacidad más amplia de restaurar coherencia."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-mundo-extenso",
+      "value": {
+        "id": "meme-mundo-extenso",
+        "type": "cosmology",
+        "title": "El Mundo Extenso",
+        "summary": "La civilización humana conocida ocupa únicamente una región limitada de una superficie territorial de proporciones inmensas. La geografía pública presenta esa región como la totalidad del mundo, pero más allá de sus límites existen otros territorios, civilizaciones, ecosistemas y formas de vida. Esta verdad opera como fondo cosmológico de la saga y solo debe revelarse plenamente hacia sus etapas finales.",
+        "status": "draft",
+        "priority": "critical",
+        "development": 75,
+        "tags": [
+          "cosmologia",
+          "geografia-oculta",
+          "mundo-extenso",
+          "civilizaciones",
+          "revelacion-final"
+        ],
+        "refs": [
+          "meme-nuevo-caguan",
+          "meme-meme",
+          "meme-puntos-ciegos-del-sistema"
+        ],
+        "analysis": {
+          "constraints": [
+            "No representar el mundo como un disco infantil flotando en el vacío.",
+            "La extensión puede ser finita o desconocida, pero debe ser casi inconcebible desde la escala humana conocida.",
+            "La revelación debe cuestionar la soledad cósmica, la escasez y la soberanía de los poderes conocidos.",
+            "El Mundo Extenso no debe convertirse en el centro explícito de la primera novela."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-region-humana-administrada",
+      "value": {
+        "id": "meme-region-humana-administrada",
+        "type": "world-system",
+        "title": "Región humana administrada",
+        "summary": "La humanidad conocida vive dentro de una zona territorial y perceptiva administrada. Estados, sistemas cartográficos, navegación digital y estructuras económicas contribuyen a que la población confunda esa región con la totalidad del mundo y permanezca dentro de corredores previsibles.",
+        "status": "outline",
+        "priority": "critical",
+        "development": 60,
+        "tags": [
+          "contencion",
+          "cartografia",
+          "fronteras",
+          "administracion",
+          "mundo-extenso"
+        ],
+        "refs": [
+          "meme-mundo-extenso",
+          "meme-meme",
+          "meme-vigilancia-de-dispositivos-locales"
+        ],
+        "analysis": {
+          "constraints": [
+            "No todos los gobiernos conocen la verdad completa.",
+            "El conocimiento de la geografía real debe estar fragmentado entre niveles de poder.",
+            "Las fronteras visibles pueden ocultar una frontera territorial y perceptiva mayor."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-mapas-incompatibles",
+      "value": {
+        "id": "meme-mapas-incompatibles",
+        "type": "symbol",
+        "title": "Los mapas incompatibles",
+        "summary": "Documentos cartográficos de una misma región muestran escalas, distancias o coordenadas que no coinciden. En la primera novela pueden interpretarse como errores, falsificaciones o material clandestino; posteriormente revelarán que la cartografía oficial representa solo una región administrada.",
+        "status": "seeded",
+        "priority": "high",
+        "development": 55,
+        "tags": [
+          "foreshadowing",
+          "mapas",
+          "mundo-extenso",
+          "nuevo-caguan"
+        ],
+        "foreshadowing": [
+          "meme-mundo-extenso",
+          "meme-region-humana-administrada"
+        ],
+        "refs": [
+          "meme-nuevo-caguan",
+          "meme-archivos-de-amaranta",
+          "meme-mundo-extenso"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-superficie-concedida",
+      "value": {
+        "id": "meme-superficie-concedida",
+        "type": "symbol",
+        "title": "La superficie concedida",
+        "summary": "Expresión procedente de una lengua o tradición antigua en la que no existe un equivalente directo de planeta. Su traducción literal, la superficie concedida, funciona como una semilla discreta de que el territorio conocido no constituye la totalidad del mundo.",
+        "status": "seeded",
+        "priority": "high",
+        "development": 50,
+        "tags": [
+          "foreshadowing",
+          "lenguaje",
+          "cosmologia",
+          "mundo-extenso"
+        ],
+        "foreshadowing": [
+          "meme-mundo-extenso"
+        ],
+        "refs": [
+          "meme-archivos-de-amaranta",
+          "meme-mundo-extenso"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-rutas-migratorias-imposibles",
+      "value": {
+        "id": "meme-rutas-migratorias-imposibles",
+        "type": "symbol",
+        "title": "Rutas migratorias imposibles",
+        "summary": "Registros del linaje de Amaranta describen desplazamientos por territorios que no existen en la geografía oficial. En un primer momento pueden parecer errores, claves o metáforas; más adelante vincularán la historia de los portadores de la Gracia con el Mundo Extenso.",
+        "status": "seeded",
+        "priority": "critical",
+        "development": 58,
+        "tags": [
+          "foreshadowing",
+          "migracion",
+          "linaje",
+          "mundo-extenso"
+        ],
+        "foreshadowing": [
+          "meme-mundo-extenso",
+          "meme-portadores-nomadas-de-la-gracia"
+        ],
+        "refs": [
+          "meme-amaranta",
+          "meme-linaje-doce-tribus",
+          "meme-archivos-de-amaranta",
+          "meme-mundo-extenso"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-registros-genealogicos-moviles",
+      "value": {
+        "id": "meme-registros-genealogicos-moviles",
+        "type": "symbol",
+        "title": "Registros genealógicos móviles",
+        "summary": "Los linajes asociados con la Gracia aparecen bajo nombres, apellidos y territorios cambiantes. Las discontinuidades documentales pueden interpretarse como ocultamiento o persecución y, más tarde, como evidencia de una cultura de supervivencia nómada.",
+        "status": "seeded",
+        "priority": "high",
+        "development": 55,
+        "tags": [
+          "foreshadowing",
+          "genealogia",
+          "nomadismo",
+          "gracia"
+        ],
+        "foreshadowing": [
+          "meme-portadores-nomadas-de-la-gracia",
+          "meme-cisma-historico-de-la-coherencia"
+        ],
+        "refs": [
+          "meme-linaje-doce-tribus",
+          "meme-amaranta",
+          "meme-portadores-nomadas-de-la-gracia"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-la-gracia/refs/-",
+      "value": "meme-coherencia-bioelectromagnetica-gracia"
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-la-gracia/refs/-",
+      "value": "meme-funcion-de-los-guias-del-despertar"
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-linaje-doce-tribus/refs/-",
+      "value": "meme-portadores-nomadas-de-la-gracia"
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-linaje-doce-tribus/refs/-",
+      "value": "meme-rutas-migratorias-imposibles"
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-linaje-doce-tribus/refs/-",
+      "value": "meme-registros-genealogicos-moviles"
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-puntos-ciegos-del-sistema/refs/-",
+      "value": "meme-portadores-nomadas-de-la-gracia"
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-puntos-ciegos-del-sistema/refs/-",
+      "value": "meme-region-humana-administrada"
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-archivos-de-amaranta/refs/-",
+      "value": "meme-mapas-incompatibles"
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-archivos-de-amaranta/refs/-",
+      "value": "meme-superficie-concedida"
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-archivos-de-amaranta/refs/-",
+      "value": "meme-rutas-migratorias-imposibles"
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-mensaje-sin-raices/refs/-",
+      "value": "meme-portadores-nomadas-de-la-gracia"
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-mensaje-sin-raices/refs/-",
+      "value": "meme-registros-genealogicos-moviles"
+    }
+  ]
+}

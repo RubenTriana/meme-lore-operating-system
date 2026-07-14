@@ -7,7 +7,7 @@ import { AppShell } from '@/layouts/AppShell'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { ValidationScreen } from '@/components/ValidationScreen'
 import { HomePage } from '@/pages/HomePage'
-import { analysisRoute, connectionsRoute, extractionRoute, plausibilityRoute } from './routes'
+import { analysisRoute, connectionsRoute, extractionRoute, plausibilityRoute, proposalsRoute } from './routes'
 
 const ModulePage = lazy(() => import('@/pages/ModulePage').then((module) => ({ default: module.ModulePage })))
 const InsightsPage = lazy(() => import('@/pages/InsightsPage').then((module) => ({ default: module.InsightsPage })))
@@ -18,6 +18,8 @@ const AnalysisPage = lazy(() => import('@/pages/AnalysisPage').then((module) => 
 const ConnectionsPage = lazy(() => import('@/pages/ConnectionsPage').then((module) => ({ default: module.ConnectionsPage })))
 const PlausibilityPage = lazy(() => import('@/pages/PlausibilityPage').then((module) => ({ default: module.PlausibilityPage })))
 const ExtractionPage = lazy(() => import('@/pages/ExtractionPage').then((module) => ({ default: module.ExtractionPage })))
+const ProposalListPage = lazy(() => import('@/pages/ProposalListPage').then((module) => ({ default: module.ProposalListPage })))
+const ProposalDetailPage = lazy(() => import('@/pages/ProposalDetailPage').then((module) => ({ default: module.ProposalDetailPage })))
 const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } } })
 
 function Loading() { return <main className="app-loading"><span className="loading-mark">M</span><p>Loading canonical universe…</p></main> }
@@ -26,7 +28,7 @@ function AppRoutes() {
   const { isLoading, validation } = useUniverseModel()
   if (isLoading) return <Loading />
   if (!validation.valid) return <ValidationScreen />
-  return <BrowserRouter><Suspense fallback={<Loading />}><Routes><Route element={<AppShell />}><Route index element={<HomePage />} /><Route path="module/:moduleId" element={<ModulePage />} /><Route path="insights" element={<InsightsPage />} /><Route path={analysisRoute.slice(1)} element={<AnalysisPage />} /><Route path={connectionsRoute.slice(1)} element={<ConnectionsPage />} /><Route path={plausibilityRoute.slice(1)} element={<PlausibilityPage />} /><Route path={extractionRoute.slice(1)} element={<ExtractionPage />} /><Route path="changelog" element={<ChangelogPage />} /><Route path="settings" element={<SettingsPage />} /><Route path="developer" element={<DeveloperPage />} /><Route path="*" element={<Navigate to="/" replace />} /></Route></Routes></Suspense></BrowserRouter>
+  return <BrowserRouter><Suspense fallback={<Loading />}><Routes><Route element={<AppShell />}><Route index element={<HomePage />} /><Route path="module/:moduleId" element={<ModulePage />} /><Route path="insights" element={<InsightsPage />} /><Route path={analysisRoute.slice(1)} element={<AnalysisPage />} /><Route path={connectionsRoute.slice(1)} element={<ConnectionsPage />} /><Route path={plausibilityRoute.slice(1)} element={<PlausibilityPage />} /><Route path={extractionRoute.slice(1)} element={<ExtractionPage />} /><Route path={proposalsRoute.slice(1)} element={<ProposalListPage />} /><Route path={`${proposalsRoute.slice(1)}/:proposalId`} element={<ProposalDetailPage />} /><Route path="changelog" element={<ChangelogPage />} /><Route path="settings" element={<SettingsPage />} /><Route path="developer" element={<DeveloperPage />} /><Route path="*" element={<Navigate to="/" replace />} /></Route></Routes></Suspense></BrowserRouter>
 }
 
 export function App() {
