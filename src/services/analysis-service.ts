@@ -1,5 +1,5 @@
 import { getAnalysisCacheIdentity } from '@/analysis/incremental'
-import type { AnalysisSnapshot } from '@/analysis/types'
+import type { AnalysisCacheIdentity, AnalysisSnapshot } from '@/analysis/types'
 import type { Universe } from '@/types/universe'
 import { createAnalysisCache, type AnalysisCache } from './analysis-cache'
 import { AnalysisWorkerClient, type AnalysisCompiler, type AnalysisProgressHandler } from './analysis-worker-client'
@@ -21,6 +21,19 @@ export interface AnalysisServiceOptions {
   compiler?: AnalysisCompiler
 }
 
+function isCompatibleSnapshot(value: unknown, identity: AnalysisCacheIdentity): value is AnalysisSnapshot {
+  if (!value || typeof value !== 'object') return false
+  const snapshot = value as Partial<AnalysisSnapshot>
+  return snapshot.snapshotVersion === '1'
+    && snapshot.metadata?.sourceHash === identity.sourceHash
+    && snapshot.metadata.schemaVersion === identity.schemaVersion
+    && snapshot.metadata.engineVersion === identity.engineVersion
+    && snapshot.compilation?.metadata?.sourceHash === identity.sourceHash
+    && Array.isArray(snapshot.issues)
+    && typeof snapshot.entityHashes === 'object'
+    && snapshot.entityHashes !== null
+}
+
 export function createAnalysisService(options: AnalysisServiceOptions = {}): AnalysisService {
   const cache = options.cache ?? createAnalysisCache()
   let compiler = options.compiler
@@ -32,8 +45,12 @@ export function createAnalysisService(options: AnalysisServiceOptions = {}): Ana
   }
 
   async function readCachedSnapshot(universe: Universe): Promise<AnalysisSnapshot | undefined> {
+    const identity = getAnalysisCacheIdentity(universe)
     try {
-      return await cache.get(getAnalysisCacheIdentity(universe))
+      const cached = await cache.get(identity)
+      if (!cached || isCompatibleSnapshot(cached, identity)) return cached
+      await cache.clear().catch(() => undefined)
+      return undefined
     } catch {
       return undefined
     }

@@ -11,7 +11,7 @@ import {
   hashCanonical,
   normalizeUniverse,
 } from './derived'
-import { analyzeEnabledEngines } from './engines'
+import { runEnabledAnalysis } from './engines'
 import type { AnalysisCacheIdentity, AnalysisSnapshot, DerivedIndexName, EntityChangeSet, EntityImpactHashes, IncrementalPlan, NormalizedUniverse } from './types'
 
 const snapshotVersion = '1' as const
@@ -139,12 +139,12 @@ export function compileAnalysisSnapshot(universe: Universe, previous?: AnalysisS
     const dependencyIndex = buildDependencyIndex(prepared.normalized, relationGraph, knowledgeIndex, metadata)
     compilation = assembleDerivedCompilation(prepared.normalized, metadata, entityIndex, relationGraph, timelineIndex, knowledgeIndex, dependencyIndex)
   }
-  const issues = analyzeEnabledEngines({
+  const analysis = runEnabledAnalysis({
     universe: prepared.normalized.universe,
     normalized: prepared.normalized,
     compilation,
     sourceHash: metadata.sourceHash,
     engineVersion: ANALYSIS_ENGINE_VERSION,
   })
-  return { snapshotVersion, metadata, entityHashes: prepared.entityHashes, entityImpactHashes: prepared.entityImpactHashes, compilation, incremental: prepared.plan, issues }
+  return { snapshotVersion, metadata, entityHashes: prepared.entityHashes, entityImpactHashes: prepared.entityImpactHashes, compilation, incremental: prepared.plan, issues: analysis.issues, ...(analysis.connections ? { connections: analysis.connections } : {}) }
 }

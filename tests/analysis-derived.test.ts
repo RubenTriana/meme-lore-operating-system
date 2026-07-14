@@ -1,3 +1,4 @@
+// @vitest-environment node
 import { execFile } from 'node:child_process'
 import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -6,6 +7,7 @@ import { promisify } from 'node:util'
 import source from '../data/universe_master.json'
 import { compileDerived } from '../src/analysis/derived'
 import { analysisEventFixture } from './fixtures/analysis-v3_3'
+import { verifyDerivedArtifactSet } from '../scripts/analysis-build.mjs'
 
 const generatedAt = '2042-04-12T00:00:00.000Z'
 const executeFile = promisify(execFile)
@@ -107,5 +109,15 @@ describe('analysis:build', () => {
     expect(failure).toBeDefined()
     expect(String(failure?.stderr)).toContain('Canon validation failed.')
     expect(await readFile(join(outputDirectory, 'manifest.json'), 'utf8')).toBe(firstManifest)
+  }, 15_000)
+
+  it('detects a partial derived artifact set', async () => {
+    temporaryDirectory = await mkdtemp(join(tmpdir(), 'meme-analysis-partial-'))
+    await writeFile(join(temporaryDirectory, 'manifest.json'), JSON.stringify({ metadata: { sourceHash: 'hash', schemaVersion: '3.5.0', engineVersion: 'test' } }), 'utf8')
+
+    const verification = await verifyDerivedArtifactSet(temporaryDirectory)
+
+    expect(verification.valid).toBe(false)
+    expect(verification.errors.some((error) => error.startsWith('entity-index.json:'))).toBe(true)
   })
 })

@@ -1,6 +1,8 @@
-import { AlertCircle, Ban, CheckCircle2, CircleAlert, Clock3, Play, Search, ShieldCheck, SlidersHorizontal, XCircle } from 'lucide-react'
+import { AlertCircle, Ban, CheckCircle2, CircleAlert, Clock3, Download, Play, Search, ShieldCheck, SlidersHorizontal, Trash2, XCircle } from 'lucide-react'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import { useUniverseModel } from '@/app/useUniverseModel'
+import { connectionsRoute, extractionRoute, plausibilityRoute } from '@/app/routes'
 import { ANALYSIS_ENGINE_VERSION } from '@/analysis/derived'
 import { defaultIssueFilters, filterIssues, isAnalysisSnapshotStale, issueCountByRule, issueCountBySeverity, type IssueFilters } from '@/analysis/presentation'
 import type { AnalysisSnapshot, NarrativeIssue, NarrativeSeverity } from '@/analysis/types'
@@ -8,7 +10,9 @@ import { Button, Badge, Card, Progress } from '@/components/ui'
 import { useVirtualWindow } from '@/hooks/useVirtualWindow'
 import { annotationNeedsReview, issueDecision, readAnalysisAnnotations, writeIssueAnnotation, type AnalysisAnnotations, type IssueDecision } from '@/services/analysis-annotations'
 import { createAnalysisService, type AnalysisService } from '@/services/analysis-service'
+import { analysisDiagnosticBlob } from '@/services/analysis-export'
 import { AnalysisWorkerError } from '@/services/analysis-worker-client'
+import { downloadBlob } from '@/services/universe-loader'
 
 type CompilationState = 'idle' | 'compiling' | 'cancelling' | 'complete' | 'cancelled' | 'error'
 
@@ -152,6 +156,14 @@ export function AnalysisPage({ serviceFactory = createAnalysisService }: Analysi
     setState('cancelling')
     setProgress((current) => ({ ...current, stage: 'cancelando' }))
   }
+  const clearCache = async () => {
+    await serviceRef.current?.clearAnalysisCache()
+    setSnapshot(undefined); setSelectedIssueId(undefined); setState('idle'); setProgress({ value: 0, stage: 'en espera' }); setDuration(undefined); setError(undefined)
+  }
+  const exportDiagnostics = () => {
+    if (!snapshot) return
+    downloadBlob(analysisDiagnosticBlob(snapshot, annotations), `analysis-diagnostics-${snapshot.metadata.sourceHash}.json`)
+  }
 
   if (!validation.valid || !universe) {
     return <EmptyState icon={<XCircle size={28} />} title="Canon inválido" detail="Corrige los errores de validación antes de ejecutar análisis narrativo." />
@@ -161,7 +173,7 @@ export function AnalysisPage({ serviceFactory = createAnalysisService }: Analysi
   return <div className="analysis-page">
     <header className="module-hero analysis-hero">
       <div><p className="eyebrow">Sistema analítico local</p><h1>Centro de diagnósticos</h1><p>Revisa señales deterministas vinculadas al canon. Las decisiones autorales se guardan solo en este navegador.</p></div>
-      <div className="analysis-actions"><Button onClick={analyze} disabled={!analysisEnabled || state === 'compiling' || state === 'cancelling'} aria-label="Analizar universo"><Play size={16} /> Analizar universo</Button>{(state === 'compiling' || state === 'cancelling') && <Button className="button-secondary" onClick={cancel} aria-label="Cancelar análisis"><Ban size={16} /> Cancelar</Button>}</div>
+      <div className="analysis-actions"><Link className="button button-secondary" to={connectionsRoute}>Explorar conexiones</Link><Link className="button button-secondary" to={plausibilityRoute}>Evaluar plausibilidad</Link><Link className="button button-secondary" to={extractionRoute}>Importación asistida</Link>{snapshot && <Button className="button-secondary" onClick={exportDiagnostics}><Download size={16} /> Exportar diagnósticos</Button>}<Button className="button-secondary" onClick={clearCache}><Trash2 size={16} /> Limpiar caché</Button><Button onClick={analyze} disabled={!analysisEnabled || state === 'compiling' || state === 'cancelling'} aria-label="Analizar universo"><Play size={16} /> Analizar universo</Button>{(state === 'compiling' || state === 'cancelling') && <Button className="button-secondary" onClick={cancel} aria-label="Cancelar análisis"><Ban size={16} /> Cancelar</Button>}</div>
     </header>
 
     <Card className="analysis-runtime-card" aria-live="polite"><div className="analysis-runtime-heading"><div><p className="eyebrow">Compilador local</p><h2>{state === 'compiling' ? 'Analizando universo' : state === 'cancelling' ? 'Cancelando análisis' : state === 'complete' ? 'Análisis completado' : state === 'cancelled' ? 'Análisis cancelado' : state === 'error' ? 'Error del Worker' : 'Análisis no ejecutado'}</h2></div><Badge tone={state === 'error' ? 'red' : state === 'complete' ? 'green' : state === 'cancelled' ? 'amber' : 'blue'}>{state}</Badge></div>{(state === 'compiling' || state === 'cancelling') && <div className="analysis-progress"><div><span>{progress.stage}</span><strong>{Math.round(progress.value * 100)}%</strong></div><Progress value={progress.value * 100} /></div>}{error && <p className="analysis-error" role="alert"><AlertCircle size={16} /> {error}</p>}</Card>

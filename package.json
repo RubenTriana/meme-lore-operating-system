@@ -11,7 +11,8 @@
     "test:watch": "vitest",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "analysis:build": "node scripts/analysis-build.mjs"
+    "analysis:build": "node scripts/analysis-build.mjs",
+    "analysis:benchmark": "node --expose-gc scripts/analysis-benchmark.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",

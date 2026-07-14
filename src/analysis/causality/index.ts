@@ -49,32 +49,47 @@ function collectRelations(context: AnalysisContext): { relations: CausalRelation
 
 function causalCycles(relations: CausalRelation[]): string[][] {
   const adjacency = new Map<string, string[]>()
+  const reverse = new Map<string, string[]>()
   relations.forEach(({ cause, effect }) => {
     const next = adjacency.get(cause.id) ?? []
     next.push(effect.id)
     adjacency.set(cause.id, sortedUnique(next))
     if (!adjacency.has(effect.id)) adjacency.set(effect.id, [])
+    const previous = reverse.get(effect.id) ?? []
+    previous.push(cause.id)
+    reverse.set(effect.id, sortedUnique(previous))
+    if (!reverse.has(cause.id)) reverse.set(cause.id, [])
   })
-  let index = 0
-  const indexes = new Map<string, number>()
-  const lows = new Map<string, number>()
-  const stack: string[] = []
-  const inStack = new Set<string>()
+  const visited = new Set<string>()
+  const finishOrder: string[] = []
+  ;[...adjacency.keys()].sort().forEach((start) => {
+    if (visited.has(start)) return
+    visited.add(start)
+    const stack: Array<{ node: string; index: number }> = [{ node: start, index: 0 }]
+    while (stack.length) {
+      const frame = stack.at(-1)!
+      const next = (adjacency.get(frame.node) ?? [])[frame.index]
+      if (next !== undefined) {
+        frame.index += 1
+        if (!visited.has(next)) { visited.add(next); stack.push({ node: next, index: 0 }) }
+      } else { finishOrder.push(frame.node); stack.pop() }
+    }
+  })
+  const assigned = new Set<string>()
   const cycles: string[][] = []
-  const visit = (node: string) => {
-    indexes.set(node, index); lows.set(node, index); index += 1; stack.push(node); inStack.add(node)
-    ;(adjacency.get(node) ?? []).forEach((next) => {
-      if (!indexes.has(next)) { visit(next); lows.set(node, Math.min(lows.get(node)!, lows.get(next)!)) }
-      else if (inStack.has(next)) lows.set(node, Math.min(lows.get(node)!, indexes.get(next)!))
-    })
-    if (lows.get(node) !== indexes.get(node)) return
+  ;[...finishOrder].reverse().forEach((start) => {
+    if (assigned.has(start)) return
     const component: string[] = []
-    let current: string | undefined
-    do { current = stack.pop(); if (current) { inStack.delete(current); component.push(current) } } while (current && current !== node)
+    const stack = [start]
+    assigned.add(start)
+    while (stack.length) {
+      const node = stack.pop()!
+      component.push(node)
+      ;(reverse.get(node) ?? []).forEach((previous) => { if (!assigned.has(previous)) { assigned.add(previous); stack.push(previous) } })
+    }
     const ordered = sortedUnique(component)
-    if (ordered.length > 1 || (adjacency.get(node) ?? []).includes(node)) cycles.push(ordered)
-  }
-  [...adjacency.keys()].sort().forEach((node) => { if (!indexes.has(node)) visit(node) })
+    if (ordered.length > 1 || (adjacency.get(start) ?? []).includes(start)) cycles.push(ordered)
+  })
   return cycles.sort((left, right) => left.join('\u0000').localeCompare(right.join('\u0000')))
 }
 

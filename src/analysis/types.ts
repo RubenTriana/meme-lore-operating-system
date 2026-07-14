@@ -132,7 +132,7 @@ export interface DerivedCompilation {
 }
 
 export type NarrativeSeverity = 'info' | 'low' | 'medium' | 'high' | 'critical'
-export type AnalysisEngine = 'continuity' | 'causality' | 'knowledge'
+export type AnalysisEngine = 'continuity' | 'causality' | 'knowledge' | 'connections' | 'plausibility'
 
 export interface NarrativeEvidence {
   sourceId: string
@@ -170,6 +170,81 @@ export interface AnalysisRule {
   evaluate(context: AnalysisContext): NarrativeIssue[]
 }
 
+export interface ConnectionDegreeMetric {
+  entityId: string
+  inDegree: number
+  outDegree: number
+  totalDegree: number
+  centrality: number
+}
+
+export interface ConnectionBetweennessMetric {
+  entityId: string
+  centrality: number
+}
+
+export interface ConnectionModuleDensityMetric {
+  moduleId: string
+  nodeCount: number
+  edgeCount: number
+  density: number
+}
+
+export type ConnectionObservationKind = 'isolated-entity' | 'disconnected-component' | 'central-character' | 'symbol-without-event' | 'faction-without-character' | 'mystery-without-character' | 'referenced-peripheral-entity'
+
+export interface ConnectionObservation {
+  id: string
+  kind: ConnectionObservationKind
+  title: string
+  message: string
+  entityIds: string[]
+  sourceIds: string[]
+}
+
+export interface ConnectionCycle {
+  id: string
+  nodeIds: string[]
+}
+
+export interface ConnectionPathResult {
+  found: boolean
+  nodeIds: string[]
+  edgeIds: string[]
+  visitedCount: number
+  truncated: boolean
+}
+
+export interface ConnectionNeighborhood {
+  sourceId: string
+  depth: number
+  nodeIds: string[]
+  edgeIds: string[]
+  truncated: boolean
+}
+
+export interface ConnectionsAnalysisResult {
+  engine: 'connections'
+  engineVersion: string
+  sourceHash: string
+  metrics: {
+    degreeCentrality: ConnectionDegreeMetric[]
+    betweenness: {
+      status: 'computed' | 'skipped'
+      nodeLimit: number
+      reason?: string
+      values: ConnectionBetweennessMetric[]
+    }
+    moduleDensity: ConnectionModuleDensityMetric[]
+  }
+  observations: ConnectionObservation[]
+  issues: NarrativeIssue[]
+  topology: {
+    isolatedNodeIds: string[]
+    components: string[][]
+    cycles: ConnectionCycle[]
+  }
+}
+
 export interface EntityImpactHashes {
   timeline: string
   knowledge: string
@@ -199,6 +274,7 @@ export interface AnalysisSnapshot {
   compilation: DerivedCompilation
   incremental: IncrementalPlan
   issues: NarrativeIssue[]
+  connections?: ConnectionsAnalysisResult
 }
 
 export interface AnalysisCacheIdentity {

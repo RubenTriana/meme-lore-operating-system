@@ -72,7 +72,7 @@ async function renderAnalysis(service: AnalysisService, universe: Universe = con
   document.body.append(container)
   const root = createRoot(container)
   await act(async () => {
-    root.render(<UniverseContext.Provider value={modelFor(universe)}><AnalysisPage serviceFactory={() => service} /></UniverseContext.Provider>)
+    root.render(<UniverseContext.Provider value={modelFor(universe)}><MemoryRouter><AnalysisPage serviceFactory={() => service} /></MemoryRouter></UniverseContext.Provider>)
   })
   return {
     container,

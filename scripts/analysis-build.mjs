@@ -6,6 +6,7 @@ import { createServer } from 'vite'
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const defaultInputPath = resolve(projectRoot, 'data/universe_master.json')
 const defaultOutputDirectory = resolve(projectRoot, 'data/derived')
+const expectedArtifactFiles = ['entity-index.json', 'relation-graph.json', 'timeline-index.json', 'knowledge-index.json', 'dependency-index.json', 'manifest.json']
 
 function formatValidationErrors(errors) {
   return errors.map((error) => `${error.path}: ${error.message}`).join('\n')
@@ -36,6 +37,23 @@ export async function writeDerivedArtifacts(outputDirectory, compilation, derive
   return entries.map(([fileName]) => fileName)
 }
 
+export async function verifyDerivedArtifactSet(outputDirectory) {
+  const artifacts = new Map()
+  const errors = []
+  for (const fileName of expectedArtifactFiles) {
+    try { artifacts.set(fileName, JSON.parse(await readFile(resolve(outputDirectory, fileName), 'utf8'))) }
+    catch (error) { errors.push(`${fileName}: ${error instanceof Error ? error.message : String(error)}`) }
+  }
+  const manifestMetadata = artifacts.get('manifest.json')?.metadata
+  if (!manifestMetadata?.sourceHash || !manifestMetadata?.schemaVersion || !manifestMetadata?.engineVersion) errors.push('manifest.json: missing derived identity metadata')
+  artifacts.forEach((artifact, fileName) => {
+    if (fileName === 'manifest.json' || !manifestMetadata) return
+    const metadata = artifact?.metadata
+    if (metadata?.sourceHash !== manifestMetadata.sourceHash || metadata?.schemaVersion !== manifestMetadata.schemaVersion || metadata?.engineVersion !== manifestMetadata.engineVersion) errors.push(`${fileName}: metadata does not match manifest.json`)
+  })
+  return { valid: errors.length === 0, errors }
+}
+
 export async function runAnalysisBuild({ inputPath = defaultInputPath, outputDirectory = defaultOutputDirectory, generatedAt } = {}) {
   const rawCanon = JSON.parse(await readFile(inputPath, 'utf8'))
   const vite = await createServer({
@@ -56,6 +74,8 @@ export async function runAnalysisBuild({ inputPath = defaultInputPath, outputDir
     if (!validation.valid || !validation.data) throw new Error(`Canon validation failed.\n${formatValidationErrors(validation.errors)}`)
     const compilation = compileDerived(validation.data, generatedAt ? { generatedAt } : undefined)
     const files = await writeDerivedArtifacts(outputDirectory, compilation, derivedArtifacts)
+    const verification = await verifyDerivedArtifactSet(outputDirectory)
+    if (!verification.valid) throw new Error(`Derived artifact verification failed.\n${verification.errors.join('\n')}`)
     return { ...compilation.metadata, files, outputDirectory, migrations: migrated.applied.map((migration) => migration.id) }
   } finally {
     await vite.close()

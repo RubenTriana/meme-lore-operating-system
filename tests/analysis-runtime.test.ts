@@ -2,11 +2,12 @@ import { compileAnalysisSnapshot, planIncrementalCompilation } from '../src/anal
 import type { AnalysisSnapshot } from '../src/analysis/types'
 import { ANALYSIS_WORKER_PROTOCOL_VERSION, type WorkerRequest, type WorkerResponse } from '../src/analysis/worker-protocol'
 import { AnalysisWorkerRuntime } from '../src/analysis/worker-runtime'
-import { MemoryAnalysisCache } from '../src/services/analysis-cache'
+import { MemoryAnalysisCache, type AnalysisCache } from '../src/services/analysis-cache'
 import { createAnalysisService } from '../src/services/analysis-service'
 import { AnalysisWorkerClient, type AnalysisCompiler } from '../src/services/analysis-worker-client'
 import type { Universe } from '../src/types/universe'
 import { analysisEventFixture } from './fixtures/analysis-v3_3'
+import { connectionsFixture } from './fixtures/connections-v3_5'
 
 const generatedAt = '2042-04-12T00:00:00.000Z'
 
@@ -64,6 +65,16 @@ describe('analysis worker runtime', () => {
     expect(responses.at(-1)).toMatchObject({ type: 'complete', requestId: 'analysis-test', result: { snapshotVersion: '1' } })
   })
 
+  it('compiles heavy connection metrics inside the Worker runtime', async () => {
+    const responses: WorkerResponse[] = []
+    const runtime = new AnalysisWorkerRuntime((response) => responses.push(response))
+
+    await runtime.handle(compileRequest(structuredClone(connectionsFixture)))
+
+    const complete = responses.find((response): response is Extract<WorkerResponse, { type: 'complete' }> => response.type === 'complete')
+    expect(complete?.result.connections).toMatchObject({ engine: 'connections', metrics: { betweenness: { status: 'computed' } } })
+  })
+
   it('cancels safely at a yield boundary without returning a partial snapshot', async () => {
     const responses: WorkerResponse[] = []
     const runtime = new AnalysisWorkerRuntime((response) => responses.push(response))
@@ -84,6 +95,16 @@ describe('analysis worker runtime', () => {
     await runtime.handle(malformed)
 
     expect(responses.at(-1)).toMatchObject({ type: 'error', error: { code: 'COMPILATION_FAILED' } })
+  })
+
+  it('rejects an incompatible Worker protocol version', () => {
+    const responses: WorkerResponse[] = []
+    const runtime = new AnalysisWorkerRuntime((response) => responses.push(response))
+    const incompatible = { ...compileRequest(structuredClone(analysisEventFixture)), protocolVersion: '0' } as unknown as WorkerRequest
+
+    runtime.handle(incompatible)
+
+    expect(responses).toEqual([expect.objectContaining({ type: 'error', error: expect.objectContaining({ code: 'PROTOCOL_MISMATCH' }) })])
   })
 })
 
@@ -108,6 +129,19 @@ describe('analysis worker client', () => {
     client.dispose()
     expect(worker.terminated).toBe(true)
   })
+
+  it('rejects a pending compilation when the Worker is interrupted', async () => {
+    vi.stubGlobal('Worker', FakeWorker)
+    const client = new AnalysisWorkerClient()
+    const pending = client.compile(structuredClone(analysisEventFixture), undefined)
+    const worker = FakeWorker.instances[0]
+    if (!worker) throw new Error('Worker client did not create a worker.')
+
+    worker.onerror?.()
+
+    await expect(pending).rejects.toThrow('stopped unexpectedly')
+    client.dispose()
+  })
 })
 
 describe('analysis service cache and incremental plans', () => {
@@ -121,6 +155,23 @@ describe('analysis service cache and incremental plans', () => {
     expect(compiler.calls).toBe(1)
     expect(second).toBe(first)
     expect(service.getLatestSnapshot()).toBe(first)
+  })
+
+  it('clears a damaged cache entry and recompiles instead of trusting it', async () => {
+    let clears = 0
+    const damagedCache: AnalysisCache = {
+      async get() { return { snapshotVersion: '1', metadata: { sourceHash: 'wrong' } } as AnalysisSnapshot },
+      async set() {},
+      async clear() { clears += 1 },
+    }
+    const compiler = new TestCompiler()
+    const service = createAnalysisService({ cache: damagedCache, compiler })
+
+    const snapshot = await service.compileUniverse(structuredClone(analysisEventFixture))
+
+    expect(snapshot.metadata.sourceHash).not.toBe('wrong')
+    expect(compiler.calls).toBe(1)
+    expect(clears).toBe(1)
   })
 
   it('invalidates a cache entry when the schema version changes', async () => {

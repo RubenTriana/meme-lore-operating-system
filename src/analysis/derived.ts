@@ -19,7 +19,7 @@ import type {
   TimelinePoint,
 } from './types'
 
-export const ANALYSIS_ENGINE_VERSION = '0.3.0'
+export const ANALYSIS_ENGINE_VERSION = '0.4.0'
 
 export const DERIVED_ARTIFACT_FILES: Record<DerivedIndexName, string> = {
   'entity-index': 'entity-index.json',
