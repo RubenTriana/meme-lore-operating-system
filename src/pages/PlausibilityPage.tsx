@@ -6,6 +6,7 @@ import { analysisRoute } from '@/app/routes'
 import { useUniverseModel } from '@/app/useUniverseModel'
 import { Badge, Button, Card, Progress } from '@/components/ui'
 import { readPlausibilityProfiles, savePlausibilityProfile } from '@/services/plausibility-profiles'
+import userManualUrl from '../../docs/user-manual.md?url'
 
 const factorOrder: PlausibilityFactorId[] = ['goalAlignment', 'beliefAlignment', 'externalPressure', 'fearAlignment', 'precedents', 'foreshadowing']
 const factorLabels: Record<PlausibilityFactorId, string> = {
@@ -57,7 +58,7 @@ export function PlausibilityPage() {
   if (!validation.valid || !universe) return <Card className="analysis-empty-state"><h2>Canon inválido</h2><p>Corrige el canon antes de evaluar una hipótesis.</p></Card>
 
   return <div className="plausibility-page">
-    <header className="module-hero analysis-hero"><div><p className="eyebrow">Evaluación determinista</p><h1>Narrative Plausibility Score</h1><p>Contrasta una hipótesis escrita por el autor con señales estructuradas. El sistema no propone acciones ni modifica el canon.</p></div><div className="analysis-actions"><Link className="button button-secondary" to={analysisRoute}><ArrowLeft size={16} /> Diagnósticos</Link></div></header>
+    <header className="module-hero analysis-hero"><div><p className="eyebrow">Evaluación determinista</p><h1>Narrative Plausibility Score</h1><p>Contrasta una hipótesis escrita por el autor con señales estructuradas. El sistema no propone acciones ni modifica el canon.</p></div><div className="analysis-actions"><a className="button button-secondary" href={userManualUrl} target="_blank" rel="noreferrer" title="Abrir la sección de plausibilidad del manual">Manual</a><Link className="button button-secondary" to={analysisRoute}><ArrowLeft size={16} /> Diagnósticos</Link></div></header>
     {!enabled && <Card className="analysis-empty-state"><Scale size={28} /><h2>Motor desactivado</h2><p>Activa `analysisConfig.engines.plausibility` para evaluar hipótesis estructuradas.</p></Card>}
     {enabled && <form className="plausibility-layout" onSubmit={evaluate}>
       <div className="plausibility-inputs">

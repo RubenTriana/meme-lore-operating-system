@@ -18,6 +18,8 @@ npm test
 npm run build
 npm run analysis:build
 npm run analysis:benchmark
+npm run validate:system
+npm run validate:canon
 ```
 
 ## Analysis workflow
@@ -51,3 +53,7 @@ Derived files may be deleted and rebuilt. No engine writes directly to the canon
 - [Optional AI boundary](docs/ai-boundary.md)
 - [Author workflow](docs/author-workflow.md)
 - [Measured benchmarks](docs/analysis-benchmarks.md)
+- [Quick start](docs/quick-start.md)
+- [User manual](docs/user-manual.md)
+- [System acceptance matrix](docs/system-acceptance-matrix.md)
+- [MEME canon validation](docs/meme-canon-validation-report.md)
