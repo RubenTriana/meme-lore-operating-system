@@ -1,0 +1,10 @@
+{
+  "metadata": { "version": "0.8.1", "updated": "2026-07-13T18:40:00.000Z" },
+  "operations": [
+    {
+      "op": "replace",
+      "path": "/modules/characters/content/items/meme-iris/development",
+      "value": 91
+    }
+  ]
+}

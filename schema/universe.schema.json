@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://meme.los/schema/universe.schema.json",
+  "title": "MEME Lore Universe",
+  "type": "object",
+  "required": ["metadata", "modules", "changelog"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["title", "version", "created", "updated", "schemaVersion", "build", "author"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(-[A-Za-z0-9.-]+)?$" },
+        "schemaVersion": { "type": "string", "pattern": "^\\d+\\.\\d+(\\.\\d+)?$" },
+        "created": { "type": "string", "format": "date-time" },
+        "updated": { "type": "string", "format": "date-time" },
+        "build": { "type": "string" },
+        "author": { "type": "string" }
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/module" }
+    }
+  },
+  "$defs": {
+    "module": {
+      "type": "object",
+      "required": ["id", "title", "type", "icon", "order", "visibility", "renderer", "content"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+        "title": { "type": "string" },
+        "type": { "type": "string" },
+        "icon": { "type": "string" },
+        "order": { "type": "number" },
+        "visibility": { "enum": ["navigation", "hidden", "developer"] },
+        "renderer": { "type": "string" },
+        "content": { "type": "object" }
+      }
+    }
+  }
+}

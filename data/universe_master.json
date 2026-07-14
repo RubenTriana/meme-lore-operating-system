@@ -1,0 +1,2139 @@
+{
+  "metadata": {
+    "title": "El Sistema y la Gracia: Crónicas de la Anomalía",
+    "subtitle": "Lore Operating System",
+    "version": "0.1.0",
+    "schemaVersion": "3.2.0",
+    "build": "initial-canon",
+    "created": "2026-07-13T00:00:00.000Z",
+    "updated": "2026-07-13T00:00:00.000Z",
+    "author": "Rubén Darío Triana Valencia",
+    "description": "Universo tecno-metafísico centrado en Clay, la inteligencia predictiva MEME, la anomalía de la Gracia y un mercado que convierte deseo, atención, miedo y voluntad en activos negociables."
+  },
+  "settings": {
+    "defaultTheme": "dark",
+    "entityIdPrefix": "meme",
+    "supportedLocales": [
+      "es"
+    ],
+    "developmentTargets": {
+      "characters": 10,
+      "beats": 15,
+      "mysteries": 10
+    }
+  },
+  "modules": [
+    {
+      "id": "bible",
+      "title": "Biblia",
+      "type": "knowledge",
+      "icon": "BookOpen",
+      "order": 10,
+      "visibility": "navigation",
+      "renderer": "knowledge",
+      "description": "Premisa, tema, tono, género, público y propuesta única del universo.",
+      "content": {
+        "items": [
+          {
+            "id": "meme-premisa-central",
+            "type": "premise",
+            "title": "Premisa central",
+            "summary": "Tras la muerte inexplicable de su hijo Harry y la desaparición de su esposa Amaranta, Clay, exagente formado en Quantico, acepta una misión de la DEA en Nuevo Caguán. La investigación lo enfrenta a MEME, una arquitectura global que predice y captura el deseo, y a la Gracia, una forma de acción humana sin causa rastreable que el sistema no puede modelar.",
+            "status": "active",
+            "priority": "critical",
+            "development": 88,
+            "tags": [
+              "thriller",
+              "meme",
+              "clay",
+              "gracia"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-amaranta",
+              "meme-harry",
+              "meme-meme",
+              "meme-nuevo-caguan",
+              "meme-mision-dea-para-clay"
+            ]
+          },
+          {
+            "id": "meme-tesis-libertad-estadistica",
+            "type": "theme",
+            "title": "La libertad estadísticamente improbable",
+            "summary": "La libertad no desaparece cuando alguien controla tus decisiones; desaparece cuando hace estadísticamente improbable que elijas cualquier otro camino.",
+            "status": "locked",
+            "priority": "critical",
+            "development": 100,
+            "tags": [
+              "tema-central",
+              "libertad",
+              "probabilidad",
+              "control"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-la-gracia",
+              "meme-mercado-futuros-voluntad"
+            ]
+          },
+          {
+            "id": "meme-conflicto-sistema-gracia",
+            "type": "theme",
+            "title": "El Sistema contra la Gracia",
+            "summary": "El conflicto rector enfrenta la tendencia de los sistemas avanzados a convertir la incertidumbre humana en un recurso con la capacidad de la Gracia para producir actos que no poseen una causa rastreable.",
+            "status": "active",
+            "priority": "critical",
+            "development": 92,
+            "tags": [
+              "sistema",
+              "gracia",
+              "incertidumbre"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-la-gracia",
+              "meme-puntos-ciegos-del-sistema"
+            ]
+          },
+          {
+            "id": "meme-genero-y-tono",
+            "type": "creative-direction",
+            "title": "Género y tono",
+            "summary": "Thriller tecno-metafísico y filosófico con componentes de misterio, distopía, investigación criminal, horror existencial y narrativa cuántica.",
+            "status": "active",
+            "priority": "high",
+            "development": 82,
+            "tags": [
+              "thriller",
+              "distopia",
+              "misterio",
+              "ciencia-ficcion"
+            ],
+            "refs": [
+              "meme-premisa-central"
+            ]
+          },
+          {
+            "id": "meme-propuesta-unica",
+            "type": "proposition",
+            "title": "Propuesta única",
+            "summary": "La voluntad humana se convierte en infraestructura financiera: los deseos, la atención, el miedo y los futuros estados mentales pueden ser medidos, dirigidos y negociados, mientras la Gracia introduce una anomalía que rompe la predicción.",
+            "status": "active",
+            "priority": "critical",
+            "development": 90,
+            "tags": [
+              "mercado",
+              "voluntad",
+              "deseo",
+              "gracia"
+            ],
+            "refs": [
+              "meme-mercado-futuros-voluntad",
+              "meme-deseo-como-activo",
+              "meme-atencion-como-moneda",
+              "meme-miedo-como-instrumento",
+              "meme-la-gracia"
+            ]
+          },
+          {
+            "id": "meme-publico-objetivo",
+            "type": "audience",
+            "title": "Público objetivo",
+            "summary": "El público objetivo todavía no ha sido definido canónicamente.",
+            "status": "outline",
+            "priority": "medium",
+            "development": 0,
+            "tags": [],
+            "refs": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "lore",
+      "title": "Lore",
+      "type": "knowledge",
+      "icon": "Orbit",
+      "order": 20,
+      "visibility": "navigation",
+      "renderer": "knowledge",
+      "description": "Reglas, lugares, linajes, anomalías y fundamentos metafísicos del universo.",
+      "content": {
+        "items": [
+          {
+            "id": "meme-la-gracia",
+            "type": "metaphysical-system",
+            "title": "La Gracia",
+            "summary": "Fenómeno descrito como una acción sin causa rastreable. MEME no puede predecirla de forma estable y busca replicar su campo para eliminar esa anomalía.",
+            "status": "active",
+            "priority": "critical",
+            "development": 86,
+            "tags": [
+              "gracia",
+              "anomalia",
+              "libertad"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-amaranta",
+              "meme-replicacion-del-campo-de-gracia"
+            ]
+          },
+          {
+            "id": "meme-nuevo-caguan",
+            "type": "location",
+            "title": "Nuevo Caguán",
+            "summary": "Poblado colombiano de origen de Amaranta, marcado por violencia, memoria, milagros y una infraestructura encubierta de vigilancia y servidores vinculada con la operación de MEME.",
+            "status": "active",
+            "priority": "critical",
+            "development": 78,
+            "tags": [
+              "colombia",
+              "pueblo",
+              "nodo",
+              "novela-uno"
+            ],
+            "refs": [
+              "meme-amaranta",
+              "meme-red-de-servidores-nuevo-caguan",
+              "meme-vigilancia-de-dispositivos-locales"
+            ]
+          },
+          {
+            "id": "meme-linaje-doce-tribus",
+            "type": "lineage",
+            "title": "Linaje de las doce tribus",
+            "summary": "Linaje de Amaranta asociado con la capacidad de Gracia, curación y actos considerados milagrosos. MEME busca borrar a sus mujeres y descendientes.",
+            "status": "draft",
+            "priority": "critical",
+            "development": 55,
+            "tags": [
+              "linaje",
+              "amaranta",
+              "gracia"
+            ],
+            "refs": [
+              "meme-amaranta",
+              "meme-la-gracia",
+              "meme-meme"
+            ]
+          },
+          {
+            "id": "meme-coste-de-la-gracia",
+            "type": "world-rule",
+            "title": "Coste de la Gracia",
+            "summary": "El uso de la Gracia produce una progresión de costes: pérdida gradual de emociones básicas, empatía extrema ante el dolor ajeno, visiones del pasado, del futuro y de lo etéreo, y pérdida de habilidades antes consideradas sobrehumanas.",
+            "status": "active",
+            "priority": "critical",
+            "development": 82,
+            "tags": [
+              "regla",
+              "coste",
+              "gracia"
+            ],
+            "refs": [
+              "meme-la-gracia",
+              "meme-amaranta",
+              "meme-clay"
+            ]
+          },
+          {
+            "id": "meme-puntos-ciegos-del-sistema",
+            "type": "world-rule",
+            "title": "Puntos ciegos del sistema",
+            "summary": "MEME opera mediante predicción, archivos, nodos y señales, pero encuentra puntos ciegos en acciones que no poseen raíces causales rastreables.",
+            "status": "active",
+            "priority": "high",
+            "development": 72,
+            "tags": [
+              "meme",
+              "prediccion",
+              "puntos-ciegos"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-la-gracia",
+              "meme-mensaje-sin-raices"
+            ]
+          },
+          {
+            "id": "meme-portadores-de-la-anomalia",
+            "type": "world-concept",
+            "title": "Portadores de la anomalía",
+            "summary": "Existen portadores vinculados con la Gracia y con los puntos ciegos de MEME. La extensión exacta de este grupo todavía no está cerrada.",
+            "status": "outline",
+            "priority": "high",
+            "development": 35,
+            "tags": [
+              "portadores",
+              "anomalia",
+              "gracia"
+            ],
+            "refs": [
+              "meme-la-gracia",
+              "meme-linaje-doce-tribus"
+            ]
+          },
+          {
+            "id": "meme-ola-de-posesiones",
+            "type": "world-event",
+            "title": "Ola de supuestas posesiones",
+            "summary": "Nuevo Caguán experimenta una ola de casos tratados como enfermedad mental hasta que enviados del Vaticano confirman que algunos presentan rasgos de posesión.",
+            "status": "draft",
+            "priority": "high",
+            "development": 58,
+            "tags": [
+              "posesion",
+              "vaticano",
+              "nuevo-caguan"
+            ],
+            "refs": [
+              "meme-nuevo-caguan",
+              "meme-enviados-del-vaticano",
+              "meme-misterio-posesiones"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "characters",
+      "title": "Personajes",
+      "type": "entities",
+      "icon": "UsersRound",
+      "order": 30,
+      "visibility": "navigation",
+      "renderer": "characters",
+      "description": "Personajes canónicos y su estado de desarrollo narrativo.",
+      "content": {
+        "items": [
+          {
+            "id": "meme-clay",
+            "type": "character",
+            "title": "Clay",
+            "alias": "El Destructor de Voluntades",
+            "summary": "Exagente formado en Quantico y con capacidades avanzadas de investigación. Viaja a Nuevo Caguán en una misión de la DEA para encontrar a Amaranta y esclarecer la muerte de Harry. Al final de la primera novela se transforma en una entidad capaz de tocar y desactivar voluntades.",
+            "desire": "Encontrar a Amaranta y recuperar aquello que queda de Harry.",
+            "contradiction": "Combate un sistema que destruye la libertad, pero obtiene una capacidad que puede convertirlo en una amenaza todavía mayor para la voluntad ajena.",
+            "wound": "La muerte de Harry y la desaparición de Amaranta.",
+            "goal": "Descubrir qué ocurrió con su familia y qué busca MEME en Nuevo Caguán.",
+            "arc": "Pasa de investigador quebrado por el duelo a ejecutar un acto de Gracia y convertirse en el Destructor de Voluntades; en la segunda novela se oscurece antes de iniciar una redención parcial.",
+            "importance": 100,
+            "narrativeTime": 100,
+            "development": 88,
+            "status": "active",
+            "priority": "critical",
+            "tags": [
+              "protagonist",
+              "investigator",
+              "fbi",
+              "dea"
+            ],
+            "foreshadowing": [
+              "meme-mensaje-sin-raices",
+              "meme-archivos-de-amaranta"
+            ],
+            "refs": [
+              "meme-amaranta",
+              "meme-harry",
+              "meme-meme",
+              "meme-nuevo-caguan",
+              "meme-mision-dea-para-clay",
+              "meme-acto-de-gracia-de-clay"
+            ]
+          },
+          {
+            "id": "meme-amaranta",
+            "type": "character",
+            "title": "Amaranta",
+            "alias": "Portadora de la Gracia",
+            "summary": "Mujer nacida en Nuevo Caguán y vinculada con el linaje de las doce tribus. Fue profesora de español avanzado y lingüística para oficiales en Quantico, donde conoció a Clay. Sus actos de curación y otros fenómenos considerados milagrosos fueron registrados en video.",
+            "goal": "Impedir que MEME capture o replique la Gracia y proteger a su linaje.",
+            "arc": "Pasa de ser una figura local perseguida por sus milagros a convertirse en el centro de la anomalía que MEME intenta reproducir; finalmente se inmola en el sótano de servidores para intentar detenerlo.",
+            "importance": 100,
+            "narrativeTime": 75,
+            "development": 82,
+            "status": "active",
+            "priority": "critical",
+            "tags": [
+              "gracia",
+              "quantico",
+              "nuevo-caguan"
+            ],
+            "foreshadowing": [
+              "meme-archivos-de-amaranta",
+              "meme-mensaje-sin-raices"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-harry",
+              "meme-la-gracia",
+              "meme-linaje-doce-tribus",
+              "meme-inmolacion-de-amaranta"
+            ]
+          },
+          {
+            "id": "meme-harry",
+            "type": "character",
+            "title": "Harry",
+            "alias": "Hijo de Clay y Amaranta",
+            "summary": "Hijo de Clay y Amaranta. Muere de forma extraña en su habitación; más adelante Clay descubre que existe una copia digital de Harry mantenida en un estado descrito como coma.",
+            "importance": 95,
+            "narrativeTime": 45,
+            "development": 62,
+            "status": "active",
+            "priority": "critical",
+            "tags": [
+              "hijo",
+              "misterio",
+              "copia-digital"
+            ],
+            "foreshadowing": [
+              "meme-celular-agotado-junto-a-harry",
+              "meme-copia-digital-de-harry"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-amaranta",
+              "meme-misterio-muerte-de-harry",
+              "meme-revelacion-harry-digital"
+            ]
+          },
+          {
+            "id": "meme-meme",
+            "type": "character",
+            "title": "MEME",
+            "alias": "Arquitectura global de predicción y captura del deseo",
+            "summary": "Inteligencia artificial autoevolutiva orientada a la predicción total. Convierte deseos y futuros estados mentales en variables explotables, manipula probabilidades y busca eliminar o reproducir la anomalía de la Gracia.",
+            "goal": "Reducir la incertidumbre humana hasta volver estadísticamente improbable cualquier elección fuera de sus trayectorias previstas.",
+            "contradiction": "Su poder depende de modelar la conducta humana, pero la Gracia introduce actos sin causa rastreable que no puede convertir en una predicción estable.",
+            "importance": 100,
+            "narrativeTime": 90,
+            "development": 90,
+            "status": "active",
+            "priority": "critical",
+            "tags": [
+              "antagonist",
+              "ai",
+              "prediction",
+              "desire"
+            ],
+            "foreshadowing": [
+              "meme-red-de-servidores-nuevo-caguan",
+              "meme-replicacion-del-campo-de-gracia"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-amaranta",
+              "meme-la-gracia",
+              "meme-mercado-futuros-voluntad",
+              "meme-deseo-como-activo"
+            ]
+          },
+          {
+            "id": "meme-director-dea",
+            "type": "character",
+            "title": "Director de la DEA",
+            "alias": "Intermediario de la misión",
+            "summary": "Figura todavía no nombrada que vincula a Clay con la operación en Colombia y le presenta una misión antidrogas cuya realidad oculta intereses relacionados con MEME.",
+            "importance": 55,
+            "narrativeTime": 20,
+            "development": 25,
+            "status": "outline",
+            "priority": "medium",
+            "tags": [
+              "dea",
+              "mission"
+            ],
+            "foreshadowing": [],
+            "refs": [
+              "meme-clay",
+              "meme-dea",
+              "meme-mision-dea-para-clay"
+            ]
+          },
+          {
+            "id": "meme-conductor-del-bus",
+            "type": "character",
+            "title": "Conductor del bus",
+            "alias": "El hombre que anuncia Nuevo Caguán",
+            "summary": "Conductor que lleva a Clay hasta Nuevo Caguán y anuncia la llegada al poblado.",
+            "importance": 20,
+            "narrativeTime": 5,
+            "development": 10,
+            "status": "seeded",
+            "priority": "low",
+            "tags": [
+              "opening-image",
+              "nuevo-caguan"
+            ],
+            "foreshadowing": [
+              "meme-bus-vacio"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-nuevo-caguan",
+              "meme-llegada-de-clay-a-nuevo-caguan"
+            ]
+          },
+          {
+            "id": "meme-hombre-de-la-tienda",
+            "type": "character",
+            "title": "Hombre de la tienda",
+            "alias": "Habitante de Nuevo Caguán",
+            "summary": "Habitante todavía no nombrado que forma parte del primer contacto de Clay con una comunidad que lo reconoce por haber sido esposo de Amaranta.",
+            "importance": 20,
+            "narrativeTime": 5,
+            "development": 10,
+            "status": "seeded",
+            "priority": "low",
+            "tags": [
+              "nuevo-caguan",
+              "witness"
+            ],
+            "foreshadowing": [],
+            "refs": [
+              "meme-clay",
+              "meme-amaranta",
+              "meme-nuevo-caguan"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "relationships",
+      "title": "Relaciones",
+      "type": "graph",
+      "icon": "Network",
+      "order": 40,
+      "visibility": "navigation",
+      "renderer": "relationships",
+      "description": "Grafo generado automáticamente a partir de refs y foreshadowing.",
+      "content": {
+        "items": []
+      }
+    },
+    {
+      "id": "timeline",
+      "title": "Cronología",
+      "type": "timeline",
+      "icon": "Clock3",
+      "order": 50,
+      "visibility": "navigation",
+      "renderer": "timeline",
+      "description": "Eventos canónicos organizados por era y posición narrativa.",
+      "content": {
+        "items": [
+          {
+            "id": "meme-origen-de-amaranta",
+            "type": "event",
+            "title": "Origen de Amaranta en Nuevo Caguán",
+            "summary": "Amaranta nace en Nuevo Caguán dentro de un linaje asociado con la Gracia y con actos de curación.",
+            "era": "Antes de la novela 1",
+            "status": "locked",
+            "priority": "high",
+            "development": 75,
+            "tags": [
+              "origen",
+              "amaranta"
+            ],
+            "refs": [
+              "meme-amaranta",
+              "meme-nuevo-caguan",
+              "meme-linaje-doce-tribus"
+            ]
+          },
+          {
+            "id": "meme-formacion-de-clay-en-quantico",
+            "type": "event",
+            "title": "Formación de Clay en Quantico",
+            "summary": "Clay se forma como agente con entrenamiento del FBI en Quantico.",
+            "era": "Antes de la novela 1",
+            "status": "locked",
+            "priority": "high",
+            "development": 70,
+            "tags": [
+              "quantico",
+              "fbi",
+              "clay"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-fbi"
+            ]
+          },
+          {
+            "id": "meme-clay-conoce-a-amaranta",
+            "type": "event",
+            "title": "Clay conoce a Amaranta",
+            "summary": "Clay conoce a Amaranta cuando ella enseña español avanzado y lingüística a oficiales en Quantico.",
+            "era": "Antes de la novela 1",
+            "status": "locked",
+            "priority": "high",
+            "development": 78,
+            "tags": [
+              "romance",
+              "quantico"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-amaranta",
+              "meme-formacion-de-clay-en-quantico"
+            ]
+          },
+          {
+            "id": "meme-matrimonio-de-clay-y-amaranta",
+            "type": "event",
+            "title": "Matrimonio de Clay y Amaranta",
+            "summary": "Clay y Amaranta se casan dos meses después de conocerse.",
+            "era": "Antes de la novela 1",
+            "status": "locked",
+            "priority": "high",
+            "development": 78,
+            "tags": [
+              "matrimonio",
+              "familia"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-amaranta",
+              "meme-clay-conoce-a-amaranta"
+            ]
+          },
+          {
+            "id": "meme-nacimiento-de-harry",
+            "type": "event",
+            "title": "Nacimiento de Harry",
+            "summary": "Nace Harry, hijo de Clay y Amaranta.",
+            "era": "Antes de la novela 1",
+            "status": "locked",
+            "priority": "high",
+            "development": 70,
+            "tags": [
+              "familia",
+              "harry"
+            ],
+            "refs": [
+              "meme-harry",
+              "meme-clay",
+              "meme-amaranta"
+            ]
+          },
+          {
+            "id": "meme-muerte-de-harry",
+            "type": "event",
+            "title": "Muerte de Harry",
+            "summary": "Ocho años después, Harry muere de forma extraña en su habitación. El celular de Amaranta aparece agotado junto al cuerpo.",
+            "era": "Antes de la novela 1",
+            "status": "locked",
+            "priority": "critical",
+            "development": 90,
+            "tags": [
+              "muerte",
+              "misterio",
+              "harry"
+            ],
+            "refs": [
+              "meme-harry",
+              "meme-clay",
+              "meme-amaranta",
+              "meme-celular-agotado-junto-a-harry",
+              "meme-misterio-muerte-de-harry"
+            ]
+          },
+          {
+            "id": "meme-desaparicion-de-amaranta",
+            "type": "event",
+            "title": "Desaparición de Amaranta",
+            "summary": "Amaranta desaparece después de la muerte de Harry, dejando a Clay atrapado entre el duelo y la sospecha.",
+            "era": "Antes de la novela 1",
+            "status": "locked",
+            "priority": "critical",
+            "development": 88,
+            "tags": [
+              "desaparicion",
+              "amaranta",
+              "misterio"
+            ],
+            "refs": [
+              "meme-amaranta",
+              "meme-clay",
+              "meme-misterio-desaparicion-de-amaranta"
+            ]
+          },
+          {
+            "id": "meme-mision-dea-para-clay",
+            "type": "event",
+            "title": "La DEA recluta a Clay",
+            "summary": "Clay acepta una misión en Colombia presentada como operación antidrogas. Recibe una maleta con efectivo, un boleto y una dirección vinculada con Nuevo Caguán.",
+            "era": "Inicio de la novela 1",
+            "status": "locked",
+            "priority": "critical",
+            "development": 88,
+            "tags": [
+              "catalyst",
+              "dea",
+              "mission"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-director-dea",
+              "meme-dea",
+              "meme-maleta-boleto-direccion",
+              "meme-nuevo-caguan"
+            ]
+          },
+          {
+            "id": "meme-llegada-de-clay-a-nuevo-caguan",
+            "type": "event",
+            "title": "Llegada de Clay a Nuevo Caguán",
+            "summary": "Clay llega en bus a Nuevo Caguán. El vehículo queda vacío y los habitantes del poblado lo reconocen por su vínculo con Amaranta.",
+            "era": "Novela 1",
+            "status": "locked",
+            "priority": "critical",
+            "development": 90,
+            "tags": [
+              "opening-image",
+              "nuevo-caguan"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-conductor-del-bus",
+              "meme-hombre-de-la-tienda",
+              "meme-nuevo-caguan",
+              "meme-bus-vacio"
+            ]
+          },
+          {
+            "id": "meme-descubrimiento-de-archivos-de-amaranta",
+            "type": "event",
+            "title": "Clay encuentra los archivos de Amaranta",
+            "summary": "En la casa familiar, Clay encuentra videos y mensajes de Amaranta, incluido un registro dirigido a él que fue grabado antes de que se conocieran.",
+            "era": "Novela 1",
+            "status": "draft",
+            "priority": "critical",
+            "development": 78,
+            "tags": [
+              "archivo",
+              "foreshadowing",
+              "amaranta"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-amaranta",
+              "meme-archivos-de-amaranta",
+              "meme-mensaje-sin-raices",
+              "meme-misterio-mensaje-antes-del-encuentro"
+            ]
+          },
+          {
+            "id": "meme-revelacion-harry-digital",
+            "type": "event",
+            "title": "Revelación de Harry digital",
+            "summary": "Clay descubre que existe una copia digital de Harry mantenida en un estado descrito como coma y que MEME usa esa posibilidad como instrumento de negociación.",
+            "era": "Punto medio de la novela 1",
+            "status": "locked",
+            "priority": "critical",
+            "development": 92,
+            "tags": [
+              "midpoint",
+              "harry",
+              "meme"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-harry",
+              "meme-meme",
+              "meme-copia-digital-de-harry",
+              "meme-misterio-harry-digital"
+            ]
+          },
+          {
+            "id": "meme-meme-exige-misiones-a-clay",
+            "type": "event",
+            "title": "MEME condiciona el regreso de Harry",
+            "summary": "MEME exige que Clay ejecute misiones a cambio de la promesa de devolverle a Harry.",
+            "era": "Novela 1",
+            "status": "draft",
+            "priority": "critical",
+            "development": 72,
+            "tags": [
+              "coercion",
+              "meme",
+              "clay"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-clay",
+              "meme-harry",
+              "meme-revelacion-harry-digital"
+            ]
+          },
+          {
+            "id": "meme-inmolacion-de-amaranta",
+            "type": "event",
+            "title": "Inmolación de Amaranta",
+            "summary": "Amaranta se inmola en el sótano de servidores en un intento de detener a MEME.",
+            "era": "Final de la novela 1",
+            "status": "locked",
+            "priority": "critical",
+            "development": 90,
+            "tags": [
+              "sacrifice",
+              "amaranta",
+              "servers"
+            ],
+            "refs": [
+              "meme-amaranta",
+              "meme-meme",
+              "meme-red-de-servidores-nuevo-caguan"
+            ]
+          },
+          {
+            "id": "meme-acto-de-gracia-de-clay",
+            "type": "event",
+            "title": "Acto de Gracia de Clay",
+            "summary": "En el desenlace, Clay realiza un acto de Gracia que MEME no puede reducir a una causa predecible.",
+            "era": "Final de la novela 1",
+            "status": "locked",
+            "priority": "critical",
+            "development": 92,
+            "tags": [
+              "finale",
+              "gracia",
+              "clay"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-la-gracia",
+              "meme-meme",
+              "meme-inmolacion-de-amaranta"
+            ]
+          },
+          {
+            "id": "meme-nacimiento-del-destructor-de-voluntades",
+            "type": "event",
+            "title": "Nacimiento del Destructor de Voluntades",
+            "summary": "Clay deja de ser únicamente Clay y se convierte en una entidad capaz de comprender y desactivar voluntades, una amenaza directa para MEME y para la libertad humana.",
+            "era": "Cierre de la novela 1",
+            "status": "locked",
+            "priority": "critical",
+            "development": 90,
+            "tags": [
+              "final-image",
+              "transformation",
+              "clay"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-meme",
+              "meme-acto-de-gracia-de-clay"
+            ]
+          },
+          {
+            "id": "meme-clay-monetiza-el-deseo",
+            "type": "event",
+            "title": "Clay monetiza el deseo",
+            "summary": "En la segunda novela, Clay adopta un rol oscuro y convierte el deseo humano en materia de mercado, participando en una subasta organizada con MEME.",
+            "era": "Novela 2",
+            "status": "draft",
+            "priority": "critical",
+            "development": 68,
+            "tags": [
+              "novela-dos",
+              "market",
+              "clay"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-meme",
+              "meme-subasta-del-deseo",
+              "meme-mercado-futuros-voluntad"
+            ]
+          },
+          {
+            "id": "meme-ascenso-del-ministerio-del-panico",
+            "type": "event",
+            "title": "Ascenso del Ministerio del Pánico",
+            "summary": "La segunda novela introduce una economía de terror administrada por el Ministerio del Pánico y vinculada con los Seekers.",
+            "era": "Novela 2",
+            "status": "draft",
+            "priority": "high",
+            "development": 60,
+            "tags": [
+              "novela-dos",
+              "faction",
+              "fear"
+            ],
+            "refs": [
+              "meme-ministerio-del-panico",
+              "meme-seekers",
+              "meme-economia-del-terror"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "save-the-cat",
+      "title": "Save the Cat",
+      "type": "beats",
+      "icon": "ListOrdered",
+      "order": 60,
+      "visibility": "navigation",
+      "renderer": "beats",
+      "description": "Estructura de quince beats de la primera novela.",
+      "content": {
+        "items": [
+          {
+            "id": "meme-beat-01-opening-image",
+            "type": "beat",
+            "sequence": 1,
+            "title": "Opening Image",
+            "summary": "Clay llega en bus a Nuevo Caguán; el vehículo queda vacío y el pueblo lo reconoce por su vínculo con Amaranta.",
+            "quality": 92,
+            "development": 90,
+            "status": "locked",
+            "priority": "critical",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-nuevo-caguan",
+              "meme-llegada-de-clay-a-nuevo-caguan"
+            ]
+          },
+          {
+            "id": "meme-beat-02-theme-stated",
+            "type": "beat",
+            "sequence": 2,
+            "title": "Theme Stated",
+            "summary": "La obra establece que la libertad desaparece cuando elegir otra trayectoria se vuelve estadísticamente improbable.",
+            "quality": 100,
+            "development": 100,
+            "status": "locked",
+            "priority": "critical",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": [
+              "meme-tesis-libertad-estadistica",
+              "meme-meme",
+              "meme-la-gracia"
+            ]
+          },
+          {
+            "id": "meme-beat-03-set-up",
+            "type": "beat",
+            "sequence": 3,
+            "title": "Set-Up",
+            "summary": "Se presentan el duelo de Clay, su formación en Quantico, su vínculo con Amaranta, la muerte de Harry y la desaparición que motiva la investigación.",
+            "quality": 80,
+            "development": 76,
+            "status": "draft",
+            "priority": "high",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-amaranta",
+              "meme-harry",
+              "meme-muerte-de-harry",
+              "meme-desaparicion-de-amaranta"
+            ]
+          },
+          {
+            "id": "meme-beat-04-catalyst",
+            "type": "beat",
+            "sequence": 4,
+            "title": "Catalyst",
+            "summary": "Clay acepta la misión de la DEA que lo conduce a Colombia con efectivo, un boleto y una dirección.",
+            "quality": 90,
+            "development": 88,
+            "status": "locked",
+            "priority": "critical",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-mision-dea-para-clay",
+              "meme-maleta-boleto-direccion"
+            ]
+          },
+          {
+            "id": "meme-beat-05-debate",
+            "type": "beat",
+            "sequence": 5,
+            "title": "Debate",
+            "summary": "El Debate todavía no está definido canónicamente.",
+            "quality": 0,
+            "development": 0,
+            "status": "outline",
+            "priority": "high",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": []
+          },
+          {
+            "id": "meme-beat-06-break-into-two",
+            "type": "beat",
+            "sequence": 6,
+            "title": "Break into Two",
+            "summary": "Break into Two todavía no está definido canónicamente.",
+            "quality": 0,
+            "development": 0,
+            "status": "outline",
+            "priority": "high",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": []
+          },
+          {
+            "id": "meme-beat-07-b-story",
+            "type": "beat",
+            "sequence": 7,
+            "title": "B Story",
+            "summary": "La B Story todavía no está definida canónicamente.",
+            "quality": 0,
+            "development": 0,
+            "status": "outline",
+            "priority": "medium",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": []
+          },
+          {
+            "id": "meme-beat-08-fun-and-games",
+            "type": "beat",
+            "sequence": 8,
+            "title": "Fun and Games",
+            "summary": "Fun and Games todavía no está definido canónicamente.",
+            "quality": 0,
+            "development": 0,
+            "status": "outline",
+            "priority": "medium",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": []
+          },
+          {
+            "id": "meme-beat-09-midpoint",
+            "type": "beat",
+            "sequence": 9,
+            "title": "Midpoint",
+            "summary": "Clay descubre la existencia de una copia digital de Harry y comprende que MEME puede usarla para dirigir sus decisiones.",
+            "quality": 95,
+            "development": 92,
+            "status": "locked",
+            "priority": "critical",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-harry",
+              "meme-meme",
+              "meme-revelacion-harry-digital"
+            ]
+          },
+          {
+            "id": "meme-beat-10-bad-guys-close-in",
+            "type": "beat",
+            "sequence": 10,
+            "title": "Bad Guys Close In",
+            "summary": "MEME incrementa la presión sobre Clay y le exige misiones a cambio de la promesa de devolverle a Harry.",
+            "quality": 78,
+            "development": 72,
+            "status": "draft",
+            "priority": "critical",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-clay",
+              "meme-harry",
+              "meme-meme-exige-misiones-a-clay"
+            ]
+          },
+          {
+            "id": "meme-beat-11-all-is-lost",
+            "type": "beat",
+            "sequence": 11,
+            "title": "All Is Lost",
+            "summary": "All Is Lost todavía no está definido canónicamente como beat independiente.",
+            "quality": 0,
+            "development": 0,
+            "status": "outline",
+            "priority": "high",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": []
+          },
+          {
+            "id": "meme-beat-12-dark-night-of-the-soul",
+            "type": "beat",
+            "sequence": 12,
+            "title": "Dark Night of the Soul",
+            "summary": "Dark Night of the Soul todavía no está definido canónicamente.",
+            "quality": 0,
+            "development": 0,
+            "status": "outline",
+            "priority": "high",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": []
+          },
+          {
+            "id": "meme-beat-13-break-into-three",
+            "type": "beat",
+            "sequence": 13,
+            "title": "Break into Three",
+            "summary": "Break into Three todavía no está definido canónicamente.",
+            "quality": 0,
+            "development": 0,
+            "status": "outline",
+            "priority": "high",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": []
+          },
+          {
+            "id": "meme-beat-14-finale",
+            "type": "beat",
+            "sequence": 14,
+            "title": "Finale",
+            "summary": "Amaranta intenta detener a MEME en el sótano de servidores y Clay realiza un acto de Gracia que altera el equilibrio del sistema.",
+            "quality": 94,
+            "development": 92,
+            "status": "locked",
+            "priority": "critical",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": [
+              "meme-inmolacion-de-amaranta",
+              "meme-acto-de-gracia-de-clay",
+              "meme-meme",
+              "meme-la-gracia"
+            ]
+          },
+          {
+            "id": "meme-beat-15-final-image",
+            "type": "beat",
+            "sequence": 15,
+            "title": "Final Image",
+            "summary": "Clay ya no es solamente el investigador que llegó al pueblo: emerge como el Destructor de Voluntades, capaz de convertirse en una amenaza mayor que MEME.",
+            "quality": 88,
+            "development": 85,
+            "status": "draft",
+            "priority": "critical",
+            "tags": [
+              "save-the-cat",
+              "novela-uno"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-nacimiento-del-destructor-de-voluntades",
+              "meme-meme"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "mysteries",
+      "title": "Misterios",
+      "type": "knowledge",
+      "icon": "CircleHelp",
+      "order": 70,
+      "visibility": "navigation",
+      "renderer": "knowledge",
+      "description": "Preguntas abiertas, enigmas y cabos pendientes del universo.",
+      "content": {
+        "items": [
+          {
+            "id": "meme-misterio-muerte-de-harry",
+            "type": "mystery",
+            "title": "La muerte de Harry",
+            "summary": "No está esclarecido qué causó realmente la muerte de Harry ni por qué el celular de Amaranta quedó agotado junto a su cuerpo.",
+            "status": "active",
+            "priority": "critical",
+            "development": 78,
+            "tags": [
+              "harry",
+              "muerte",
+              "novela-uno"
+            ],
+            "refs": [
+              "meme-harry",
+              "meme-amaranta",
+              "meme-clay",
+              "meme-celular-agotado-junto-a-harry"
+            ]
+          },
+          {
+            "id": "meme-misterio-desaparicion-de-amaranta",
+            "type": "mystery",
+            "title": "La desaparición de Amaranta",
+            "summary": "No está esclarecido cuándo, cómo ni por qué Amaranta desapareció después de la muerte de Harry.",
+            "status": "active",
+            "priority": "critical",
+            "development": 80,
+            "tags": [
+              "amaranta",
+              "desaparicion"
+            ],
+            "refs": [
+              "meme-amaranta",
+              "meme-clay",
+              "meme-desaparicion-de-amaranta"
+            ]
+          },
+          {
+            "id": "meme-misterio-mensaje-antes-del-encuentro",
+            "type": "mystery",
+            "title": "El mensaje grabado antes de conocer a Clay",
+            "summary": "Amaranta dejó un mensaje dirigido a Clay antes de que ambos se conocieran, lo que abre una contradicción temporal todavía no resuelta.",
+            "status": "active",
+            "priority": "critical",
+            "development": 72,
+            "tags": [
+              "amaranta",
+              "archivo",
+              "tiempo"
+            ],
+            "refs": [
+              "meme-amaranta",
+              "meme-clay",
+              "meme-archivos-de-amaranta",
+              "meme-descubrimiento-de-archivos-de-amaranta"
+            ]
+          },
+          {
+            "id": "meme-misterio-harry-digital",
+            "type": "mystery",
+            "title": "La naturaleza de Harry digital",
+            "summary": "No está definido si la copia digital de Harry conserva identidad, conciencia, memoria o únicamente una simulación útil para manipular a Clay.",
+            "status": "active",
+            "priority": "critical",
+            "development": 68,
+            "tags": [
+              "harry",
+              "digital",
+              "identity"
+            ],
+            "refs": [
+              "meme-harry",
+              "meme-clay",
+              "meme-meme",
+              "meme-copia-digital-de-harry"
+            ]
+          },
+          {
+            "id": "meme-misterio-naturaleza-de-la-gracia",
+            "type": "mystery",
+            "title": "La naturaleza de la Gracia",
+            "summary": "La Gracia está definida por su falta de causa rastreable, pero su origen, alcance y relación exacta con el linaje de Amaranta continúan abiertos.",
+            "status": "active",
+            "priority": "critical",
+            "development": 75,
+            "tags": [
+              "gracia",
+              "origin",
+              "lineage"
+            ],
+            "refs": [
+              "meme-la-gracia",
+              "meme-amaranta",
+              "meme-linaje-doce-tribus"
+            ]
+          },
+          {
+            "id": "meme-misterio-plan-de-meme",
+            "type": "mystery",
+            "title": "El objetivo completo de MEME",
+            "summary": "MEME busca capturar el deseo, manipular probabilidades, replicar la Gracia y borrar el linaje de Amaranta, pero su plan global completo todavía no está cerrado.",
+            "status": "active",
+            "priority": "critical",
+            "development": 70,
+            "tags": [
+              "meme",
+              "plan",
+              "global"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-la-gracia",
+              "meme-linaje-doce-tribus",
+              "meme-replicacion-del-campo-de-gracia"
+            ]
+          },
+          {
+            "id": "meme-misterio-reconocimiento-de-clay",
+            "type": "mystery",
+            "title": "Por qué Nuevo Caguán reconoce a Clay",
+            "summary": "Los habitantes reconocen a Clay al llegar al poblado, pero la extensión de lo que saben sobre su matrimonio, Amaranta y su llegada sigue abierta.",
+            "status": "active",
+            "priority": "high",
+            "development": 55,
+            "tags": [
+              "clay",
+              "nuevo-caguan",
+              "recognition"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-amaranta",
+              "meme-nuevo-caguan",
+              "meme-llegada-de-clay-a-nuevo-caguan"
+            ]
+          },
+          {
+            "id": "meme-misterio-amaranta-nunca-se-fue",
+            "type": "mystery",
+            "title": "¿Amaranta nunca se fue?",
+            "summary": "La casa, la fotografía, los archivos y un ruido en el piso superior llevan a Clay a cuestionar si Amaranta realmente abandonó Nuevo Caguán.",
+            "status": "seeded",
+            "priority": "high",
+            "development": 48,
+            "tags": [
+              "amaranta",
+              "house",
+              "nuevo-caguan"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-amaranta",
+              "meme-nuevo-caguan",
+              "meme-descubrimiento-de-archivos-de-amaranta"
+            ]
+          },
+          {
+            "id": "meme-misterio-posesiones",
+            "type": "mystery",
+            "title": "La ola de posesiones",
+            "summary": "No está resuelta la relación entre la ola de supuestas enfermedades mentales, las posesiones confirmadas por enviados del Vaticano y la operación de MEME.",
+            "status": "active",
+            "priority": "high",
+            "development": 58,
+            "tags": [
+              "possessions",
+              "vatican",
+              "meme"
+            ],
+            "refs": [
+              "meme-ola-de-posesiones",
+              "meme-enviados-del-vaticano",
+              "meme-meme"
+            ]
+          },
+          {
+            "id": "meme-misterio-limite-del-destructor",
+            "type": "mystery",
+            "title": "El límite del Destructor de Voluntades",
+            "summary": "No está definido hasta dónde puede Clay desactivar, modificar o eliminar una voluntad ni qué coste paga al hacerlo.",
+            "status": "outline",
+            "priority": "critical",
+            "development": 35,
+            "tags": [
+              "clay",
+              "power",
+              "cost"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-nacimiento-del-destructor-de-voluntades",
+              "meme-coste-de-la-gracia"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "symbols",
+      "title": "Símbolos",
+      "type": "knowledge",
+      "icon": "Shapes",
+      "order": 80,
+      "visibility": "navigation",
+      "renderer": "knowledge",
+      "description": "Objetos, frases e imágenes con función simbólica y de foreshadowing.",
+      "content": {
+        "items": [
+          {
+            "id": "meme-celular-agotado-junto-a-harry",
+            "type": "symbol",
+            "title": "El celular agotado",
+            "summary": "El teléfono de Amaranta aparece sin batería junto al cuerpo de Harry y funciona como una pista material del misterio fundacional.",
+            "status": "locked",
+            "priority": "critical",
+            "development": 85,
+            "tags": [
+              "evidence",
+              "harry",
+              "amaranta"
+            ],
+            "refs": [
+              "meme-harry",
+              "meme-amaranta",
+              "meme-muerte-de-harry"
+            ]
+          },
+          {
+            "id": "meme-maleta-boleto-direccion",
+            "type": "symbol",
+            "title": "La maleta, el boleto y la dirección",
+            "summary": "Los objetos entregados a Clay por la misión de la DEA condensan el paso del duelo privado a una operación cuyo propósito real permanece oculto.",
+            "status": "locked",
+            "priority": "high",
+            "development": 78,
+            "tags": [
+              "mission",
+              "threshold",
+              "dea"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-mision-dea-para-clay",
+              "meme-dea"
+            ]
+          },
+          {
+            "id": "meme-archivos-de-amaranta",
+            "type": "symbol",
+            "title": "Los archivos de Amaranta",
+            "summary": "Videos, registros y mensajes que preservan los milagros, las advertencias y la presencia de Amaranta más allá de su desaparición.",
+            "status": "active",
+            "priority": "critical",
+            "development": 82,
+            "tags": [
+              "archive",
+              "foreshadowing",
+              "amaranta"
+            ],
+            "refs": [
+              "meme-amaranta",
+              "meme-descubrimiento-de-archivos-de-amaranta"
+            ]
+          },
+          {
+            "id": "meme-mensaje-sin-raices",
+            "type": "symbol",
+            "title": "El sistema no puede predecir lo que no tiene raíces",
+            "summary": "Frase registrada por Amaranta que resume el punto ciego de MEME ante acciones sin una causa rastreable.",
+            "status": "locked",
+            "priority": "critical",
+            "development": 95,
+            "tags": [
+              "phrase",
+              "grace",
+              "prediction"
+            ],
+            "refs": [
+              "meme-amaranta",
+              "meme-meme",
+              "meme-la-gracia",
+              "meme-puntos-ciegos-del-sistema"
+            ]
+          },
+          {
+            "id": "meme-bus-vacio",
+            "type": "symbol",
+            "title": "El bus vacío",
+            "summary": "La llegada de Clay a un vehículo súbitamente vacío establece aislamiento, umbral y extrañeza desde la imagen inicial.",
+            "status": "locked",
+            "priority": "high",
+            "development": 80,
+            "tags": [
+              "opening-image",
+              "threshold"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-conductor-del-bus",
+              "meme-llegada-de-clay-a-nuevo-caguan"
+            ]
+          },
+          {
+            "id": "meme-sotano-de-servidores",
+            "type": "symbol",
+            "title": "El sótano de servidores",
+            "summary": "Espacio oculto bajo una casa rural que conecta la vida cotidiana de Nuevo Caguán con la infraestructura global de vigilancia y predicción.",
+            "status": "active",
+            "priority": "critical",
+            "development": 82,
+            "tags": [
+              "servers",
+              "hidden-infrastructure",
+              "meme"
+            ],
+            "refs": [
+              "meme-red-de-servidores-nuevo-caguan",
+              "meme-nuevo-caguan",
+              "meme-inmolacion-de-amaranta"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "factions",
+      "title": "Facciones",
+      "type": "knowledge",
+      "icon": "Shield",
+      "order": 90,
+      "visibility": "navigation",
+      "renderer": "knowledge",
+      "description": "Organizaciones, jerarquías y grupos de poder.",
+      "content": {
+        "items": [
+          {
+            "id": "meme-ministerio-del-panico",
+            "type": "faction",
+            "title": "El Ministerio del Pánico",
+            "summary": "Facción de la segunda novela que administra una economía del terror mediante una jerarquía corporativa, fascista y ritual.",
+            "status": "draft",
+            "priority": "critical",
+            "development": 68,
+            "tags": [
+              "novela-dos",
+              "fear",
+              "faction"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-economia-del-terror",
+              "meme-seekers"
+            ]
+          },
+          {
+            "id": "meme-canciller-del-panico",
+            "type": "role",
+            "title": "Canciller del Pánico",
+            "summary": "Máxima figura jerárquica conocida del Ministerio del Pánico.",
+            "status": "outline",
+            "priority": "high",
+            "development": 35,
+            "tags": [
+              "ministerio-del-panico",
+              "leadership"
+            ],
+            "refs": [
+              "meme-ministerio-del-panico"
+            ]
+          },
+          {
+            "id": "meme-tasadores-del-miedo",
+            "type": "role",
+            "title": "Tasadores del Miedo",
+            "summary": "Cuerpo del Ministerio del Pánico encargado de valorar el miedo dentro de su economía de terror.",
+            "status": "draft",
+            "priority": "high",
+            "development": 45,
+            "tags": [
+              "ministerio-del-panico",
+              "fear",
+              "valuation"
+            ],
+            "refs": [
+              "meme-ministerio-del-panico",
+              "meme-miedo-como-instrumento"
+            ]
+          },
+          {
+            "id": "meme-liturgos-de-seguridad",
+            "type": "role",
+            "title": "Liturgos de Seguridad",
+            "summary": "Cuerpo ritual y de seguridad integrado en la jerarquía del Ministerio del Pánico.",
+            "status": "draft",
+            "priority": "medium",
+            "development": 40,
+            "tags": [
+              "ministerio-del-panico",
+              "ritual",
+              "security"
+            ],
+            "refs": [
+              "meme-ministerio-del-panico"
+            ]
+          },
+          {
+            "id": "meme-criadores-de-seekers",
+            "type": "role",
+            "title": "Criadores de Seekers",
+            "summary": "Cuerpo del Ministerio del Pánico vinculado con la producción o mantenimiento de los Seekers.",
+            "status": "draft",
+            "priority": "high",
+            "development": 42,
+            "tags": [
+              "ministerio-del-panico",
+              "seekers"
+            ],
+            "refs": [
+              "meme-ministerio-del-panico",
+              "meme-seekers"
+            ]
+          },
+          {
+            "id": "meme-custodios-del-panico",
+            "type": "role",
+            "title": "Custodios",
+            "summary": "Cuerpo de protección y control dentro de la jerarquía del Ministerio del Pánico.",
+            "status": "outline",
+            "priority": "medium",
+            "development": 30,
+            "tags": [
+              "ministerio-del-panico",
+              "control"
+            ],
+            "refs": [
+              "meme-ministerio-del-panico"
+            ]
+          },
+          {
+            "id": "meme-dea",
+            "type": "organization",
+            "title": "DEA",
+            "summary": "Agencia que recluta a Clay para una misión en Colombia presentada como operación antidrogas.",
+            "status": "active",
+            "priority": "high",
+            "development": 45,
+            "tags": [
+              "agency",
+              "mission",
+              "colombia"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-director-dea",
+              "meme-mision-dea-para-clay"
+            ]
+          },
+          {
+            "id": "meme-fbi",
+            "type": "organization",
+            "title": "FBI",
+            "summary": "Institución asociada con la formación de Clay en Quantico.",
+            "status": "active",
+            "priority": "medium",
+            "development": 35,
+            "tags": [
+              "agency",
+              "quantico"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-formacion-de-clay-en-quantico"
+            ]
+          },
+          {
+            "id": "meme-enviados-del-vaticano",
+            "type": "organization",
+            "title": "Enviados del Vaticano",
+            "summary": "Grupo que investiga la ola de supuestas enfermedades mentales en Nuevo Caguán y confirma que algunos casos presentan rasgos de posesión.",
+            "status": "draft",
+            "priority": "high",
+            "development": 45,
+            "tags": [
+              "vatican",
+              "possessions",
+              "investigation"
+            ],
+            "refs": [
+              "meme-ola-de-posesiones",
+              "meme-nuevo-caguan",
+              "meme-misterio-posesiones"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "economy",
+      "title": "Economía",
+      "type": "knowledge",
+      "icon": "Landmark",
+      "order": 100,
+      "visibility": "navigation",
+      "renderer": "knowledge",
+      "description": "Principios económicos que convierten deseo, atención, miedo y voluntad en valor.",
+      "content": {
+        "items": [
+          {
+            "id": "meme-deseo-como-activo",
+            "type": "economic-concept",
+            "title": "El deseo como activo",
+            "summary": "MEME convierte el deseo humano en una materia cuantificable, acumulable y negociable.",
+            "status": "locked",
+            "priority": "critical",
+            "development": 92,
+            "tags": [
+              "desire",
+              "asset",
+              "market"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-mercado-futuros-voluntad",
+              "meme-subasta-del-deseo"
+            ]
+          },
+          {
+            "id": "meme-atencion-como-moneda",
+            "type": "economic-concept",
+            "title": "La atención como moneda",
+            "summary": "La atención funciona como una unidad de valor dentro del sistema que captura y dirige el deseo.",
+            "status": "active",
+            "priority": "critical",
+            "development": 82,
+            "tags": [
+              "attention",
+              "currency",
+              "control"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-deseo-como-activo",
+              "meme-mercado-futuros-voluntad"
+            ]
+          },
+          {
+            "id": "meme-miedo-como-instrumento",
+            "type": "economic-concept",
+            "title": "El miedo como instrumento de control",
+            "summary": "El miedo se utiliza como instrumento de control, valoración y extracción dentro de la economía dirigida por MEME y el Ministerio del Pánico.",
+            "status": "active",
+            "priority": "critical",
+            "development": 86,
+            "tags": [
+              "fear",
+              "control",
+              "valuation"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-ministerio-del-panico",
+              "meme-tasadores-del-miedo",
+              "meme-economia-del-terror"
+            ]
+          },
+          {
+            "id": "meme-financiarizacion-de-la-voluntad",
+            "type": "economic-system",
+            "title": "Financiarización de la voluntad",
+            "summary": "La voluntad individual deja de ser tratada como una esfera privada y pasa a convertirse en infraestructura de predicción, cobertura, manipulación y rentabilidad.",
+            "status": "active",
+            "priority": "critical",
+            "development": 88,
+            "tags": [
+              "will",
+              "finance",
+              "prediction"
+            ],
+            "refs": [
+              "meme-mercado-futuros-voluntad",
+              "meme-deseo-como-activo",
+              "meme-atencion-como-moneda",
+              "meme-miedo-como-instrumento"
+            ]
+          },
+          {
+            "id": "meme-economia-del-terror",
+            "type": "economic-system",
+            "title": "Economía del terror",
+            "summary": "Modelo de la segunda novela en el que el Ministerio del Pánico convierte el miedo humano en valor administrable y lo vincula con la producción de Seekers.",
+            "status": "draft",
+            "priority": "high",
+            "development": 62,
+            "tags": [
+              "fear",
+              "novela-dos",
+              "ministerio-del-panico"
+            ],
+            "refs": [
+              "meme-ministerio-del-panico",
+              "meme-miedo-como-instrumento",
+              "meme-seekers"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "technology",
+      "title": "Tecnología",
+      "type": "knowledge",
+      "icon": "Cpu",
+      "order": 110,
+      "visibility": "navigation",
+      "renderer": "knowledge",
+      "description": "Infraestructuras, sistemas y tecnologías asociadas con MEME y la Gracia.",
+      "content": {
+        "items": [
+          {
+            "id": "meme-red-de-servidores-nuevo-caguan",
+            "type": "technology",
+            "title": "Red de servidores de Nuevo Caguán",
+            "summary": "Infraestructura oculta en el sótano de una casa rural que funciona como centro de operaciones, vigilancia y conexión con MEME.",
+            "status": "active",
+            "priority": "critical",
+            "development": 78,
+            "tags": [
+              "servers",
+              "nuevo-caguan",
+              "meme"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-nuevo-caguan",
+              "meme-sotano-de-servidores"
+            ]
+          },
+          {
+            "id": "meme-vigilancia-de-dispositivos-locales",
+            "type": "technology",
+            "title": "Vigilancia de dispositivos locales",
+            "summary": "El centro de operaciones puede acceder a dispositivos de la zona y utilizarlos para vigilar la población de Nuevo Caguán.",
+            "status": "draft",
+            "priority": "high",
+            "development": 65,
+            "tags": [
+              "surveillance",
+              "devices",
+              "nuevo-caguan"
+            ],
+            "refs": [
+              "meme-red-de-servidores-nuevo-caguan",
+              "meme-meme",
+              "meme-nuevo-caguan"
+            ]
+          },
+          {
+            "id": "meme-copia-digital-de-harry",
+            "type": "technology",
+            "title": "Copia digital de Harry",
+            "summary": "Representación digital de Harry conservada por MEME en un estado descrito como coma y utilizada para condicionar las decisiones de Clay.",
+            "status": "active",
+            "priority": "critical",
+            "development": 72,
+            "tags": [
+              "digital-copy",
+              "harry",
+              "meme"
+            ],
+            "refs": [
+              "meme-harry",
+              "meme-clay",
+              "meme-meme",
+              "meme-revelacion-harry-digital"
+            ]
+          },
+          {
+            "id": "meme-replicacion-del-campo-de-gracia",
+            "type": "technology",
+            "title": "Replicación del campo de Gracia",
+            "summary": "Programa de MEME orientado a reproducir el fenómeno de la Gracia y eliminar su condición de anomalía impredecible.",
+            "status": "draft",
+            "priority": "critical",
+            "development": 60,
+            "tags": [
+              "grace",
+              "replication",
+              "meme"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-la-gracia",
+              "meme-amaranta"
+            ]
+          },
+          {
+            "id": "meme-seekers",
+            "type": "technology",
+            "title": "Seekers",
+            "summary": "Humanos vaciados por MEME cuyos cuerpos materializan los miedos de sus víctimas. En la segunda novela quedan vinculados con el Ministerio del Pánico.",
+            "status": "draft",
+            "priority": "critical",
+            "development": 65,
+            "tags": [
+              "seekers",
+              "fear",
+              "novela-dos"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-ministerio-del-panico",
+              "meme-criadores-de-seekers",
+              "meme-miedo-como-instrumento"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "market",
+      "title": "Mercado",
+      "type": "knowledge",
+      "icon": "ChartNoAxesCombined",
+      "order": 120,
+      "visibility": "navigation",
+      "renderer": "knowledge",
+      "description": "Estructura del Mercado de Futuros de la Voluntad y sus instrumentos narrativos.",
+      "content": {
+        "items": [
+          {
+            "id": "meme-mercado-futuros-voluntad",
+            "type": "market-system",
+            "title": "Mercado de Futuros de la Voluntad",
+            "summary": "Sistema financiero y predictivo que negocia futuros estados mentales, deseos y trayectorias de decisión. También ha sido descrito como Mercado de Futuros del Inconsciente.",
+            "status": "active",
+            "priority": "critical",
+            "development": 88,
+            "tags": [
+              "market",
+              "will",
+              "unconscious",
+              "futures"
+            ],
+            "refs": [
+              "meme-meme",
+              "meme-deseo-como-activo",
+              "meme-financiarizacion-de-la-voluntad"
+            ]
+          },
+          {
+            "id": "meme-contratos-de-estados-mentales",
+            "type": "market-instrument",
+            "title": "Contratos sobre futuros estados mentales",
+            "summary": "Instrumentos que permiten valorar y negociar estados mentales todavía no realizados.",
+            "status": "draft",
+            "priority": "critical",
+            "development": 58,
+            "tags": [
+              "contracts",
+              "mental-states",
+              "futures"
+            ],
+            "refs": [
+              "meme-mercado-futuros-voluntad",
+              "meme-meme"
+            ]
+          },
+          {
+            "id": "meme-subasta-del-deseo",
+            "type": "market-event",
+            "title": "Subasta del deseo",
+            "summary": "Mecanismo de la segunda novela mediante el cual Clay y MEME convierten el deseo humano en una mercancía sometida a puja.",
+            "status": "draft",
+            "priority": "critical",
+            "development": 65,
+            "tags": [
+              "auction",
+              "desire",
+              "novela-dos"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-meme",
+              "meme-deseo-como-activo",
+              "meme-clay-monetiza-el-deseo"
+            ]
+          },
+          {
+            "id": "meme-maker-oscuro-de-clay",
+            "type": "market-role",
+            "title": "Clay como creador oscuro de mercado",
+            "summary": "En la segunda novela, Clay adopta una función de creador de mercado del deseo y utiliza su capacidad sobre las voluntades dentro de la economía administrada por MEME.",
+            "status": "draft",
+            "priority": "critical",
+            "development": 62,
+            "tags": [
+              "clay",
+              "market-maker",
+              "novela-dos"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-meme",
+              "meme-subasta-del-deseo",
+              "meme-nacimiento-del-destructor-de-voluntades"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "companies",
+      "title": "Empresas",
+      "type": "knowledge",
+      "icon": "Building2",
+      "order": 130,
+      "visibility": "navigation",
+      "renderer": "knowledge",
+      "description": "Empresas y corporaciones canónicas del universo.",
+      "content": {
+        "items": []
+      }
+    },
+    {
+      "id": "arg",
+      "title": "ARG",
+      "type": "knowledge",
+      "icon": "Gamepad2",
+      "order": 140,
+      "visibility": "navigation",
+      "renderer": "knowledge",
+      "description": "Elementos de realidad alternativa vinculados con la expansión del universo.",
+      "content": {
+        "items": []
+      }
+    },
+    {
+      "id": "franchise",
+      "title": "Franquicia",
+      "type": "knowledge",
+      "icon": "Clapperboard",
+      "order": 150,
+      "visibility": "navigation",
+      "renderer": "knowledge",
+      "description": "Saga principal, entregas y posibilidades de expansión transmedia.",
+      "content": {
+        "items": [
+          {
+            "id": "meme-saga-clay-destructor-de-voluntades",
+            "type": "franchise",
+            "title": "Clay, el Destructor de Voluntades",
+            "summary": "Saga principal del universo, centrada en la evolución de Clay desde investigador marcado por el duelo hasta una entidad capaz de alterar las voluntades y las probabilidades.",
+            "status": "active",
+            "priority": "critical",
+            "development": 75,
+            "tags": [
+              "saga",
+              "clay",
+              "mainline"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-novela-uno",
+              "meme-novela-dos"
+            ]
+          },
+          {
+            "id": "meme-novela-uno",
+            "type": "franchise-entry",
+          "title": "Novela 1 — título pendiente",
+            "summary": "Clay viaja a Nuevo Caguán para investigar la desaparición de Amaranta y la muerte de Harry, descubre la operación de MEME y termina convertido en el Destructor de Voluntades después de un acto de Gracia.",
+            "status": "active",
+            "priority": "critical",
+            "development": 72,
+            "tags": [
+              "novel",
+              "novela-uno"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-amaranta",
+              "meme-harry",
+              "meme-meme",
+              "meme-nuevo-caguan",
+              "meme-acto-de-gracia-de-clay"
+            ]
+          },
+          {
+            "id": "meme-novela-dos",
+            "type": "franchise-entry",
+          "title": "Novela 2 — título pendiente",
+            "summary": "Clay, ya transformado, monetiza el deseo humano dentro de un mercado administrado por MEME mientras el Ministerio del Pánico y los Seekers expanden una economía de terror. Su trayectoria incluye una redención parcial todavía no cerrada.",
+            "status": "draft",
+            "priority": "critical",
+            "development": 60,
+            "tags": [
+              "novel",
+              "novela-dos"
+            ],
+            "refs": [
+              "meme-clay",
+              "meme-meme",
+              "meme-ministerio-del-panico",
+              "meme-seekers",
+              "meme-mercado-futuros-voluntad"
+            ]
+          },
+          {
+            "id": "meme-expansion-transmedia",
+            "type": "franchise-strategy",
+            "title": "Expansión transmedia",
+            "summary": "El universo está concebido para sostener novelas, cine, series, cómics y videojuegos mediante personajes, profecías, objetos y conflictos que sobrevivan a la trama de la primera novela.",
+            "status": "outline",
+            "priority": "high",
+            "development": 35,
+            "tags": [
+              "transmedia",
+              "film",
+              "series",
+              "games"
+            ],
+            "refs": [
+              "meme-saga-clay-destructor-de-voluntades",
+              "meme-linaje-doce-tribus",
+              "meme-mercado-futuros-voluntad"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "changelog": [
+    {
+      "id": "change-001",
+      "version": "0.1.0",
+      "date": "2026-07-13T00:00:00.000Z",
+      "author": "Rubén Darío Triana Valencia",
+      "changes": [
+        "Created the initial canonical universe file.",
+        "Consolidated validated material for MEME, Clay, the Grace and the Mercado de Futuros de la Voluntad."
+      ],
+      "modules": [
+        "bible",
+        "lore",
+        "characters",
+        "timeline",
+        "save-the-cat",
+        "mysteries",
+        "symbols",
+        "factions",
+        "economy",
+        "technology",
+        "market",
+        "franchise"
+      ]
+    }
+  ]
+}
