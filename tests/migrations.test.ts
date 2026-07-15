@@ -1,4 +1,5 @@
 import source from '../data/universe_master.json'
+import historicalSource from './fixtures/universe-v3_2-pre-phase-11.json'
 import { loadUniverse } from '../src/services/universe-loader'
 import { migrateUniverse } from '../src/services/migrations'
 
@@ -13,16 +14,20 @@ describe('migrations', () => {
     expect(result.applied.map((migration) => migration.id)).toEqual(['001-add-schema-version', '002-add-entity-arrays', '003-add-analysis-contract', '004-add-continuity-contract', '005-add-causality-knowledge-rule-vocabulary'])
   })
 
-  it('migrates the current canon without changing its narrative content', () => {
-    const original = structuredClone(source)
-    const result = migrateUniverse(source)
+  it('migrates a frozen schema 3.2 universe without changing its narrative content', () => {
+    const original = structuredClone(historicalSource)
+    const result = migrateUniverse(historicalSource)
     const { schemaVersion, ...originalMetadata } = original.metadata
+    const originalIds = original.modules.flatMap((module) => module.content.items ?? []).map((entity) => entity.id)
+    const migratedIds = (result.data.modules as typeof original.modules).flatMap((module) => module.content.items ?? []).map((entity) => entity.id)
 
     expect(result.data.modules).toEqual(original.modules)
     expect(result.data.changelog).toEqual(original.changelog)
     expect(result.data.metadata).toMatchObject(originalMetadata)
     expect(schemaVersion).toBe('3.2.0')
     expect(result.data.metadata).toMatchObject({ schemaVersion: '3.5.0' })
+    expect(result.applied.map((migration) => migration.id)).toEqual(['003-add-analysis-contract', '004-add-continuity-contract', '005-add-causality-knowledge-rule-vocabulary'])
+    expect(migratedIds).toEqual(originalIds)
     expect(result.data.analysisConfig).toEqual({
       enabled: false,
       engines: { continuity: false, causality: false, knowledge: false, connections: false, plausibility: false },
@@ -34,6 +39,8 @@ describe('migrations', () => {
     const twice = migrateUniverse(once.data)
 
     expect(twice.data).toEqual(once.data)
+    expect(once.data).toEqual(source)
+    expect(once.applied).toHaveLength(0)
     expect(twice.applied).toHaveLength(0)
   })
 

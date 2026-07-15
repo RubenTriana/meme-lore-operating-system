@@ -229,10 +229,15 @@ function temporalPoint(value: string, precision?: TemporalPrecision): TimelinePo
 }
 
 function pointForEntity(entity: UniverseEntity): TimelinePoint | undefined {
-  if (entity.temporal?.start) return temporalPoint(entity.temporal.start, entity.temporal.precision)
-  if (!entity.date) return undefined
-  const parsed = Date.parse(entity.date)
-  return Number.isNaN(parsed) ? undefined : { value: parsed, precision: 'legacy' }
+  if (entity.temporal?.start) {
+    const point = temporalPoint(entity.temporal.start, entity.temporal.precision)
+    if (point) return point
+  }
+  if (entity.date) {
+    const parsed = Date.parse(entity.date)
+    if (!Number.isNaN(parsed)) return { value: parsed, precision: 'legacy' }
+  }
+  return entity.sequence === undefined ? undefined : { value: entity.sequence, precision: 'relative' }
 }
 
 function compareTimelineEvents(left: TimelineEvent, right: TimelineEvent): number {

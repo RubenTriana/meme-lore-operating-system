@@ -1,7 +1,6 @@
 import { act } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
-import source from '../data/universe_master.json'
 import acceptancePatch from '../data/updates/meme-lore-update-001-gracia-mundo-extenso.patch.json'
 import { hashCanonical } from '../src/analysis/derived'
 import { compileAnalysisSnapshot } from '../src/analysis/incremental'
@@ -12,13 +11,13 @@ import { ProposalListPage } from '../src/pages/ProposalListPage'
 import { proposalRepository } from '../src/proposals/repository'
 import { compareProposalAnalysis, createProposal, proposalCandidate, withTemporaryEngines } from '../src/proposals/workflow'
 import type { CompileUniverseOptions, AnalysisService } from '../src/services/analysis-service'
-import { loadUniverse } from '../src/services/universe-loader'
 import { useStudioStore } from '../src/store/useStudioStore'
 import type { AnalysisSnapshot } from '../src/analysis/types'
 import type { Universe } from '../src/types/universe'
+import { createPhase11Universe } from './fixtures/historical-universes'
 
 const generatedAt = '2042-04-12T00:00:00.000Z'
-const base = loadUniverse(source).validation.data as Universe
+const base = createPhase11Universe()
 const engines = { continuity: true, causality: true, knowledge: true, connections: true, plausibility: false }
 
 class InlineAnalysisService implements AnalysisService {
@@ -94,6 +93,8 @@ describe('proposal center UI', () => {
 
   afterEach(async () => {
     await act(async () => root.unmount())
+    await proposalRepository.clear()
+    localStorage.clear()
     container.remove()
   })
 

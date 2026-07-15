@@ -1,15 +1,13 @@
 // @vitest-environment node
-import source from '../data/universe_master.json'
 import acceptancePatch from '../data/updates/meme-lore-update-001-gracia-mundo-extenso.patch.json'
 import { hashCanonical } from '../src/analysis/derived'
 import { compileAnalysisSnapshot } from '../src/analysis/incremental'
 import { MemoryProposalRepository } from '../src/proposals/repository'
 import { compareProposalAnalysis, createProposal, proposalCandidate, validateProposalPatch, withTemporaryEngines } from '../src/proposals/workflow'
-import { loadUniverse } from '../src/services/universe-loader'
-import type { Universe } from '../src/types/universe'
+import { createPhase11Universe } from './fixtures/historical-universes'
 
 const generatedAt = '2042-04-12T00:00:00.000Z'
-const base = loadUniverse(source).validation.data as Universe
+const base = createPhase11Universe()
 const engines = { continuity: true, causality: true, knowledge: true, connections: true, plausibility: false }
 
 describe('proposal quarantine workflow', () => {

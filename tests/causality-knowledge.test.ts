@@ -63,6 +63,22 @@ describe('causality and knowledge analysis', () => {
     expect(inspectKnowledge(contextFor(insufficient)).some((evaluation) => evaluation.status === 'insufficient-data')).toBe(true)
   })
 
+  it('treats relative knowledge changes with a sequence as temporally calculable', () => {
+    const universe = structuredClone(causalityKnowledgeFixture)
+    const event = universe.modules[0].content.items?.find((item) => item.type === 'event' && item.knowledgeChanges?.length)
+    if (!event) throw new Error('The knowledge fixture needs a knowledge-change event.')
+    delete event.date
+    event.temporal = { precision: 'relative' }
+    event.sequence = 10
+
+    const context = contextFor(universe)
+    const declaration = context.compilation.knowledgeIndex.declarations.find((item) => item.eventId === event.id)
+
+    expect(declaration?.point).toEqual({ value: 10, precision: 'relative' })
+    expect(context.compilation.knowledgeIndex.declarationsWithoutCalculableTime.some((item) => item.eventId === event.id)).toBe(false)
+    expect(analyzeKnowledge(context).issues.some((issue) => issue.ruleId === 'temporally-ambiguous-knowledge-change' && issue.entityIds.includes(event.id))).toBe(false)
+  })
+
   it('combines continuity and causality in the snapshot registry', () => {
     const universe = continuityContradictionFixture()
     universe.analysisConfig!.engines.causality = true

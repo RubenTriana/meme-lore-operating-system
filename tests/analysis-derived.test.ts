@@ -74,6 +74,23 @@ describe('derived narrative indexes', () => {
     ])
   })
 
+  it('uses an event sequence as a calculable relative knowledge position', () => {
+    const universe = fixtureWithUndatedKnowledge()
+    const trigger = universe.modules[0].content.items?.find((entity) => entity.id === 'meme-trigger')
+    if (!trigger) throw new Error('The analytical fixture needs a trigger event.')
+    trigger.sequence = 20
+    trigger.temporal = { precision: 'relative' }
+
+    const compilation = compileDerived(universe, { generatedAt })
+    const triggerEvent = compilation.timelineIndex.events.find((event) => event.id === 'meme-trigger')
+
+    expect(triggerEvent?.point).toEqual({ value: 20, precision: 'relative' })
+    expect(compilation.knowledgeIndex.declarationsWithoutCalculableTime).toEqual([])
+    expect(compilation.knowledgeIndex.cumulativeKnowledgeByCharacter['meme-operator']).toEqual(expect.arrayContaining([
+      expect.objectContaining({ eventId: 'meme-trigger', point: { value: 20, precision: 'relative' }, knowledge: ['Unplaced fact'] }),
+    ]))
+  })
+
   it('maps affected entities and conservative rebuild targets', () => {
     const dependency = compileDerived(fixtureWithUndatedKnowledge(), { generatedAt }).dependencyIndex
 

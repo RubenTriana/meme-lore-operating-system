@@ -4,12 +4,12 @@ import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { promisify } from 'node:util'
-import source from '../data/universe_master.json'
+import source from './fixtures/universe-v3_2-pre-phase-11.json'
 import patchSource from '../data/updates/meme-canon-enrichment-phase-11.patch.json'
 import { analyzeCausality } from '../src/analysis/causality'
 import { analyzeConnections } from '../src/analysis/connections'
 import { analyzeContinuity } from '../src/analysis/continuity'
-import { compileDerived, normalizeUniverse } from '../src/analysis/derived'
+import { compileDerived, hashCanonical, normalizeUniverse } from '../src/analysis/derived'
 import { analyzeKnowledge } from '../src/analysis/knowledge'
 import type { AnalysisContext } from '../src/analysis/types'
 import { validateUniverse } from '../src/schemas/universe'
@@ -21,10 +21,6 @@ const executeFile = promisify(execFile)
 const generatedAt = '2042-04-12T00:00:00.000Z'
 const patch = patchSource as unknown as UniversePatch
 const sourceBefore = structuredClone(source)
-
-const baseSource = applyPatch(source, {
-  operations: [...patch.operations].reverse().map((operation) => ({ op: 'remove' as const, path: operation.path })),
-})
 
 function contextFor(universe: Universe): AnalysisContext {
   const normalized = normalizeUniverse(universe)
@@ -52,11 +48,10 @@ function coverage(universe: Universe) {
 }
 
 describe('Phase 11 applied canonical enrichment', () => {
-  const loaded = loadUniverse(baseSource)
+  const loaded = loadUniverse(source)
   if (!loaded.validation.data) throw new Error('The certified MEME canon must load before previewing the patch.')
   const base = loaded.validation.data
   const preview = applyPatch(base, patch)
-  const current = loadUniverse(source).validation.data
 
   it('contains only additive, unique, reviewable field operations', () => {
     expect(patch.operations).toHaveLength(47)
@@ -75,8 +70,8 @@ describe('Phase 11 applied canonical enrichment', () => {
     expect(source).toEqual(sourceBefore)
   })
 
-  it('matches the persisted canon and remains idempotent when evaluated twice', () => {
-    expect(current).toEqual(preview)
+  it('matches the frozen Phase 11 result and remains idempotent when evaluated twice', () => {
+    expect(hashCanonical(preview)).toBe('fnv1a64-55c87ca90e611736')
     const reapplied = applyPatch(preview, patch)
     expect(reapplied).toEqual(preview)
     const all = entities(reapplied)
