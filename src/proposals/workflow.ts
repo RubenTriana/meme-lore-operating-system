@@ -51,6 +51,15 @@ function containsValue(current: unknown, expected: unknown): boolean {
   return same(current, expected)
 }
 
+function operationIsNoOp(root: Universe, operation: PatchOperation): boolean {
+  if (operation.op === 'remove') return false
+  const target = targetAt(root, operation.path)
+  if (Array.isArray(target.parent) && target.key === '-') {
+    return (target.parent as unknown[]).some((value) => same(value, operation.value))
+  }
+  return target.value !== undefined && same(target.value, operation.value)
+}
+
 function operationContext(operation: PatchOperation): { moduleId?: string; entityId?: string; field?: string } {
   const path = segments(operation.path)
   return {
@@ -60,9 +69,19 @@ function operationContext(operation: PatchOperation): { moduleId?: string; entit
   }
 }
 
+function supportedProposalPath(path: string): boolean {
+  const pathSegments = segments(path)
+  if (path.startsWith('/modules/')) return true
+  if (pathSegments[0] === 'metadata') {
+    return pathSegments.length === 2 && ['version', 'build', 'updated'].includes(pathSegments[1])
+  }
+  return pathSegments[0] === 'changelog' && pathSegments.length === 2
+}
+
 function reviewOperation(root: Universe, operation: PatchOperation, index: number, duplicate: boolean): ProposalOperationReview {
   const context = operationContext(operation)
   const target = targetAt(root, operation.path)
+  const noOp = operationIsNoOp(root, operation)
   let status: OperationReviewStatus = 'SAFE'
   let message = 'Adición sobre una ruta existente sin reemplazar datos.'
 
@@ -70,8 +89,8 @@ function reviewOperation(root: Universe, operation: PatchOperation, index: numbe
     status = 'REJECTED'; message = 'La misma operación aparece más de una vez.'
   } else if (!['add', 'replace', 'remove'].includes(operation.op)) {
     status = 'REJECTED'; message = 'Tipo de operación desconocido.'
-  } else if (!operation.path.startsWith('/modules/')) {
-    status = 'REJECTED'; message = 'La ruta no pertenece a un módulo del universo.'
+  } else if (!supportedProposalPath(operation.path)) {
+    status = 'REJECTED'; message = 'La ruta no pertenece a un módulo ni a una cabecera canónica permitida.'
   } else if (target.parent === undefined || target.key === undefined) {
     status = 'REJECTED'; message = 'La ruta padre no existe en el universo base.'
   } else if (!serializable(operation.value) && operation.op !== 'remove') {
@@ -83,10 +102,11 @@ function reviewOperation(root: Universe, operation: PatchOperation, index: numbe
     message = target.value === undefined ? 'No existe un valor que reemplazar.' : 'El reemplazo es explícito, pero requiere revisión autoral antes de aprobar.'
   } else if (Array.isArray(target.parent) && target.key === '-') {
     if ((target.parent as unknown[]).some((value) => same(value, operation.value))) {
-      status = 'REJECTED'; message = 'El valor ya existe en el array; aplicarlo lo duplicaría.'
+      message = 'El valor ya está aplicado; la simulación lo tratará como un no-op idempotente.'
     } else message = 'Append explícito; conserva el array existente y añade un valor único.'
   } else if (target.value !== undefined) {
-    status = 'REJECTED'; message = same(target.value, operation.value) ? 'La operación ya está aplicada.' : 'La adición reemplazaría silenciosamente un valor existente.'
+    if (same(target.value, operation.value)) message = 'La operación ya está aplicada; la simulación conservará el valor existente.'
+    else { status = 'REJECTED'; message = 'La adición reemplazaría silenciosamente un valor existente.' }
   } else if (Array.isArray(target.parent)) {
     const valueId = typeof operation.value === 'object' && operation.value !== null ? (operation.value as { id?: unknown }).id : undefined
     if (valueId !== target.key) {
@@ -94,7 +114,7 @@ function reviewOperation(root: Universe, operation: PatchOperation, index: numbe
     } else message = 'Entidad nueva con ID coherente y módulo existente.'
   }
 
-  return { index, operation, status, message, ...context, ...(target.value === undefined ? {} : { before: target.value }), ...(operation.op === 'remove' ? {} : { after: operation.value }) }
+  return { index, operation, status, message, ...context, ...(target.value === undefined ? {} : { before: target.value }), ...(operation.op === 'remove' ? {} : { after: operation.value }), ...(noOp ? { noOp: true } : {}) }
 }
 
 function detectApplied(universe: Universe, patch: UniversePatch): ProposalValidation['idempotence'] {
@@ -120,6 +140,7 @@ function createDiff(base: Universe, reviews: ProposalOperationReview[]): Proposa
   const baseIds = new Set(base.modules.flatMap((module) => module.content.items ?? []).map((entity) => entity.id))
   let fieldsAdded = 0; let fieldsReplaced = 0; let fieldsRemoved = 0; let referencesAdded = 0; let referencesRemoved = 0; let titlesReplaced = 0; let summariesReplaced = 0; let mysteriesResolved = 0
   reviews.forEach((review) => {
+    if (review.noOp) return
     const { operation, moduleId, entityId } = review
     if (moduleId) modules.add(moduleId)
     if (entityId) {
@@ -167,6 +188,7 @@ export function validateProposalPatch(base: Universe, patch: UniversePatch): { v
       return
     }
     if (review.status === 'REVIEW REQUIRED') warnings.push({ ...issue(`operations.${index}`, review.message, 'Revisa explícitamente el before/after.'), severity: 'warning' })
+    if (review.noOp) return
     try { working = applyPatch(working, { operations: [operation] }) }
     catch (error) { errors.push(issue(`operations.${index}`, error instanceof Error ? error.message : 'No se pudo aplicar la operación.', 'Corrige la ruta o el valor.', operation)) }
   })

@@ -25,6 +25,14 @@ export function createSemanticIndex(universe: Universe): SemanticIndex {
   return { entities, moduleByEntity, references, backlinks, tags }
 }
 
+export function getEntityConnections(index: SemanticIndex, entityId: string): UniverseEntity[] {
+  const connectionIds = [...new Set(index.references.get(entityId) ?? [])]
+  return connectionIds.flatMap((id) => {
+    const entity = index.entities.get(id)
+    return entity ? [entity] : []
+  })
+}
+
 export function getAllEntities(universe: Universe): UniverseEntity[] {
   return universe.modules.flatMap(getModuleItems)
 }

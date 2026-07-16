@@ -3,6 +3,7 @@ node_modules/
 dist/
 coverage/
 data/derived/
+data/universe_master.backup-*.json
 
 # Local environment and editor files
 .env

@@ -16,6 +16,7 @@ export interface ProposalOperationReview {
   entityId?: string
   before?: unknown
   after?: unknown
+  noOp?: boolean
 }
 
 export interface ProposalDiffSnapshot {

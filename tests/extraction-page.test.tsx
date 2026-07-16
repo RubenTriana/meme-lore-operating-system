@@ -10,7 +10,7 @@ import type { Universe } from '../src/types/universe'
 import { plausibilityFixture } from './fixtures/plausibility-v3_5'
 
 function modelFor(universe: Universe, importPayload: (payload: unknown) => void): UniverseContextValue {
-  return { baseUniverse: universe, validation: { valid: true, data: universe, errors: [], warnings: [] }, migrated: [], isLoading: false, loadedAt: 0, importFile: async () => undefined, importPayload, workspaceState: 'base', openCandidate: () => undefined, restoreBase: () => undefined, reset: () => undefined }
+  return { baseUniverse: universe, validation: { valid: true, data: universe, errors: [], warnings: [] }, migrated: [], isLoading: false, loadedAt: 0, updateBeatStatus: async () => undefined, importFile: async () => undefined, importPayload, workspaceState: 'base', openCandidate: () => undefined, restoreBase: () => undefined, reset: () => undefined }
 }
 function setValue(element: HTMLTextAreaElement | HTMLSelectElement, value: string): void {
   const prototype = element instanceof HTMLSelectElement ? HTMLSelectElement.prototype : HTMLTextAreaElement.prototype

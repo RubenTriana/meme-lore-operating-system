@@ -29,7 +29,7 @@ class TestConnectionsService implements AnalysisService {
 }
 
 function modelFor(universe: Universe): UniverseContextValue {
-  return { baseUniverse: universe, validation: { valid: true, data: universe, errors: [], warnings: [] }, migrated: [], isLoading: false, loadedAt: 0, importFile: async () => undefined, importPayload: () => undefined, workspaceState: 'base', openCandidate: () => undefined, restoreBase: () => undefined, reset: () => undefined }
+  return { baseUniverse: universe, validation: { valid: true, data: universe, errors: [], warnings: [] }, migrated: [], isLoading: false, loadedAt: 0, updateBeatStatus: async () => undefined, importFile: async () => undefined, importPayload: () => undefined, workspaceState: 'base', openCandidate: () => undefined, restoreBase: () => undefined, reset: () => undefined }
 }
 
 async function renderPage(service: AnalysisService): Promise<{ container: HTMLDivElement; root: Root; cleanup: () => Promise<void> }> {

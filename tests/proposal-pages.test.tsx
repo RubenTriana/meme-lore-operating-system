@@ -41,6 +41,7 @@ function model(overrides: Partial<UniverseContextValue> = {}): UniverseContextVa
     isLoading: false,
     loadedAt: 0,
     workspaceState: 'base',
+    updateBeatStatus: async () => undefined,
     importFile: async () => undefined,
     importPayload: () => undefined,
     openCandidate: () => undefined,
@@ -137,5 +138,22 @@ describe('proposal center UI', () => {
     await act(async () => click([...container.querySelectorAll('button')].find((button) => button.textContent === 'Decisión')))
     await act(async () => click([...container.querySelectorAll('button')].find((button) => button.textContent?.includes('Restaurar canon base'))))
     expect(restoreBase).toHaveBeenCalled()
+  })
+
+  it('revalidates a stored proposal and enables an idempotent simulation', async () => {
+    const patch = { operations: [{ op: 'add' as const, path: '/modules/lore/content/items/meme-la-gracia/refs/-', value: 'meme-meme' }] }
+    const current = createProposal('already-applied.patch.json', patch, base, generatedAt)
+    const stale = { ...current, baseUniverseHash: 'fnv1a64-stale-base', status: 'rejected' as const, decision: { kind: 'rejected' as const, at: generatedAt }, validation: { ...current.validation, valid: false, structuralSafety: 'FAIL' as const } }
+    await proposalRepository.put(stale)
+
+    await act(async () => {
+      root.render(<UniverseContext.Provider value={model()}><MemoryRouter initialEntries={[`${proposalsRoute}/${stale.id}`]}><Routes><Route path={`${proposalsRoute}/:proposalId`} element={<ProposalDetailPage serviceFactory={() => new InlineAnalysisService()} />} /></Routes></MemoryRouter></UniverseContext.Provider>)
+      await new Promise((resolve) => setTimeout(resolve, 0))
+    })
+    const simulateButton = [...container.querySelectorAll('button')].find((button) => button.textContent?.includes('Simular propuesta')) as HTMLButtonElement
+    expect(simulateButton.disabled).toBe(false)
+
+    await act(async () => { click(simulateButton); await new Promise((resolve) => setTimeout(resolve, 0)) })
+    expect(await proposalRepository.get(stale.id)).toMatchObject({ baseUniverseHash: hashCanonical(base), status: 'simulated', decision: undefined, validation: { valid: true }, simulation: { candidateHash: hashCanonical(base) } })
   })
 })

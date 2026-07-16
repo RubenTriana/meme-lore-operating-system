@@ -3,6 +3,7 @@ import { CharacterRenderer } from './renderers/CharacterRenderer'
 import { BeatRenderer } from './renderers/BeatRenderer'
 import { RelationshipRenderer } from './renderers/RelationshipRenderer'
 import { TimelineRenderer } from './renderers/TimelineRenderer'
+import { MysteryRenderer } from './renderers/MysteryRenderer'
 import type { ModuleRenderer } from './types'
 
 const renderers = new Map<string, ModuleRenderer>([
@@ -11,6 +12,7 @@ const renderers = new Map<string, ModuleRenderer>([
   ['beats', BeatRenderer],
   ['relationships', RelationshipRenderer],
   ['timeline', TimelineRenderer],
+  ['mysteries', MysteryRenderer],
 ])
 
 export function registerRenderer(id: string, renderer: ModuleRenderer): void {

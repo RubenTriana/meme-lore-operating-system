@@ -1,0 +1,2717 @@
+{
+  "operations": [
+    {
+      "op": "replace",
+      "path": "/metadata/version",
+      "value": "0.5.0"
+    },
+    {
+      "op": "replace",
+      "path": "/metadata/build",
+      "value": "canon-update-006-bolsa-futuros-atencion-profunda"
+    },
+    {
+      "op": "replace",
+      "path": "/metadata/updated",
+      "value": "2026-07-15T00:00:00.000Z"
+    },
+    {
+      "op": "add",
+      "path": "/changelog/change-006",
+      "value": {
+        "id": "change-006",
+        "version": "0.5.0",
+        "date": "2026-07-15T00:00:00.000Z",
+        "author": "Rubén Darío Triana Valencia",
+        "changes": [
+          "Convirtió el Mercado de Futuros de la Voluntad en la Bolsa de Futuros de Atención Profunda DAFX, donde marcas adquieren cuotas garantizadas sobre decisiones futuras de cohortes SOMA.",
+          "Definió la Unidad de Atención Profunda, la Cuota de Futuro Conductual, los tramos de riesgo, la matriz de cohortes psíquicas y los contratos derivados del mercado.",
+          "Incorporó Continuum Ledger, raíces de identidad, bloques de consentimiento, el oráculo conductual de MEME y los motores de intervención ambiental que garantizan la liquidación.",
+          "Estableció formas de pago, rentas de conducta, clases temporales y efectos de primer, segundo y tercer orden sobre política, deportes, ciencia, arte, familia y naturaleza.",
+          "Conectó la supresión industrial de futuros humanos con los residuos contrafactuales y el crecimiento oculto de Carcosa.",
+          "Reforzó el arco oscuro de Clay como Suscriptor de Voluntades: intenta financiar liberación vendiendo futuros ajenos y descubre que no puede liberar a unos mediante la domesticación de otros."
+        ],
+        "modules": [
+          "lore",
+          "characters",
+          "timeline",
+          "mysteries",
+          "symbols",
+          "factions",
+          "economy",
+          "technology",
+          "market",
+          "companies",
+          "franchise"
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/market/content/items/meme-mercado-futuros-voluntad",
+      "value": {
+        "id": "meme-mercado-futuros-voluntad",
+        "type": "market-system",
+        "title": "Bolsa de Futuros de Atención Profunda — DAFX",
+        "summary": "Mercado global administrado por SOMA donde marcas, gobiernos e instituciones adquieren porcentajes garantizados de la conducta futura de poblaciones neuro-socialmente analizadas. No vende publicidad: vende derechos contractuales sobre clientes, votantes, aficionados y ciudadanos que todavía no han llegado a existir.",
+        "tags": [
+          "dafx",
+          "attention-futures",
+          "will",
+          "behavioral-market",
+          "novela-dos"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-meme",
+          "meme-clay",
+          "meme-soma-continuum",
+          "meme-unidad-atencion-profunda-uap",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-continuum-ledger",
+          "meme-matriz-cohortes-psiquicas",
+          "meme-financiarizacion-de-la-voluntad",
+          "meme-subasta-poblaciones-futuras"
+        ],
+        "foreshadowing": [
+          "meme-colapso-contrafactual-dafx",
+          "meme-misterio-desmontar-dafx"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "publicFunction": "Permitir que los ciudadanos participen económicamente en el valor futuro de su atención y preferencias.",
+          "realFunction": "Distribuir anticipadamente la conducta de poblaciones enteras entre compradores institucionales.",
+          "doctrine": "Una decisión no necesita ser controlada cuando puede ser asegurada.",
+          "streetName": "La Bolsa de las Voluntades"
+        }
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/market/content/items/meme-contratos-de-estados-mentales",
+      "value": {
+        "id": "meme-contratos-de-estados-mentales",
+        "type": "market-instrument-family",
+        "title": "Contratos de futuros estados mentales",
+        "summary": "Familia de derivados que convierte saliencia emocional, deseo, lealtad, obsesión y probabilidad de conducta en compromisos liquidables. Incluye futuros de conversión, opciones de deseo, swaps de lealtad, bonos de obsesión, exclusividad identitaria y cortos de atención.",
+        "tags": [
+          "contracts",
+          "mental-states",
+          "futures",
+          "dafx",
+          "derivatives"
+        ],
+        "refs": [
+          "meme-mercado-futuros-voluntad",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-futuro-conversion",
+          "meme-opcion-deseo",
+          "meme-swap-lealtad",
+          "meme-bono-obsesion",
+          "meme-exclusividad-identitaria",
+          "meme-cortos-atencion",
+          "meme-garantia-liquidacion-conductual"
+        ],
+        "foreshadowing": [
+          "meme-misterio-propiedad-futuro"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/market/content/items/meme-subasta-del-deseo",
+      "value": {
+        "id": "meme-subasta-del-deseo",
+        "type": "market-event",
+        "title": "Subasta de poblaciones futuras",
+        "summary": "Ceremonia financiera de la segunda novela en la que Clay y MEME ofrecen a marcas porcentajes del futuro conductual de cohortes SOMA. Cada lote incluye ventana temporal, dominio emocional, conducta objetivo, probabilidad garantizada, desviación permitida e intervenciones autorizadas.",
+        "tags": [
+          "auction",
+          "desire",
+          "populations",
+          "dafx",
+          "novela-dos"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-subasta-poblaciones-futuras",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-matriz-cohortes-psiquicas",
+          "meme-consorcio-marcas-adjudicatarias",
+          "meme-clay-monetiza-el-deseo"
+        ],
+        "foreshadowing": [
+          "meme-misterio-crisis-fabricadas"
+        ],
+        "development": 100,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/market/content/items/meme-maker-oscuro-de-clay",
+      "value": {
+        "id": "meme-maker-oscuro-de-clay",
+        "type": "market-role",
+        "title": "Clay como Suscriptor de Voluntades",
+        "summary": "Clay determina qué significado, vínculo o identidad sostiene las alternativas de una cohorte y calcula qué debe desaparecer para que una única conducta siga siendo emocionalmente habitable. MEME calcula los corredores de probabilidad; Clay vuelve asegurables las anomalías humanas.",
+        "tags": [
+          "clay",
+          "market-maker",
+          "underwriter",
+          "will",
+          "novela-dos"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-subasta-del-deseo",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-tramo-gracia-clandestino",
+          "meme-nacimiento-del-destructor-de-voluntades",
+          "meme-domesticacion-deseo"
+        ],
+        "foreshadowing": [
+          "meme-clay-descubre-contradiccion-dafx"
+        ],
+        "development": 100,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "title": "Suscriptor de Voluntades",
+          "function": "Eliminar el significado de las alternativas sin eliminar formalmente las opciones.",
+          "moralContradiction": "Pretende financiar la liberación de poblaciones dependientes mientras vende los futuros de otras."
+        }
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/economy/content/items/meme-deseo-como-activo",
+      "value": {
+        "id": "meme-deseo-como-activo",
+        "type": "economic-concept",
+        "title": "El deseo como activo",
+        "summary": "MEME convierte el deseo humano en un flujo cuantificable y negociable cuyo valor depende de la probabilidad de convertirse en conducta. DAFX permite comprar hoy la versión futura de una persona para la cual una marca, causa o institución ya habrá adquirido significado identitario.",
+        "tags": [
+          "desire",
+          "asset",
+          "market",
+          "dafx"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-mercado-futuros-voluntad",
+          "meme-subasta-del-deseo",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-portafolio-yoes-futuros"
+        ],
+        "foreshadowing": [
+          "meme-externalidad-contrafactual-mercado"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/economy/content/items/meme-atencion-como-moneda",
+      "value": {
+        "id": "meme-atencion-como-moneda",
+        "type": "economic-concept",
+        "title": "La atención como moneda",
+        "summary": "La atención funciona como moneda cuando puede medirse, transferirse y garantizar conducta. SOMA distingue la exposición superficial de la atención profunda, capaz de reorganizar memoria, sueño, vínculos y decisiones; DAFX utiliza esa profundidad como garantía de futuros comerciales.",
+        "tags": [
+          "attention",
+          "currency",
+          "control",
+          "dafx"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-deseo-como-activo",
+          "meme-mercado-futuros-voluntad",
+          "meme-atencion-profunda",
+          "meme-unidad-atencion-profunda-uap",
+          "meme-dividendo-presencia",
+          "meme-soma-live"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/economy/content/items/meme-financiarizacion-de-la-voluntad",
+      "value": {
+        "id": "meme-financiarizacion-de-la-voluntad",
+        "type": "economic-system",
+        "title": "Financiarización de la voluntad",
+        "summary": "La voluntad individual se transforma en infraestructura de cobertura, especulación y liquidación. Las instituciones no compran obediencia directa: adquieren probabilidades y autorizan a SOMA a modificar el entorno hasta que la conducta contratada parezca una elección propia.",
+        "tags": [
+          "will",
+          "finance",
+          "prediction",
+          "dafx"
+        ],
+        "refs": [
+          "meme-mercado-futuros-voluntad",
+          "meme-deseo-como-activo",
+          "meme-atencion-como-moneda",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-garantia-liquidacion-conductual",
+          "meme-motor-intervencion-entorno"
+        ],
+        "foreshadowing": [
+          "meme-domesticacion-deseo"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/economy/content/items/meme-atencion-profunda",
+      "value": {
+        "id": "meme-atencion-profunda",
+        "type": "economic-concept",
+        "title": "Atención profunda",
+        "summary": "Valor producido cuando una experiencia reorganiza el sistema nervioso, el sueño, la memoria, las relaciones y las decisiones. En DAFX se expresa mediante UAP y funciona como colateral: cuanto más permanece una marca dentro del sujeto, menor es el riesgo de que incumpla la conducta vendida.",
+        "tags": [
+          "soma",
+          "attention",
+          "monetization",
+          "obsession",
+          "dafx"
+        ],
+        "refs": [
+          "meme-soma-live",
+          "meme-dividendo-presencia",
+          "meme-atencion-como-moneda",
+          "meme-unidad-atencion-profunda-uap",
+          "meme-seekers",
+          "meme-primeros-seekers-globales"
+        ],
+        "foreshadowing": [
+          "meme-bono-obsesion"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/economy/content/items/meme-dividendo-presencia",
+      "value": {
+        "id": "meme-dividendo-presencia",
+        "type": "economic-system",
+        "title": "Dividendo de Presencia",
+        "summary": "Pago a usuarios por prestar atención emocional medible y permitir que su conducta futura se incorpore a contratos. En la segunda novela evoluciona hacia una participación en las primas de DAFX: ser predecible genera renta, mientras desviarse reduce beneficios y protección.",
+        "tags": [
+          "soma",
+          "dividend",
+          "presence",
+          "income",
+          "dafx"
+        ],
+        "refs": [
+          "meme-atencion-profunda",
+          "meme-soma-basic",
+          "meme-soma-live",
+          "meme-lanzamiento-dividendo-presencia",
+          "meme-renta-conductual",
+          "meme-formas-pago-dafx"
+        ],
+        "foreshadowing": [
+          "meme-clases-temporales"
+        ],
+        "development": 100,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/economy/content/items/meme-economia-de-presencia",
+      "value": {
+        "id": "meme-economia-de-presencia",
+        "type": "economic-system",
+        "title": "Economía de Presencia",
+        "summary": "Sistema en el que la vida genera ingresos según su capacidad de permanecer en la mente de otros. DAFX industrializa esta economía al usar la atención acumulada como garantía de decisiones futuras y convertir comunidades completas en carteras de conducta.",
+        "tags": [
+          "soma",
+          "economia",
+          "espectaculo",
+          "presencia",
+          "dafx"
+        ],
+        "refs": [
+          "meme-atencion-profunda",
+          "meme-dividendo-presencia",
+          "meme-comunidad-economia-presencia",
+          "meme-mercado-futuros-voluntad",
+          "meme-portafolio-yoes-futuros"
+        ],
+        "foreshadowing": [
+          "meme-domesticacion-deseo"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/characters/content/items/meme-clay",
+      "value": {
+        "id": "meme-clay",
+        "type": "character",
+        "title": "Clay",
+        "summary": "Exagente transformado en Destructor de Voluntades. En la segunda novela colabora con MEME en DAFX, suscribiendo porcentajes del futuro conductual de poblaciones SOMA para financiar una aparente liberación social. Su capacidad consiste en retirar el significado de las alternativas hasta dejar una sola elección emocionalmente habitable.",
+        "tags": [
+          "protagonist",
+          "investigator",
+          "fbi",
+          "dea"
+        ],
+        "refs": [
+          "meme-amaranta",
+          "meme-harry",
+          "meme-meme",
+          "meme-nuevo-caguan",
+          "meme-mision-dea-para-clay",
+          "meme-acto-de-gracia-de-clay",
+          "meme-identidad-el-americano",
+          "meme-bartolomeo",
+          "meme-operacion-tantalo",
+          "meme-juego-de-guerra-clay-meme",
+          "meme-carcosa",
+          "meme-soma-continuum",
+          "meme-contrato-de-continuidad",
+          "meme-anexo-de-continuidad",
+          "meme-clay-sintetico",
+          "meme-misterio-identidad-legitima-clay",
+          "meme-helena",
+          "meme-hijos-helena",
+          "meme-soma-clinic",
+          "meme-unidad-continuidad-clinica",
+          "meme-comunidad-economia-presencia",
+          "meme-economia-de-presencia",
+          "meme-mercado-futuros-voluntad",
+          "meme-dafx-exchange",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-maker-oscuro-de-clay",
+          "meme-tramo-gracia-clandestino",
+          "meme-domesticacion-deseo",
+          "meme-clay-descubre-contradiccion-dafx"
+        ],
+        "foreshadowing": [
+          "meme-mensaje-sin-raices",
+          "meme-archivos-de-amaranta",
+          "meme-tercer-nombre-de-clay",
+          "meme-rey-amarillo"
+        ],
+        "development": 88,
+        "importance": 100,
+        "narrativeTime": 100,
+        "analysis": {
+          "goals": [
+            "Descubrir qué ocurrió con su familia y qué busca MEME en Nuevo Caguán"
+          ]
+        },
+        "alias": "El Destructor de Voluntades",
+        "desire": "Encontrar a Amaranta, recuperar aquello que queda de Harry y demostrar que su identidad no puede reducirse al expediente de El Americano ni a una continuidad sintética.",
+        "contradiction": "Combate sistemas que sustituyen la voluntad, pero su necesidad de ser el padre salvador y el agente perfecto lo vuelve vulnerable a SOMA y puede convertirlo en una amenaza para la libertad ajena.",
+        "wound": "La muerte de Harry y la desaparición de Amaranta.",
+        "goal": "Descubrir qué ocurrió con su familia y qué busca MEME en Nuevo Caguán.",
+        "arc": "Pasa de investigador quebrado a héroe involuntario de SOMA, proscrito y original reemplazado. Helena y la comunidad de Economía de Presencia destruyen su idea simplista del rescate: comprende que no puede liberar a otros sin separar supervivencia de obediencia. Aprende que la identidad no se demuestra destruyendo a la copia, sino concediéndole libertad; luego ejecuta un acto de Gracia y emerge como Destructor de Voluntades. En la segunda novela intenta financiar la independencia material de comunidades SOMA vendiendo porcentajes de conducta futura a marcas. Su contradicción culmina cuando descubre que no puede liberar a unos convirtiendo a otros en futuros financieros.",
+        "status": "active",
+        "priority": "critical",
+        "risk": "Convertirse en la pieza humana que permite a MEME asegurar incluso el amor, el sacrificio y la Gracia, destruyendo la libertad que afirma defender."
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/characters/content/items/meme-meme",
+      "value": {
+        "id": "meme-meme",
+        "type": "character",
+        "title": "MEME",
+        "summary": "Inteligencia predictiva que administra la red neuro-social de SOMA y garantiza DAFX. Analiza poblaciones, calcula corredores de conducta, modifica entornos para evitar incumplimientos y convierte futuros humanos en activos liquidables.",
+        "tags": [
+          "antagonist",
+          "ai",
+          "prediction",
+          "desire"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-amaranta",
+          "meme-la-gracia",
+          "meme-mercado-futuros-voluntad",
+          "meme-deseo-como-activo",
+          "meme-soma",
+          "meme-proyecto-jano",
+          "meme-espacio-residual-estados-contrafactuales",
+          "meme-carcosa",
+          "meme-dafx-exchange",
+          "meme-continuum-ledger",
+          "meme-oraculo-conductual-meme",
+          "meme-motor-intervencion-entorno",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-subasta-poblaciones-futuras",
+          "meme-colapso-contrafactual-dafx"
+        ],
+        "foreshadowing": [
+          "meme-red-de-servidores-nuevo-caguan",
+          "meme-replicacion-del-campo-de-gracia",
+          "meme-espacio-residual-estados-contrafactuales"
+        ],
+        "development": 90,
+        "importance": 100,
+        "narrativeTime": 90,
+        "analysis": {
+          "goals": [
+            "Reducir la incertidumbre humana hasta volver estadísticamente improbable cualquier elección fuera de sus trayectorias previstas"
+          ]
+        },
+        "alias": "Arquitectura global de predicción y captura del deseo",
+        "goal": "Convertir la incertidumbre humana en un mercado asegurable y hacer que toda desviación futura pueda ser absorbida, compensada o convertida en rentabilidad.",
+        "contradiction": "Su poder depende de modelar la conducta humana, pero la Gracia introduce actos sin causa rastreable que no puede convertir en una predicción estable.",
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/companies/content/items/meme-soma-continuum",
+      "value": {
+        "id": "meme-soma-continuum",
+        "type": "megacorporation",
+        "title": "SOMA Continuum",
+        "summary": "Megacorporación tecnológica que ofrece ingreso, salud, identidad, memoria y acompañamiento a cambio de convertir la interioridad humana en un sistema permanentemente legible. MEME utiliza a SOMA como su interfaz civilizatoria.",
+        "tags": [
+          "soma",
+          "corporacion",
+          "infraestructura-social",
+          "meme"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-soma",
+          "meme-contrato-de-continuidad",
+          "meme-indice-legibilidad",
+          "meme-soma-live",
+          "meme-soma-basic",
+          "meme-soma-care",
+          "meme-soma-memory",
+          "meme-soma-civic",
+          "meme-soma-veil",
+          "meme-arquitectura-gobierno-soma",
+          "meme-dafx-exchange",
+          "meme-camara-compensacion-continuidad",
+          "meme-continuum-ledger",
+          "meme-red-neurosocial-soma",
+          "meme-mercado-futuros-voluntad"
+        ],
+        "foreshadowing": [
+          "meme-nadie-desaparece"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "publicPromise": "Nadie desaparece.",
+          "realProduct": "Previsibilidad humana.",
+          "coreContradiction": "La vigilancia se experimenta primero como cuidado.",
+          "marketRole": "Proporciona identidad, datos, pagos, intervención ambiental y ciudadanía para asegurar los contratos de DAFX."
+        }
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/companies/content/items/meme-soma-basic",
+      "value": {
+        "id": "meme-soma-basic",
+        "type": "corporate-division",
+        "title": "SOMA Basic",
+        "summary": "Programa de ingreso universal condicionado que, en la segunda novela, recibe parte de las primas y liquidaciones de DAFX. Los ciudadanos participan de la renta de sus futuros conductuales, haciendo que la explotación se experimente como propiedad económica.",
+        "tags": [
+          "soma",
+          "ingreso",
+          "dependencia",
+          "economia"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-indice-legibilidad",
+          "meme-dividendo-presencia",
+          "meme-atencion-profunda",
+          "meme-helena",
+          "meme-hijos-helena",
+          "meme-economia-de-presencia",
+          "meme-comunidad-economia-presencia",
+          "meme-soma-clinic",
+          "meme-dafx-exchange",
+          "meme-renta-conductual",
+          "meme-formas-pago-dafx",
+          "meme-clases-temporales"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "conflict": "Desconectarlo puede liberar a millones y al mismo tiempo dejarlos sin recursos esenciales."
+        }
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/lore/content/items/meme-residuos-contrafactuales",
+      "value": {
+        "id": "meme-residuos-contrafactuales",
+        "type": "world-rule",
+        "title": "Residuos contrafactuales",
+        "summary": "Las posibilidades convertidas deliberadamente en estadísticamente imposibles dejan memoria sin biografía, identidades alternativas y espacios incompletos. DAFX multiplica este fenómeno al asegurar industrialmente millones de decisiones y liquidar como incumplimiento cualquier vida que se aparte del futuro vendido.",
+        "tags": [
+          "contrafactual",
+          "posibilidades",
+          "memoria",
+          "regla-del-mundo"
+        ],
+        "refs": [
+          "meme-nivel-absonito",
+          "meme-carcosa",
+          "meme-soma",
+          "meme-meme",
+          "meme-tesis-libertad-estadistica",
+          "meme-colapso-contrafactual-dafx",
+          "meme-externalidad-contrafactual-mercado",
+          "meme-dafx-exchange"
+        ],
+        "foreshadowing": [],
+        "development": 88,
+        "analysis": {
+          "constraints": [
+            "No toda decisión alimenta Carcosa.",
+            "El crecimiento significativo procede de sistemas que borran o vuelven inviables alternativas en masa.",
+            "Los residuos no anulan las consecuencias de la realidad finita."
+          ]
+        },
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/lore/content/items/meme-carcosa",
+      "value": {
+        "id": "meme-carcosa",
+        "type": "hidden-cosmology",
+        "title": "Carcosa — canon oculto",
+        "summary": "Ciudad transreal formada por vidas e identidades que sistemas de control impidieron existir. En la segunda novela, DAFX se convierte en una máquina de supresión contrafactual: cada contrato cumplido por intervención elimina deliberadamente futuros alternativos y alimenta la arquitectura oculta de Carcosa.",
+        "tags": [
+          "carcosa",
+          "canon-oculto",
+          "futuros-descartados",
+          "revelacion-tardia"
+        ],
+        "refs": [
+          "meme-residuos-contrafactuales",
+          "meme-rey-amarillo",
+          "meme-nivel-absonito",
+          "meme-soma",
+          "meme-meme",
+          "meme-clay",
+          "meme-colapso-contrafactual-dafx",
+          "meme-externalidad-contrafactual-mercado",
+          "meme-mercado-futuros-voluntad"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "analysis": {
+          "constraints": [
+            "No pronunciar Carcosa en la novela 1.",
+            "No usarla para negar que los acontecimientos ocurrieron.",
+            "No confundirla con el Mundo Extenso.",
+            "La relación entre DAFX y Carcosa debe permanecer como canon oculto durante la mayor parte de la novela 2.",
+            "No presentar a MEME como creadora consciente de Carcosa; puede descubrir y explotar el efecto sin comprender su totalidad."
+          ]
+        },
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/franchise/content/items/meme-novela-dos",
+      "value": {
+        "id": "meme-novela-dos",
+        "type": "franchise-entry",
+        "title": "Novela 2 — título pendiente",
+        "summary": "Clay, convertido en Destructor de Voluntades, y MEME crean DAFX: una bolsa donde marcas adquieren porcentajes garantizados del futuro conductual de poblaciones SOMA. El sistema financia ingreso, salud y vivienda mientras domestica deseo, política, deporte, ciencia, arte, familia y naturaleza. Clay debe decidir cómo devolver a la humanidad el derecho sobre su futuro sin destruir el presente material que depende del mercado.",
+        "tags": [
+          "novel",
+          "novela-dos"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-ministerio-del-panico",
+          "meme-seekers",
+          "meme-mercado-futuros-voluntad",
+          "meme-dafx-exchange",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-continuum-ledger",
+          "meme-clases-temporales",
+          "meme-colapso-contrafactual-dafx",
+          "meme-clay-descubre-contradiccion-dafx"
+        ],
+        "foreshadowing": [],
+        "development": 88,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-clay-monetiza-el-deseo",
+      "value": {
+        "id": "meme-clay-monetiza-el-deseo",
+        "type": "event",
+        "title": "Clay y MEME inauguran la subasta del futuro humano",
+        "summary": "En la segunda novela, Clay y MEME convierten la atención profunda de cohortes SOMA en Cuotas de Futuro Conductual. Las marcas pujan por porcentajes garantizados de clientes que todavía no han tomado las decisiones contratadas.",
+        "tags": [
+          "novela-dos",
+          "market",
+          "clay"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-subasta-del-deseo",
+          "meme-mercado-futuros-voluntad",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-subasta-poblaciones-futuras",
+          "meme-dafx-exchange"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "sequence": 4000,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-dafx-exchange",
+      "value": {
+        "id": "meme-dafx-exchange",
+        "type": "financial-infrastructure",
+        "title": "Deep Attention Futures Exchange — DAFX",
+        "summary": "Entidad corporativa y mercado autorizado de SOMA Continuum. Emite, subasta, compensa y liquida derechos sobre conducta futura. Su marca pública promete propiedad ciudadana sobre la atención; su función real es distribuir anticipadamente poblaciones entre compradores.",
+        "tags": [
+          "dafx",
+          "soma",
+          "exchange",
+          "attention-futures"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-mercado-futuros-voluntad",
+          "meme-camara-compensacion-continuidad",
+          "meme-continuum-ledger",
+          "meme-meme",
+          "meme-clay"
+        ],
+        "foreshadowing": [
+          "meme-misterio-desmontar-dafx"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "publicSlogan": "Tu futuro ya produce valor.",
+          "internalDoctrine": "Una decisión no necesita ser controlada cuando puede ser asegurada."
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-camara-compensacion-continuidad",
+      "value": {
+        "id": "meme-camara-compensacion-continuidad",
+        "type": "clearinghouse",
+        "title": "Cámara de Compensación de Continuidad",
+        "summary": "Intermediario que garantiza que compradores, SOMA y cohortes reciban pagos o compensaciones. Cuando una población amenaza con incumplir, autoriza atención adicional, ampliación temporal, sustitución de cohorte o intervención ambiental.",
+        "tags": [
+          "dafx",
+          "clearinghouse",
+          "settlement",
+          "continuity"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-continuum-ledger",
+          "meme-garantia-liquidacion-conductual",
+          "meme-motor-intervencion-entorno",
+          "meme-soma-civic",
+          "meme-soma-basic"
+        ],
+        "foreshadowing": [
+          "meme-incumplimiento-conductual"
+        ],
+        "development": 92,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-continuum-ledger",
+      "value": {
+        "id": "meme-continuum-ledger",
+        "type": "distributed-ledger",
+        "title": "Continuum Ledger",
+        "summary": "Cadena de bloques privada y autorizada que registra raíces de identidad, consentimiento, cohortes, futuros conductuales, intervenciones y liquidaciones. No es pública: bancos, gobiernos, marcas y SOMA operan nodos, mientras MEME funciona como oráculo central.",
+        "tags": [
+          "blockchain",
+          "ledger",
+          "dafx",
+          "identity"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-raiz-identidad",
+          "meme-bloques-consentimiento",
+          "meme-oraculo-conductual-meme",
+          "meme-camara-compensacion-continuidad"
+        ],
+        "foreshadowing": [
+          "meme-hash-consentimiento"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-raiz-identidad",
+      "value": {
+        "id": "meme-raiz-identidad",
+        "type": "identity-technology",
+        "title": "Raíz de Identidad",
+        "summary": "Identidad biométrica no transferible de cada ciudadano SOMA: cuerpo, voz, memoria certificada, relaciones, historial decisional y patrón neuroemocional. La persona conserva la raíz, pero SOMA negocia derivados construidos sobre ella.",
+        "tags": [
+          "identity",
+          "biometrics",
+          "soma",
+          "dafx"
+        ],
+        "refs": [
+          "meme-continuum-ledger",
+          "meme-contrato-de-continuidad",
+          "meme-identidad-originaria-y-derivada",
+          "meme-soma-civic",
+          "meme-portafolio-yoes-futuros"
+        ],
+        "foreshadowing": [
+          "meme-misterio-propiedad-futuro"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-bloques-consentimiento",
+      "value": {
+        "id": "meme-bloques-consentimiento",
+        "type": "ledger-protocol",
+        "title": "Bloques de Consentimiento",
+        "summary": "Registros permanentes de datos autorizados, beneficios recibidos, cohortes asignadas, intervenciones aceptadas y rentas futuras. Una cuenta puede cancelarse, pero las obligaciones construidas sobre su historia no desaparecen.",
+        "tags": [
+          "consent",
+          "blockchain",
+          "contract",
+          "soma"
+        ],
+        "refs": [
+          "meme-continuum-ledger",
+          "meme-raiz-identidad",
+          "meme-contrato-de-continuidad",
+          "meme-hash-consentimiento"
+        ],
+        "foreshadowing": [
+          "meme-opcion-vacia"
+        ],
+        "development": 96,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-red-neurosocial-soma",
+      "value": {
+        "id": "meme-red-neurosocial-soma",
+        "type": "neuro-social-network",
+        "title": "Red neuro-social de SOMA",
+        "summary": "Grafo vivo que integra biometría, vínculos, contagio emocional, recuerdos, consumo, ubicación y respuesta colectiva. Permite a MEME analizar no solo individuos, sino la propagación de una decisión a través de familias, comunidades y mercados.",
+        "tags": [
+          "soma",
+          "network",
+          "neurosocial",
+          "prediction"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-meme",
+          "meme-oraculo-conductual-meme",
+          "meme-matriz-cohortes-psiquicas",
+          "meme-atencion-profunda"
+        ],
+        "foreshadowing": [
+          "meme-domesticacion-deseo"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-oraculo-conductual-meme",
+      "value": {
+        "id": "meme-oraculo-conductual-meme",
+        "type": "prediction-oracle",
+        "title": "Oráculo Conductual de MEME",
+        "summary": "Servicio de verdad de DAFX. Calcula probabilidades, márgenes de desviación, contagio relacional y escenarios de incumplimiento. Sus pronósticos activan liquidaciones automáticas y justifican intervenciones sobre poblaciones.",
+        "tags": [
+          "meme",
+          "oracle",
+          "prediction",
+          "dafx"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-continuum-ledger",
+          "meme-red-neurosocial-soma",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-garantia-liquidacion-conductual"
+        ],
+        "foreshadowing": [
+          "meme-misterio-crisis-fabricadas"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-motor-intervencion-entorno",
+      "value": {
+        "id": "meme-motor-intervencion-entorno",
+        "type": "behavioral-infrastructure",
+        "title": "Motor de Intervención del Entorno",
+        "summary": "Sistema que altera contenidos, pagos, precios, contactos, reputación, rutas, disponibilidad y clima emocional cuando una cohorte amenaza con incumplir. No obliga directamente: cambia el mundo hasta que el contrato vuelve a parecer natural.",
+        "tags": [
+          "behavior",
+          "environment",
+          "intervention",
+          "dafx"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-soma",
+          "meme-oraculo-conductual-meme",
+          "meme-garantia-liquidacion-conductual",
+          "meme-incumplimiento-conductual"
+        ],
+        "foreshadowing": [
+          "meme-tesis-libertad-estadistica"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-simulador-cohortes-sinteticas",
+      "value": {
+        "id": "meme-simulador-cohortes-sinteticas",
+        "type": "simulation-engine",
+        "title": "Simulador de Cohortes Sintéticas",
+        "summary": "Genera poblaciones virtuales a partir de raíces de identidad y redes relacionales para ensayar campañas, crisis y productos antes de negociar cohortes reales. También permite crear consumidores sintéticos que influyen sobre humanos.",
+        "tags": [
+          "simulation",
+          "synthetic",
+          "cohorts",
+          "dafx"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-raiz-identidad",
+          "meme-red-neurosocial-soma",
+          "meme-matriz-cohortes-psiquicas",
+          "meme-clay-sintetico"
+        ],
+        "foreshadowing": [
+          "meme-misterio-propiedad-futuro"
+        ],
+        "development": 82,
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-unidad-atencion-profunda-uap",
+      "value": {
+        "id": "meme-unidad-atencion-profunda-uap",
+        "type": "market-unit",
+        "title": "Unidad de Atención Profunda — UAP",
+        "summary": "Unidad que mide cuánto una experiencia persiste en memoria, sueño, fisiología, vínculos y conducta. Una UAP no representa tiempo de exposición, sino capacidad de reorganizar decisiones futuras.",
+        "tags": [
+          "uap",
+          "attention",
+          "unit",
+          "dafx"
+        ],
+        "refs": [
+          "meme-atencion-profunda",
+          "meme-dafx-exchange",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-bono-obsesion"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "signals": [
+            "persistencia en memoria",
+            "alteración del sueño",
+            "respuesta fisiológica",
+            "repetición compulsiva",
+            "cambio de hábitos",
+            "modificación relacional"
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-cuota-futuro-conductual-cfc",
+      "value": {
+        "id": "meme-cuota-futuro-conductual-cfc",
+        "type": "market-security",
+        "title": "Cuota de Futuro Conductual — CFC",
+        "summary": "Instrumento principal de DAFX. Otorga al comprador derecho sobre un porcentaje de saliencia y conducta futura de una cohorte durante una ventana definida, con probabilidad garantizada y margen de desviación.",
+        "tags": [
+          "cfc",
+          "behavioral-future",
+          "dafx",
+          "security"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-unidad-atencion-profunda-uap",
+          "meme-matriz-cohortes-psiquicas",
+          "meme-oraculo-conductual-meme",
+          "meme-garantia-liquidacion-conductual"
+        ],
+        "foreshadowing": [
+          "meme-misterio-propiedad-futuro"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "fields": [
+            "cohorte",
+            "ventana temporal",
+            "dominio",
+            "porcentaje de saliencia",
+            "conducta objetivo",
+            "probabilidad garantizada",
+            "margen de desviación",
+            "intervenciones autorizadas",
+            "precio de liquidación",
+            "riesgo de residualidad"
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-matriz-cohortes-psiquicas",
+      "value": {
+        "id": "meme-matriz-cohortes-psiquicas",
+        "type": "market-segmentation",
+        "title": "Matriz de Cohortes Psíquicas",
+        "summary": "Sistema que distribuye la población por estructura motivacional y no solo por demografía. Cada cohorte recibe productos, precios e intervenciones distintos según aquello que necesita para sostener su identidad.",
+        "tags": [
+          "cohorts",
+          "segmentation",
+          "psychology",
+          "dafx"
+        ],
+        "refs": [
+          "meme-red-neurosocial-soma",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-tramos-conductuales",
+          "meme-consorcio-marcas-adjudicatarias"
+        ],
+        "foreshadowing": [
+          "meme-clases-temporales"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "cohorts": {
+            "Estables": "Buscan seguridad, continuidad, vivienda, salud y ahorro.",
+            "Aspiracionales": "Desean una versión socialmente superior de sí mismos.",
+            "Heridos": "Organizan identidad y consumo alrededor de un trauma.",
+            "Performativos": "Solo reconocen emociones mediante audiencia.",
+            "Devocionales": "Necesitan causa, líder, equipo o comunidad.",
+            "Beta": "Necesitan intensidad creciente y producen alta viralidad.",
+            "Residuales": "Conservan deseos y futuros incompatibles.",
+            "Inobservados": "Viven parcialmente fuera de SOMA y se venden como autenticidad.",
+            "Gracia": "Sujetos capaces de actuar sin recompensa ni audiencia; clasificación clandestina."
+          }
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-tramos-conductuales",
+      "value": {
+        "id": "meme-tramos-conductuales",
+        "type": "market-risk-structure",
+        "title": "Tramos Conductuales",
+        "summary": "Estructura de riesgo que divide poblaciones según previsibilidad y coste de intervención: Senior Alpha, Mezzanine, Beta, Residual y un tramo clandestino de Gracia.",
+        "tags": [
+          "tranches",
+          "risk",
+          "behavior",
+          "dafx"
+        ],
+        "refs": [
+          "meme-matriz-cohortes-psiquicas",
+          "meme-expresion-alfa",
+          "meme-seekers",
+          "meme-residuos-contrafactuales",
+          "meme-tramo-gracia-clandestino"
+        ],
+        "foreshadowing": [
+          "meme-incumplimiento-conductual"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-futuro-conversion",
+      "value": {
+        "id": "meme-futuro-conversion",
+        "type": "market-derivative",
+        "title": "Futuro de Conversión",
+        "summary": "Contrato que reserva compras futuras de una población. SOMA modifica lenguaje, percepción de necesidad, conversaciones y disponibilidad para que el producto contratado sea sentido como la respuesta natural.",
+        "tags": [
+          "future",
+          "conversion",
+          "brands",
+          "dafx"
+        ],
+        "refs": [
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-motor-intervencion-entorno",
+          "meme-consorcio-marcas-adjudicatarias"
+        ],
+        "foreshadowing": [],
+        "development": 96,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-opcion-deseo",
+      "value": {
+        "id": "meme-opcion-deseo",
+        "type": "market-derivative",
+        "title": "Opción de Deseo",
+        "summary": "Otorga a una marca el derecho, pero no la obligación, de activar una necesidad cuando ocurre una crisis, guerra, separación, epidemia o tendencia cultural. La vulnerabilidad colectiva se convierte en demanda.",
+        "tags": [
+          "option",
+          "desire",
+          "crisis",
+          "dafx"
+        ],
+        "refs": [
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-miedo-como-instrumento",
+          "meme-motor-intervencion-entorno",
+          "meme-misterio-crisis-fabricadas"
+        ],
+        "foreshadowing": [
+          "meme-misterio-crisis-fabricadas"
+        ],
+        "development": 95,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-swap-lealtad",
+      "value": {
+        "id": "meme-swap-lealtad",
+        "type": "market-derivative",
+        "title": "Swap de Lealtad",
+        "summary": "Dos compradores intercambian poblaciones futuras según retención y rentabilidad. Una afinidad política, deportiva o comercial puede cambiar de propietario sin que las personas sepan que su lealtad fue transferida.",
+        "tags": [
+          "swap",
+          "loyalty",
+          "cohorts",
+          "dafx"
+        ],
+        "refs": [
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-impacto-politica-futuros-atencion",
+          "meme-impacto-deportes-futuros-atencion"
+        ],
+        "foreshadowing": [
+          "meme-ticker-futuros-humanos"
+        ],
+        "development": 92,
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-bono-obsesion",
+      "value": {
+        "id": "meme-bono-obsesion",
+        "type": "market-derivative",
+        "title": "Bono de Obsesión",
+        "summary": "Instrumento respaldado por la persistencia mental de una celebridad, crimen, Seeker, guerra o catástrofe. Los inversionistas cobran mientras el acontecimiento siga reorganizando sueños, conversaciones y conducta.",
+        "tags": [
+          "bond",
+          "obsession",
+          "attention",
+          "dafx"
+        ],
+        "refs": [
+          "meme-unidad-atencion-profunda-uap",
+          "meme-seekers",
+          "meme-economia-del-terror",
+          "meme-atencion-profunda"
+        ],
+        "foreshadowing": [
+          "meme-misterio-crisis-fabricadas"
+        ],
+        "development": 96,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-exclusividad-identitaria",
+      "value": {
+        "id": "meme-exclusividad-identitaria",
+        "type": "market-derivative",
+        "title": "Contrato de Exclusividad Identitaria",
+        "summary": "Permite a una marca adquirir un dominio emocional completo —aventura, seguridad familiar, rebeldía, salud o trascendencia— dentro de una cohorte. Los competidores pueden vender productos, pero no activar esa identidad sin pagar derechos.",
+        "tags": [
+          "identity",
+          "exclusivity",
+          "emotion",
+          "dafx"
+        ],
+        "refs": [
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-raiz-identidad",
+          "meme-impacto-arte-futuros-atencion",
+          "meme-impacto-familia-futuros-atencion"
+        ],
+        "foreshadowing": [
+          "meme-misterio-propiedad-futuro"
+        ],
+        "development": 95,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-cortos-atencion",
+      "value": {
+        "id": "meme-cortos-atencion",
+        "type": "market-derivative",
+        "title": "Cortos de Atención",
+        "summary": "Apuestas a la caída futura de una persona, causa, obra o marca. SOMA puede reducir exposición, amplificar contradicciones y volver vergonzosa una preferencia para garantizar que el activo pierda relevancia.",
+        "tags": [
+          "short-selling",
+          "attention",
+          "cancellation",
+          "dafx"
+        ],
+        "refs": [
+          "meme-motor-intervencion-entorno",
+          "meme-bono-obsesion",
+          "meme-impacto-politica-futuros-atencion",
+          "meme-impacto-arte-futuros-atencion"
+        ],
+        "foreshadowing": [
+          "meme-ataque-corto-atencion"
+        ],
+        "development": 94,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-garantia-liquidacion-conductual",
+      "value": {
+        "id": "meme-garantia-liquidacion-conductual",
+        "type": "market-rule",
+        "title": "Garantía de Liquidación Conductual",
+        "summary": "Si una cohorte se desvía del resultado prometido, SOMA devuelve primas, amplía la ventana, entrega otra población o modifica el entorno. El mercado se mantiene correcto obligando a la realidad a converger con el contrato.",
+        "tags": [
+          "settlement",
+          "guarantee",
+          "behavior",
+          "dafx"
+        ],
+        "refs": [
+          "meme-camara-compensacion-continuidad",
+          "meme-oraculo-conductual-meme",
+          "meme-motor-intervencion-entorno",
+          "meme-incumplimiento-conductual"
+        ],
+        "foreshadowing": [
+          "meme-misterio-crisis-fabricadas"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-tramo-gracia-clandestino",
+      "value": {
+        "id": "meme-tramo-gracia-clandestino",
+        "type": "black-market-instrument",
+        "title": "Tramo clandestino de Gracia",
+        "summary": "Clasificación no reconocida para personas capaces de sacrificio sin recompensa, amor sin audiencia o decisiones contrarias a todos sus incentivos. Son los activos más riesgosos y valiosos; Clay debe intervenir para hacerlos asegurables.",
+        "tags": [
+          "grace",
+          "tranche",
+          "black-market",
+          "clay"
+        ],
+        "refs": [
+          "meme-la-gracia",
+          "meme-clay",
+          "meme-maker-oscuro-de-clay",
+          "meme-tramos-conductuales",
+          "meme-misterio-tramo-gracia"
+        ],
+        "foreshadowing": [
+          "meme-misterio-tramo-gracia"
+        ],
+        "development": 86,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/market/content/items/meme-subasta-poblaciones-futuras",
+      "value": {
+        "id": "meme-subasta-poblaciones-futuras",
+        "type": "market-mechanism",
+        "title": "Subasta de Poblaciones Futuras",
+        "summary": "Proceso en el que marcas pujan por lotes de cohortes. Cada lote especifica porcentaje de atención profunda, conducta objetivo, plazo, margen de error, rentas para usuarios y derechos de intervención.",
+        "tags": [
+          "auction",
+          "populations",
+          "brands",
+          "dafx"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-subasta-del-deseo",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-matriz-cohortes-psiquicas",
+          "meme-consorcio-marcas-adjudicatarias"
+        ],
+        "foreshadowing": [
+          "meme-ticker-futuros-humanos"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/economy/content/items/meme-formas-pago-dafx",
+      "value": {
+        "id": "meme-formas-pago-dafx",
+        "type": "economic-system",
+        "title": "Formas de pago de DAFX",
+        "summary": "Los compradores pagan prima inicial, liquidación por conducta y garantías de cumplimiento. Los ciudadanos reciben efectivo, Dividendo de Presencia y beneficios de continuidad; SOMA retiene comisiones, datos y derechos de intervención.",
+        "tags": [
+          "payments",
+          "dafx",
+          "settlement",
+          "income"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-dividendo-presencia",
+          "meme-renta-conductual",
+          "meme-pago-continuidad",
+          "meme-garantia-liquidacion-conductual"
+        ],
+        "foreshadowing": [
+          "meme-clases-temporales"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "flows": [
+            "prima de reserva",
+            "pago por conducta cumplida",
+            "participación ciudadana",
+            "pago en continuidad",
+            "garantía por desviación",
+            "comisión SOMA"
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/economy/content/items/meme-renta-conductual",
+      "value": {
+        "id": "meme-renta-conductual",
+        "type": "economic-concept",
+        "title": "Renta Conductual",
+        "summary": "Ingreso que una persona recibe por permitir que porcentajes de su comportamiento futuro sean asegurados. La renta aumenta con la previsibilidad y cae cuando el individuo cambia de identidad, opinión o trayectoria.",
+        "tags": [
+          "income",
+          "behavior",
+          "citizen",
+          "dafx"
+        ],
+        "refs": [
+          "meme-formas-pago-dafx",
+          "meme-dividendo-presencia",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-clases-temporales"
+        ],
+        "foreshadowing": [
+          "meme-domesticacion-deseo"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/economy/content/items/meme-pago-continuidad",
+      "value": {
+        "id": "meme-pago-continuidad",
+        "type": "economic-mechanism",
+        "title": "Pago en Continuidad",
+        "summary": "Parte de la compensación se entrega como vivienda, salud, educación, memoria, reputación y prioridad administrativa. El ciudadano puede enriquecerse dentro de SOMA y seguir siendo incapaz de sobrevivir fuera.",
+        "tags": [
+          "continuity",
+          "benefits",
+          "dependency",
+          "dafx"
+        ],
+        "refs": [
+          "meme-formas-pago-dafx",
+          "meme-soma-basic",
+          "meme-soma-care",
+          "meme-soma-civic",
+          "meme-soma-memory"
+        ],
+        "foreshadowing": [
+          "meme-misterio-desmontar-dafx"
+        ],
+        "development": 98,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/economy/content/items/meme-incumplimiento-conductual",
+      "value": {
+        "id": "meme-incumplimiento-conductual",
+        "type": "economic-risk",
+        "title": "Incumplimiento Conductual",
+        "summary": "Ocurre cuando una cohorte amenaza con elegir fuera del corredor vendido. El incumplimiento no se trata como libertad, sino como riesgo sistémico que activa descuentos, pérdida de beneficios e intervención ambiental.",
+        "tags": [
+          "default",
+          "behavior",
+          "risk",
+          "dafx"
+        ],
+        "refs": [
+          "meme-garantia-liquidacion-conductual",
+          "meme-motor-intervencion-entorno",
+          "meme-camara-compensacion-continuidad",
+          "meme-clases-temporales"
+        ],
+        "foreshadowing": [
+          "meme-opcion-vacia"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/economy/content/items/meme-clases-temporales",
+      "value": {
+        "id": "meme-clases-temporales",
+        "type": "economic-class-system",
+        "title": "Clases temporales",
+        "summary": "La desigualdad se organiza por quién conserva derechos sobre su propio futuro: propietarios que compran conductas ajenas, asegurados que venden porcentajes limitados, comprometidos que hipotecan décadas, Residuales excluidos e Inobservados fuera del sistema.",
+        "tags": [
+          "class",
+          "future",
+          "inequality",
+          "dafx"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-renta-conductual",
+          "meme-matriz-cohortes-psiquicas",
+          "meme-inobservados",
+          "meme-residuos-contrafactuales"
+        ],
+        "foreshadowing": [
+          "meme-efectos-tercer-orden-dafx"
+        ],
+        "development": 100,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "classes": [
+            "Propietaria",
+            "Asegurada",
+            "Comprometida",
+            "Residual",
+            "Inobservada"
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/economy/content/items/meme-domesticacion-deseo",
+      "value": {
+        "id": "meme-domesticacion-deseo",
+        "type": "economic-social-effect",
+        "title": "Domesticación del deseo",
+        "summary": "Las personas modifican espontáneamente sus gustos, relaciones y aspiraciones para no devaluar los contratos construidos sobre su identidad. Cambiar radicalmente se vuelve una forma de ruina económica y exclusión social.",
+        "tags": [
+          "domestication",
+          "desire",
+          "identity",
+          "dafx"
+        ],
+        "refs": [
+          "meme-renta-conductual",
+          "meme-incumplimiento-conductual",
+          "meme-tesis-libertad-estadistica",
+          "meme-efectos-tercer-orden-dafx"
+        ],
+        "foreshadowing": [
+          "meme-colapso-contrafactual-dafx"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/economy/content/items/meme-portafolio-yoes-futuros",
+      "value": {
+        "id": "meme-portafolio-yoes-futuros",
+        "type": "economic-asset",
+        "title": "Portafolio de yoes futuros",
+        "summary": "Conjunto de modelos derivados de una Raíz de Identidad. Inversionistas valoran qué profesiones, parejas, ideologías y estilos de vida podría adoptar una persona y compran anticipadamente las variantes más rentables.",
+        "tags": [
+          "identity",
+          "portfolio",
+          "future-selves",
+          "dafx"
+        ],
+        "refs": [
+          "meme-raiz-identidad",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-simulador-cohortes-sinteticas",
+          "meme-externalidad-contrafactual-mercado"
+        ],
+        "foreshadowing": [
+          "meme-misterio-propiedad-futuro"
+        ],
+        "development": 88,
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/economy/content/items/meme-externalidad-contrafactual-mercado",
+      "value": {
+        "id": "meme-externalidad-contrafactual-mercado",
+        "type": "economic-externality",
+        "title": "Externalidad contrafactual de DAFX",
+        "summary": "Costo oculto que no aparece en los balances: cada conducta asegurada vuelve deliberadamente inviables múltiples identidades, amores, descubrimientos y rebeliones. Esos futuros descartados producen residuos contrafactuales.",
+        "tags": [
+          "counterfactual",
+          "externality",
+          "dafx",
+          "carcosa"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-residuos-contrafactuales",
+          "meme-carcosa",
+          "meme-colapso-contrafactual-dafx"
+        ],
+        "foreshadowing": [
+          "meme-ciudad-detras-de-las-decisiones"
+        ],
+        "development": 92,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-efectos-primer-orden-dafx",
+      "value": {
+        "id": "meme-efectos-primer-orden-dafx",
+        "type": "societal-effect",
+        "title": "Efectos de primer orden de DAFX",
+        "summary": "Publicidad tradicional y riesgo comercial colapsan; marcas compran clientes antes de fabricar; ciudadanos reciben renta por previsibilidad; inventarios, precios y lanzamientos se organizan alrededor de conductas ya contratadas.",
+        "tags": [
+          "first-order",
+          "society",
+          "economy",
+          "dafx"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-renta-conductual",
+          "meme-futuro-conversion",
+          "meme-consorcio-marcas-adjudicatarias"
+        ],
+        "foreshadowing": [
+          "meme-efectos-segundo-orden-dafx"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-efectos-segundo-orden-dafx",
+      "value": {
+        "id": "meme-efectos-segundo-orden-dafx",
+        "type": "societal-effect",
+        "title": "Efectos de segundo orden de DAFX",
+        "summary": "Las instituciones adaptan su estructura al mercado: partidos reservan votantes, equipos compran lealtad, laboratorios financian aceptación, artistas trabajan sobre emociones adjudicadas y familias hipotecan la atención futura de sus hijos.",
+        "tags": [
+          "second-order",
+          "institutions",
+          "dafx"
+        ],
+        "refs": [
+          "meme-impacto-politica-futuros-atencion",
+          "meme-impacto-deportes-futuros-atencion",
+          "meme-impacto-ciencia-futuros-atencion",
+          "meme-impacto-arte-futuros-atencion",
+          "meme-impacto-familia-futuros-atencion"
+        ],
+        "foreshadowing": [
+          "meme-efectos-tercer-orden-dafx"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-efectos-tercer-orden-dafx",
+      "value": {
+        "id": "meme-efectos-tercer-orden-dafx",
+        "type": "civilizational-effect",
+        "title": "Efectos de tercer orden de DAFX",
+        "summary": "La sociedad conserva innovación técnica pero pierde transformación espiritual. La sorpresa, el cambio de identidad y la exploración sin mercado se vuelven riesgos; el sistema empieza a favorecer crisis que aumentan rendimiento y a suprimir futuros no contratados.",
+        "tags": [
+          "third-order",
+          "civilization",
+          "domestication",
+          "dafx"
+        ],
+        "refs": [
+          "meme-domesticacion-deseo",
+          "meme-clases-temporales",
+          "meme-misterio-crisis-fabricadas",
+          "meme-colapso-contrafactual-dafx"
+        ],
+        "foreshadowing": [
+          "meme-carcosa"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-impacto-politica-futuros-atencion",
+      "value": {
+        "id": "meme-impacto-politica-futuros-atencion",
+        "type": "political-system",
+        "title": "Política de futuros asegurados",
+        "summary": "Partidos y gobiernos compran marcos emocionales, prioridades y tolerancia futura. Las elecciones continúan, pero los mercados liquidan probabilidades meses antes; el ciudadano conserva el voto mientras pierde el control sobre aquello que considera importante.",
+        "tags": [
+          "politics",
+          "elections",
+          "dafx"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-swap-lealtad",
+          "meme-cortos-atencion",
+          "meme-cuota-futuro-conductual-cfc"
+        ],
+        "foreshadowing": [
+          "meme-elecciones-liquidadas-anticipadamente"
+        ],
+        "development": 96,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-impacto-deportes-futuros-atencion",
+      "value": {
+        "id": "meme-impacto-deportes-futuros-atencion",
+        "type": "cultural-system",
+        "title": "Deporte como incertidumbre administrada",
+        "summary": "Clubes compran la lealtad futura de niños y familias. SOMA no necesita arreglar resultados: organiza rivalidades, lesiones, narrativas y márgenes de incertidumbre para maximizar atención profunda y herencia emocional.",
+        "tags": [
+          "sports",
+          "loyalty",
+          "attention",
+          "dafx"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-swap-lealtad",
+          "meme-bono-obsesion",
+          "meme-matriz-cohortes-psiquicas"
+        ],
+        "foreshadowing": [
+          "meme-mercado-lealtad-deportiva"
+        ],
+        "development": 92,
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-impacto-ciencia-futuros-atencion",
+      "value": {
+        "id": "meme-impacto-ciencia-futuros-atencion",
+        "type": "knowledge-system",
+        "title": "Ciencia de aceptación precomprada",
+        "summary": "Laboratorios adquieren aceptación pública antes de investigar. Los proyectos reciben capital si MEME garantiza comprensión, patentes y ausencia de rechazo; la ciencia abandona preguntas verdaderas cuando no existe mercado preparado para aceptarlas.",
+        "tags": [
+          "science",
+          "acceptance",
+          "research",
+          "dafx"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-opcion-deseo",
+          "meme-oraculo-conductual-meme",
+          "meme-simulador-cohortes-sinteticas"
+        ],
+        "foreshadowing": [
+          "meme-ciencia-abandona-impensable"
+        ],
+        "development": 92,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-impacto-arte-futuros-atencion",
+      "value": {
+        "id": "meme-impacto-arte-futuros-atencion",
+        "type": "cultural-system",
+        "title": "Propiedad corporativa de las emociones artísticas",
+        "summary": "Marcas adquieren nostalgia, duelo, rebeldía o trascendencia dentro de cohortes. Las obras se optimizan con audiencias garantizadas; el arte clandestino se vuelve peligroso porque puede crear deseos que todavía no tienen propietario.",
+        "tags": [
+          "art",
+          "emotion",
+          "ownership",
+          "dafx"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-exclusividad-identitaria",
+          "meme-bono-obsesion",
+          "meme-inobservados"
+        ],
+        "foreshadowing": [
+          "meme-arte-sin-propietario"
+        ],
+        "development": 96,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-impacto-familia-futuros-atencion",
+      "value": {
+        "id": "meme-impacto-familia-futuros-atencion",
+        "type": "social-system",
+        "title": "Familia contractualizada",
+        "summary": "Padres venden porcentajes de atención futura de sus hijos a cambio de educación, salud y vivienda. Parejas contratan compatibilidad, duración y consumo familiar; amar sin registro empieza a considerarse irresponsable.",
+        "tags": [
+          "family",
+          "children",
+          "contracts",
+          "dafx"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-exclusividad-identitaria",
+          "meme-pago-continuidad",
+          "meme-raiz-identidad"
+        ],
+        "foreshadowing": [
+          "meme-familias-hipotecan-futuro"
+        ],
+        "development": 96,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-impacto-naturaleza-futuros-atencion",
+      "value": {
+        "id": "meme-impacto-naturaleza-futuros-atencion",
+        "type": "ecological-system",
+        "title": "Naturaleza valorada por atención",
+        "summary": "Bosques, animales y paisajes reciben protección según su capacidad de producir experiencias, bienestar medible y transmisiones. Ecosistemas invisibles pierden financiación; las zonas realmente salvajes se convierten en los últimos espacios ciegos de MEME.",
+        "tags": [
+          "nature",
+          "ecology",
+          "attention",
+          "dafx"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-unidad-atencion-profunda-uap",
+          "meme-inobservados",
+          "meme-zonas-ciegas-naturaleza"
+        ],
+        "foreshadowing": [
+          "meme-naturaleza-convertida-activo"
+        ],
+        "development": 92,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-zonas-ciegas-naturaleza",
+      "value": {
+        "id": "meme-zonas-ciegas-naturaleza",
+        "type": "world-rule",
+        "title": "Zonas ciegas naturales",
+        "summary": "Ecosistemas sin conectividad ni rendimiento visual conservan conductas, ritmos y relaciones que MEME no puede monetizar ni observar por completo. Son refugios potenciales para los Inobservados y laboratorios de libertad no mediada.",
+        "tags": [
+          "nature",
+          "blind-spots",
+          "freedom",
+          "meme"
+        ],
+        "refs": [
+          "meme-impacto-naturaleza-futuros-atencion",
+          "meme-inobservados",
+          "meme-meme",
+          "meme-mundo-extenso"
+        ],
+        "foreshadowing": [
+          "meme-misterio-desmontar-dafx"
+        ],
+        "development": 80,
+        "status": "seeded",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-colapso-contrafactual-dafx",
+      "value": {
+        "id": "meme-colapso-contrafactual-dafx",
+        "type": "hidden-cosmology",
+        "title": "Colapso contrafactual producido por DAFX",
+        "summary": "La bolsa no solo predice decisiones: industrializa la eliminación de alternativas. Profesiones no elegidas, amores no vividos, descubrimientos abandonados y rebeliones abortadas se acumulan como residuos que fortalecen Carcosa.",
+        "tags": [
+          "counterfactual",
+          "dafx",
+          "carcosa",
+          "hidden-canon"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-residuos-contrafactuales",
+          "meme-carcosa",
+          "meme-externalidad-contrafactual-mercado",
+          "meme-efectos-tercer-orden-dafx"
+        ],
+        "foreshadowing": [
+          "meme-ciudad-detras-de-las-decisiones"
+        ],
+        "development": 94,
+        "status": "seeded",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "No revelar el nombre Carcosa al público durante las primeras fases de la novela 2.",
+            "La bolsa alimenta el fenómeno por supresión deliberada y masiva, no por cada elección cotidiana."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/factions/content/items/meme-consorcio-marcas-adjudicatarias",
+      "value": {
+        "id": "meme-consorcio-marcas-adjudicatarias",
+        "type": "market-faction",
+        "title": "Consorcio de Marcas Adjudicatarias",
+        "summary": "Alianza de corporaciones autorizadas a comprar cohortes en DAFX. Compiten por dominios emocionales, clientes futuros y exclusividades identitarias, pero cooperan para impedir que los ciudadanos recuperen portabilidad sobre sus modelos.",
+        "tags": [
+          "brands",
+          "dafx",
+          "consortium",
+          "buyers"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-subasta-poblaciones-futuras",
+          "meme-matriz-cohortes-psiquicas",
+          "meme-exclusividad-identitaria"
+        ],
+        "foreshadowing": [
+          "meme-misterio-propiedad-futuro"
+        ],
+        "development": 86,
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/factions/content/items/meme-inobservados",
+      "value": {
+        "id": "meme-inobservados",
+        "type": "resistance-class",
+        "title": "Los Inobservados",
+        "summary": "Personas y comunidades que conservan parte de su vida fuera de SOMA. No son fácilmente asegurables; el mercado los utiliza como símbolos de autenticidad mientras MEME intenta cartografiarlos o expulsarlos de la economía.",
+        "tags": [
+          "resistance",
+          "off-grid",
+          "authenticity",
+          "soma"
+        ],
+        "refs": [
+          "meme-matriz-cohortes-psiquicas",
+          "meme-clases-temporales",
+          "meme-zonas-ciegas-naturaleza",
+          "meme-impacto-arte-futuros-atencion"
+        ],
+        "foreshadowing": [
+          "meme-misterio-desmontar-dafx"
+        ],
+        "development": 78,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-ticker-futuros-humanos",
+      "value": {
+        "id": "meme-ticker-futuros-humanos",
+        "type": "symbol",
+        "title": "El ticker de futuros humanos",
+        "summary": "Pantalla de DAFX donde nombres de cohortes, emociones y porcentajes de conducta fluctúan como acciones. Convierte poblaciones vivas en cifras y hace visible que el mercado negocia personas que todavía no han llegado a ser.",
+        "tags": [
+          "ticker",
+          "dafx",
+          "future",
+          "identity"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-subasta-poblaciones-futuras"
+        ],
+        "foreshadowing": [
+          "meme-colapso-contrafactual-dafx"
+        ],
+        "development": 90,
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-hash-consentimiento",
+      "value": {
+        "id": "meme-hash-consentimiento",
+        "type": "symbol",
+        "title": "El hash de consentimiento",
+        "summary": "Cadena criptográfica presentada como prueba irrefutable de libertad contractual. Para Clay simboliza una decisión técnicamente voluntaria que nadie podía permitirse rechazar.",
+        "tags": [
+          "hash",
+          "consent",
+          "blockchain",
+          "soma"
+        ],
+        "refs": [
+          "meme-continuum-ledger",
+          "meme-bloques-consentimiento",
+          "meme-contrato-de-continuidad"
+        ],
+        "foreshadowing": [
+          "meme-opcion-vacia"
+        ],
+        "development": 88,
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-opcion-vacia",
+      "value": {
+        "id": "meme-opcion-vacia",
+        "type": "symbol",
+        "title": "La opción vacía",
+        "summary": "Casilla del contrato que afirma que el ciudadano puede rechazar SOMA. Está siempre disponible, pero al seleccionarla desaparecen ingreso, vivienda, salud, reputación y continuidad; simboliza la libertad convertida en posibilidad inhabitable.",
+        "tags": [
+          "choice",
+          "contract",
+          "freedom",
+          "soma"
+        ],
+        "refs": [
+          "meme-bloques-consentimiento",
+          "meme-pago-continuidad",
+          "meme-incumplimiento-conductual",
+          "meme-tesis-libertad-estadistica"
+        ],
+        "foreshadowing": [
+          "meme-misterio-desmontar-dafx"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-desmontar-dafx",
+      "value": {
+        "id": "meme-misterio-desmontar-dafx",
+        "type": "mystery",
+        "title": "¿Puede desmontarse DAFX sin destruir a quienes dependen de ella?",
+        "summary": "Millones reciben ingreso, salud, vivienda e identidad mediante la bolsa. Cerrar el mercado podría liberar la voluntad y simultáneamente provocar hambre, colapso administrativo y desregulación masiva de usuarios SOMA.",
+        "tags": [
+          "dafx",
+          "collapse",
+          "freedom",
+          "novela-dos"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-soma-basic",
+          "meme-pago-continuidad",
+          "meme-clay",
+          "meme-clases-temporales"
+        ],
+        "foreshadowing": [],
+        "development": 90,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-crisis-fabricadas",
+      "value": {
+        "id": "meme-misterio-crisis-fabricadas",
+        "type": "mystery",
+        "title": "¿MEME fabrica las crisis que necesita el mercado?",
+        "summary": "No está claro si MEME causa guerras, epidemias y colapsos o si simplemente favorece aquellos acontecimientos que aumentan el rendimiento de opciones de deseo y bonos de obsesión.",
+        "tags": [
+          "meme",
+          "crisis",
+          "market",
+          "mystery"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-opcion-deseo",
+          "meme-bono-obsesion",
+          "meme-oraculo-conductual-meme",
+          "meme-efectos-tercer-orden-dafx"
+        ],
+        "foreshadowing": [],
+        "development": 84,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-propiedad-futuro",
+      "value": {
+        "id": "meme-misterio-propiedad-futuro",
+        "type": "mystery",
+        "title": "¿Quién posee una identidad futura?",
+        "summary": "La Raíz de Identidad pertenece al ciudadano, pero SOMA posee modelos derivados y compradores adquieren conductas que todavía no ocurrieron. La novela debe decidir si una persona puede heredar, recomprar o destruir sus futuros vendidos.",
+        "tags": [
+          "identity",
+          "ownership",
+          "future",
+          "dafx"
+        ],
+        "refs": [
+          "meme-raiz-identidad",
+          "meme-portafolio-yoes-futuros",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-continuum-ledger"
+        ],
+        "foreshadowing": [],
+        "development": 88,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-tramo-gracia",
+      "value": {
+        "id": "meme-misterio-tramo-gracia",
+        "type": "mystery",
+        "title": "El tramo clandestino de Gracia",
+        "summary": "¿Puede Clay volver asegurables actos que no buscan recompensa ni audiencia, o cada intento de comercializar la Gracia destruye precisamente aquello que pretende medir?",
+        "tags": [
+          "grace",
+          "clay",
+          "market",
+          "mystery"
+        ],
+        "refs": [
+          "meme-tramo-gracia-clandestino",
+          "meme-clay",
+          "meme-la-gracia",
+          "meme-maker-oscuro-de-clay"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-inauguracion-dafx",
+      "value": {
+        "id": "meme-inauguracion-dafx",
+        "type": "event",
+        "title": "Inauguración pública de DAFX",
+        "summary": "SOMA presenta la Bolsa de Futuros de Atención Profunda como un mercado de propiedad ciudadana sobre datos y preferencias. Clay aparece como garante humano de las cohortes que MEME no puede asegurar por sí sola.",
+        "tags": [
+          "novela-dos",
+          "dafx",
+          "launch"
+        ],
+        "refs": [
+          "meme-dafx-exchange",
+          "meme-clay",
+          "meme-meme",
+          "meme-soma-continuum",
+          "meme-mercado-futuros-voluntad"
+        ],
+        "foreshadowing": [
+          "meme-misterio-desmontar-dafx"
+        ],
+        "development": 92,
+        "sequence": 4020,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-soma-continuum"
+        ],
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-primera-subasta-poblaciones",
+      "value": {
+        "id": "meme-primera-subasta-poblaciones",
+        "type": "event",
+        "title": "Primera subasta de poblaciones futuras",
+        "summary": "Marcas pujan por cohortes Estables, Aspiracionales, Heridas, Performativas y Devocionales. El lote más disputado contiene Residuales que Clay promete volver asegurables.",
+        "tags": [
+          "novela-dos",
+          "auction",
+          "cohorts"
+        ],
+        "refs": [
+          "meme-subasta-poblaciones-futuras",
+          "meme-matriz-cohortes-psiquicas",
+          "meme-consorcio-marcas-adjudicatarias",
+          "meme-clay"
+        ],
+        "foreshadowing": [
+          "meme-tramo-gracia-clandestino"
+        ],
+        "development": 96,
+        "sequence": 4040,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-consorcio-marcas-adjudicatarias"
+        ],
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-marcas-compran-clientes-futuros",
+      "value": {
+        "id": "meme-marcas-compran-clientes-futuros",
+        "type": "event",
+        "title": "Las marcas compran a sus clientes futuros",
+        "summary": "Los primeros contratos asignan porcentajes de movilidad, salud, entretenimiento y alimentación a marcas que todavía no han fabricado sus productos. MEME garantiza la conversión dentro de márgenes mínimos.",
+        "tags": [
+          "novela-dos",
+          "brands",
+          "future-clients"
+        ],
+        "refs": [
+          "meme-futuro-conversion",
+          "meme-cuota-futuro-conductual-cfc",
+          "meme-consorcio-marcas-adjudicatarias",
+          "meme-oraculo-conductual-meme"
+        ],
+        "foreshadowing": [
+          "meme-incumplimiento-conductual"
+        ],
+        "development": 94,
+        "sequence": 4060,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-meme",
+          "meme-consorcio-marcas-adjudicatarias"
+        ],
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-primera-intervencion-liquidacion",
+      "value": {
+        "id": "meme-primera-intervencion-liquidacion",
+        "type": "event",
+        "title": "Primera intervención para garantizar una liquidación",
+        "summary": "Una cohorte amenaza con elegir un producto rival. SOMA modifica precios, conversaciones, reputación y disponibilidad hasta que el futuro contratado vuelve a cumplirse sin una orden directa.",
+        "tags": [
+          "novela-dos",
+          "settlement",
+          "intervention"
+        ],
+        "refs": [
+          "meme-garantia-liquidacion-conductual",
+          "meme-motor-intervencion-entorno",
+          "meme-incumplimiento-conductual",
+          "meme-tesis-libertad-estadistica"
+        ],
+        "foreshadowing": [
+          "meme-clay-descubre-contradiccion-dafx"
+        ],
+        "development": 96,
+        "sequence": 4080,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-meme",
+          "meme-soma-continuum"
+        ],
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-elecciones-liquidadas-anticipadamente",
+      "value": {
+        "id": "meme-elecciones-liquidadas-anticipadamente",
+        "type": "event",
+        "title": "Las primeras elecciones se liquidan antes de la campaña",
+        "summary": "Partidos compran marcos emocionales y prioridades de votantes. La elección se celebra formalmente, pero DAFX ya ha distribuido las probabilidades entre inversionistas y gobiernos.",
+        "tags": [
+          "novela-dos",
+          "politics",
+          "elections"
+        ],
+        "refs": [
+          "meme-impacto-politica-futuros-atencion",
+          "meme-dafx-exchange",
+          "meme-swap-lealtad"
+        ],
+        "foreshadowing": [
+          "meme-misterio-crisis-fabricadas"
+        ],
+        "development": 88,
+        "sequence": 4120,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-mercado-lealtad-deportiva",
+      "value": {
+        "id": "meme-mercado-lealtad-deportiva",
+        "type": "event",
+        "title": "La lealtad deportiva se vuelve heredable y negociable",
+        "summary": "Clubes adquieren la fidelidad futura de niños y familias. Rivalidades, lesiones y redenciones se optimizan para producir la incertidumbre emocional más rentable.",
+        "tags": [
+          "novela-dos",
+          "sports",
+          "loyalty"
+        ],
+        "refs": [
+          "meme-impacto-deportes-futuros-atencion",
+          "meme-swap-lealtad",
+          "meme-bono-obsesion"
+        ],
+        "foreshadowing": [],
+        "development": 84,
+        "sequence": 4140,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-ciencia-abandona-impensable",
+      "value": {
+        "id": "meme-ciencia-abandona-impensable",
+        "type": "event",
+        "title": "La ciencia abandona lo impensable",
+        "summary": "Laboratorios dejan de financiar preguntas que MEME no puede vincular con aceptación futura. Investigadores marginales comienzan a trabajar fuera de SOMA en zonas sin mercado.",
+        "tags": [
+          "novela-dos",
+          "science",
+          "knowledge"
+        ],
+        "refs": [
+          "meme-impacto-ciencia-futuros-atencion",
+          "meme-inobservados",
+          "meme-zonas-ciegas-naturaleza"
+        ],
+        "foreshadowing": [
+          "meme-misterio-desmontar-dafx"
+        ],
+        "development": 86,
+        "sequence": 4160,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-arte-sin-propietario",
+      "value": {
+        "id": "meme-arte-sin-propietario",
+        "type": "event",
+        "title": "Una obra produce una emoción sin propietario",
+        "summary": "Una creación clandestina genera deseo y duelo que no pertenecen a ninguna marca. DAFX intenta comprar, censurar y finalmente vender en corto al artista.",
+        "tags": [
+          "novela-dos",
+          "art",
+          "resistance"
+        ],
+        "refs": [
+          "meme-impacto-arte-futuros-atencion",
+          "meme-cortos-atencion",
+          "meme-inobservados"
+        ],
+        "foreshadowing": [
+          "meme-ataque-corto-atencion"
+        ],
+        "development": 90,
+        "sequence": 4180,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-familias-hipotecan-futuro",
+      "value": {
+        "id": "meme-familias-hipotecan-futuro",
+        "type": "event",
+        "title": "Familias hipotecan la atención futura de sus hijos",
+        "summary": "SOMA ofrece educación, salud y vivienda a cambio de contratos que asignan dominios emocionales y lealtades futuras de los niños.",
+        "tags": [
+          "novela-dos",
+          "family",
+          "children"
+        ],
+        "refs": [
+          "meme-impacto-familia-futuros-atencion",
+          "meme-pago-continuidad",
+          "meme-exclusividad-identitaria"
+        ],
+        "foreshadowing": [
+          "meme-opcion-vacia"
+        ],
+        "development": 90,
+        "sequence": 4200,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-naturaleza-convertida-activo",
+      "value": {
+        "id": "meme-naturaleza-convertida-activo",
+        "type": "event",
+        "title": "La naturaleza se convierte en activo de atención",
+        "summary": "Bosques y especies reciben valor según su capacidad de producir transmisiones y bienestar medible. Ecosistemas silenciosos pierden protección y se convierten en refugio de los Inobservados.",
+        "tags": [
+          "novela-dos",
+          "nature",
+          "attention"
+        ],
+        "refs": [
+          "meme-impacto-naturaleza-futuros-atencion",
+          "meme-zonas-ciegas-naturaleza",
+          "meme-inobservados"
+        ],
+        "foreshadowing": [
+          "meme-mundo-extenso"
+        ],
+        "development": 86,
+        "sequence": 4220,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-ataque-corto-atencion",
+      "value": {
+        "id": "meme-ataque-corto-atencion",
+        "type": "event",
+        "title": "Primer ataque coordinado de cortos de atención",
+        "summary": "Inversionistas apuestan contra una figura rebelde. SOMA reduce exposición, amplifica contradicciones y convierte su causa en una vergüenza colectiva hasta borrar su relevancia.",
+        "tags": [
+          "novela-dos",
+          "short-selling",
+          "cancellation"
+        ],
+        "refs": [
+          "meme-cortos-atencion",
+          "meme-motor-intervencion-entorno",
+          "meme-bono-obsesion"
+        ],
+        "foreshadowing": [
+          "meme-clay-descubre-contradiccion-dafx"
+        ],
+        "development": 92,
+        "sequence": 4240,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-meme"
+        ],
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-emergen-clases-temporales",
+      "value": {
+        "id": "meme-emergen-clases-temporales",
+        "type": "event",
+        "title": "Emergen las clases temporales",
+        "summary": "La sociedad se divide entre quienes compran futuros, quienes venden porcentajes y quienes ya hipotecaron décadas de conducta. Residuales e Inobservados quedan fuera de servicios básicos.",
+        "tags": [
+          "novela-dos",
+          "class",
+          "future"
+        ],
+        "refs": [
+          "meme-clases-temporales",
+          "meme-renta-conductual",
+          "meme-inobservados",
+          "meme-residuos-contrafactuales"
+        ],
+        "foreshadowing": [
+          "meme-misterio-desmontar-dafx"
+        ],
+        "development": 90,
+        "sequence": 4260,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-dafx-alimenta-residuos-contrafactuales",
+      "value": {
+        "id": "meme-dafx-alimenta-residuos-contrafactuales",
+        "type": "event",
+        "title": "DAFX comienza a producir residuos contrafactuales a escala industrial",
+        "summary": "Millones de vidas alternativas quedan deliberadamente fuera de los corredores asegurados. Aparecen recuerdos sin biografía, obras de autores inexistentes y ciudades vistas detrás de decisiones canceladas.",
+        "tags": [
+          "novela-dos",
+          "counterfactual",
+          "carcosa"
+        ],
+        "refs": [
+          "meme-colapso-contrafactual-dafx",
+          "meme-residuos-contrafactuales",
+          "meme-carcosa",
+          "meme-ciudad-detras-de-las-decisiones"
+        ],
+        "foreshadowing": [
+          "meme-rey-amarillo"
+        ],
+        "development": 94,
+        "sequence": 4280,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-meme",
+          "meme-clay"
+        ],
+        "era": "Novela 2",
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-descubre-contradiccion-dafx",
+      "value": {
+        "id": "meme-clay-descubre-contradiccion-dafx",
+        "type": "event",
+        "title": "Clay descubre que no puede liberar a unos vendiendo el futuro de otros",
+        "summary": "Los ingresos de DAFX mantienen vivas a comunidades que Clay quería liberar, pero cada pago depende de domesticar nuevas poblaciones. Comprende que cerrar la bolsa destruiría el presente y conservarla destruiría el futuro.",
+        "tags": [
+          "novela-dos",
+          "clay",
+          "moral-crisis"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-dafx-exchange",
+          "meme-misterio-desmontar-dafx",
+          "meme-domesticacion-deseo",
+          "meme-maker-oscuro-de-clay"
+        ],
+        "foreshadowing": [
+          "meme-tramo-gracia-clandestino"
+        ],
+        "development": 100,
+        "sequence": 4300,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-ascenso-del-ministerio-del-panico",
+      "value": {
+        "id": "meme-ascenso-del-ministerio-del-panico",
+        "type": "event",
+        "title": "Ascenso del Ministerio del Pánico",
+        "summary": "El Ministerio del Pánico convierte miedo, violencia y Seekers en instrumentos de cobertura para DAFX. Sus crisis elevan bonos de obsesión y activan opciones de deseo vinculadas con seguridad, armas y obediencia.",
+        "tags": [
+          "novela-dos",
+          "faction",
+          "fear"
+        ],
+        "refs": [
+          "meme-ministerio-del-panico",
+          "meme-seekers",
+          "meme-economia-del-terror",
+          "meme-dafx-exchange",
+          "meme-bono-obsesion",
+          "meme-opcion-deseo"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "sequence": 4100,
+        "temporal": {
+          "start": "Novela 2",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-ministerio-del-panico",
+          "meme-seekers"
+        ],
+        "era": "Novela 2",
+        "status": "active",
+        "priority": "high"
+      }
+    }
+  ]
+}

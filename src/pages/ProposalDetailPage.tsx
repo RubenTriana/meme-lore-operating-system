@@ -8,7 +8,7 @@ import { Badge, Button, Card, Progress } from '@/components/ui'
 import { proposalCandidateBlob, proposalManifestBlob, proposalPatchBlob, proposalReportBlob } from '@/proposals/export'
 import { proposalRepository } from '@/proposals/repository'
 import type { ProposalRecord, ProposalStatus } from '@/proposals/types'
-import { compareProposalAnalysis, proposalCandidate, withTemporaryEngines } from '@/proposals/workflow'
+import { compareProposalAnalysis, proposalCandidate, validateProposalPatch, withTemporaryEngines } from '@/proposals/workflow'
 import { createAnalysisService } from '@/services/analysis-service'
 import type { AnalysisService } from '@/services/analysis-service'
 import { downloadBlob } from '@/services/universe-loader'
@@ -37,11 +37,38 @@ export function ProposalDetailPage({ serviceFactory = createAnalysisService }: {
   const serviceRef = useRef(serviceFactory())
   const selectedEngines = useMemo<AnalysisEngines>(() => Object.values(studio.analysisEngines).some(Boolean) ? studio.analysisEngines : ANALYSIS_PRESETS.full, [studio.analysisEngines])
 
+  useEffect(() => () => serviceRef.current.dispose(), [])
+
   useEffect(() => {
-    const service = serviceRef.current
-    if (proposalId) void proposalRepository.get(proposalId).then((loaded) => { setProposal(loaded); setNote(loaded?.note ?? '') })
-    return () => service.dispose()
-  }, [proposalId])
+    let cancelled = false
+    if (!proposalId) return
+    void proposalRepository.get(proposalId).then(async (loaded) => {
+      if (!loaded || cancelled) return
+      let next = loaded
+      if (loaded.patch && baseUniverse) {
+        const currentBaseHash = hashCanonical(baseUniverse)
+        const baseChanged = loaded.baseUniverseHash !== currentBaseHash
+        const refreshed = validateProposalPatch(baseUniverse, loaded.patch)
+        const status = baseChanged
+          ? refreshed.validation.valid ? 'validated' : 'invalid'
+          : loaded.status === 'invalid' && refreshed.validation.valid ? 'validated' : loaded.status === 'validated' && !refreshed.validation.valid ? 'invalid' : loaded.status
+        next = {
+          ...loaded,
+          baseUniverseHash: currentBaseHash,
+          status,
+          validation: refreshed.validation,
+          diff: refreshed.diff,
+          ...(baseChanged ? { simulation: undefined, decision: undefined } : {}),
+        }
+        await proposalRepository.put(next)
+        if (baseChanged && !cancelled) {
+          setMessage(refreshed.validation.valid ? 'La propuesta se revalidó contra el Master actual y está lista para simular.' : 'La propuesta se revalidó contra el Master actual, pero todavía contiene conflictos.')
+        }
+      }
+      if (!cancelled) { setProposal(next); setNote(next.note ?? '') }
+    })
+    return () => { cancelled = true }
+  }, [baseUniverse, proposalId])
 
   const persist = async (next: ProposalRecord) => { await proposalRepository.put(next); setProposal(next) }
   const changeStatus = async (status: ProposalStatus, kind?: 'draft' | 'approved' | 'rejected' | 'archived') => {

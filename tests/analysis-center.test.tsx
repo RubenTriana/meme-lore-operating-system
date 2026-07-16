@@ -62,6 +62,7 @@ function modelFor(universe: Universe): UniverseContextValue {
     migrated: [],
     isLoading: false,
     loadedAt: 0,
+    updateBeatStatus: async () => undefined,
     importFile: async () => undefined,
     importPayload: () => undefined,
     workspaceState: 'base',
