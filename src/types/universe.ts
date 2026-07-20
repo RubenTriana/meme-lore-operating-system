@@ -106,7 +106,30 @@ export interface UniverseEntity {
   locationRefs?: string[]
   participantRefs?: string[]
   causes?: string[]
+  causedByRefs?: string[]
   effects?: string[]
+  novelRef?: string | null
+  novelRefs?: string[]
+  primaryNovelRef?: string
+  sagaRef?: string
+  act?: string
+  plotline?: string
+  beatNumber?: number
+  desire?: string
+  need?: string
+  wound?: string
+  contradiction?: string
+  goal?: string
+  arc?: string
+  risk?: string
+  irreversibleChoice?: string
+  moralLimit?: string
+  crueltyProfile?: {
+    method?: string
+    justification?: string
+    counterweight?: string
+    maximumAct?: string
+  }
   knowledgeChanges?: KnowledgeChange[]
   stateChanges?: StateChange[]
   continuity?: ContinuityData

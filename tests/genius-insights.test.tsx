@@ -10,21 +10,30 @@ import { parseGeniusResponse } from '../vite-genius-plugin'
 
 const universe = master as Universe
 
-function model(): UniverseContextValue {
+function withEditorialGaps(): Universe {
+  const fixture = structuredClone(universe)
+  const characters = fixture.modules.find((module) => module.id === 'characters')?.content.items ?? []
+  characters.filter((character) => ['meme-clay', 'meme-amaranta'].includes(character.id)).forEach((character) => { character.development = 40 })
+  return fixture
+}
+
+function model(value: Universe): UniverseContextValue {
   return {
-    baseUniverse: universe,
-    validation: { valid: true, data: universe, errors: [], warnings: [] },
-    migrated: [],
-    isLoading: false,
-    loadedAt: 0,
-    workspaceState: 'base',
-    updateBeatStatus: async () => undefined,
-    importFile: async () => undefined,
-    importPayload: () => undefined,
-    openCandidate: () => undefined,
-    restoreBase: () => undefined,
-    reset: () => undefined,
+    baseUniverse: value,
+    validation: { valid: true, data: value, errors: [], warnings: [] },
+    migrated: [], isLoading: false, loadedAt: 0, workspaceState: 'base',
+    updateBeatStatus: async () => undefined, importFile: async () => undefined, importPayload: () => undefined,
+    openCandidate: () => undefined, restoreBase: () => undefined, reset: () => undefined,
   }
+}
+
+async function renderInsights(value: Universe): Promise<{ container: HTMLDivElement; root: Root }> {
+  const container = document.createElement('div')
+  document.body.append(container)
+  const root = createRoot(container)
+  ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
+  await act(async () => root.render(<UniverseContext.Provider value={model(value)}><MemoryRouter><InsightsPage /></MemoryRouter></UniverseContext.Provider>))
+  return { container, root }
 }
 
 describe('Genius insights', () => {
@@ -36,42 +45,35 @@ describe('Genius insights', () => {
     expect(() => parseGeniusResponse({ possibilities: [{ title: 'Única', explanation: 'Insuficiente.' }] })).toThrow('exactamente dos')
   })
 
-  it('renders one Genius control and one response box for each of the 28 current insights', async () => {
-    expect(analyzeNarrative(universe)).toHaveLength(28)
-    const container = document.createElement('div')
-    document.body.append(container)
-    const root: Root = createRoot(container)
-    ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
-    await act(async () => root.render(<UniverseContext.Provider value={model()}><MemoryRouter><InsightsPage /></MemoryRouter></UniverseContext.Provider>))
-
-    expect(container.querySelectorAll('.genius-button')).toHaveLength(28)
-    expect(container.querySelectorAll('.genius-response')).toHaveLength(28)
-
-    await act(async () => root.unmount())
-    container.remove()
+  it('shows a healthy empty state for the rebuilt canon', async () => {
+    expect(analyzeNarrative(universe)).toEqual([])
+    const rendered = await renderInsights(universe)
+    expect(rendered.container.querySelectorAll('.genius-button')).toHaveLength(0)
+    expect(rendered.container.textContent).toContain('Canon is structurally healthy')
+    await act(async () => rendered.root.unmount())
+    rendered.container.remove()
   })
 
-  it('writes the two generated possibilities only into the selected card', async () => {
+  it('renders one Genius workspace per deterministic insight and isolates its response', async () => {
+    const fixture = withEditorialGaps()
+    const insightCount = analyzeNarrative(fixture).length
+    expect(insightCount).toBeGreaterThanOrEqual(2)
     const response = { possibilities: [
       { title: 'Hipótesis A', explanation: 'Una lógica posible.' },
       { title: 'Hipótesis B', explanation: 'Una sorpresa coherente.' },
     ] }
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => response }))
-    const container = document.createElement('div')
-    document.body.append(container)
-    const root: Root = createRoot(container)
-    ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
-    await act(async () => root.render(<UniverseContext.Provider value={model()}><MemoryRouter><InsightsPage /></MemoryRouter></UniverseContext.Provider>))
-    const buttons = container.querySelectorAll<HTMLButtonElement>('.genius-button')
+    const rendered = await renderInsights(fixture)
+    const buttons = rendered.container.querySelectorAll<HTMLButtonElement>('.genius-button')
+    const boxes = rendered.container.querySelectorAll<HTMLTextAreaElement>('.genius-response')
+    expect(buttons).toHaveLength(insightCount)
+    expect(boxes).toHaveLength(insightCount)
     await act(async () => buttons[0].click())
-
-    const boxes = container.querySelectorAll<HTMLTextAreaElement>('.genius-response')
     expect(boxes[0].value).toContain('1. Hipótesis A')
     expect(boxes[0].value).toContain('2. Hipótesis B')
     expect(boxes[1].value).toBe('')
-
-    await act(async () => root.unmount())
-    container.remove()
+    await act(async () => rendered.root.unmount())
+    rendered.container.remove()
     vi.unstubAllGlobals()
   })
 })

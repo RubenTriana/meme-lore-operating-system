@@ -39,7 +39,7 @@ describe('derived narrative indexes', () => {
 
     expect(entityIndex.entitiesById['meme-revelation']).toMatchObject({ type: 'event', moduleId: 'timeline', tags: ['analysis', 'event'] })
     expect(entityIndex.entityIdsByTag.analysis).toEqual(['meme-revelation'])
-    expect(entityIndex.outgoingReferencesByEntity['meme-revelation']).toEqual(['meme-outcome', 'meme-trigger'])
+    expect(entityIndex.outgoingReferencesByEntity['meme-revelation']).toEqual(['meme-observatory', 'meme-operator', 'meme-outcome', 'meme-trigger'])
     expect(entityIndex.incomingReferencesByEntity['meme-trigger']).toEqual(['meme-revelation'])
   })
 

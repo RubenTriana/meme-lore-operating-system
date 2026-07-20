@@ -8,7 +8,8 @@ export type CausalityEvaluationStatus = 'issue' | 'no-issue' | 'insufficient-dat
 export interface CausalityRuleEvaluation { ruleId: CausalityRuleId; status: CausalityEvaluationStatus; issue?: NarrativeIssue; reason?: string }
 export interface CausalityAnalysisResult { engine: 'causality'; engineVersion: string; issues: NarrativeIssue[]; evaluations: CausalityRuleEvaluation[] }
 
-interface CausalRelation { cause: UniverseEntity; effect: UniverseEntity; declarations: Array<{ sourceId: string; field: 'causes' | 'effects'; value: string }> }
+type CausalDeclarationField = 'causes' | 'causedByRefs' | 'effects'
+interface CausalRelation { cause: UniverseEntity; effect: UniverseEntity; declarations: Array<{ sourceId: string; field: CausalDeclarationField; value: string }> }
 interface InspectableCausalityRule extends AnalysisRule { id: CausalityRuleId; inspect(context: AnalysisContext): CausalityRuleEvaluation[] }
 
 const temporalExceptionKinds = new Set<ContinuityExceptionKind>(['prophecy', 'time-travel', 'retrocausality', 'vision', 'causal-loop', 'world-exception'])
@@ -19,19 +20,25 @@ function issueEvaluation(issue: NarrativeIssue): CausalityRuleEvaluation { retur
 function noIssue(ruleId: CausalityRuleId): CausalityRuleEvaluation { return { ruleId, status: 'no-issue' } }
 function insufficient(ruleId: CausalityRuleId, reason: string): CausalityRuleEvaluation { return { ruleId, status: 'insufficient-data', reason } }
 
-function collectRelations(context: AnalysisContext): { relations: CausalRelation[]; missing: Array<{ source: UniverseEntity; field: 'causes' | 'effects'; referenceId: string }> } {
+function predecessorRefs(event: UniverseEntity): string[] {
+  return sortedUnique([...(event.causes ?? []), ...(event.causedByRefs ?? [])])
+}
+
+function collectRelations(context: AnalysisContext): { relations: CausalRelation[]; missing: Array<{ source: UniverseEntity; field: CausalDeclarationField; referenceId: string }> } {
   const entities = entitiesById(context)
   const relations = new Map<string, CausalRelation>()
-  const missing: Array<{ source: UniverseEntity; field: 'causes' | 'effects'; referenceId: string }> = []
+  const missing: Array<{ source: UniverseEntity; field: CausalDeclarationField; referenceId: string }> = []
   eventEntities(context).forEach((event) => {
-    ;(event.causes ?? []).forEach((causeId) => {
+    const addPredecessors = (references: string[], field: 'causes' | 'causedByRefs') => references.forEach((causeId) => {
       const cause = entities.get(causeId)
-      if (!cause || cause.type !== 'event') { missing.push({ source: event, field: 'causes', referenceId: causeId }); return }
+      if (!cause || cause.type !== 'event') { missing.push({ source: event, field, referenceId: causeId }); return }
       const key = `${cause.id}\u0000${event.id}`
       const relation = relations.get(key) ?? { cause, effect: event, declarations: [] }
-      relation.declarations.push({ sourceId: event.id, field: 'causes', value: causeId })
+      relation.declarations.push({ sourceId: event.id, field, value: causeId })
       relations.set(key, relation)
     })
+    addPredecessors(event.causes ?? [], 'causes')
+    addPredecessors(event.causedByRefs ?? [], 'causedByRefs')
     ;(event.effects ?? []).forEach((effectId) => {
       const effect = entities.get(effectId)
       if (!effect || effect.type !== 'event') { missing.push({ source: event, field: 'effects', referenceId: effectId }); return }
@@ -159,7 +166,7 @@ const importantEventWithoutCauseRule: InspectableCausalityRule = {
   inspect(context) {
     const relations = collectRelations(context).relations
     const inbound = new Set(relations.map((relation) => relation.effect.id))
-    const candidates = eventEntities(context).filter((event) => (event.importance ?? 0) >= 80 && !inbound.has(event.id) && !(event.causes?.length) && !hasStructuredException(context, this.id, optionalExceptionKinds, [event]))
+    const candidates = eventEntities(context).filter((event) => (event.importance ?? 0) >= 80 && !inbound.has(event.id) && !predecessorRefs(event).length && !hasStructuredException(context, this.id, optionalExceptionKinds, [event]))
     return candidates.length ? candidates.map((event) => issueEvaluation(createAnalysisIssue(context, 'causality', CAUSALITY_ENGINE_VERSION, {
       ruleId: this.id, severity: 'low', confidence: 1, title: 'Important event has no declared cause', message: `${event.title} is marked important but has no structured causal predecessor.`, entityIds: [event.id], sourceIds: [event.id], evidence: [{ sourceId: event.id, field: 'importance', value: String(event.importance) }],
     }))) : [noIssue(this.id)]
@@ -172,9 +179,20 @@ const declaredCauseWithoutConsequenceRule: InspectableCausalityRule = {
   inspect(context) {
     const relations = collectRelations(context).relations
     const outbound = new Set(relations.map((relation) => relation.cause.id))
-    const candidates = eventEntities(context).filter((event) => (event.causes?.length ?? 0) > 0 && !outbound.has(event.id) && !(event.effects?.length) && !hasStructuredException(context, this.id, optionalExceptionKinds, [event]))
+    const events = eventEntities(context)
+    const terminalIds = new Set<string>()
+    const byNarrativeLine = new Map<string, UniverseEntity[]>()
+    events.forEach((event) => {
+      const key = event.novelRef ?? 'pre-saga'
+      byNarrativeLine.set(key, [...(byNarrativeLine.get(key) ?? []), event])
+    })
+    byNarrativeLine.forEach((line) => {
+      const terminal = [...line].sort((left, right) => (right.sequence ?? -1) - (left.sequence ?? -1) || right.id.localeCompare(left.id))[0]
+      if (terminal) terminalIds.add(terminal.id)
+    })
+    const candidates = events.filter((event) => predecessorRefs(event).length > 0 && !outbound.has(event.id) && !(event.effects?.length) && !terminalIds.has(event.id) && !hasStructuredException(context, this.id, optionalExceptionKinds, [event]))
     return candidates.length ? candidates.map((event) => issueEvaluation(createAnalysisIssue(context, 'causality', CAUSALITY_ENGINE_VERSION, {
-      ruleId: this.id, severity: 'low', confidence: 1, title: 'Declared causal step has no consequence', message: `${event.title} declares a cause but no structured effect or downstream consequence.`, entityIds: [event.id, ...(event.causes ?? [])], sourceIds: [event.id], evidence: [{ sourceId: event.id, field: 'causes', value: (event.causes ?? []).join(', ') }],
+      ruleId: this.id, severity: 'low', confidence: 1, title: 'Declared causal step has no consequence', message: `${event.title} declares a cause but no structured effect or downstream consequence.`, entityIds: [event.id, ...predecessorRefs(event)], sourceIds: [event.id], evidence: [{ sourceId: event.id, field: 'causes/causedByRefs', value: predecessorRefs(event).join(', ') }],
     }))) : [noIssue(this.id)]
   },
 }
@@ -186,7 +204,7 @@ const brokenCausalChainRule: InspectableCausalityRule = {
     const evaluations: CausalityRuleEvaluation[] = []
     collectRelations(context).relations.forEach((relation) => {
       const causeEffects = relation.cause.effects ?? []
-      const effectCauses = relation.effect.causes ?? []
+      const effectCauses = predecessorRefs(relation.effect)
       if (causeEffects.length && !causeEffects.includes(relation.effect.id) || effectCauses.length && !effectCauses.includes(relation.cause.id)) {
         evaluations.push(issueEvaluation(createAnalysisIssue(context, 'causality', CAUSALITY_ENGINE_VERSION, {
           ruleId: this.id, severity: 'medium', confidence: 1, title: 'Causal declarations disagree', message: `${relation.cause.title} and ${relation.effect.title} provide incompatible explicit links in the causal chain.`, entityIds: [relation.cause.id, relation.effect.id], sourceIds: [relation.cause.id, relation.effect.id], evidence: [{ sourceId: relation.cause.id, field: 'effects', value: causeEffects.join(', ') }, { sourceId: relation.effect.id, field: 'causes', value: effectCauses.join(', ') }],

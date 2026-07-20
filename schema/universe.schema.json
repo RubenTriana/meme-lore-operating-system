@@ -163,7 +163,33 @@
         "locationRefs": { "$ref": "#/$defs/referenceArray" },
         "participantRefs": { "$ref": "#/$defs/referenceArray" },
         "causes": { "$ref": "#/$defs/referenceArray" },
+        "causedByRefs": { "$ref": "#/$defs/referenceArray" },
         "effects": { "$ref": "#/$defs/referenceArray" },
+        "novelRef": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+        "novelRefs": { "$ref": "#/$defs/referenceArray" },
+        "primaryNovelRef": { "$ref": "#/$defs/id" },
+        "sagaRef": { "$ref": "#/$defs/id" },
+        "act": { "type": "string", "minLength": 1 },
+        "plotline": { "type": "string", "minLength": 1 },
+        "beatNumber": { "type": "integer", "minimum": 1 },
+        "desire": { "type": "string" },
+        "need": { "type": "string" },
+        "wound": { "type": "string" },
+        "contradiction": { "type": "string" },
+        "goal": { "type": "string" },
+        "arc": { "type": "string" },
+        "risk": { "type": "string" },
+        "irreversibleChoice": { "type": "string" },
+        "moralLimit": { "type": "string" },
+        "crueltyProfile": {
+          "type": "object",
+          "properties": {
+            "method": { "type": "string" },
+            "justification": { "type": "string" },
+            "counterweight": { "type": "string" },
+            "maximumAct": { "type": "string" }
+          }
+        },
         "knowledgeChanges": { "type": "array", "items": { "$ref": "#/$defs/knowledgeChange" } },
         "stateChanges": { "type": "array", "items": { "$ref": "#/$defs/stateChange" } },
         "continuity": { "$ref": "#/$defs/continuity" }

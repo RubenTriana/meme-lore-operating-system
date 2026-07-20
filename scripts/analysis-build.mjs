@@ -63,7 +63,7 @@ export async function runAnalysisBuild({ inputPath = defaultInputPath, outputDir
     logLevel: 'error',
     resolve: { alias: { '@': resolve(projectRoot, 'src') } },
     optimizeDeps: { noDiscovery: true },
-    server: { middlewareMode: true },
+    server: { middlewareMode: true, hmr: false },
   })
   try {
     const { migrateUniverse } = await vite.ssrLoadModule('/src/services/migrations/index.ts')

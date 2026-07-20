@@ -12,10 +12,10 @@ const targetIds = [
   'meme-meme',
   'meme-la-gracia',
   'meme-nuevo-caguan',
-  'meme-mercado-futuros-voluntad',
-  'meme-ministerio-del-panico',
-  'meme-celular-agotado-junto-a-harry',
-  'meme-muerte-de-harry',
+  'meme-soma',
+  'meme-dafx-exchange',
+  'meme-registro-completo',
+  'meme-particion-red',
 ]
 
 const list = (value) => Array.isArray(value) ? value : []
@@ -28,7 +28,7 @@ const vite = await createServer({
   logLevel: 'error',
   resolve: { alias: { '@': resolve(projectRoot, 'src') } },
   optimizeDeps: { noDiscovery: true },
-  server: { middlewareMode: true },
+  server: { middlewareMode: true, hmr: false },
 })
 try {
   const raw = JSON.parse(await readFile(inputPath, 'utf8'))
@@ -62,7 +62,10 @@ try {
     const entry = byId.get(id)
     if (!entry) return { id, found: false }
     const entity = entry.entity
-    const referenceFields = Object.fromEntries(['refs', 'foreshadowing', 'locationRefs', 'participantRefs', 'causes', 'effects'].map((field) => [field, list(entity[field])]).filter(([, values]) => values.length))
+    const referenceFields = Object.fromEntries(['refs', 'foreshadowing', 'locationRefs', 'participantRefs', 'causes', 'causedByRefs', 'effects', 'novelRefs'].map((field) => [field, list(entity[field])]).filter(([, values]) => values.length))
+    if (entity.novelRef) referenceFields.novelRef = [entity.novelRef]
+    if (entity.primaryNovelRef) referenceFields.primaryNovelRef = [entity.primaryNovelRef]
+    if (entity.sagaRef) referenceFields.sagaRef = [entity.sagaRef]
     return {
       id,
       found: true,
@@ -109,7 +112,7 @@ try {
     },
     coverage: {
       temporalEvents: events.filter(({ entity }) => entity.temporal?.start).length,
-      causalEvents: events.filter(({ entity }) => list(entity.causes).length || list(entity.effects).length).length,
+      causalEvents: events.filter(({ entity }) => list(entity.causes).length || list(entity.causedByRefs).length || list(entity.effects).length).length,
       knowledgeChangeEvents: events.filter(({ entity }) => list(entity.knowledgeChanges).length).length,
       requiredKnowledgeEvents: events.filter(({ entity }) => list(entity.analysis?.requiredKnowledge).length).length,
       entitiesWithAnalysis: entities.filter(({ entity }) => entity.analysis).length,

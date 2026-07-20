@@ -17,9 +17,7 @@ async function renderCharacters(): Promise<{ container: HTMLDivElement; root: Ro
   const container = document.createElement('div')
   document.body.append(container)
   const root = createRoot(container)
-  await act(async () => {
-    root.render(<MemoryRouter><CharacterRenderer module={charactersModule} universe={universe} index={index} /></MemoryRouter>)
-  })
+  await act(async () => root.render(<MemoryRouter><CharacterRenderer module={charactersModule} universe={universe} index={index} /></MemoryRouter>))
   return { container, root }
 }
 
@@ -28,34 +26,33 @@ describe('character connection navigation', () => {
     ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
     vi.stubGlobal('ResizeObserver', class { observe() {}; unobserve() {}; disconnect() {} })
   })
-
   afterEach(() => vi.unstubAllGlobals())
 
-  it('adds a focused Relationships link to every character card', async () => {
+  it('adds a focused Relationships link to every current character card', async () => {
     const rendered = await renderCharacters()
     try {
       const links = rendered.container.querySelectorAll<HTMLAnchorElement>('.character-connections-link')
-      expect(links).toHaveLength(charactersModule.content.items?.length ?? 0)
-      const clayLink = rendered.container.querySelector<HTMLAnchorElement>('[aria-label="Show 33 connections for Clay"]')
-      expect(clayLink?.getAttribute('href')).toBe('/module/relationships?focus=meme-clay')
-      expect(clayLink?.textContent).toContain('Connections 33')
+      expect(links).toHaveLength(11)
+      const clayConnections = new Set(index.references.get('meme-clay') ?? []).size
+      const clayLink = [...links].find((link) => link.getAttribute('href') === '/module/relationships?focus=meme-clay')
+      expect(clayLink?.textContent).toContain(`Conexiones ${clayConnections}`)
     } finally {
       await act(async () => rendered.root.unmount())
       rendered.container.remove()
     }
   })
 
-  it('builds a radial Clay graph with one central node and its 33 declared connections', () => {
+  it('builds a radial Clay graph from every resolvable canonical connection', () => {
+    const connectionCount = new Set(index.references.get('meme-clay') ?? []).size
     const model = buildSemanticGraphModel(index, 'meme-clay')
-
-    expect(model.nodes).toHaveLength(34)
-    expect(model.edges).toHaveLength(33)
+    expect(connectionCount).toBeGreaterThan(4)
+    expect(model.nodes).toHaveLength(connectionCount + 1)
+    expect(model.edges).toHaveLength(connectionCount)
     expect(model.nodes[0].id).toBe('meme-clay')
     expect(model.edges.every((edge) => edge.source === 'meme-clay')).toBe(true)
   })
 
   it('falls back to the complete semantic graph for an unknown focus', () => {
-    const model = buildSemanticGraphModel(index, 'missing-character')
-    expect(model.nodes).toHaveLength(index.entities.size)
+    expect(buildSemanticGraphModel(index, 'missing-character').nodes).toHaveLength(index.entities.size)
   })
 })

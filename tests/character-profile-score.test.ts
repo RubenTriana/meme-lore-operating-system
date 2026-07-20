@@ -20,6 +20,15 @@ describe('character profile scoring', () => {
     expect(scores.narrativeTime).toBe(54)
   })
 
+  it('derives missing editorial axes from priority, connectivity, and novel presence', () => {
+    const scores = scoreCharacterProfile({
+      id: 'tetralogy-character', type: 'character', title: 'Tetralogy', priority: 'critical',
+      refs: ['one', 'two', 'three', 'four'], novelRefs: ['n1', 'n2', 'n3', 'n4'],
+    })
+    expect(scores.importance).toBeGreaterThanOrEqual(90)
+    expect(scores.narrativeTime).toBeGreaterThanOrEqual(95)
+  })
+
   it('rewards a complete dramatic engine over a minimal profile', () => {
     const minimal: UniverseEntity = { id: 'minimal', type: 'character', title: 'Minimal', summary: 'Breve.' }
     const complete: UniverseEntity = {
@@ -35,6 +44,15 @@ describe('character profile scoring', () => {
       goal: 'Romper el contrato que convierte su identidad futura en propiedad del sistema sin destruir a quienes dependen materialmente de él.',
       arc: 'Comienza buscando restaurar el pasado y termina comprendiendo que ninguna continuidad puede ser libre si está obligada a reproducir una versión anterior de sí misma.'.repeat(3),
       risk: 'Puede convertirse en el instrumento humano que complete el sistema que juró destruir y clausure las alternativas de toda una población.',
+      irreversibleChoice: 'Desconecta una región después de comprobar que el sistema no puede preservar a todos y asume personalmente la responsabilidad por las vidas perdidas.',
+      moralLimit: 'No convertir a ninguna persona en instrumento de otra, incluso cuando la infraestructura dependa materialmente de esa decisión.',
+      novelRefs: ['meme-novela-uno', 'meme-novela-dos', 'meme-novela-tres', 'meme-novela-cuatro'],
+      crueltyProfile: {
+        method: 'Retirar opciones y asignar el coste de supervivencia a quienes tienen menos capacidad de rechazarlo.',
+        justification: 'Sostener hospitales, alimentos y energía durante una crisis que no permite conservar todos los servicios.',
+        counterweight: 'La elección salva vidas concretas y deja víctimas reales que no consintieron el precio pagado.',
+        maximumAct: 'Borrar a la persona que ama y decidir qué región pierde coordinación durante la Partición.',
+      },
       refs: Array.from({ length: 12 }, (_, index) => `ref-${index}`),
       foreshadowing: ['one', 'two', 'three', 'four'],
       analysis: { goals: ['Resolver el conflicto central'] },
@@ -47,7 +65,7 @@ describe('character profile scoring', () => {
   })
 
   it('scores every current character on one fixed 0–100 scale', () => {
-    expect(characters).toHaveLength(29)
+    expect(characters).toHaveLength(11)
     for (const character of characters) {
       const scores = scoreCharacterProfile(character)
       for (const value of Object.values(scores)) {

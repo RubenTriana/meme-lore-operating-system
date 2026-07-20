@@ -26,19 +26,24 @@ function listDepth(value: unknown, targetLength: number) {
 }
 
 export function scoreCharacterProfile(character: UniverseEntity): CharacterProfileScores {
-  const analysisGoals = character.analysis?.goals
+  const cruelty = character.crueltyProfile
+  const priorityBase: Record<string, number> = { critical: 90, high: 76, medium: 62, low: 45 }
+  const inferredImportance = (priorityBase[character.priority ?? ''] ?? 55) + listDepth(character.refs, 8) * 10
+  const inferredNarrativeTime = 30 + listDepth(character.novelRefs, 4) * 65 + listDepth(character.refs, 8) * 5
 
   const development = Math.round(
     textDepth(character.summary, 140) * 8
-      + textDepth(character.alias, 12) * 5
-      + textDepth(character.desire, 100) * 12
-      + textDepth(character.need, 100) * 12
-      + textDepth(character.wound, 80) * 12
-      + textDepth(character.contradiction, 110) * 12
+      + textDepth(character.desire, 100) * 10
+      + textDepth(character.need, 100) * 10
+      + textDepth(character.wound, 80) * 10
+      + textDepth(character.contradiction, 110) * 10
       + textDepth(character.goal, 80) * 10
-      + textDepth(character.arc, 300) * 17
-      + textDepth(character.risk, 100) * 10
-      + listDepth(analysisGoals, 1) * 2,
+      + textDepth(character.risk, 100) * 8
+      + textDepth(character.irreversibleChoice, 120) * 10
+      + textDepth(character.moralLimit, 100) * 8
+      + textDepth(character.arc, 180) * 6
+      + listDepth(character.novelRefs, 2) * 4
+      + ((textDepth(cruelty?.method, 90) + textDepth(cruelty?.counterweight, 90)) / 2) * 6,
   )
 
   const engineQuality = engineFields.reduce((total, field) => {
@@ -46,24 +51,20 @@ export function scoreCharacterProfile(character: UniverseEntity): CharacterProfi
     return total + textDepth(character[field], target)
   }, 0) / engineFields.length
 
-  const narrativeQuality = (
-    textDepth(character.summary, 140)
-      + textDepth(character.goal, 80)
-      + textDepth(character.arc, 300)
-      + textDepth(character.risk, 100)
-  ) / 4
+  const stakesQuality = (textDepth(character.goal, 80) + textDepth(character.risk, 100) + textDepth(character.irreversibleChoice, 120) + textDepth(character.moralLimit, 100)) / 4
+  const crueltyQuality = (textDepth(cruelty?.method, 90) + textDepth(cruelty?.justification, 90) + textDepth(cruelty?.counterweight, 90) + textDepth(cruelty?.maximumAct, 80)) / 4
 
   const quality = Math.round(
-    engineQuality * 60
-      + narrativeQuality * 25
-      + listDepth(character.refs, 12) * 10
-      + listDepth(character.foreshadowing, 4) * 5,
+    engineQuality * 45
+      + stakesQuality * 25
+      + crueltyQuality * 20
+      + listDepth(character.refs, 8) * 10,
   )
 
   return {
     development: clampScore(development),
-    importance: clampScore(character.importance),
-    narrativeTime: clampScore(character.narrativeTime),
+    importance: clampScore(character.importance ?? inferredImportance),
+    narrativeTime: clampScore(character.narrativeTime ?? inferredNarrativeTime),
     quality: clampScore(quality),
   }
 }

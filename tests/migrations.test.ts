@@ -44,14 +44,14 @@ describe('migrations', () => {
     expect(twice.applied).toHaveLength(0)
   })
 
-  it('loads the current canon with disabled analysis engines and no entity analysis', () => {
+  it('loads the current canon with its explicitly enabled analysis engines', () => {
     const result = loadUniverse(source)
     const firstEntity = result.validation.data?.modules[0]?.content.items?.[0]
 
     expect(result.validation.valid).toBe(true)
     expect(result.validation.data?.metadata.schemaVersion).toBe('3.5.0')
-    expect(result.validation.data?.analysisConfig?.enabled).toBe(false)
-    expect(Object.values(result.validation.data?.analysisConfig?.engines ?? {})).toEqual([false, false, false, false, false])
+    expect(result.validation.data?.analysisConfig?.enabled).toBe(true)
+    expect(Object.values(result.validation.data?.analysisConfig?.engines ?? {})).toEqual([true, true, true, true, true])
     expect(firstEntity?.analysis).toBeUndefined()
   })
 })

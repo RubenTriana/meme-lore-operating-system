@@ -15,7 +15,19 @@ export function createSemanticIndex(universe: Universe): SemanticIndex {
     getModuleItems(module).forEach((entity) => {
       entities.set(entity.id, entity)
       moduleByEntity.set(entity.id, module)
-      const refs = [...(entity.refs ?? []), ...(entity.foreshadowing ?? [])]
+      const refs = [...new Set([
+        ...(entity.refs ?? []),
+        ...(entity.foreshadowing ?? []),
+        ...(entity.locationRefs ?? []),
+        ...(entity.participantRefs ?? []),
+        ...(entity.causes ?? []),
+        ...(entity.causedByRefs ?? []),
+        ...(entity.effects ?? []),
+        ...(entity.novelRefs ?? []),
+        ...(entity.novelRef ? [entity.novelRef] : []),
+        ...(entity.primaryNovelRef ? [entity.primaryNovelRef] : []),
+        ...(entity.sagaRef ? [entity.sagaRef] : []),
+      ])]
       references.set(entity.id, refs)
       refs.forEach((ref) => backlinks.set(ref, [...(backlinks.get(ref) ?? []), entity.id]))
       entity.tags?.forEach((tag) => tags.set(tag, [...(tags.get(tag) ?? []), entity.id]))

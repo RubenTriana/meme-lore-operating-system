@@ -34,7 +34,7 @@ interface ComparableInterval {
 interface CausalRelation {
   cause: UniverseEntity
   effect: UniverseEntity
-  declarationField: 'causes' | 'effects'
+  declarationField: 'causes' | 'causedByRefs' | 'effects'
 }
 
 const dayPattern = /^\d{4}-\d{2}-\d{2}$/
@@ -397,6 +397,12 @@ function causalRelations(context: AnalysisContext): { relations: CausalRelation[
       const key = `${cause.id}\u0000${event.id}`
       relations.set(key, relations.get(key) ?? { cause, effect: event, declarationField: 'causes' })
     })
+    ;(event.causedByRefs ?? []).sort(compareText).forEach((causeId) => {
+      const cause = entities.get(causeId)
+      if (!cause || cause.type !== 'event') { missingReferences = true; return }
+      const key = `${cause.id}\u0000${event.id}`
+      relations.set(key, relations.get(key) ?? { cause, effect: event, declarationField: 'causedByRefs' })
+    })
     ;(event.effects ?? []).sort(compareText).forEach((effectId) => {
       const effect = entities.get(effectId)
       if (!effect || effect.type !== 'event') { missingReferences = true; return }
@@ -422,7 +428,7 @@ const effectBeforeCauseRule: InspectableContinuityRule = {
       if (!isDefinitelyBefore(effectInterval, causeInterval) || hasException(context, this.id, causalExceptionKinds, undefined, [relation.cause, relation.effect])) return
       evaluations.push(issueEvaluation(createIssue(context, this.id, 'high', intervalConfidence(causeInterval, effectInterval), 'Declared effect occurs before its cause', `${relation.effect.title} is declared as an effect of ${relation.cause.title}, but its interval ends before the cause begins.`, [relation.cause.id, relation.effect.id], [relation.cause.id, relation.effect.id], [
         { sourceId: relation.cause.id, field: 'temporal', value: temporalValue(relation.cause.temporal) },
-        { sourceId: relation.declarationField === 'causes' ? relation.effect.id : relation.cause.id, field: relation.declarationField, value: relation.declarationField === 'causes' ? relation.cause.id : relation.effect.id },
+        { sourceId: relation.declarationField === 'effects' ? relation.cause.id : relation.effect.id, field: relation.declarationField, value: relation.declarationField === 'effects' ? relation.effect.id : relation.cause.id },
         { sourceId: relation.effect.id, field: 'temporal', value: temporalValue(relation.effect.temporal) },
       ])))
     })

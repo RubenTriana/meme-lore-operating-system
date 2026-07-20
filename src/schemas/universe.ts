@@ -145,7 +145,15 @@ const entitySchema = z
     locationRefs: referenceList.optional(),
     participantRefs: referenceList.optional(),
     causes: referenceList.optional(),
+    causedByRefs: referenceList.optional(),
     effects: referenceList.optional(),
+    novelRef: id.nullable().optional(),
+    novelRefs: referenceList.optional(),
+    primaryNovelRef: id.optional(),
+    sagaRef: id.optional(),
+    act: nonEmptyString.optional(),
+    plotline: nonEmptyString.optional(),
+    beatNumber: z.number().int().positive().optional(),
     knowledgeChanges: z.array(knowledgeChangeSchema).optional(),
     stateChanges: z.array(stateChangeSchema).optional(),
     continuity: continuitySchema.optional(),
@@ -272,7 +280,12 @@ export function validateUniverse(input: unknown): ValidationResult {
         ['locationRefs', entity.locationRefs ?? []],
         ['participantRefs', entity.participantRefs ?? []],
         ['causes', entity.causes ?? []],
+        ['causedByRefs', entity.causedByRefs ?? []],
         ['effects', entity.effects ?? []],
+        ['novelRef', entity.novelRef ? [entity.novelRef] : []],
+        ['novelRefs', entity.novelRefs ?? []],
+        ['primaryNovelRef', entity.primaryNovelRef ? [entity.primaryNovelRef] : []],
+        ['sagaRef', entity.sagaRef ? [entity.sagaRef] : []],
       ]
       referenceFields.forEach(([field, references]) => {
         validateReferences(errors, entityIds, entity.id, field, references)

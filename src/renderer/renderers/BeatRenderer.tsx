@@ -4,6 +4,8 @@ import { useUniverseModel } from '@/app/useUniverseModel'
 import type { BeatStatus } from '@/app/universe-context'
 import { Badge, Card, Progress } from '@/components/ui'
 import { EntityDetailControl } from '@/components/EntityDetailControl'
+import { NovelBadges } from '@/components/NovelNavigator'
+import { getNovelDescriptors } from '@/utils/novels'
 import type { RendererProps } from '../types'
 
 const STATUS_OPTIONS: Array<{ value: BeatStatus; label: string }> = [
@@ -14,11 +16,12 @@ const STATUS_OPTIONS: Array<{ value: BeatStatus; label: string }> = [
   { value: 'locked', label: 'Locked' },
 ]
 
-export function BeatRenderer({ module, index }: RendererProps) {
+export function BeatRenderer({ module, universe, index }: RendererProps) {
   const { updateBeatStatus, workspaceState } = useUniverseModel()
   const [savingId, setSavingId] = useState<string>()
   const [feedback, setFeedback] = useState<Record<string, { tone: 'success' | 'error'; text: string }>>({})
-  const beats = [...(module.content.items ?? [])].sort((a, b) => Number(a.sequence ?? 0) - Number(b.sequence ?? 0))
+  const novels = getNovelDescriptors(universe)
+  const beats = [...(module.content.items ?? [])].sort((a, b) => Number(a.beatNumber ?? a.sequence ?? 0) - Number(b.beatNumber ?? b.sequence ?? 0))
   const global = beats.length ? beats.reduce((total, beat) => total + (beat.development ?? 0), 0) / beats.length : 0
 
   const changeStatus = async (beatId: string, status: BeatStatus) => {
@@ -52,7 +55,7 @@ export function BeatRenderer({ module, index }: RendererProps) {
           const isSaving = savingId === beat.id
           return (
             <article key={beat.id} className="beat-row">
-              <div className="beat-sequence">{beat.status === 'locked' ? <CheckCircle2 size={20} /> : <span>{String(beat.sequence).padStart(2, '0')}</span>}</div>
+              <div className="beat-sequence">{beat.status === 'locked' ? <CheckCircle2 size={20} /> : <span>{String(beat.beatNumber ?? beat.sequence ?? '—').padStart(2, '0')}</span>}</div>
               <div className="beat-copy">
                 <div className="inline-meta">
                   <Badge tone={beat.status === 'locked' ? 'green' : beat.status === 'draft' ? 'amber' : 'blue'}>{beat.status}</Badge>
@@ -60,6 +63,7 @@ export function BeatRenderer({ module, index }: RendererProps) {
                 </div>
                 <h2>{beat.title}</h2>
                 <p>{beat.summary}</p>
+                <NovelBadges entity={beat} novels={novels} />
               </div>
               <div className="beat-progress">
                 <span>Development</span><strong>{beat.development}%</strong>

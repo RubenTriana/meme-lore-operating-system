@@ -7,28 +7,22 @@ const universe = universeData as unknown as Universe
 describe('canonical changelog completeness', () => {
   it('keeps a unique and uninterrupted change identifier sequence', () => {
     const ids = universe.changelog.map((entry) => entry.id)
-    const expected = Array.from({ length: 11 }, (_, index) => `change-${String(index + 1).padStart(3, '0')}`)
-
+    const expected = Array.from({ length: 15 }, (_, index) => `change-${String(index + 1).padStart(3, '0')}`)
     expect(ids).toEqual(expected)
     expect(new Set(ids).size).toBe(ids.length)
   })
 
-  it('represents the current canon and reconciled build', () => {
-    expect(universe.metadata).toMatchObject({
-      version: '0.5.3',
-      build: 'canon-0.5.3-changelog-reconciled',
-    })
-    expect(universe.changelog.some((entry) => entry.version === universe.metadata.version)).toBe(true)
+  it('represents the official tetralogy canon and current build', () => {
+    expect(universe.metadata).toMatchObject({ version: '0.8.1', build: 'canon-0.8.1-jano-entity' })
+    expect(universe.changelog.at(-1)).toMatchObject({ id: 'change-015', version: universe.metadata.version })
   })
 
-  it('records the recovered canon and current application capabilities', () => {
+  it('records the reconstruction, consolidation and asymmetric-cruelty pass', () => {
     const byId = new Map(universe.changelog.map((entry) => [entry.id, entry]))
-
-    expect(byId.get('change-003')?.changes.join(' ')).toContain('cosmología multinivel')
-    expect(byId.get('change-004')?.changes.join(' ')).toContain('SOMA Continuum')
-    expect(byId.get('change-009')?.changes.join(' ')).toContain('El Rey Amarillo')
-    expect(byId.get('change-010')?.changes.join(' ')).toContain('Genius')
-    expect(byId.get('change-010')?.changes.join(' ')).toContain('Connections')
-    expect(byId.get('change-011')?.modules).toEqual(['changelog'])
+    expect(byId.get('change-012')?.changes.join(' ')).toContain('cuatro novelas autocontenidas')
+    expect(byId.get('change-013')?.changes.join(' ')).toContain('Redujo el reparto a diez entidades')
+    expect(byId.get('change-014')?.changes.join(' ')).toContain('crueldad como asignación de costes')
+    expect(byId.get('change-014')?.modules).toContain('franchise')
+    expect(byId.get('change-015')?.changes.join(' ')).toContain('entidad dramática consciente')
   })
 })

@@ -115,7 +115,12 @@ export function buildEntityIndex(normalized: NormalizedUniverse, metadata: Deriv
   const entries: Array<[string, EntityIndexEntry]> = []
 
   normalized.entities.forEach(({ entity, moduleId }) => {
-    const references = sortedUnique([...(entity.refs ?? []), ...(entity.foreshadowing ?? [])])
+    const references = sortedUnique([
+      ...(entity.refs ?? []), ...(entity.foreshadowing ?? []), ...(entity.locationRefs ?? []),
+      ...(entity.participantRefs ?? []), ...(entity.causes ?? []), ...(entity.causedByRefs ?? []),
+      ...(entity.effects ?? []), ...(entity.novelRefs ?? []), ...(entity.novelRef ? [entity.novelRef] : []),
+      ...(entity.primaryNovelRef ? [entity.primaryNovelRef] : []), ...(entity.sagaRef ? [entity.sagaRef] : []),
+    ])
     const tags = sortedUnique(entity.tags ?? [])
     if (!byType.has(entity.type)) byType.set(entity.type, new Set())
     byType.get(entity.type)?.add(entity.id)
@@ -173,7 +178,12 @@ export function buildRelationGraph(normalized: NormalizedUniverse, metadata: Der
     sortedUnique(entity.locationRefs ?? []).forEach((targetId) => addEdge(entity.id, targetId, 'location', 'explicit'))
     sortedUnique(entity.participantRefs ?? []).forEach((targetId) => addEdge(entity.id, targetId, 'participant', 'explicit'))
     sortedUnique(entity.causes ?? []).forEach((targetId) => addEdge(entity.id, targetId, 'cause', 'explicit'))
+    sortedUnique(entity.causedByRefs ?? []).forEach((targetId) => addEdge(entity.id, targetId, 'cause', 'explicit', 'causedByRefs'))
     sortedUnique(entity.effects ?? []).forEach((targetId) => addEdge(entity.id, targetId, 'effect', 'explicit'))
+    sortedUnique(entity.novelRefs ?? []).forEach((targetId) => addEdge(entity.id, targetId, 'novel', 'explicit'))
+    if (entity.novelRef) addEdge(entity.id, entity.novelRef, 'novel', 'explicit')
+    if (entity.primaryNovelRef) addEdge(entity.id, entity.primaryNovelRef, 'primary-novel', 'explicit')
+    if (entity.sagaRef) addEdge(entity.id, entity.sagaRef, 'saga', 'explicit')
     entity.knowledgeChanges?.forEach((change) => addEdge(entity.id, change.characterRef, 'knowledge-change', 'explicit'))
     entity.stateChanges?.forEach((change) => addEdge(entity.id, change.entityRef, 'state-change', 'explicit', change.path))
   })

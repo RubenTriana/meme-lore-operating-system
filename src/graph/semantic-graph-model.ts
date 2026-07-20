@@ -31,9 +31,12 @@ function nodeLabel(entity: UniverseEntity) {
   return createElement('div', null, createElement('strong', null, entity.title), createElement('span', null, entity.type))
 }
 
-export function buildSemanticGraphModel(index: SemanticIndex, focusId?: string): SemanticGraphModel {
+export function buildSemanticGraphModel(index: SemanticIndex, focusId?: string, allowedIds?: ReadonlySet<string>): SemanticGraphModel {
   const focusedEntity = focusId ? index.entities.get(focusId) : undefined
-  const sourceEntities = focusedEntity ? [focusedEntity, ...getEntityConnections(index, focusedEntity.id)] : [...index.entities.values()]
+  const permitted = (entity: UniverseEntity) => !allowedIds || allowedIds.has(entity.id) || entity.id === focusId
+  const sourceEntities = focusedEntity
+    ? [focusedEntity, ...getEntityConnections(index, focusedEntity.id).filter(permitted)]
+    : [...index.entities.values()].filter(permitted)
   const entityIds = new Set(sourceEntities.map((entity) => entity.id))
   const nodes: Node[] = sourceEntities.map((entity, position) => ({
     id: entity.id,

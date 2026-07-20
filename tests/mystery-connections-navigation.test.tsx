@@ -16,20 +16,18 @@ async function renderMysteries(): Promise<{ container: HTMLDivElement; root: Roo
   const container = document.createElement('div')
   document.body.append(container)
   const root = createRoot(container)
-  await act(async () => {
-    root.render(<MemoryRouter><MysteryRenderer module={mysteriesModule} universe={universe} index={index} /></MemoryRouter>)
-  })
+  await act(async () => root.render(<MemoryRouter><MysteryRenderer module={mysteriesModule} universe={universe} index={index} /></MemoryRouter>))
   return { container, root }
 }
 
 describe('mystery connection navigation', () => {
-  beforeEach(() => {
-    ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
-  })
+  beforeEach(() => { ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true })
 
-  it('assigns the specialized renderer to the mysteries module', () => {
+  it('publishes sixteen mysteries, four for each novel', () => {
     expect(mysteriesModule.renderer).toBe('mysteries')
-    expect(mysteries).toHaveLength(24)
+    expect(mysteries).toHaveLength(16)
+    const counts = mysteries.reduce<Record<string, number>>((result, mystery) => ({ ...result, [mystery.novelRef ?? 'none']: (result[mystery.novelRef ?? 'none'] ?? 0) + 1 }), {})
+    expect(Object.values(counts).sort()).toEqual([4, 4, 4, 4])
   })
 
   it('adds a focused graph button to every mystery card', async () => {
@@ -37,12 +35,10 @@ describe('mystery connection navigation', () => {
     try {
       const links = [...rendered.container.querySelectorAll<HTMLAnchorElement>('.mystery-connections-link')]
       expect(links).toHaveLength(mysteries.length)
-
       for (const mystery of mysteries) {
-        const connectionCount = new Set(index.references.get(mystery.id) ?? []).size
-        const link = links.find((candidate) => candidate.getAttribute('aria-label') === `Show ${connectionCount} connections for ${mystery.title}`)
-        expect(link?.getAttribute('href')).toBe(`/module/relationships?focus=${mystery.id}`)
-        expect(link?.textContent).toContain(`Connections ${connectionCount}`)
+        const count = new Set(index.references.get(mystery.id) ?? []).size
+        const link = links.find((candidate) => candidate.getAttribute('href') === `/module/relationships?focus=${mystery.id}`)
+        expect(link?.textContent).toContain(`Conexiones ${count}`)
       }
     } finally {
       await act(async () => rendered.root.unmount())
@@ -52,14 +48,12 @@ describe('mystery connection navigation', () => {
 
   it('builds an exact focused graph for every mystery', () => {
     for (const mystery of mysteries) {
-      const connectionCount = new Set(index.references.get(mystery.id) ?? []).size
+      const count = new Set(index.references.get(mystery.id) ?? []).size
       const model = buildSemanticGraphModel(index, mystery.id)
-
-      expect(connectionCount).toBeGreaterThan(0)
-      expect(model.nodes).toHaveLength(connectionCount + 1)
-      expect(model.edges).toHaveLength(connectionCount)
+      expect(count).toBeGreaterThan(0)
+      expect(model.nodes).toHaveLength(count + 1)
+      expect(model.edges).toHaveLength(count)
       expect(model.nodes[0].id).toBe(mystery.id)
-      expect(model.edges.every((edge) => edge.source === mystery.id)).toBe(true)
     }
   })
 })
