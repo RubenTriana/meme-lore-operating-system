@@ -1,0 +1,11 @@
+{
+  "operations": [
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-mision-dea-para-clay/effects",
+      "value": [
+        "meme-construccion-cubierta-americano"
+      ]
+    }
+  ]
+}

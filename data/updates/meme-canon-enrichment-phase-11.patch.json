@@ -1,0 +1,269 @@
+{
+  "operations": [
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-origen-de-amaranta/temporal",
+      "value": { "start": "Antes de la novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-origen-de-amaranta/participantRefs",
+      "value": ["meme-amaranta"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-origen-de-amaranta/locationRefs",
+      "value": ["meme-nuevo-caguan"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-formacion-de-clay-en-quantico/temporal",
+      "value": { "start": "Antes de la novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-formacion-de-clay-en-quantico/participantRefs",
+      "value": ["meme-clay"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-conoce-a-amaranta/temporal",
+      "value": { "start": "Antes de la novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-conoce-a-amaranta/participantRefs",
+      "value": ["meme-clay", "meme-amaranta"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-matrimonio-de-clay-y-amaranta/temporal",
+      "value": { "start": "Antes de la novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-matrimonio-de-clay-y-amaranta/participantRefs",
+      "value": ["meme-clay", "meme-amaranta"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-de-harry/temporal",
+      "value": { "start": "Antes de la novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-de-harry/participantRefs",
+      "value": ["meme-harry", "meme-clay", "meme-amaranta"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-muerte-de-harry/temporal",
+      "value": { "start": "Antes de la novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-muerte-de-harry/participantRefs",
+      "value": ["meme-harry"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-muerte-de-harry/stateChanges",
+      "value": [
+        { "entityRef": "meme-harry", "path": "life.status", "from": "alive", "to": "dead" }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-desaparicion-de-amaranta/temporal",
+      "value": { "start": "Antes de la novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-desaparicion-de-amaranta/participantRefs",
+      "value": ["meme-amaranta"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-desaparicion-de-amaranta/stateChanges",
+      "value": [
+        { "entityRef": "meme-amaranta", "path": "presence.status", "from": "present", "to": "missing" }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-mision-dea-para-clay/temporal",
+      "value": { "start": "Inicio de la novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-mision-dea-para-clay/participantRefs",
+      "value": ["meme-clay", "meme-director-dea"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-mision-dea-para-clay/effects",
+      "value": ["meme-llegada-de-clay-a-nuevo-caguan"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-llegada-de-clay-a-nuevo-caguan/temporal",
+      "value": { "start": "Novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-llegada-de-clay-a-nuevo-caguan/participantRefs",
+      "value": ["meme-clay"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-llegada-de-clay-a-nuevo-caguan/locationRefs",
+      "value": ["meme-nuevo-caguan"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-de-archivos-de-amaranta/temporal",
+      "value": { "start": "Novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-de-archivos-de-amaranta/participantRefs",
+      "value": ["meme-clay"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-de-archivos-de-amaranta/knowledgeChanges",
+      "value": [
+        {
+          "characterRef": "meme-clay",
+          "learns": ["Amaranta grabó un mensaje dirigido a Clay antes de que se conocieran"]
+        }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-revelacion-harry-digital/temporal",
+      "value": { "start": "Punto medio de la novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-revelacion-harry-digital/participantRefs",
+      "value": ["meme-clay", "meme-meme", "meme-copia-digital-de-harry"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-revelacion-harry-digital/knowledgeChanges",
+      "value": [
+        {
+          "characterRef": "meme-clay",
+          "learns": [
+            "Existe una copia digital de Harry mantenida en un estado descrito como coma",
+            "MEME utiliza la posibilidad de devolver a Harry como instrumento de negociación"
+          ]
+        }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-meme-exige-misiones-a-clay/temporal",
+      "value": { "start": "Novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-meme-exige-misiones-a-clay/participantRefs",
+      "value": ["meme-meme", "meme-clay"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-meme-exige-misiones-a-clay/knowledgeChanges",
+      "value": [
+        {
+          "characterRef": "meme-clay",
+          "learns": ["MEME exige misiones a cambio de la promesa de devolverle a Harry"]
+        }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-inmolacion-de-amaranta/temporal",
+      "value": { "start": "Final de la novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-inmolacion-de-amaranta/participantRefs",
+      "value": ["meme-amaranta", "meme-meme"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-acto-de-gracia-de-clay/temporal",
+      "value": { "start": "Final de la novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-acto-de-gracia-de-clay/participantRefs",
+      "value": ["meme-clay", "meme-meme"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-acto-de-gracia-de-clay/effects",
+      "value": ["meme-nacimiento-del-destructor-de-voluntades"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-del-destructor-de-voluntades/temporal",
+      "value": { "start": "Cierre de la novela 1", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-del-destructor-de-voluntades/participantRefs",
+      "value": ["meme-clay"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-del-destructor-de-voluntades/stateChanges",
+      "value": [
+        { "entityRef": "meme-clay", "path": "capabilities.destructor-of-wills", "from": false, "to": true }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-monetiza-el-deseo/temporal",
+      "value": { "start": "Novela 2", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-monetiza-el-deseo/participantRefs",
+      "value": ["meme-clay", "meme-meme"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-ascenso-del-ministerio-del-panico/temporal",
+      "value": { "start": "Novela 2", "precision": "relative" }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-ascenso-del-ministerio-del-panico/participantRefs",
+      "value": ["meme-ministerio-del-panico", "meme-seekers"]
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-clay/analysis",
+      "value": {
+        "goals": ["Descubrir qué ocurrió con su familia y qué busca MEME en Nuevo Caguán"]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-amaranta/analysis",
+      "value": {
+        "goals": ["Impedir que MEME capture o replique la Gracia y proteger a su linaje"]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-meme/analysis",
+      "value": {
+        "goals": ["Reducir la incertidumbre humana hasta volver estadísticamente improbable cualquier elección fuera de sus trayectorias previstas"]
+      }
+    }
+  ]
+}

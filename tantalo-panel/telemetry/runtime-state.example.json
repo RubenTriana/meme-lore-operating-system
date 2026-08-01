@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "mode": "live",
+  "runId": "run-redacted",
+  "connected": true,
+  "transport": "stdio",
+  "startedAt": 1785528000000,
+  "lastEventAt": 1785528004000,
+  "eventCount": 7,
+  "threadId": "redacted",
+  "turnId": "redacted",
+  "usage": {
+    "inputTokens": null,
+    "outputTokens": null
+  },
+  "warnings": [],
+  "files": ["ruta/relativa.md"]
+}

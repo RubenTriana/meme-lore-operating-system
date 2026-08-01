@@ -1,7 +1,7 @@
 {
   "name": "meme-lore-operating-system",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0-rc.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "analysis:build": "node scripts/analysis-build.mjs",
+    "analysis:benchmark": "node --expose-gc scripts/analysis-benchmark.mjs",
+    "validate:system": "vitest run tests/system-certification.test.ts",
+    "validate:canon": "node scripts/canon-validation.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",

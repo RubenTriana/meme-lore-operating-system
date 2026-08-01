@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Sistema Tántalo</title>
+  <desc id="desc">Una T geométrica dentro de un anillo cian incompleto con indicador rojo.</desc>
+  <rect width="128" height="128" rx="7" fill="#0D1212"/>
+  <rect x="5" y="5" width="118" height="118" rx="4" fill="none" stroke="#3D4745" stroke-width="3"/>
+  <path d="M64 13a51 51 0 1 0 47 31" fill="none" stroke="#65D1CA" stroke-width="8" stroke-linecap="square"/>
+  <path d="M37 39h54M64 39v55M49 94h30" fill="none" stroke="#D8E6E3" stroke-width="9" stroke-linecap="square"/>
+  <circle cx="105" cy="24" r="8" fill="#DC7379"/>
+</svg>

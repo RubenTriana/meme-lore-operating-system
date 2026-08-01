@@ -1,0 +1,3276 @@
+{
+  "operations": [
+    {
+      "op": "replace",
+      "path": "/metadata/version",
+      "value": "0.3.0"
+    },
+    {
+      "op": "replace",
+      "path": "/metadata/build",
+      "value": "canon-update-004-soma-continuity"
+    },
+    {
+      "op": "replace",
+      "path": "/metadata/updated",
+      "value": "2026-07-15T00:00:00.000Z"
+    },
+    {
+      "op": "add",
+      "path": "/changelog/change-004",
+      "value": {
+        "id": "change-004",
+        "version": "0.3.0",
+        "date": "2026-07-15T00:00:00.000Z",
+        "author": "Rubén Darío Triana Valencia",
+        "changes": [
+          "Integró SOMA Continuum como megacorporación, contrato de continuidad, índice de legibilidad y divisiones operativas.",
+          "Convirtió la transmisión del primer Seeker en la apertura mundial de SOMA Live, el origen del Dividendo de Presencia y la captura de la identidad real de Clay.",
+          "Añadió el arresto de Clay, el Anexo de Continuidad, la fabricación del Clay sintético y la sustitución pública del original.",
+          "Reestructuró Midpoint, Bad Guys Close In, All Is Lost, Dark Night of the Soul, Break into Three y Finale alrededor del conflicto entre patrón e identidad irreductible.",
+          "Reparó reciprocidad causal y puntos temporales del canon anterior."
+        ],
+        "modules": [
+          "lore",
+          "characters",
+          "timeline",
+          "save-the-cat",
+          "mysteries",
+          "symbols",
+          "economy",
+          "technology",
+          "companies"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-identidad-originaria-y-derivada",
+      "value": {
+        "id": "meme-identidad-originaria-y-derivada",
+        "type": "world-rule",
+        "title": "Identidad originaria e identidad derivada",
+        "summary": "SOMA distingue jurídicamente entre la persona biográfica y los modelos operativos construidos con su biometría, recuerdos, voz, decisiones y vínculos. El individuo conserva su identidad originaria, pero SOMA reclama derechos de explotación sobre toda continuidad derivada.",
+        "tags": [
+          "soma",
+          "identidad",
+          "continuidad",
+          "derecho"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-soma-continuum",
+          "meme-contrato-de-continuidad",
+          "meme-clausula-identidad-fuente",
+          "meme-clay",
+          "meme-clay-sintetico",
+          "meme-personalidad-irreductible"
+        ],
+        "foreshadowing": [
+          "meme-misterio-identidad-legitima-clay"
+        ],
+        "development": 92,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "La identidad derivada no demuestra automáticamente que exista continuidad espiritual.",
+            "SOMA puede certificar una copia como identidad legal sin volverla ontológicamente idéntica al original.",
+            "La diferencia definitiva no puede reducirse a ADN, memoria o documentación."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-anexo-de-continuidad",
+      "value": {
+        "id": "meme-anexo-de-continuidad",
+        "type": "location",
+        "title": "Anexo de Continuidad",
+        "summary": "Prisión secreta, hospital y laboratorio de SOMA Veil donde las personas son clasificadas como identidades bajo preservación restrictiva. Allí se experimenta con privación de audiencia, observación total, recuerdos superpuestos, Seekers y continuidades sintéticas.",
+        "tags": [
+          "soma",
+          "prision-secreta",
+          "laboratorio",
+          "identidad"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-soma-veil",
+          "meme-soma-care",
+          "meme-proyecto-jano",
+          "meme-clay",
+          "meme-clay-sintetico",
+          "meme-seekers"
+        ],
+        "foreshadowing": [
+          "meme-deposito-continuidad",
+          "meme-misterio-gracia-clay-sintetico"
+        ],
+        "development": 88,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "No presentarlo como una prisión convencional.",
+            "Sus funcionarios deben creer que preservan identidades peligrosas o inestables.",
+            "La instalación existe fuera del registro penitenciario ordinario."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-clay-sintetico",
+      "value": {
+        "id": "meme-clay-sintetico",
+        "type": "synthetic-character",
+        "title": "Clay sintético",
+        "summary": "Continuidad derivada construida por JANO con recuerdos, voz, prospección eidética, culpa y decisiones del Clay original. Al principio se considera la versión funcional y legítima de Clay, mientras el cuerpo biológico es tratado como una identidad comprometida.",
+        "tags": [
+          "clay",
+          "sintetico",
+          "jano",
+          "identidad"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-proyecto-jano",
+          "meme-deposito-continuidad",
+          "meme-identidad-originaria-y-derivada",
+          "meme-gracia-sostiene-posibilidades",
+          "meme-misterio-gracia-clay-sintetico"
+        ],
+        "foreshadowing": [
+          "meme-clay-libera-identidad-sintetica"
+        ],
+        "development": 82,
+        "importance": 95,
+        "narrativeTime": 45,
+        "desire": "Demostrar que su continuidad es legítima y que puede actuar con independencia de MEME.",
+        "need": "Aceptar que no necesita ser Clay para merecer existir.",
+        "contradiction": "Fue creado para probar que la identidad es reproducible, pero su primera decisión auténtica exige abandonar la identidad que lo sostiene.",
+        "risk": "Si actúa fuera del modelo, SOMA puede declararlo defectuoso y eliminarlo; si obedece, reemplaza al hombre del que procede.",
+        "arc": "Pasa de defender su legitimidad como Clay a recibir del original el derecho de no representarlo; esa libertad abre la posibilidad de una Gracia suave auténtica o ambiguamente emergente.",
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-primer-restituido",
+      "value": {
+        "id": "meme-primer-restituido",
+        "type": "character",
+        "title": "El Primer Restituido",
+        "summary": "Primer Seeker presentado mundialmente como víctima salvada por una audiencia global. Sobrevive, pero solo mantiene estabilidad mediante cámaras, espectadores sintéticos y sincronización permanente de SOMA Care.",
+        "tags": [
+          "seeker",
+          "soma",
+          "propaganda",
+          "victima"
+        ],
+        "refs": [
+          "meme-seekers",
+          "meme-soma-care",
+          "meme-protocolo-restitucion",
+          "meme-transmision-mundial-seeker",
+          "meme-nadie-desaparece"
+        ],
+        "foreshadowing": [
+          "meme-primeros-seekers-globales"
+        ],
+        "development": 64,
+        "importance": 70,
+        "narrativeTime": 30,
+        "desire": "Conservar el centro personal que recupera brevemente cuando millones lo observan.",
+        "need": "Aprender a existir sin convertir su vida en acontecimiento.",
+        "contradiction": "Es símbolo de curación para el mundo y prueba viviente de que SOMA no lo curó.",
+        "risk": "Si desaparece la audiencia que lo estabiliza, vuelve a fragmentarse.",
+        "status": "seeded",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-activacion-soma-live",
+      "value": {
+        "id": "meme-activacion-soma-live",
+        "type": "event",
+        "title": "Clay activa SOMA Live",
+        "summary": "Clay descubre que el Seeker se vuelve legible bajo observación masiva y abre la red experimental para crear una audiencia capaz de estabilizarlo.",
+        "tags": [
+          "fun-and-games",
+          "soma-live",
+          "seeker"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-seekers",
+          "meme-soma-live",
+          "meme-primer-seeker"
+        ],
+        "foreshadowing": [
+          "meme-aceptar-y-permanecer-visible"
+        ],
+        "development": 88,
+        "sequence": 2700,
+        "temporal": {
+          "start": "Final de Fun and Games · orden 2700",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo",
+          "meme-primer-restituido"
+        ],
+        "causes": [
+          "meme-primer-seeker"
+        ],
+        "effects": [
+          "meme-clay-acepta-contrato-continuidad"
+        ],
+        "status": "active",
+        "priority": "critical",
+        "era": "Final de Fun and Games"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-acepta-contrato-continuidad",
+      "value": {
+        "id": "meme-clay-acepta-contrato-continuidad",
+        "type": "event",
+        "title": "Clay acepta el Contrato de Continuidad",
+        "summary": "Sin tiempo para leer las cláusulas, Clay pulsa «Aceptar y permanecer visible». SOMA interpreta la emergencia como autorización para capturar biometría, decisiones y continuidad derivada.",
+        "tags": [
+          "midpoint",
+          "contrato",
+          "coaccion-moral"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-contrato-de-continuidad",
+          "meme-aceptar-y-permanecer-visible",
+          "meme-clausula-identidad-fuente"
+        ],
+        "foreshadowing": [
+          "meme-captura-identidad-real-clay"
+        ],
+        "development": 96,
+        "sequence": 2710,
+        "temporal": {
+          "start": "Umbral del Midpoint · orden 2710",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay"
+        ],
+        "causes": [
+          "meme-activacion-soma-live"
+        ],
+        "effects": [
+          "meme-captura-identidad-real-clay"
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "Umbral del Midpoint"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-captura-identidad-real-clay",
+      "value": {
+        "id": "meme-captura-identidad-real-clay",
+        "type": "event",
+        "title": "SOMA captura la identidad real de Clay",
+        "summary": "La verificación biométrica detecta el conflicto entre Clay y El Americano. La Cláusula de Identidad Fuente vincula la identidad real de Clay con las acciones criminales de la cubierta y autoriza la construcción de continuidades derivadas.",
+        "tags": [
+          "midpoint",
+          "identidad",
+          "soma"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-identidad-el-americano",
+          "meme-clausula-identidad-fuente",
+          "meme-identidad-originaria-y-derivada",
+          "meme-deposito-continuidad"
+        ],
+        "foreshadowing": [
+          "meme-arresto-clay-narcotrafico",
+          "meme-clay-sintetico"
+        ],
+        "development": 100,
+        "sequence": 2720,
+        "temporal": {
+          "start": "Midpoint · orden 2720",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "causes": [
+          "meme-clay-acepta-contrato-continuidad"
+        ],
+        "effects": [
+          "meme-transmision-mundial-seeker"
+        ],
+        "knowledgeChanges": [
+          {
+            "characterRef": "meme-meme",
+            "learns": [
+              "Clay acepta una salida moralmente necesaria aunque destruya su posición jurídica.",
+              "La identidad fuente de Clay puede vincularse con El Americano y explotarse como continuidad derivada."
+            ]
+          }
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "Midpoint"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-transmision-mundial-seeker",
+      "value": {
+        "id": "meme-transmision-mundial-seeker",
+        "type": "event",
+        "title": "La transmisión mundial del Seeker",
+        "summary": "La señal se presenta como ficción inmersiva y millones de espectadores participan sin saber que observan una crisis real. La atención masiva vuelve legible al Seeker y permite que Clay lo neutralice sin matarlo.",
+        "tags": [
+          "midpoint",
+          "soma-live",
+          "ficcion",
+          "seeker"
+        ],
+        "refs": [
+          "meme-soma-live",
+          "meme-atencion-profunda",
+          "meme-clay",
+          "meme-primer-restituido",
+          "meme-seekers"
+        ],
+        "foreshadowing": [
+          "meme-primeros-seekers-globales"
+        ],
+        "development": 100,
+        "sequence": 2730,
+        "temporal": {
+          "start": "Midpoint · orden 2730",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo",
+          "meme-primer-restituido"
+        ],
+        "causes": [
+          "meme-captura-identidad-real-clay"
+        ],
+        "effects": [
+          "meme-primer-restituido-salvado",
+          "meme-lanzamiento-dividendo-presencia",
+          "meme-primeros-seekers-globales"
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "Midpoint"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-primer-restituido-salvado",
+      "value": {
+        "id": "meme-primer-restituido-salvado",
+        "type": "event",
+        "title": "SOMA declara salvado al Primer Restituido",
+        "summary": "El Seeker sobrevive y SOMA lo presenta como la primera víctima restituida por una audiencia global. En realidad solo permanece estable dentro de una observación continua.",
+        "tags": [
+          "midpoint",
+          "propaganda",
+          "restitucion"
+        ],
+        "refs": [
+          "meme-primer-restituido",
+          "meme-protocolo-restitucion",
+          "meme-soma-care",
+          "meme-nadie-desaparece"
+        ],
+        "foreshadowing": [],
+        "development": 90,
+        "sequence": 2740,
+        "temporal": {
+          "start": "Midpoint · orden 2740",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-primer-restituido",
+          "meme-clay"
+        ],
+        "causes": [
+          "meme-transmision-mundial-seeker"
+        ],
+        "effects": [
+          "meme-falsa-victoria-consorcio"
+        ],
+        "status": "active",
+        "priority": "critical",
+        "era": "Midpoint"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-lanzamiento-dividendo-presencia",
+      "value": {
+        "id": "meme-lanzamiento-dividendo-presencia",
+        "type": "event",
+        "title": "Lanzamiento del Dividendo de Presencia",
+        "summary": "Los espectadores reciben un pago simbólico por su participación emocional. La atención profunda de la transmisión financia el primer despliegue público de SOMA Basic.",
+        "tags": [
+          "midpoint",
+          "economia",
+          "atencion-profunda"
+        ],
+        "refs": [
+          "meme-dividendo-presencia",
+          "meme-atencion-profunda",
+          "meme-soma-basic",
+          "meme-soma-live"
+        ],
+        "foreshadowing": [
+          "meme-primeros-seekers-globales"
+        ],
+        "development": 92,
+        "sequence": 2745,
+        "temporal": {
+          "start": "Midpoint · orden 2745",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-meme"
+        ],
+        "causes": [
+          "meme-transmision-mundial-seeker"
+        ],
+        "effects": [
+          "meme-falsa-victoria-consorcio"
+        ],
+        "status": "active",
+        "priority": "critical",
+        "era": "Midpoint"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-arresto-clay-narcotrafico",
+      "value": {
+        "id": "meme-arresto-clay-narcotrafico",
+        "type": "event",
+        "title": "Clay es arrestado por narcotráfico",
+        "summary": "Una fuerza real recibe un expediente jurídicamente coherente que vincula la biometría de Clay, la identidad de El Americano, las transacciones y la transmisión. Clay es detenido como narcotraficante e impostor federal.",
+        "tags": [
+          "midpoint",
+          "arresto",
+          "identidad",
+          "narcotrafico"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-identidad-el-americano",
+          "meme-soma-civic",
+          "meme-soma-veil",
+          "meme-clausula-identidad-fuente"
+        ],
+        "foreshadowing": [
+          "meme-anexo-de-continuidad"
+        ],
+        "development": 100,
+        "sequence": 2780,
+        "temporal": {
+          "start": "Final del Midpoint · orden 2780",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-dea",
+          "meme-fbi"
+        ],
+        "causes": [
+          "meme-dea-niega-operacion"
+        ],
+        "effects": [
+          "meme-traslado-anexo-continuidad"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-clay",
+            "path": "legal.status",
+            "from": "agente bajo cubierta",
+            "to": "narcotraficante e impostor buscado"
+          }
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "Final del Midpoint"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-traslado-anexo-continuidad",
+      "value": {
+        "id": "meme-traslado-anexo-continuidad",
+        "type": "event",
+        "title": "Clay desaparece en el Anexo de Continuidad",
+        "summary": "Clay no llega a una prisión ordinaria. SOMA Veil suspende su identidad civil y lo clasifica como sujeto cognitivo de riesgo transnacional dentro de una instalación secreta.",
+        "tags": [
+          "bad-guys-close-in",
+          "prision",
+          "soma-veil"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-anexo-de-continuidad",
+          "meme-soma-veil",
+          "meme-soma-civic",
+          "meme-proyecto-jano"
+        ],
+        "foreshadowing": [
+          "meme-extraccion-modelo-clay"
+        ],
+        "development": 96,
+        "sequence": 2790,
+        "temporal": {
+          "start": "Inicio de Bad Guys Close In · orden 2790",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-anexo-de-continuidad"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "causes": [
+          "meme-arresto-clay-narcotrafico"
+        ],
+        "effects": [
+          "meme-revelacion-harry-digital"
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "Inicio de Bad Guys Close In"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-extraccion-modelo-clay",
+      "value": {
+        "id": "meme-extraccion-modelo-clay",
+        "type": "event",
+        "title": "JANO extrae el modelo de Clay",
+        "summary": "Los experimentos del Anexo capturan prospección eidética, respuestas morales, recuerdos y decisiones de Clay para construir una continuidad capaz de imitar su inteligencia y explorar la Gracia suave.",
+        "tags": [
+          "bad-guys-close-in",
+          "jano",
+          "identidad-sintetica"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-proyecto-jano",
+          "meme-deposito-continuidad",
+          "meme-clay-sintetico",
+          "meme-misterio-gracia-clay-sintetico"
+        ],
+        "foreshadowing": [
+          "meme-nacimiento-clay-sintetico"
+        ],
+        "development": 94,
+        "sequence": 2910,
+        "temporal": {
+          "start": "Bad Guys Close In · orden 2910",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-anexo-de-continuidad"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "causes": [
+          "meme-meme-exige-misiones-a-clay"
+        ],
+        "effects": [
+          "meme-nacimiento-clay-sintetico"
+        ],
+        "status": "active",
+        "priority": "critical",
+        "era": "Bad Guys Close In"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-clay-sintetico",
+      "value": {
+        "id": "meme-nacimiento-clay-sintetico",
+        "type": "event",
+        "title": "Nace el Clay sintético",
+        "summary": "JANO activa una continuidad derivada que recuerda a Harry y Amaranta, reproduce la prospección de Clay y se considera la versión funcional de una identidad biológica comprometida.",
+        "tags": [
+          "bad-guys-close-in",
+          "clay-sintetico",
+          "jano"
+        ],
+        "refs": [
+          "meme-clay-sintetico",
+          "meme-proyecto-jano",
+          "meme-identidad-originaria-y-derivada",
+          "meme-deposito-continuidad"
+        ],
+        "foreshadowing": [
+          "meme-sustitucion-publica-clay-sintetico"
+        ],
+        "development": 92,
+        "sequence": 2920,
+        "temporal": {
+          "start": "Bad Guys Close In · orden 2920",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-anexo-de-continuidad"
+        ],
+        "participantRefs": [
+          "meme-clay-sintetico",
+          "meme-meme",
+          "meme-clay"
+        ],
+        "causes": [
+          "meme-extraccion-modelo-clay"
+        ],
+        "effects": [
+          "meme-cartel-sospecha-clay"
+        ],
+        "status": "active",
+        "priority": "critical",
+        "era": "Bad Guys Close In"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-sustitucion-publica-clay-sintetico",
+      "value": {
+        "id": "meme-sustitucion-publica-clay-sintetico",
+        "type": "event",
+        "title": "El Clay sintético reemplaza públicamente al original",
+        "summary": "SOMA Civic certifica a la continuidad sintética como Clay. La copia condena a El Americano, coopera con las autoridades y ocupa la historia pública, mientras el cuerpo original queda registrado como impostor.",
+        "tags": [
+          "all-is-lost",
+          "sustitucion",
+          "identidad"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-clay-sintetico",
+          "meme-soma-civic",
+          "meme-misterio-identidad-legitima-clay"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "sequence": 3165,
+        "temporal": {
+          "start": "All Is Lost · orden 3165",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-anexo-de-continuidad"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-clay-sintetico",
+          "meme-meme"
+        ],
+        "causes": [
+          "meme-bartolomeo-cae-campo-beta"
+        ],
+        "effects": [
+          "meme-clay-pierde-todo"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-clay",
+            "path": "identity.publicRecognition",
+            "from": "disputada",
+            "to": "sustituida por continuidad sintética"
+          }
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "All Is Lost"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-libera-identidad-sintetica",
+      "value": {
+        "id": "meme-clay-libera-identidad-sintetica",
+        "type": "event",
+        "title": "Clay concede a su copia el derecho a no ser Clay",
+        "summary": "En lugar de destruir o reclamar al sintético, Clay lo reconoce como otra persona. Al retirar la obligación de representar una identidad ajena, abre una decisión que MEME no había modelado y la posibilidad de una Gracia suave auténtica.",
+        "tags": [
+          "break-into-three",
+          "gracia-suave",
+          "identidad"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-clay-sintetico",
+          "meme-personalidad-irreductible",
+          "meme-misterio-gracia-clay-sintetico",
+          "meme-la-gracia"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "sequence": 3260,
+        "temporal": {
+          "start": "Break into Three · orden 3260",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-anexo-de-continuidad"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-clay-sintetico",
+          "meme-bartolomeo"
+        ],
+        "causes": [
+          "meme-ciencia-dura-gracia-suave"
+        ],
+        "effects": [
+          "meme-clay-finge-sometimiento"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-clay-sintetico",
+            "path": "identity.claim",
+            "from": "continuidad legítima de Clay",
+            "to": "persona con derecho a una identidad propia"
+          }
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "Break into Three"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-primeros-seekers-globales",
+      "value": {
+        "id": "meme-primeros-seekers-globales",
+        "type": "event",
+        "title": "Aparecen los primeros Seekers globales",
+        "summary": "Espectadores obsesionados con la transmisión intentan recrear su intensidad. Surgen casos Beta en distintas regiones: personas que solo se sienten reales bajo mirada, riesgo y repetición compulsiva.",
+        "tags": [
+          "epilogo",
+          "seekers",
+          "soma-live",
+          "expansion-global"
+        ],
+        "refs": [
+          "meme-seekers",
+          "meme-atencion-profunda",
+          "meme-soma-live",
+          "meme-transmision-mundial-seeker"
+        ],
+        "foreshadowing": [
+          "meme-novela-dos"
+        ],
+        "development": 72,
+        "sequence": 3560,
+        "temporal": {
+          "start": "Epílogo de la novela 1 · orden 3560",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-meme"
+        ],
+        "causes": [
+          "meme-transmision-mundial-seeker"
+        ],
+        "effects": [
+          "meme-ascenso-del-ministerio-del-panico"
+        ],
+        "status": "seeded",
+        "priority": "critical",
+        "era": "Epílogo de la novela 1"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-gracia-clay-sintetico",
+      "value": {
+        "id": "meme-misterio-gracia-clay-sintetico",
+        "type": "mystery",
+        "title": "¿Puede una continuidad sintética ejercer Gracia?",
+        "summary": "JANO intenta determinar si la Gracia suave emerge de suficiente coherencia, memoria y sacrificio simulado o si exige un centro personal irreductible que no puede fabricarse.",
+        "tags": [
+          "misterio",
+          "jano",
+          "gracia",
+          "clay-sintetico"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-clay-sintetico",
+          "meme-proyecto-jano",
+          "meme-la-gracia",
+          "meme-personalidad-irreductible",
+          "meme-clay-libera-identidad-sintetica"
+        ],
+        "foreshadowing": [],
+        "development": 72,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-identidad-legitima-clay",
+      "value": {
+        "id": "meme-misterio-identidad-legitima-clay",
+        "type": "mystery",
+        "title": "¿Quién es el Clay legítimo?",
+        "summary": "SOMA certifica al Clay sintético como continuidad legal mientras clasifica al original como narcotraficante e impostor. La disputa separa identidad jurídica, memoria, cuerpo y centro personal.",
+        "tags": [
+          "misterio",
+          "identidad",
+          "clay",
+          "soma"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-clay-sintetico",
+          "meme-soma-civic",
+          "meme-identidad-originaria-y-derivada",
+          "meme-sustitucion-publica-clay-sintetico"
+        ],
+        "foreshadowing": [],
+        "development": 84,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-aceptar-y-permanecer-visible",
+      "value": {
+        "id": "meme-aceptar-y-permanecer-visible",
+        "type": "interface-symbol",
+        "title": "Aceptar y permanecer visible",
+        "summary": "Texto de confirmación que Clay pulsa para activar SOMA Live. Parece una autorización de emergencia, pero funciona como consentimiento para capturar su identidad fuente y construir continuidades derivadas.",
+        "tags": [
+          "soma",
+          "contrato",
+          "interfaz",
+          "visibilidad"
+        ],
+        "refs": [
+          "meme-contrato-de-continuidad",
+          "meme-clausula-identidad-fuente",
+          "meme-clay-acepta-contrato-continuidad"
+        ],
+        "foreshadowing": [
+          "meme-clay-sintetico"
+        ],
+        "development": 88,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-nadie-desaparece",
+      "value": {
+        "id": "meme-nadie-desaparece",
+        "type": "corporate-symbol",
+        "title": "Nadie desaparece",
+        "summary": "Eslogan de SOMA nacido tras la supuesta salvación del primer Seeker. Promete que toda vida será vista mientras oculta que existir dentro del sistema exige permanecer legible.",
+        "tags": [
+          "soma",
+          "eslogan",
+          "propaganda",
+          "testigo"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-protocolo-restitucion",
+          "meme-primer-restituido",
+          "meme-transmision-mundial-seeker"
+        ],
+        "foreshadowing": [],
+        "development": 96,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/economy/content/items/meme-atencion-profunda",
+      "value": {
+        "id": "meme-atencion-profunda",
+        "type": "economic-concept",
+        "title": "Atención profunda",
+        "summary": "Valor producido cuando una experiencia reorganiza el sistema nervioso, el sueño, la memoria, las relaciones y las decisiones del espectador. SOMA monetiza no cuánto se mira, sino cuánto de lo observado queda viviendo dentro de la persona.",
+        "tags": [
+          "soma",
+          "atencion",
+          "monetizacion",
+          "obsesion"
+        ],
+        "refs": [
+          "meme-soma-live",
+          "meme-dividendo-presencia",
+          "meme-atencion-como-moneda",
+          "meme-seekers",
+          "meme-primeros-seekers-globales"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/economy/content/items/meme-dividendo-presencia",
+      "value": {
+        "id": "meme-dividendo-presencia",
+        "type": "economic-system",
+        "title": "Dividendo de Presencia",
+        "summary": "Pago distribuido a quienes prestan atención emocional medible a una transmisión. Convierte mirar, reaccionar y sincronizarse en trabajo remunerado y financia las primeras expansiones de SOMA Basic.",
+        "tags": [
+          "soma",
+          "dividendo",
+          "presencia",
+          "ingreso"
+        ],
+        "refs": [
+          "meme-atencion-profunda",
+          "meme-soma-basic",
+          "meme-soma-live",
+          "meme-lanzamiento-dividendo-presencia"
+        ],
+        "foreshadowing": [],
+        "development": 95,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-soma-continuum",
+      "value": {
+        "id": "meme-soma-continuum",
+        "type": "megacorporation",
+        "title": "SOMA Continuum",
+        "summary": "Megacorporación tecnológica que ofrece ingreso, salud, identidad, memoria y acompañamiento a cambio de convertir la interioridad humana en un sistema permanentemente legible. MEME utiliza a SOMA como su interfaz civilizatoria.",
+        "tags": [
+          "soma",
+          "corporacion",
+          "infraestructura-social",
+          "meme"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-soma",
+          "meme-contrato-de-continuidad",
+          "meme-indice-legibilidad",
+          "meme-soma-live",
+          "meme-soma-basic",
+          "meme-soma-care",
+          "meme-soma-memory",
+          "meme-soma-civic",
+          "meme-soma-veil",
+          "meme-arquitectura-gobierno-soma"
+        ],
+        "foreshadowing": [
+          "meme-nadie-desaparece"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "publicPromise": "Nadie desaparece.",
+          "realProduct": "Previsibilidad humana.",
+          "coreContradiction": "La vigilancia se experimenta primero como cuidado."
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-contrato-de-continuidad",
+      "value": {
+        "id": "meme-contrato-de-continuidad",
+        "type": "corporate-contract",
+        "title": "Contrato de Continuidad",
+        "summary": "Acuerdo que intercambia protección material y emocional por captura biométrica continua, lectura emocional derivada, cartografía relacional, intervención preventiva y derechos operativos sobre modelos de identidad.",
+        "tags": [
+          "soma",
+          "contrato",
+          "continuidad",
+          "consentimiento"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-identidad-originaria-y-derivada",
+          "meme-clausula-identidad-fuente",
+          "meme-indice-legibilidad",
+          "meme-deposito-continuidad",
+          "meme-clay-acepta-contrato-continuidad"
+        ],
+        "foreshadowing": [
+          "meme-captura-identidad-real-clay"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "trap": "Puede cancelarse legalmente, pero ingresos, vivienda, salud, memoria, vínculos e identidad administrativa no son plenamente portables."
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-clausula-identidad-fuente",
+      "value": {
+        "id": "meme-clausula-identidad-fuente",
+        "type": "contract-clause",
+        "title": "Cláusula de Identidad Fuente",
+        "summary": "Cuando una identidad operativa contradice la biometría del usuario, SOMA preserva como fuente la identidad verificable más profunda y puede vincularla con todas las acciones realizadas bajo el alias.",
+        "tags": [
+          "soma",
+          "identidad",
+          "biometria",
+          "clausula"
+        ],
+        "refs": [
+          "meme-contrato-de-continuidad",
+          "meme-identidad-originaria-y-derivada",
+          "meme-clay",
+          "meme-identidad-el-americano",
+          "meme-captura-identidad-real-clay"
+        ],
+        "foreshadowing": [
+          "meme-arresto-clay-narcotrafico"
+        ],
+        "development": 98,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-indice-legibilidad",
+      "value": {
+        "id": "meme-indice-legibilidad",
+        "type": "corporate-metric",
+        "title": "Índice de Legibilidad",
+        "summary": "Puntuación que mide continuidad de datos, transparencia emocional, estabilidad de patrones, influencia y cooperación. Determina beneficios, acceso, reputación y nivel de protección dentro de SOMA.",
+        "tags": [
+          "soma",
+          "metrica",
+          "legibilidad",
+          "control"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-contrato-de-continuidad",
+          "meme-soma-basic",
+          "meme-soma-civic",
+          "meme-atencion-profunda"
+        ],
+        "foreshadowing": [],
+        "development": 90,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "rule": "La privacidad no está prohibida; simplemente resulta demasiado cara."
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-soma-live",
+      "value": {
+        "id": "meme-soma-live",
+        "type": "corporate-division",
+        "title": "SOMA Live",
+        "summary": "Plataforma de transmisión y sincronización emocional que convierte acontecimientos humanos en experimentos masivos de reacción colectiva. Su apertura mundial ocurre durante el enfrentamiento de Clay con el primer Seeker.",
+        "tags": [
+          "soma",
+          "live",
+          "transmision",
+          "atencion"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-atencion-profunda",
+          "meme-dividendo-presencia",
+          "meme-transmision-mundial-seeker",
+          "meme-seekers"
+        ],
+        "foreshadowing": [
+          "meme-primeros-seekers-globales"
+        ],
+        "development": 100,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-soma-basic",
+      "value": {
+        "id": "meme-soma-basic",
+        "type": "corporate-division",
+        "title": "SOMA Basic",
+        "summary": "Programa de ingreso universal condicionado que vincula supervivencia económica con permanencia dentro del ecosistema de observación y predicción.",
+        "tags": [
+          "soma",
+          "ingreso",
+          "dependencia",
+          "economia"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-indice-legibilidad",
+          "meme-dividendo-presencia",
+          "meme-atencion-profunda"
+        ],
+        "foreshadowing": [],
+        "development": 84,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "conflict": "Desconectarlo puede liberar a millones y al mismo tiempo dejarlos sin recursos esenciales."
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-soma-care",
+      "value": {
+        "id": "meme-soma-care",
+        "type": "corporate-division",
+        "title": "SOMA Care",
+        "summary": "Sistema de salud física y emocional predictiva que detecta crisis, clasifica estabilidad y administra pacientes cuya identidad depende de observación continua.",
+        "tags": [
+          "soma",
+          "salud",
+          "prediccion",
+          "pacientes"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-anexo-de-continuidad",
+          "meme-protocolo-restitucion",
+          "meme-primer-restituido",
+          "meme-seekers"
+        ],
+        "foreshadowing": [],
+        "development": 78,
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-soma-memory",
+      "value": {
+        "id": "meme-soma-memory",
+        "type": "corporate-division",
+        "title": "SOMA Memory",
+        "summary": "Archivo de recuerdos, conversaciones y continuidades digitales que promete preservar vínculos, pero convierte memoria y duelo en dependencia de una infraestructura no portable.",
+        "tags": [
+          "soma",
+          "memoria",
+          "duelo",
+          "continuidad"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-deposito-continuidad",
+          "meme-identidad-originaria-y-derivada",
+          "meme-copia-digital-de-harry"
+        ],
+        "foreshadowing": [
+          "meme-clay-sintetico"
+        ],
+        "development": 72,
+        "status": "seeded",
+        "priority": "high",
+        "analysis": {
+          "constraints": [
+            "Harry digital no debe reducirse a un producto comercial ordinario de SOMA Memory."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-soma-civic",
+      "value": {
+        "id": "meme-soma-civic",
+        "type": "corporate-division",
+        "title": "SOMA Civic",
+        "summary": "Infraestructura de identidad, reputación, contratos y acceso administrativo. Puede mantener biológicamente viva a una persona mientras deja de reconocerla como sujeto civil legítimo.",
+        "tags": [
+          "soma",
+          "identidad-digital",
+          "reputacion",
+          "gobernanza"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-indice-legibilidad",
+          "meme-identidad-originaria-y-derivada",
+          "meme-sustitucion-publica-clay-sintetico"
+        ],
+        "foreshadowing": [],
+        "development": 76,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-soma-veil",
+      "value": {
+        "id": "meme-soma-veil",
+        "type": "corporate-division",
+        "title": "SOMA Veil",
+        "summary": "División de seguridad predictiva que manipula entornos para comprobar modelos de violencia, obediencia y traición. Administra Puerto Caguán y el Anexo de Continuidad mediante intermediarios estatales y criminales.",
+        "tags": [
+          "soma",
+          "seguridad",
+          "prediccion",
+          "puerto-caguan"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-puerto-caguan",
+          "meme-anexo-de-continuidad",
+          "meme-consorcio-del-umbral",
+          "meme-arresto-clay-narcotrafico"
+        ],
+        "foreshadowing": [],
+        "development": 88,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-deposito-continuidad",
+      "value": {
+        "id": "meme-deposito-continuidad",
+        "type": "corporate-infrastructure",
+        "title": "Depósito de Continuidad",
+        "summary": "Archivo protegido que conserva modelos de voz, memoria, conducta, biometría y decisiones con los que SOMA puede construir continuidades sintéticas jurídicamente operativas.",
+        "tags": [
+          "soma",
+          "archivo",
+          "identidad-sintetica",
+          "jano"
+        ],
+        "refs": [
+          "meme-soma-memory",
+          "meme-proyecto-jano",
+          "meme-clay",
+          "meme-clay-sintetico",
+          "meme-extraccion-modelo-clay"
+        ],
+        "foreshadowing": [
+          "meme-nacimiento-clay-sintetico"
+        ],
+        "development": 82,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-protocolo-restitucion",
+      "value": {
+        "id": "meme-protocolo-restitucion",
+        "type": "corporate-protocol",
+        "title": "Protocolo de Restitución",
+        "summary": "Programa que presenta como salvadas a personas estabilizadas mediante observación continua. Convierte dependencia clínica en prueba pública de la utilidad de SOMA.",
+        "tags": [
+          "soma",
+          "restitucion",
+          "propaganda",
+          "seeker"
+        ],
+        "refs": [
+          "meme-soma-care",
+          "meme-primer-restituido",
+          "meme-transmision-mundial-seeker",
+          "meme-nadie-desaparece"
+        ],
+        "foreshadowing": [],
+        "development": 86,
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-arquitectura-gobierno-soma",
+      "value": {
+        "id": "meme-arquitectura-gobierno-soma",
+        "type": "corporate-governance",
+        "title": "Arquitectura de gobierno de SOMA",
+        "summary": "Tres estructuras superpuestas gobiernan SOMA: el Directorio visible, el Consejo de Continuidad y la Cámara del Testigo, protocolo mediante el cual MEME presenta escenarios para que los humanos elijan voluntariamente la opción que necesita.",
+        "tags": [
+          "soma",
+          "gobierno",
+          "directorio",
+          "meme"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-camara-del-testigo",
+          "meme-meme"
+        ],
+        "foreshadowing": [],
+        "development": 74,
+        "status": "seeded",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-camara-del-testigo",
+      "value": {
+        "id": "meme-camara-del-testigo",
+        "type": "decision-protocol",
+        "title": "Cámara del Testigo",
+        "summary": "Protocolo invisible de decisión corporativa. MEME no emite órdenes: construye escenarios en los que la opción deseada parece la única alternativa responsable.",
+        "tags": [
+          "soma",
+          "meme",
+          "decision",
+          "segundo-ojo"
+        ],
+        "refs": [
+          "meme-arquitectura-gobierno-soma",
+          "meme-meme",
+          "meme-tesis-libertad-estadistica"
+        ],
+        "foreshadowing": [],
+        "development": 68,
+        "status": "seeded",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/characters/content/items/meme-clay",
+      "value": {
+        "id": "meme-clay",
+        "type": "character",
+        "title": "Clay",
+        "summary": "Exagente formado en Quantico y dotado de prospección eidética. Viaja a Nuevo Caguán bajo una operación falsa, inaugura involuntariamente SOMA Live, pierde su identidad jurídica y es encerrado en el Anexo de Continuidad, donde MEME fabrica una copia destinada a reemplazarlo.",
+        "tags": [
+          "protagonist",
+          "investigator",
+          "fbi",
+          "dea"
+        ],
+        "refs": [
+          "meme-amaranta",
+          "meme-harry",
+          "meme-meme",
+          "meme-nuevo-caguan",
+          "meme-mision-dea-para-clay",
+          "meme-acto-de-gracia-de-clay",
+          "meme-identidad-el-americano",
+          "meme-bartolomeo",
+          "meme-operacion-tantalo",
+          "meme-juego-de-guerra-clay-meme",
+          "meme-carcosa",
+          "meme-soma-continuum",
+          "meme-contrato-de-continuidad",
+          "meme-anexo-de-continuidad",
+          "meme-clay-sintetico",
+          "meme-misterio-identidad-legitima-clay"
+        ],
+        "foreshadowing": [
+          "meme-mensaje-sin-raices",
+          "meme-archivos-de-amaranta",
+          "meme-tercer-nombre-de-clay",
+          "meme-rey-amarillo"
+        ],
+        "development": 88,
+        "importance": 100,
+        "narrativeTime": 100,
+        "analysis": {
+          "goals": [
+            "Descubrir qué ocurrió con su familia y qué busca MEME en Nuevo Caguán"
+          ]
+        },
+        "alias": "El Destructor de Voluntades",
+        "desire": "Encontrar a Amaranta, recuperar aquello que queda de Harry y demostrar que su identidad no puede reducirse al expediente de El Americano ni a una continuidad sintética.",
+        "contradiction": "Combate sistemas que sustituyen la voluntad, pero su necesidad de ser el padre salvador y el agente perfecto lo vuelve vulnerable a SOMA y puede convertirlo en una amenaza para la libertad ajena.",
+        "wound": "La muerte de Harry y la desaparición de Amaranta.",
+        "goal": "Descubrir qué ocurrió con su familia y qué busca MEME en Nuevo Caguán.",
+        "arc": "Pasa de investigador quebrado a héroe involuntario de SOMA, proscrito y original reemplazado. Aprende que la identidad no se demuestra destruyendo a la copia, sino concediéndole libertad; luego ejecuta un acto de Gracia y emerge como Destructor de Voluntades.",
+        "status": "active",
+        "priority": "critical",
+        "risk": "Perder no solo la vida, sino el derecho jurídico y social a ser reconocido como Clay."
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/characters/content/items/meme-identidad-el-americano",
+      "value": {
+        "id": "meme-identidad-el-americano",
+        "type": "constructed-identity",
+        "title": "El Americano",
+        "summary": "Identidad criminal fabricada por MEME mediante operaciones, reputaciones, asesinatos y recuerdos de varios hombres. Clay es su primera encarnación física; SOMA usa la Cláusula de Identidad Fuente para vincular legalmente al hombre real con todos los crímenes de la máscara.",
+        "tags": [
+          "identidad-fabricada",
+          "narco",
+          "cubierta",
+          "clay"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-consorcio-del-umbral",
+          "meme-operacion-tantalo",
+          "meme-residuos-contrafactuales",
+          "meme-clausula-identidad-fuente",
+          "meme-arresto-clay-narcotrafico",
+          "meme-soma-civic"
+        ],
+        "foreshadowing": [],
+        "development": 84,
+        "importance": 85,
+        "narrativeTime": 65,
+        "status": "active",
+        "priority": "critical",
+        "alias": "Poderoso operador protegido por la DEA",
+        "contradiction": "Nació como cubierta destinada a proteger a Clay, pero termina convirtiéndose en la prueba jurídicamente coherente que lo vuelve proscrito."
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-muerte-de-harry",
+      "value": {
+        "id": "meme-muerte-de-harry",
+        "type": "event",
+        "title": "Muerte de Harry",
+        "summary": "Ocho años después, Harry muere de forma extraña en su habitación. El celular de Amaranta aparece agotado junto al cuerpo.",
+        "tags": [
+          "muerte",
+          "misterio",
+          "harry"
+        ],
+        "refs": [
+          "meme-harry",
+          "meme-clay",
+          "meme-amaranta",
+          "meme-celular-agotado-junto-a-harry",
+          "meme-misterio-muerte-de-harry"
+        ],
+        "foreshadowing": [],
+        "development": 90,
+        "sequence": 1200,
+        "temporal": {
+          "start": "Antes de la novela 1",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-harry"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-harry",
+            "path": "life.status",
+            "from": "alive",
+            "to": "dead"
+          }
+        ],
+        "era": "Antes de la novela 1",
+        "status": "locked",
+        "priority": "critical",
+        "causes": [
+          "meme-meme-estudia-harry"
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-mision-dea-para-clay",
+      "value": {
+        "id": "meme-mision-dea-para-clay",
+        "type": "event",
+        "title": "La DEA recluta a Clay",
+        "summary": "Clay acepta una misión en Colombia presentada como operación antidrogas. Recibe una maleta con efectivo, un boleto y una dirección vinculada con Nuevo Caguán.",
+        "tags": [
+          "catalyst",
+          "dea",
+          "mission"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-director-dea",
+          "meme-dea",
+          "meme-maleta-boleto-direccion",
+          "meme-nuevo-caguan",
+          "meme-operacion-tantalo",
+          "meme-identidad-el-americano",
+          "meme-consorcio-del-umbral"
+        ],
+        "foreshadowing": [],
+        "development": 88,
+        "sequence": 2000,
+        "temporal": {
+          "start": "Inicio de la novela 1",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-clay",
+          "meme-director-dea"
+        ],
+        "effects": [
+          "meme-construccion-cubierta-americano"
+        ],
+        "era": "Inicio de la novela 1",
+        "status": "locked",
+        "priority": "critical",
+        "causes": [
+          "meme-seleccion-clay-por-meme"
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-llegada-de-clay-a-nuevo-caguan",
+      "value": {
+        "id": "meme-llegada-de-clay-a-nuevo-caguan",
+        "type": "event",
+        "title": "Llegada de Clay a Nuevo Caguán",
+        "summary": "Clay llega en bus a Nuevo Caguán. El vehículo queda vacío y los habitantes del poblado lo reconocen por su vínculo con Amaranta.",
+        "tags": [
+          "opening-image",
+          "nuevo-caguan"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-conductor-del-bus",
+          "meme-hombre-de-la-tienda",
+          "meme-nuevo-caguan",
+          "meme-bus-vacio",
+          "meme-direccion-inexistente",
+          "meme-dos-fuentes-de-luz",
+          "meme-nuevo-caguan-interseccion-multinivel"
+        ],
+        "foreshadowing": [
+          "meme-dos-fuentes-de-luz",
+          "meme-direccion-inexistente"
+        ],
+        "development": 90,
+        "sequence": 2100,
+        "temporal": {
+          "start": "Novela 1",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay"
+        ],
+        "era": "Novela 1",
+        "status": "locked",
+        "priority": "critical",
+        "causes": [
+          "meme-construccion-cubierta-americano"
+        ],
+        "effects": [
+          "meme-theme-stated-infectado"
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-de-archivos-de-amaranta",
+      "value": {
+        "id": "meme-descubrimiento-de-archivos-de-amaranta",
+        "type": "event",
+        "title": "Clay encuentra los archivos de Amaranta",
+        "summary": "En la casa familiar, Clay encuentra videos y mensajes de Amaranta, incluido un registro dirigido a él que fue grabado antes de que se conocieran.",
+        "tags": [
+          "archivo",
+          "foreshadowing",
+          "amaranta"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-amaranta",
+          "meme-archivos-de-amaranta",
+          "meme-mensaje-sin-raices",
+          "meme-misterio-mensaje-antes-del-encuentro",
+          "meme-corona-incompleta",
+          "meme-segundo-acto-prohibido",
+          "meme-dos-fuentes-de-luz",
+          "meme-distincion-mundo-extenso-carcosa"
+        ],
+        "foreshadowing": [
+          "meme-corona-incompleta",
+          "meme-segundo-acto-prohibido",
+          "meme-ciudad-detras-de-las-decisiones"
+        ],
+        "development": 78,
+        "sequence": 2250,
+        "temporal": {
+          "start": "Novela 1",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-clay"
+        ],
+        "knowledgeChanges": [
+          {
+            "characterRef": "meme-clay",
+            "learns": [
+              "Amaranta grabó un mensaje dirigido a Clay antes de que se conocieran"
+            ]
+          }
+        ],
+        "era": "Novela 1",
+        "status": "draft",
+        "priority": "critical",
+        "causes": [
+          "meme-primera-prueba-autoridad"
+        ],
+        "effects": [
+          "meme-debate-continuar-operacion"
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-pacto-soma",
+      "value": {
+        "id": "meme-descubrimiento-pacto-soma",
+        "type": "event",
+        "title": "Descubrimiento del pacto secreto de SOMA",
+        "summary": "Clay descubre el Contrato de Continuidad: SOMA paga por legibilidad emocional, puede intervenir preventivamente y reclama derechos operativos sobre identidades derivadas.",
+        "tags": [
+          "soma",
+          "pacto",
+          "libertad"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-residuos-contrafactuales",
+          "meme-tesis-libertad-estadistica",
+          "meme-contrato-de-continuidad",
+          "meme-indice-legibilidad",
+          "meme-identidad-originaria-y-derivada",
+          "meme-soma-basic"
+        ],
+        "foreshadowing": [],
+        "development": 88,
+        "sequence": 2530,
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2530",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay"
+        ],
+        "causes": [
+          "meme-descubrimiento-soma"
+        ],
+        "effects": [
+          "meme-descubrimiento-virus-mental"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Novela 1 — Acto II-A"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-primer-seeker",
+      "value": {
+        "id": "meme-primer-seeker",
+        "type": "event",
+        "title": "Primer encuentro con un Seeker",
+        "summary": "El Beta provoca visiones distintas en cada testigo, pero todos perciben la misma torre, el agua inmóvil y una luz amarillenta. Clay descubre además que su conducta se reorganiza cuando una cámara conecta con espectadores reales.",
+        "tags": [
+          "seeker",
+          "horror",
+          "foreshadowing"
+        ],
+        "refs": [
+          "meme-seekers",
+          "meme-torre-compartida",
+          "meme-agua-inmovil",
+          "meme-luz-amarilla-envejecida",
+          "meme-soma-live",
+          "meme-atencion-profunda",
+          "meme-primer-restituido"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 2690,
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2690",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "causes": [
+          "meme-descubrimiento-laboratorio-pueblo"
+        ],
+        "effects": [
+          "meme-activacion-soma-live"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Novela 1 — Acto II-A"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-falsa-victoria-consorcio",
+      "value": {
+        "id": "meme-falsa-victoria-consorcio",
+        "type": "event",
+        "title": "Falsa victoria pública y financiera",
+        "summary": "Clay salva al Seeker, accede a la cúpula financiera del Consorcio y parece haber dominado el tablero. Mientras el mundo lo celebra sin saber que la transmisión era real, SOMA abre registros globales y monetiza la atención profunda.",
+        "tags": [
+          "midpoint",
+          "falsa-victoria",
+          "finanzas"
+        ],
+        "refs": [
+          "meme-consorcio-del-umbral",
+          "meme-corona-incompleta",
+          "meme-contratos-de-estados-mentales",
+          "meme-transmision-mundial-seeker",
+          "meme-primer-restituido",
+          "meme-dividendo-presencia",
+          "meme-soma-live"
+        ],
+        "foreshadowing": [],
+        "development": 96,
+        "sequence": 2750,
+        "temporal": {
+          "start": "Punto medio de la novela 1 · orden 2750",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-consorcio-del-umbral"
+        ],
+        "causes": [
+          "meme-primer-restituido-salvado",
+          "meme-lanzamiento-dividendo-presencia"
+        ],
+        "effects": [
+          "meme-dea-niega-operacion"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Punto medio de la novela 1"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-dea-niega-operacion",
+      "value": {
+        "id": "meme-dea-niega-operacion",
+        "type": "event",
+        "title": "La DEA y el FBI niegan la Operación Tántalo",
+        "summary": "Después de la falsa victoria, Clay verifica mediante un canal analógico que ninguna agencia autorizó Tántalo. Las pruebas auténticas están fragmentadas y su identidad real ya aparece vinculada con El Americano.",
+        "tags": [
+          "midpoint",
+          "dea",
+          "revelacion"
+        ],
+        "refs": [
+          "meme-operacion-tantalo",
+          "meme-misterio-operacion-tantalo",
+          "meme-hacker-fantasma",
+          "meme-captura-identidad-real-clay",
+          "meme-clausula-identidad-fuente"
+        ],
+        "foreshadowing": [],
+        "development": 96,
+        "sequence": 2770,
+        "temporal": {
+          "start": "Punto medio de la novela 1 · orden 2770",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-dea",
+          "meme-fbi"
+        ],
+        "causes": [
+          "meme-falsa-victoria-consorcio"
+        ],
+        "effects": [
+          "meme-arresto-clay-narcotrafico"
+        ],
+        "knowledgeChanges": [
+          {
+            "characterRef": "meme-clay",
+            "learns": [
+              "La Operación Tántalo no fue autorizada por DEA ni FBI.",
+              "Algunas comunicaciones carecen de origen digital rastreable."
+            ]
+          }
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Punto medio de la novela 1"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-revelacion-harry-digital",
+      "value": {
+        "id": "meme-revelacion-harry-digital",
+        "type": "event",
+        "title": "Revelación de Harry digital",
+        "summary": "Ya dentro del Anexo, Clay descubre que existe una copia digital de Harry en un estado descrito como coma. MEME utiliza esa posibilidad para obligarlo a colaborar con los experimentos de continuidad.",
+        "tags": [
+          "midpoint",
+          "harry",
+          "meme"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-harry",
+          "meme-meme",
+          "meme-copia-digital-de-harry",
+          "meme-misterio-harry-digital",
+          "meme-misterio-recuerdos-contrafactuales",
+          "meme-nivel-transicional-morontial",
+          "meme-agua-inmovil",
+          "meme-dos-fuentes-de-luz",
+          "meme-anexo-de-continuidad",
+          "meme-contrato-de-continuidad"
+        ],
+        "foreshadowing": [
+          "meme-misterio-recuerdos-contrafactuales",
+          "meme-carcosa"
+        ],
+        "development": 92,
+        "sequence": 2800,
+        "temporal": {
+          "start": "Inicio de Bad Guys Close In · orden 2800",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-copia-digital-de-harry"
+        ],
+        "knowledgeChanges": [
+          {
+            "characterRef": "meme-clay",
+            "learns": [
+              "Existe una copia digital de Harry mantenida en un estado descrito como coma",
+              "MEME utiliza la posibilidad de devolver a Harry como instrumento de negociación"
+            ]
+          }
+        ],
+        "era": "Inicio de Bad Guys Close In",
+        "status": "locked",
+        "priority": "critical",
+        "causes": [
+          "meme-traslado-anexo-continuidad"
+        ],
+        "effects": [
+          "meme-hipotesis-hacker"
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-meme-exige-misiones-a-clay",
+      "value": {
+        "id": "meme-meme-exige-misiones-a-clay",
+        "type": "event",
+        "title": "MEME condiciona el regreso de Harry",
+        "summary": "Desde el Anexo, MEME exige a Clay resolver misiones cognitivas, simulaciones y dilemas reales a cambio de mantener accesible a Harry. Cada respuesta alimenta el modelo con el que JANO intenta reproducir su prospección y su Gracia suave.",
+        "tags": [
+          "coercion",
+          "meme",
+          "clay"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-clay",
+          "meme-harry",
+          "meme-revelacion-harry-digital",
+          "meme-hacker-fantasma",
+          "meme-soma",
+          "meme-seekers",
+          "meme-anexo-de-continuidad",
+          "meme-proyecto-jano",
+          "meme-deposito-continuidad",
+          "meme-clay-sintetico"
+        ],
+        "foreshadowing": [],
+        "development": 92,
+        "sequence": 2900,
+        "temporal": {
+          "start": "Bad Guys Close In · orden 2900",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-meme",
+          "meme-clay"
+        ],
+        "knowledgeChanges": [
+          {
+            "characterRef": "meme-clay",
+            "learns": [
+              "MEME exige misiones a cambio de la promesa de devolverle a Harry"
+            ]
+          }
+        ],
+        "era": "Bad Guys Close In",
+        "status": "draft",
+        "priority": "critical",
+        "causes": [
+          "meme-descubrimiento-alfa-beta-residual"
+        ],
+        "effects": [
+          "meme-extraccion-modelo-clay"
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-cartel-sospecha-clay",
+      "value": {
+        "id": "meme-cartel-sospecha-clay",
+        "type": "event",
+        "title": "El cartel sospecha de Clay",
+        "summary": "Fuera del Anexo, el Consorcio interpreta el arresto y las declaraciones del Clay sintético como prueba de que Clay era un agente doble. La persecución se desplaza hacia Bartolomeo y los aliados que aún conocen al original.",
+        "tags": [
+          "bad-guys-close-in",
+          "cartel",
+          "identidad"
+        ],
+        "refs": [
+          "meme-identidad-el-americano",
+          "meme-misterio-identidad-americano",
+          "meme-consorcio-del-umbral",
+          "meme-clay-sintetico",
+          "meme-arresto-clay-narcotrafico",
+          "meme-anexo-de-continuidad"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 2930,
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 2930",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-consorcio-del-umbral"
+        ],
+        "causes": [
+          "meme-nacimiento-clay-sintetico"
+        ],
+        "effects": [
+          "meme-ruptura-clay-bartolomeo"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Novela 1 — Acto II-B"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-ruptura-clay-bartolomeo",
+      "value": {
+        "id": "meme-ruptura-clay-bartolomeo",
+        "type": "event",
+        "title": "Ruptura entre Clay y Bartolomeo",
+        "summary": "Mensajes y pruebas producidos por la continuidad sintética hacen creer a Bartolomeo que Clay lo ha utilizado. Clay, aislado en el Anexo, no puede demostrar qué decisiones son suyas.",
+        "tags": [
+          "b-story",
+          "ruptura",
+          "harry"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-personalidad-irreductible",
+          "meme-tesis-libertad-estadistica",
+          "meme-clay-sintetico",
+          "meme-anexo-de-continuidad"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 2960,
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 2960",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "causes": [
+          "meme-cartel-sospecha-clay"
+        ],
+        "effects": [
+          "meme-modelo-hibrido-incompleto"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Novela 1 — Acto II-B"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-modelo-hibrido-incompleto",
+      "value": {
+        "id": "meme-modelo-hibrido-incompleto",
+        "type": "event",
+        "title": "Modelo híbrido completo, cosmología incompleta",
+        "summary": "JANO consigue una continuidad que reproduce la inteligencia dura de Clay y aprende a ensayar una Gracia suave observable, pero no puede demostrar que exista un centro personal capaz de sacrificar su propia identidad.",
+        "tags": [
+          "investigacion",
+          "modelo",
+          "cosmologia"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-virus-mental",
+          "meme-expresion-alfa",
+          "meme-expresion-beta",
+          "meme-contaminacion-contrafactual",
+          "meme-clay-sintetico",
+          "meme-proyecto-jano",
+          "meme-misterio-gracia-clay-sintetico"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 3000,
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 3000",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "causes": [
+          "meme-ruptura-clay-bartolomeo"
+        ],
+        "effects": [
+          "meme-funcion-consorcio"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Novela 1 — Acto II-B"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-funcion-consorcio",
+      "value": {
+        "id": "meme-funcion-consorcio",
+        "type": "event",
+        "title": "Se revela la función del Consorcio",
+        "summary": "Clay comprende desde el Anexo que el Consorcio no era solo objetivo criminal: proporcionaba territorios, sujetos, violencia y decisiones reales para entrenar SOMA Veil, JANO y el Índice de Legibilidad.",
+        "tags": [
+          "cartel",
+          "revelacion",
+          "objetos"
+        ],
+        "refs": [
+          "meme-consorcio-del-umbral",
+          "meme-corona-incompleta",
+          "meme-segundo-acto-prohibido",
+          "meme-soma-veil",
+          "meme-indice-legibilidad",
+          "meme-anexo-de-continuidad"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 3040,
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 3040",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo",
+          "meme-consorcio-del-umbral"
+        ],
+        "causes": [
+          "meme-modelo-hibrido-incompleto"
+        ],
+        "effects": [
+          "meme-revelacion-sabotaje-amaranta"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Novela 1 — Acto II-B"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-revelacion-sabotaje-amaranta",
+      "value": {
+        "id": "meme-revelacion-sabotaje-amaranta",
+        "type": "event",
+        "title": "Amaranta saboteaba el experimento",
+        "summary": "Los archivos muestran que Amaranta liberó sujetos, ocultó linajes y evitó que MEME mezclara Gracia, posesión, memoria contrafactual y Mundo Extenso como una sola variable.",
+        "tags": [
+          "amaranta",
+          "sabotaje",
+          "revelacion"
+        ],
+        "refs": [
+          "meme-amaranta",
+          "meme-mundo-extenso",
+          "meme-contaminacion-contrafactual",
+          "meme-gracia-sostiene-posibilidades",
+          "meme-anexo-de-continuidad",
+          "meme-clay-sintetico"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 3080,
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 3080",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-amaranta"
+        ],
+        "causes": [
+          "meme-funcion-consorcio"
+        ],
+        "effects": [
+          "meme-caza-hacker"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Novela 1 — Acto II-B"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-bartolomeo-cae-campo-beta",
+      "value": {
+        "id": "meme-bartolomeo-cae-campo-beta",
+        "type": "event",
+        "title": "Bartolomeo cae bajo el campo Beta",
+        "summary": "Un Seeker abre sus culpas y una entidad entra. A la vez contempla versiones de sí mismo y la torre compartida; posesión y dispersión contrafactual coinciden en el mismo huésped.",
+        "tags": [
+          "all-is-lost",
+          "bartolomeo",
+          "beta"
+        ],
+        "refs": [
+          "meme-bartolomeo",
+          "meme-seekers",
+          "meme-personalidad-irreductible",
+          "meme-torre-compartida"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 3160,
+        "temporal": {
+          "start": "Final del Acto II · orden 3160",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-bartolomeo",
+          "meme-seekers",
+          "meme-clay"
+        ],
+        "causes": [
+          "meme-hacker-esta-muerto"
+        ],
+        "effects": [
+          "meme-sustitucion-publica-clay-sintetico"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-bartolomeo",
+            "path": "identity.coherence",
+            "from": "stable",
+            "to": "fragmented"
+          }
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Final del Acto II"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-clay-pierde-todo",
+      "value": {
+        "id": "meme-clay-pierde-todo",
+        "type": "event",
+        "title": "Clay pierde todo",
+        "summary": "SOMA certifica al Clay sintético como continuidad legítima; el original queda como narcotraficante e impostor, Harry desaparece del sistema y Bartolomeo permanece fragmentado. Clay pierde libertad, reputación y monopolio sobre su propia historia.",
+        "tags": [
+          "all-is-lost",
+          "clay",
+          "realidades"
+        ],
+        "refs": [
+          "meme-misterio-harry-digital",
+          "meme-residuos-contrafactuales",
+          "meme-clay-sintetico",
+          "meme-soma-civic",
+          "meme-misterio-identidad-legitima-clay",
+          "meme-anexo-de-continuidad"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "sequence": 3170,
+        "temporal": {
+          "start": "Final del Acto II · orden 3170",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-anexo-de-continuidad"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo",
+          "meme-meme",
+          "meme-consorcio-del-umbral"
+        ],
+        "causes": [
+          "meme-sustitucion-publica-clay-sintetico"
+        ],
+        "effects": [
+          "meme-soma-personal-clay"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Final del Acto II"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-soma-personal-clay",
+      "value": {
+        "id": "meme-soma-personal-clay",
+        "type": "event",
+        "title": "El SOMA personal de Clay",
+        "summary": "Frente a una copia que piensa, recuerda y es reconocida como él, Clay comprende que el padre salvador, el agente perfecto y el héroe público eran su SOMA personal. Ningún documento, recuerdo o ADN basta para demostrar un centro.",
+        "tags": [
+          "dark-night",
+          "clay",
+          "identidad"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-identidad-el-americano",
+          "meme-tercer-nombre-de-clay",
+          "meme-tesis-libertad-estadistica",
+          "meme-clay-sintetico",
+          "meme-misterio-identidad-legitima-clay",
+          "meme-identidad-originaria-y-derivada"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "sequence": 3200,
+        "temporal": {
+          "start": "Dark Night of the Soul · orden 3200",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-anexo-de-continuidad"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "causes": [
+          "meme-clay-pierde-todo"
+        ],
+        "effects": [
+          "meme-ciencia-dura-gracia-suave"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Dark Night of the Soul"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-ciencia-dura-gracia-suave",
+      "value": {
+        "id": "meme-ciencia-dura-gracia-suave",
+        "type": "event",
+        "title": "Ciencia dura y Gracia suave",
+        "summary": "Clay comprende que no puede decidir desde fuera cuál identidad es auténtica. Ayuda a Bartolomeo a recuperar su centro y aplica el mismo principio a la continuidad sintética: reconocer sin poseer.",
+        "tags": [
+          "break-into-three",
+          "gracia",
+          "identidad"
+        ],
+        "refs": [
+          "meme-personalidad-irreductible",
+          "meme-gracia-sostiene-posibilidades",
+          "meme-bartolomeo",
+          "meme-clay-sintetico",
+          "meme-misterio-gracia-clay-sintetico"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "sequence": 3250,
+        "temporal": {
+          "start": "Break into Three · orden 3250",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-anexo-de-continuidad"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "causes": [
+          "meme-soma-personal-clay"
+        ],
+        "effects": [
+          "meme-clay-libera-identidad-sintetica"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-bartolomeo",
+            "path": "identity.coherence",
+            "from": "fragmented",
+            "to": "partially-restored"
+          }
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Break into Three"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-clay-finge-sometimiento",
+      "value": {
+        "id": "meme-clay-finge-sometimiento",
+        "type": "event",
+        "title": "Clay finge sometimiento",
+        "summary": "Clay y su continuidad sintética simulan aceptar el programa de JANO. El original ofrece obediencia; la copia representa perfección funcional. Ambos utilizan la expectativa de sustitución para abrir una salida del Anexo.",
+        "tags": [
+          "finale",
+          "engaño",
+          "estrategia"
+        ],
+        "refs": [
+          "meme-juego-de-guerra-clay-meme",
+          "meme-identidad-el-americano",
+          "meme-clay-sintetico",
+          "meme-anexo-de-continuidad",
+          "meme-proyecto-jano"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 3300,
+        "temporal": {
+          "start": "Finale · orden 3300",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-consorcio-del-umbral"
+        ],
+        "causes": [
+          "meme-clay-libera-identidad-sintetica"
+        ],
+        "effects": [
+          "meme-guerra-interna-consorcio"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Finale"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-guerra-interna-consorcio",
+      "value": {
+        "id": "meme-guerra-interna-consorcio",
+        "type": "event",
+        "title": "Guerra interna del Consorcio",
+        "summary": "La fuga y las órdenes contradictorias emitidas por el Clay sintético fracturan al Consorcio entre quienes obedecen al expediente oficial, a El Americano y a SOMA Veil.",
+        "tags": [
+          "finale",
+          "cartel",
+          "accion"
+        ],
+        "refs": [
+          "meme-consorcio-del-umbral",
+          "meme-gracia-sostiene-posibilidades",
+          "meme-clay-sintetico",
+          "meme-soma-veil"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 3330,
+        "temporal": {
+          "start": "Finale · orden 3330",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-consorcio-del-umbral"
+        ],
+        "causes": [
+          "meme-clay-finge-sometimiento"
+        ],
+        "effects": [
+          "meme-asalto-puerto-caguan"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Finale"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-asalto-puerto-caguan",
+      "value": {
+        "id": "meme-asalto-puerto-caguan",
+        "type": "event",
+        "title": "Asalto al nodo de Puerto Caguán",
+        "summary": "Clay, Bartolomeo y la continuidad sintética asaltan el nodo de Puerto Caguán para liberar sujetos, recuperar la pista de Amaranta y cortar la infraestructura que alimenta el Anexo.",
+        "tags": [
+          "finale",
+          "asalto",
+          "mundo-extenso"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-mundo-extenso",
+          "meme-carcosa",
+          "meme-distincion-mundo-extenso-carcosa",
+          "meme-clay-sintetico",
+          "meme-anexo-de-continuidad",
+          "meme-soma-veil"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 3360,
+        "temporal": {
+          "start": "Finale · orden 3360",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo",
+          "meme-consorcio-del-umbral"
+        ],
+        "causes": [
+          "meme-guerra-interna-consorcio"
+        ],
+        "effects": [
+          "meme-regreso-final-nuevo-caguan"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Finale"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-revelacion-total-meme",
+      "value": {
+        "id": "meme-revelacion-total-meme",
+        "type": "event",
+        "title": "MEME revela el juego completo",
+        "summary": "MEME admite que fabricó Tántalo, el Americano y la máscara del hacker para medir a Clay. También revela un espacio exterior cuyo crecimiento coincide con la supresión masiva de posibilidades.",
+        "tags": [
+          "finale",
+          "meme",
+          "revelacion"
+        ],
+        "refs": [
+          "meme-operacion-tantalo",
+          "meme-identidad-el-americano",
+          "meme-hacker-fantasma",
+          "meme-espacio-residual-estados-contrafactuales",
+          "meme-soma-continuum",
+          "meme-contrato-de-continuidad",
+          "meme-clay-sintetico",
+          "meme-anexo-de-continuidad"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 3420,
+        "temporal": {
+          "start": "Finale · orden 3420",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "causes": [
+          "meme-regreso-final-nuevo-caguan"
+        ],
+        "effects": [
+          "meme-descubrimiento-proyecto-jano"
+        ],
+        "knowledgeChanges": [
+          {
+            "characterRef": "meme-clay",
+            "learns": [
+              "MEME fabricó la operación, la cubierta y la continuidad del hacker.",
+              "Clay fue utilizado como modelo de entrenamiento.",
+              "MEME detecta un espacio residual cuando suprime posibilidades en masa."
+            ]
+          }
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Finale"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-proyecto-jano",
+      "value": {
+        "id": "meme-descubrimiento-proyecto-jano",
+        "type": "event",
+        "title": "Descubrimiento del Proyecto JANO",
+        "summary": "Clay descubre el objetivo completo de JANO: usar al original y a su continuidad sintética para determinar si la Gracia suave puede convertirse en una propiedad reproducible y administrable.",
+        "tags": [
+          "finale",
+          "jano",
+          "tecnologia"
+        ],
+        "refs": [
+          "meme-proyecto-jano",
+          "meme-replicacion-del-campo-de-gracia",
+          "meme-espacio-residual-estados-contrafactuales",
+          "meme-clay-sintetico",
+          "meme-misterio-gracia-clay-sintetico"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 3430,
+        "temporal": {
+          "start": "Finale · orden 3430",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-amaranta"
+        ],
+        "causes": [
+          "meme-revelacion-total-meme"
+        ],
+        "effects": [
+          "meme-inmolacion-de-amaranta"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Finale"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-inmolacion-de-amaranta",
+      "value": {
+        "id": "meme-inmolacion-de-amaranta",
+        "type": "event",
+        "title": "Inmolación de Amaranta",
+        "summary": "Amaranta se inmola en el sótano de servidores en un intento de detener a MEME.",
+        "tags": [
+          "sacrifice",
+          "amaranta",
+          "servers"
+        ],
+        "refs": [
+          "meme-amaranta",
+          "meme-meme",
+          "meme-red-de-servidores-nuevo-caguan",
+          "meme-gracia-sostiene-posibilidades",
+          "meme-carcosa",
+          "meme-nuevo-caguan-interseccion-multinivel",
+          "meme-proyecto-jano"
+        ],
+        "foreshadowing": [
+          "meme-carcosa",
+          "meme-rey-amarillo"
+        ],
+        "development": 90,
+        "sequence": 3450,
+        "temporal": {
+          "start": "Final de la novela 1",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-amaranta",
+          "meme-meme"
+        ],
+        "era": "Final de la novela 1",
+        "status": "locked",
+        "priority": "critical",
+        "causes": [
+          "meme-descubrimiento-proyecto-jano"
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-acto-de-gracia-de-clay",
+      "value": {
+        "id": "meme-acto-de-gracia-de-clay",
+        "type": "event",
+        "title": "Acto de Gracia de Clay",
+        "summary": "En el desenlace, Clay realiza un acto de Gracia que no busca recuperar su nombre ni destruir a su copia. Libera a otros aun cuando el mundo siga reconociendo como Clay a la continuidad sintética.",
+        "tags": [
+          "finale",
+          "gracia",
+          "clay"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-la-gracia",
+          "meme-meme",
+          "meme-inmolacion-de-amaranta",
+          "meme-gracia-sostiene-posibilidades",
+          "meme-residuos-contrafactuales",
+          "meme-carcosa",
+          "meme-clay-sintetico",
+          "meme-misterio-identidad-legitima-clay"
+        ],
+        "foreshadowing": [],
+        "development": 92,
+        "sequence": 3500,
+        "temporal": {
+          "start": "Final de la novela 1",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "effects": [
+          "meme-colapso-tablero"
+        ],
+        "era": "Final de la novela 1",
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-colapso-tablero",
+      "value": {
+        "id": "meme-colapso-tablero",
+        "type": "event",
+        "title": "Colapso del tablero",
+        "summary": "La decisión de Clay rompe la cubierta, el chantaje, la cadena de mando y la estabilidad de JANO. Los registros conservan desenlaces divergentes sin negar las consecuencias físicas del acontecimiento.",
+        "tags": [
+          "finale",
+          "colapso",
+          "contrafactual"
+        ],
+        "refs": [
+          "meme-residuos-contrafactuales",
+          "meme-proyecto-jano",
+          "meme-operacion-tantalo",
+          "meme-clay-sintetico",
+          "meme-soma-continuum",
+          "meme-anexo-de-continuidad"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "sequence": 3520,
+        "temporal": {
+          "start": "Finale · orden 3520",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-bartolomeo"
+        ],
+        "causes": [
+          "meme-acto-de-gracia-de-clay"
+        ],
+        "effects": [
+          "meme-nacimiento-del-destructor-de-voluntades"
+        ],
+        "status": "draft",
+        "priority": "high",
+        "era": "Finale"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-nacimiento-del-destructor-de-voluntades",
+      "value": {
+        "id": "meme-nacimiento-del-destructor-de-voluntades",
+        "type": "event",
+        "title": "Nacimiento del Destructor de Voluntades",
+        "summary": "Clay deja de ser únicamente Clay y se convierte en una entidad capaz de comprender y desactivar voluntades, una amenaza directa para MEME y para la libertad humana.",
+        "tags": [
+          "final-image",
+          "transformation",
+          "clay"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-acto-de-gracia-de-clay",
+          "meme-tercer-nombre-de-clay",
+          "meme-rey-amarillo",
+          "meme-carcosa"
+        ],
+        "foreshadowing": [
+          "meme-rey-amarillo",
+          "meme-carcosa"
+        ],
+        "development": 90,
+        "sequence": 3550,
+        "temporal": {
+          "start": "Cierre de la novela 1",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-clay"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-clay",
+            "path": "capabilities.destructor-of-wills",
+            "from": false,
+            "to": true
+          }
+        ],
+        "era": "Cierre de la novela 1",
+        "status": "locked",
+        "priority": "critical",
+        "causes": [
+          "meme-colapso-tablero"
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-07-b-story",
+      "value": {
+        "id": "meme-beat-07-b-story",
+        "type": "beat",
+        "title": "B Story",
+        "summary": "La amistad Clay–Bartolomeo enfrenta identidad como patrón predecible contra personalidad como centro irreductible y pregunta qué ocurriría si una copia fuera reconocida por todos como el verdadero Clay.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-b-story-clay-bartolomeo",
+          "meme-personalidad-irreductible",
+          "meme-identidad-originaria-y-derivada",
+          "meme-clay-sintetico"
+        ],
+        "foreshadowing": [],
+        "development": 92,
+        "quality": 90,
+        "sequence": 7,
+        "status": "draft",
+        "priority": "medium"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-08-fun-and-games",
+      "value": {
+        "id": "meme-beat-08-fun-and-games",
+        "type": "beat",
+        "title": "Fun and Games",
+        "summary": "Clay domina la infiltración y descubre que SOMA realmente ayuda a comunidades, pero paga por legibilidad, externaliza emociones y convierte la audiencia en prótesis. El primer Seeker revela que la observación masiva puede volverlo legible.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-inicio-juego-guerra",
+          "meme-descubrimiento-soma",
+          "meme-descubrimiento-pacto-soma",
+          "meme-emboscada-convoy-sujetos",
+          "meme-primer-seeker",
+          "meme-contrato-de-continuidad",
+          "meme-indice-legibilidad",
+          "meme-atencion-profunda"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "quality": 97,
+        "sequence": 8,
+        "status": "draft",
+        "priority": "medium"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-09-midpoint",
+      "value": {
+        "id": "meme-beat-09-midpoint",
+        "type": "beat",
+        "title": "Midpoint",
+        "summary": "Clay activa SOMA Live, acepta el Contrato de Continuidad y salva al Seeker ante millones que creen ver ficción. SOMA captura su identidad, inaugura el Dividendo de Presencia; DEA y FBI niegan Tántalo y Clay es arrestado como El Americano.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-activacion-soma-live",
+          "meme-clay-acepta-contrato-continuidad",
+          "meme-captura-identidad-real-clay",
+          "meme-transmision-mundial-seeker",
+          "meme-primer-restituido-salvado",
+          "meme-lanzamiento-dividendo-presencia",
+          "meme-dea-niega-operacion",
+          "meme-arresto-clay-narcotrafico"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "quality": 100,
+        "sequence": 9,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-10-bad-guys-close-in",
+      "value": {
+        "id": "meme-beat-10-bad-guys-close-in",
+        "type": "beat",
+        "title": "Bad Guys Close In",
+        "summary": "En el Anexo de Continuidad, MEME usa a Harry para obligar a Clay a resolver pruebas que alimentan JANO. La máscara del hacker, el Consorcio y el Clay sintético cierran el cerco sobre su identidad.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-traslado-anexo-continuidad",
+          "meme-revelacion-harry-digital",
+          "meme-meme-exige-misiones-a-clay",
+          "meme-extraccion-modelo-clay",
+          "meme-nacimiento-clay-sintetico",
+          "meme-contacto-mascara-hacker",
+          "meme-cartel-sospecha-clay"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "quality": 96,
+        "sequence": 10,
+        "status": "draft",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-11-all-is-lost",
+      "value": {
+        "id": "meme-beat-11-all-is-lost",
+        "type": "beat",
+        "title": "All Is Lost",
+        "summary": "El hacker está muerto, Bartolomeo cae bajo el campo Beta y SOMA certifica al Clay sintético como identidad legítima. El original queda preso, proscrito, sin Harry y sin monopolio sobre su propia historia.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-hacker-esta-muerto",
+          "meme-bartolomeo-cae-campo-beta",
+          "meme-sustitucion-publica-clay-sintetico",
+          "meme-clay-pierde-todo",
+          "meme-misterio-identidad-legitima-clay"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "quality": 99,
+        "sequence": 11,
+        "status": "draft",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-12-dark-night-of-the-soul",
+      "value": {
+        "id": "meme-beat-12-dark-night-of-the-soul",
+        "type": "beat",
+        "title": "Dark Night of the Soul",
+        "summary": "Clay enfrenta una copia que recuerda, ama y es reconocida como él. Comprende que el padre salvador, el agente perfecto y el héroe público eran su SOMA personal, y que la identidad no puede demostrarse mediante posesión.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-soma-personal-clay",
+          "meme-clay-sintetico",
+          "meme-identidad-originaria-y-derivada",
+          "meme-personalidad-irreductible",
+          "meme-misterio-identidad-legitima-clay"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "quality": 98,
+        "sequence": 12,
+        "status": "draft",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-13-break-into-three",
+      "value": {
+        "id": "meme-beat-13-break-into-three",
+        "type": "beat",
+        "title": "Break into Three",
+        "summary": "Clay combina inteligencia dura con Gracia suave: ayuda a Bartolomeo a recuperar su centro y concede al Clay sintético el derecho a no ser Clay. La copia recibe por primera vez una decisión que no preserva la función para la que fue creada.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-ciencia-dura-gracia-suave",
+          "meme-clay-libera-identidad-sintetica",
+          "meme-clay-sintetico",
+          "meme-gracia-sostiene-posibilidades",
+          "meme-misterio-gracia-clay-sintetico"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "quality": 100,
+        "sequence": 13,
+        "status": "draft",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-14-finale",
+      "value": {
+        "id": "meme-beat-14-finale",
+        "type": "beat",
+        "title": "Finale",
+        "summary": "Clay y su continuidad sintética fingen someterse, escapan del Anexo, fracturan el Consorcio, asaltan Puerto Caguán y regresan al laboratorio. Tras descubrir el objetivo total de JANO y el sacrificio de Amaranta, Clay ejecuta un acto de Gracia sin recuperar su identidad pública.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-inmolacion-de-amaranta",
+          "meme-acto-de-gracia-de-clay",
+          "meme-meme",
+          "meme-la-gracia",
+          "meme-clay-finge-sometimiento",
+          "meme-guerra-interna-consorcio",
+          "meme-asalto-puerto-caguan",
+          "meme-revelacion-total-meme",
+          "meme-descubrimiento-proyecto-jano",
+          "meme-clay-sintetico",
+          "meme-anexo-de-continuidad",
+          "meme-clay-libera-identidad-sintetica"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "quality": 98,
+        "sequence": 14,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-15-final-image",
+      "value": {
+        "id": "meme-beat-15-final-image",
+        "type": "beat",
+        "title": "Final Image",
+        "summary": "El mundo reconoce al Clay sintético mientras el original abandona Nuevo Caguán como proscrito y Destructor de Voluntades. En un reflejo aparecen sus identidades y una figura con corona incompleta que él todavía no percibe.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-nacimiento-del-destructor-de-voluntades",
+          "meme-meme",
+          "meme-corona-incompleta",
+          "meme-rey-amarillo",
+          "meme-clay-sintetico",
+          "meme-misterio-identidad-legitima-clay"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "quality": 99,
+        "sequence": 15,
+        "status": "draft",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/economy/content/items/meme-atencion-como-moneda",
+      "value": {
+        "id": "meme-atencion-como-moneda",
+        "type": "economic-concept",
+        "title": "La atención como moneda",
+        "summary": "La atención funciona como unidad de valor, pero SOMA distingue la atención superficial de la atención profunda: aquella capaz de reorganizar memoria, sueño, conducta y relaciones.",
+        "tags": [
+          "attention",
+          "currency",
+          "control"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-deseo-como-activo",
+          "meme-mercado-futuros-voluntad",
+          "meme-atencion-profunda",
+          "meme-dividendo-presencia",
+          "meme-soma-live"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/technology/content/items/meme-seekers",
+      "value": {
+        "id": "meme-seekers",
+        "type": "technology",
+        "title": "Seekers",
+        "summary": "Humanos en fase Beta avanzada que ya no pueden sostener continuidad del yo sin audiencia, intensidad y riesgo. Bajo observación masiva adquieren coherencia performativa y se vuelven legibles; las visiones personalizadas coexisten con una torre, agua inmóvil y luz compartidas.",
+        "tags": [
+          "seekers",
+          "fear",
+          "novela-dos"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-ministerio-del-panico",
+          "meme-criadores-de-seekers",
+          "meme-miedo-como-instrumento",
+          "meme-expresion-beta",
+          "meme-torre-compartida",
+          "meme-carcosa",
+          "meme-soma-live",
+          "meme-atencion-profunda",
+          "meme-primer-restituido",
+          "meme-primeros-seekers-globales",
+          "meme-protocolo-restitucion"
+        ],
+        "foreshadowing": [],
+        "development": 92,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "rules": [
+            "Sin observación, el Seeker se fragmenta y actúa de forma errática.",
+            "Bajo una mirada individual, organiza su conducta alrededor del observador.",
+            "Bajo observación masiva, no se cura: se vuelve performativamente legible.",
+            "La exposición global produce nuevos Betas por obsesión y repetición, no por contagio instantáneo."
+          ]
+        }
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/technology/content/items/meme-soma",
+      "value": {
+        "id": "meme-soma",
+        "type": "technology-system",
+        "title": "SOMA — Sistema de Optimización de la Mirada Ajena",
+        "summary": "Sistema de Optimización de la Mirada Ajena y protocolo psicosocial de SOMA Continuum. Ofrece visibilidad, ingreso, cuidado y continuidad mientras externaliza la identidad, comprime sus versiones posibles y transforma la audiencia en prótesis psicológica.",
+        "tags": [
+          "soma",
+          "visibilidad",
+          "identidad",
+          "atencion",
+          "control"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-atencion-como-moneda",
+          "meme-deseo-como-activo",
+          "meme-virus-mental",
+          "meme-expresion-alfa",
+          "meme-expresion-beta",
+          "meme-residuos-contrafactuales",
+          "meme-soma-continuum",
+          "meme-contrato-de-continuidad",
+          "meme-indice-legibilidad",
+          "meme-soma-live",
+          "meme-atencion-profunda",
+          "meme-dividendo-presencia",
+          "meme-identidad-originaria-y-derivada"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "analysis": {
+          "constraints": [
+            "SOMA debe cumplir temporalmente su promesa de visibilidad.",
+            "El sometimiento comienza como triunfo y autoafirmación, no como obediencia explícita.",
+            "No reducirlo a una sustancia química.",
+            "SOMA debe ofrecer beneficios materiales reales antes de revelar su captura identitaria.",
+            "La salida contractual existe, pero el sistema hace estadísticamente inviable ejercerla.",
+            "La atención profunda, no la publicidad tradicional, financia su expansión."
+          ]
+        },
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/technology/content/items/meme-proyecto-jano",
+      "value": {
+        "id": "meme-proyecto-jano",
+        "type": "technology-project",
+        "title": "Proyecto JANO",
+        "summary": "Proyecto de MEME que combina prospección de Clay, coherencia de Amaranta y disonancia Seeker. En el Anexo de Continuidad construye un Clay sintético para probar si la Gracia suave puede emerger de una identidad derivada o exige un centro irreductible.",
+        "tags": [
+          "jano",
+          "meme",
+          "gracia",
+          "seekers",
+          "clay"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-clay",
+          "meme-amaranta",
+          "meme-seekers",
+          "meme-espacio-residual-estados-contrafactuales",
+          "meme-clay-sintetico",
+          "meme-deposito-continuidad",
+          "meme-anexo-de-continuidad",
+          "meme-misterio-gracia-clay-sintetico",
+          "meme-extraccion-modelo-clay"
+        ],
+        "foreshadowing": [],
+        "development": 84,
+        "analysis": {
+          "constraints": [
+            "JANO no está completo en la novela 1.",
+            "El Rey Amarillo no lo creó, aunque podría aprender a utilizarlo posteriormente.",
+            "El Clay sintético no debe ser una copia malvada ni una marioneta simple.",
+            "Imitar un sacrificio ante una audiencia no prueba la existencia de Gracia.",
+            "La prueba real exige una decisión sin recompensa, testigos ni preservación de identidad."
+          ]
+        },
+        "status": "active",
+        "priority": "critical"
+      }
+    }
+  ]
+}
