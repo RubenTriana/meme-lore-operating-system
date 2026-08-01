@@ -43,6 +43,8 @@
     search: "",
     currentFlow: null,
     currentPrompt: "",
+    loreContext: null,
+    loreRequestVersion: 0,
     repoPath: "",
     loreUrl: ""
   };
@@ -82,6 +84,7 @@
   function configureLoreSystem() {
     const params = new URLSearchParams(location.search);
     state.loreUrl = params.get("lore") || "http://127.0.0.1:5173/";
+    window.TantaloLoreContext?.configure(state.loreUrl);
   }
 
   function bindStaticEvents() {
@@ -114,7 +117,7 @@
     $("#togglePrompt").addEventListener("click", togglePromptVisibility);
     $("#resetFlow").addEventListener("click", () => {
       if (!state.currentFlow) return;
-      state.currentPrompt = buildPrompt(state.currentFlow);
+      state.currentPrompt = buildPrompt(state.currentFlow, state.loreContext);
       $("#promptPreview").value = state.currentPrompt;
       showToast("Prompt restablecido.");
     });
@@ -354,8 +357,12 @@
     }
 
     state.currentFlow = structuredClone(flow);
+    state.loreContext = null;
+    const loreRequestVersion = ++state.loreRequestVersion;
+    const lorePlan = window.TantaloLoreContext?.plan(state.currentFlow) || { required: false };
     window.dispatchEvent(new CustomEvent("tantalo:flow-preview", { detail: { flow: state.currentFlow, sourceId } }));
-    state.currentPrompt = buildPrompt(flow);
+    if (lorePlan.required && lorePlan.deferred) state.loreContext = { deferred: true, plan: lorePlan };
+    state.currentPrompt = buildPrompt(flow, state.loreContext);
     const consumption = estimateConsumption(flow);
     $("#promptTitle").textContent = flow.title;
     $("#selectedMode").textContent = flow.mode;
@@ -368,10 +375,50 @@
     registerRecent(sourceId);
     updateOpenButton();
     $("#promptDialog").showModal();
+    if (lorePlan.required && lorePlan.deferred) {
+      const domains = lorePlan.request.domains.join(" · ").toUpperCase();
+      setLoreContextStatus(`LORESYSTEM · EN ESPERA DE REFERENTE CONCRETO · ${domains}`, "waiting");
+    } else if (lorePlan.required) resolveLoreContext(lorePlan, loreRequestVersion);
+    else setLoreContextStatus("", "idle", true);
     return true;
   }
 
-  function buildPrompt(flow) {
+  async function resolveLoreContext(plan, requestVersion) {
+    const domains = plan.request?.domains || [];
+    const domainLabel = domains.join(" · ").toUpperCase();
+    setLoreContextStatus(`LORESYSTEM · CONSULTANDO ${domainLabel}`, "loading");
+
+    try {
+      const result = await window.TantaloLoreContext.query(plan);
+      if (requestVersion !== state.loreRequestVersion || !state.currentFlow) return;
+
+      state.loreContext = result;
+      state.currentPrompt = buildPrompt(state.currentFlow, result);
+      $("#promptPreview").value = state.currentPrompt;
+
+      const audit = result.audit || {};
+      const scope = audit.fullContext ? "CONTEXTO INTEGRAL AUTORIZADO" : "CONTEXTO SELECTIVO";
+      const records = Number(audit.recordsReturned || 0);
+      const modules = Array.isArray(audit.resolvedModules) ? audit.resolvedModules.length : domains.length;
+      setLoreContextStatus(`LORESYSTEM · ${scope} · ${modules} MÓDULOS · ${records} REGISTROS`, audit.fullContext ? "full" : "ready");
+    } catch (error) {
+      if (requestVersion !== state.loreRequestVersion || !state.currentFlow) return;
+      console.error("Consulta selectiva a LoreSystem v2 omitida", error);
+      const message = error instanceof Error ? error.message : "servicio no disponible";
+      setLoreContextStatus(`LORESYSTEM · CONSULTA OMITIDA · ${message}`, "error");
+      state.currentPrompt = `${buildPrompt(state.currentFlow)}\n\nLoreSystem v2 no estuvo disponible. No sustituyas esta consulta con una lectura amplia de la base; solicita confirmación antes de ampliar el contexto.`;
+      $("#promptPreview").value = state.currentPrompt;
+    }
+  }
+
+  function setLoreContextStatus(message, status, hidden = false) {
+    const element = $("#loreContextStatus");
+    element.hidden = hidden;
+    element.textContent = message;
+    element.dataset.state = status;
+  }
+
+  function buildPrompt(flow, loreContext = null) {
     const modeIsLight = flow.mode === "Tutor Ligero";
     const agents = flow.agents || [];
     let agentRule;
@@ -430,6 +477,8 @@
 
     lines.push("", `Tarea: ${flow.intent}`, "", "Conserva mi autoridad y mi voz. No inventes canon ni sobrescribas el manuscrito.");
     if (modeIsLight || flow.objective === "orientar" || flow.objective === "enseñar") lines.push("Termina con una sola acción concreta.");
+    const loreBlock = window.TantaloLoreContext?.promptBlock(loreContext);
+    if (loreBlock) lines.push("", loreBlock);
     return lines.join("\n");
   }
 
@@ -787,6 +836,7 @@
     parseStateFiles,
     normalizeFlow,
     prepareFlow,
+    getLoreContext: () => state.loreContext,
     getRepoPath: () => $("#repoPath")?.value.trim() || state.repoPath
   };
 })();

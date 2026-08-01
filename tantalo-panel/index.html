@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#050909">
   <title>Centro de Control Tántalo</title>
   <link rel="icon" href="assets/tantalo-mark.svg?v=20260731-industrial" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260731-lore-dock">
+  <link rel="stylesheet" href="styles.css?v=20260801-selective-api">
   <link rel="stylesheet" href="monitor/monitor.css?v=20260731-editorial-display">
 </head>
 <body>
@@ -412,6 +412,7 @@
         <span id="selectedMode">Tutor Ligero</span>
         <span id="selectedConsumption" data-level="bajo">BAJO</span>
       </div>
+      <div class="lore-context-query" id="loreContextStatus" role="status" aria-live="polite" hidden></div>
       <p id="consumptionExplanation" class="muted"></p>
       <ul class="warning-list" id="flowWarnings"></ul>
       <textarea id="promptPreview" rows="18" aria-label="Prompt generado" spellcheck="true"></textarea>
@@ -432,7 +433,8 @@
   <script src="monitor/graph-engine.js" defer></script>
   <script src="monitor/telemetry-client.js" defer></script>
   <script src="monitor/monitor-accessibility.js" defer></script>
-  <script src="app.js?v=20260731-lore-dock-2" defer></script>
+  <script src="lore-context-client.js?v=20260801-selective-api2" defer></script>
+  <script src="app.js?v=20260801-selective-api3" defer></script>
   <script src="monitor/monitor.js" defer></script>
 </body>
 </html>

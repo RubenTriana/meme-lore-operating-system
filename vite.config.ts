@@ -4,9 +4,10 @@ import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath, URL } from 'node:url'
 import { canonStatusPlugin } from './vite-canon-status-plugin'
 import { geniusPlugin } from './vite-genius-plugin'
+import { tantaloContextPlugin } from './vite-tantalo-context-plugin'
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), canonStatusPlugin(fileURLToPath(new URL('.', import.meta.url))), geniusPlugin()],
+  plugins: [react(), tailwindcss(), canonStatusPlugin(fileURLToPath(new URL('.', import.meta.url))), geniusPlugin(), tantaloContextPlugin(fileURLToPath(new URL('.', import.meta.url)))],
   resolve: { alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) } },
   test: {
     environment: 'jsdom',

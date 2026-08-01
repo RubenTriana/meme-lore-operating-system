@@ -9,6 +9,14 @@ Los títulos principales usan una serif editorial de alto contraste —Georgia c
 El botón superior **LoreSystem v2** abre la aplicación React actual dentro de una pestaña integrada. La interfaz se carga solo al pulsarlo y puede recargarse o cerrarse sin abandonar el Centro de Control.
 El lanzador prefiere el puerto local `5173` para conservar compatibilidad con paneles que ya estaban abiertos, reutiliza una instancia válida si existe y solo anuncia **EN LÍNEA** después de comprobar que la respuesta pertenece realmente a LoreSystem.
 
+## API selectiva de contexto
+
+El Centro de Control decide por cada flujo si necesita datos canónicos. Un flujo ordinario no abre LoreSystem ni consulta su base. Las revisiones que sí lo necesitan envían una consulta concreta de solo lectura a `POST /api/tantalo/context/query`, limitada por dominio, términos, entidades, profundidad y número de resultados. El estado visible del cuadro de prompt informa los módulos y registros devueltos.
+
+Dominios disponibles: canon, lore, continuidad/compatibilidad, personajes/psicología, cronología, estructura, misterios, mundo y versiones. `GET /api/tantalo/context/health` expone el estado y la política, pero no devuelve el contenido narrativo.
+
+El contexto integral está bloqueado por defecto. La API solo lo acepta cuando coinciden las cuatro condiciones: profundidad `5`, modo `Profundo`, permiso integral explícito y un workflow autorizado, como torneo de versiones, comparación ciega o auditoría canónica. Esta regla se valida en el servidor, no sólo en la interfaz. Ambos endpoints aceptan exclusivamente conexiones y orígenes locales; no escriben en `data/universe_master.json`.
+
 ## Monitor de red narrativa
 
 La sección **Mapa de activación** convierte cada preset o configuración en un grafo dirigido de Sistema Tántalo, protocolos, agentes, evaluadores, archivos y resultado. La vista inicial siempre se identifica como **PREVISUALIZACIÓN DE FLUJO**: muestra lo que el prompt solicitará, no afirma que esos componentes estén ejecutándose.

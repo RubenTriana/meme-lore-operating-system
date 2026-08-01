@@ -21,7 +21,7 @@ const registries = {
 };
 const defaults = { web: false, additionalFiles: false, propose: false, write: false, memory: false, generate: false, candidates: 0, blind: false };
 const preset = (id) => {
-  const item = workflows.presets.find((entry) => entry.id === id);
+  const item = [...workflows.presets, ...workflows.actions].find((entry) => entry.id === id);
   assert.ok(item, `Preset inexistente: ${id}`);
   return { ...item, agents: [...(item.agents || [])], options: { ...defaults, ...(item.options || {}) } };
 };
@@ -59,6 +59,7 @@ const monitorMarkup = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
 const monitorStyles = fs.readFileSync(path.join(ROOT, "monitor", "monitor.css"), "utf8");
 const panelStyles = fs.readFileSync(path.join(ROOT, "styles.css"), "utf8");
 const panelSource = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+const loreContextSource = fs.readFileSync(path.join(ROOT, "lore-context-client.js"), "utf8");
 const launcherSource = fs.readFileSync(path.resolve(ROOT, "..", "ABRIR_PANEL_TANTALO.ps1"), "utf8");
 const panelMark = fs.readFileSync(path.join(ROOT, "assets", "tantalo-mark.svg"), "utf8");
 assert.ok(monitorSource.includes("monitorFilter"), "Faltan filtros");
@@ -76,6 +77,30 @@ assert.ok(launcherSource.includes('$loreServer = Start-Process') && launcherSour
 assert.ok(panelMark.includes("#65D1CA") && panelMark.includes("#DC7379"), "La marca no usa la paleta compartida cian/roja");
 assert.ok(fs.readFileSync(path.join(ROOT, "monitor", "monitor-accessibility.js"), "utf8").includes('addEventListener("wheel"'), "Los reguladores no aceptan rueda");
 assert.ok(fs.readFileSync(path.join(ROOT, "monitor", "monitor.css"), "utf8").includes("prefers-reduced-motion"), "Falta prefers-reduced-motion");
+
+assert.ok(monitorMarkup.includes('id="loreContextStatus"') && monitorMarkup.includes("lore-context-client.js"), "Falta el estado o el cliente de consulta selectiva");
+assert.ok(panelSource.includes("TantaloLoreContext?.plan") && panelSource.includes("resolveLoreContext"), "El Centro de Control no prepara consultas reales a LoreSystem v2");
+assert.ok(panelSource.includes("plan.request?.domains"), "La consulta debe leer los dominios del contrato de API");
+assert.ok(panelStyles.includes(".lore-context-query") && panelStyles.includes('data-state="full"'), "Falta la señal visual del contexto consultado");
+
+const loreSandbox = { window: {}, location: { href: "http://127.0.0.1:54695/tantalo-panel/" } };
+vm.runInNewContext(loreContextSource, loreSandbox, { filename: "lore-context-client.js" });
+const loreClient = loreSandbox.window.TantaloLoreContext;
+const ordinaryPlan = loreClient.plan(preset("continuar-escribiendo"));
+assert.equal(ordinaryPlan.required, false, "Un flujo ordinario no debe consultar LoreSystem sin necesidad");
+const psychologyPlan = loreClient.plan(preset("revisar-personajes"));
+assert.equal(psychologyPlan.required, true, "La revisión de personajes debe consultar contexto");
+assert.ok(psychologyPlan.request.domains.includes("psychology"), "La revisión de personajes debe limitarse a psicología");
+assert.equal(psychologyPlan.request.depth, 2, "La revisión de capítulo debe mantener profundidad selectiva 2");
+assert.equal(psychologyPlan.deferred, true, "Sin personaje concreto la consulta debe quedar en espera");
+const ruthPlan = loreClient.plan({ ...preset("revisar-personajes"), title: "Revisar a Ruth", intent: "Contrasta la psicología de Ruth con su ficha." });
+assert.equal(ruthPlan.deferred, false, "Un personaje concreto debe habilitar la consulta selectiva");
+assert.ok(ruthPlan.request.terms.includes("Ruth"), "El referente concreto debe viajar como término de consulta");
+const tournamentPlan = loreClient.plan(preset("torneo-versiones"));
+assert.equal(tournamentPlan.request.depth, 4, "Un torneo directo no debe asumir profundidad integral");
+assert.equal(tournamentPlan.request.allowFullContext, false, "El contexto integral exige profundidad 5 explícita");
+const tournamentFive = loreClient.plan({ ...preset("torneo-versiones"), monitorControls: { requestedDepth: 5 } });
+assert.equal(tournamentFive.request.allowFullContext, true, "El torneo profundo de nivel 5 debe poder solicitar contexto integral");
 
 const invalid = globalThis.TantaloGraphEngine.validateGraph({ nodes: [{ id: "broken" }], edges: [] });
 assert.equal(invalid.valid, false, "Un grafo inválido no debe aceptarse");
@@ -101,4 +126,4 @@ const telemetrySource = fs.readFileSync(path.join(ROOT, "monitor", "telemetry-cl
 assert.ok(telemetrySource.includes("127.0.0.1:8765"), "La telemetría debe limitarse a localhost");
 assert.ok(telemetrySource.includes('mode = "unavailable"'), "Falta el estado de telemetría no disponible");
 
-console.log("Monitor Tántalo: 26 escenarios estructurales superados.");
+console.log("Monitor Tántalo: 37 escenarios estructurales superados.");
