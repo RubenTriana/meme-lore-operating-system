@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#050909">
+  <title>Centro de Control Tántalo</title>
+  <link rel="icon" href="assets/tantalo-mark.svg?v=20260731-industrial" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260731-lore-dock">
+  <link rel="stylesheet" href="monitor/monitor.css?v=20260731-editorial-display">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Centro de Control Tántalo, inicio">
+        <img src="assets/tantalo-mark.svg?v=20260731-industrial" alt="" width="42" height="42">
+        <span><strong>Centro de Control</strong><small>Sistema Tántalo</small></span>
+      </a>
+      <div class="topbar-actions">
+        <button class="button app-launch" id="openLoreSystem" type="button" aria-controls="loreSystemPanel" aria-expanded="false">
+          <span class="app-launch-lamp" aria-hidden="true"></span>
+          LoreSystem v2
+        </button>
+        <button class="button ghost" id="openSkills" type="button">Abrir Skills</button>
+        <button class="button secondary" id="showAllTools" type="button" aria-controls="toolsSection" aria-expanded="false">Todas las herramientas</button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="lore-app-panel" id="loreSystemPanel" aria-labelledby="loreSystemTab" hidden>
+        <div class="lore-tabbar" role="tablist" aria-label="Aplicaciones del Centro de Control">
+          <button class="lore-tab" id="loreSystemTab" type="button" role="tab" aria-selected="true" aria-controls="loreSystemViewport">LoreSystem v2</button>
+          <span class="lore-app-status" id="loreSystemStatus" role="status">PREPARADA</span>
+          <div class="lore-tab-actions">
+            <button class="button ghost compact" id="reloadLoreSystem" type="button">Recargar app</button>
+            <button class="button secondary compact" id="closeLoreSystem" type="button">Volver al Centro de Control</button>
+          </div>
+        </div>
+        <div class="lore-app-viewport" id="loreSystemViewport" role="tabpanel" aria-labelledby="loreSystemTab">
+          <div class="lore-app-loading" id="loreSystemLoading" role="status">
+            <span class="lore-loading-mark" aria-hidden="true">M</span>
+            <strong>LORESYSTEM V2</strong>
+            <small>La aplicación se activará dentro de esta pestaña.</small>
+          </div>
+          <iframe id="loreSystemFrame" title="Interfaz de LoreSystem v2" allow="clipboard-write" hidden></iframe>
+        </div>
+      </section>
+
+      <section class="hero" id="inicio" aria-labelledby="heroTitle">
+        <div class="eyebrow">Laboratorio narrativo local</div>
+        <h1 id="heroTitle">Tu novela, una decisión a la vez.</h1>
+        <p>Elige un objetivo. Tántalo prepara el prompt y tú lo revisas antes de abrir un chat nuevo en Codex.</p>
+        <div class="repo-setting">
+          <label for="repoPath">Ruta del repositorio</label>
+          <div class="inline-field">
+            <input id="repoPath" type="text" autocomplete="off" spellcheck="false" placeholder="C:\ruta\al\repositorio">
+            <button class="button ghost compact" id="saveRepoPath" type="button">Guardar</button>
+          </div>
+          <small>El lanzador la configura automáticamente. Solo se guarda la ruta, nunca el manuscrito.</small>
+        </div>
+      </section>
+
+      <section class="status-panel" aria-labelledby="statusTitle">
+        <div class="section-heading compact-heading">
+          <div>
+            <div class="eyebrow">Estado actual</div>
+            <h2 id="statusTitle">Punto de reanudación</h2>
+          </div>
+          <span class="status-dot" id="contextStatus">Cargando contexto…</span>
+        </div>
+        <dl class="status-grid">
+          <div><dt>Saga</dt><dd id="statusSaga">Información no disponible</dd></div>
+          <div><dt>Novela</dt><dd id="statusNovel">Información no disponible</dd></div>
+          <div><dt>Capítulo</dt><dd id="statusChapter">Información no disponible</dd></div>
+          <div><dt>Fase</dt><dd id="statusPhase">Información no disponible</dd></div>
+          <div class="wide"><dt>Siguiente tarea</dt><dd id="statusNext">Información no disponible</dd></div>
+          <div class="wide"><dt>Bloqueos</dt><dd id="statusBlocks">Información no disponible</dd></div>
+          <div><dt>Actualizado</dt><dd id="statusUpdated">Información no disponible</dd></div>
+        </dl>
+      </section>
+
+      <section class="recommendation" aria-labelledby="recommendationTitle">
+        <div>
+          <div class="eyebrow">¿Qué debería hacer ahora?</div>
+          <h2 id="recommendationTitle">Continuar desde el contexto activo</h2>
+          <p id="recommendationText">Prepararemos una acción breve con Tutor Ligero y sin modificar archivos.</p>
+        </div>
+        <button class="button primary large" id="recommendedAction" type="button">Preparar acción recomendada</button>
+      </section>
+
+      <section class="activation-monitor" id="monitor" aria-labelledby="monitorTitle">
+        <div class="monitor-heading">
+          <div>
+            <div class="eyebrow">Monitor de red narrativa</div>
+            <h2 id="monitorTitle">Mapa de activación</h2>
+          </div>
+          <div class="monitor-mode-panel" aria-live="polite">
+            <strong id="monitorModeLabel" data-state="planned">PREVISUALIZACIÓN DE FLUJO</strong>
+            <span id="monitorModeExplanation">Sin conexión a una ejecución real.</span>
+          </div>
+        </div>
+
+        <div class="monitor-console">
+          <div class="monitor-screw screw-one" aria-hidden="true"></div>
+          <div class="monitor-screw screw-two" aria-hidden="true"></div>
+          <div class="monitor-screw screw-three" aria-hidden="true"></div>
+          <div class="monitor-screw screw-four" aria-hidden="true"></div>
+
+          <div class="monitor-zoom-bar" aria-label="Zoom rápido del texto del monitor">
+            <label for="monitorTextZoom">Zoom de texto</label>
+            <button id="monitorZoomOut" type="button" aria-label="Reducir zoom del texto">−</button>
+            <input id="monitorTextZoom" type="range" min="100" max="300" step="25" value="250" aria-describedby="monitorTextZoomValue">
+            <button id="monitorZoomIn" type="button" aria-label="Aumentar zoom del texto">+</button>
+            <output id="monitorTextZoomValue" for="monitorTextZoom">250 %</output>
+            <button id="monitorZoomDefault" type="button">RESTABLECER 2,5×</button>
+          </div>
+
+          <div class="monitor-top-controls">
+            <label for="monitorPreset">Flujo observado
+              <select id="monitorPreset" class="monitor-select"></select>
+            </label>
+            <label for="monitorView">Vista
+              <select id="monitorView" class="monitor-select">
+                <option value="radial">Radial semántica</option>
+                <option value="hierarchical">Jerárquica</option>
+                <option value="left-right">Izquierda a derecha</option>
+                <option value="timeline">Ejecución temporal</option>
+              </select>
+            </label>
+            <label for="monitorFilter">Filtro
+              <select id="monitorFilter" class="monitor-select">
+                <option value="all">Todos los módulos activos</option>
+                <option value="skills">Solo skills</option>
+                <option value="agents">Solo agentes</option>
+                <option value="evaluators">Solo evaluadores</option>
+                <option value="canon">Solo canon</option>
+                <option value="learning">Solo aprendizaje</option>
+                <option value="writing">Solo escritura</option>
+                <option value="files">Solo archivos</option>
+                <option value="warnings">Solo advertencias</option>
+              </select>
+            </label>
+            <label for="monitorNodeSelect">Nodos visibles
+              <select id="monitorNodeSelect" class="monitor-select">
+                <option value="">Seleccionar nodo…</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="monitor-main-grid">
+            <aside class="monitor-control-bank" aria-label="Consola de alcance y profundidad">
+              <div class="monitor-plate">CONTROL DE MISIÓN</div>
+              <div class="monitor-knob-group">
+                <label for="scopeKnob">Alcance</label>
+                <div class="monitor-knob" aria-hidden="true"><span></span></div>
+                <output id="scopeValue" for="scopeKnob">ESCENA</output>
+                <div class="monitor-stepper">
+                  <button id="scopeMinus" type="button" aria-label="Reducir alcance">−</button>
+                  <input id="scopeKnob" type="range" min="0" max="5" step="1" value="2" aria-describedby="scopeScale">
+                  <button id="scopePlus" type="button" aria-label="Aumentar alcance">+</button>
+                </div>
+                <small id="scopeScale">Pregunta · fragmento · escena · capítulo · novela · saga</small>
+              </div>
+
+              <div class="monitor-knob-group">
+                <label for="depthKnob">Profundidad</label>
+                <div class="monitor-knob depth-knob" aria-hidden="true"><span></span></div>
+                <output id="depthValue" for="depthKnob">ASISTENCIA</output>
+                <div class="monitor-stepper">
+                  <button id="depthMinus" type="button" aria-label="Reducir profundidad">−</button>
+                  <input id="depthKnob" type="range" min="0" max="5" step="1" value="1" aria-describedby="depthScale">
+                  <button id="depthPlus" type="button" aria-label="Aumentar profundidad">+</button>
+                </div>
+                <small id="depthScale">0 directo · 5 auditoría. No representa razonamiento privado.</small>
+              </div>
+
+              <div class="depth-meter" aria-label="Profundidad operativa prevista">
+                <div class="depth-meter-arc"><span></span></div>
+                <strong id="depthNumber">1</strong>
+                <b id="depthName">ASISTENCIA</b>
+                <p id="depthExplanation">Sistema Tántalo y un protocolo.</p>
+                <dl>
+                  <div><dt>Solicitada</dt><dd id="requestedDepth">1</dd></div>
+                  <div><dt>Prevista</dt><dd id="estimatedDepth">1</dd></div>
+                  <div><dt>Confirmada</dt><dd id="confirmedDepth">—</dd></div>
+                </dl>
+              </div>
+            </aside>
+
+            <div class="monitor-crt" aria-label="Grafo del flujo narrativo">
+              <div class="monitor-glass">
+                <div class="depth-rings" aria-hidden="true">
+                  <i class="depth-ring" data-depth="5"></i><i class="depth-ring" data-depth="4"></i><i class="depth-ring" data-depth="3"></i><i class="depth-ring" data-depth="2"></i><i class="depth-ring" data-depth="1"></i>
+                </div>
+                <div id="activationGraph" role="img" aria-label="Red dirigida de skills, protocolos, agentes, archivos y resultado"></div>
+              </div>
+              <div class="monitor-crt-footer">
+                <span><i class="lamp cyan"></i> FLUJO PREVISTO</span>
+                <span><i class="lamp amber"></i> VALIDACIÓN</span>
+                <span><i class="lamp red"></i> VETO / ERROR</span>
+                <span><i class="lamp green"></i> RESULTADO</span>
+              </div>
+            </div>
+
+            <aside class="monitor-risk-bank" aria-label="Riesgo, consumo e inspección">
+              <div class="risk-header"><span>CONSUMO</span><strong id="costLevel">BAJO</strong></div>
+              <dl class="risk-list">
+                <div><dt>Skills</dt><dd id="riskSkills">1</dd></div>
+                <div><dt>Agentes</dt><dd id="riskAgents">0</dd></div>
+                <div><dt>Archivos</dt><dd id="riskFiles">1</dd></div>
+                <div><dt>Candidatos</dt><dd id="riskCandidates">0</dd></div>
+                <div><dt>Búsquedas</dt><dd id="riskSearches">0</dd></div>
+                <div><dt>Escrituras</dt><dd id="riskWrites">0</dd></div>
+                <div><dt>Profundidad</dt><dd id="riskDepth">1 · ASISTENCIA</dd></div>
+              </dl>
+              <ul class="monitor-warning-list" id="monitorWarnings" aria-live="polite"><li>SIN ADVERTENCIAS ACTIVAS</li></ul>
+              <section class="monitor-inspector" id="monitorInspector" aria-labelledby="inspectorTitle">
+                <h3 id="inspectorTitle">Panel de inspección</h3>
+                <div id="monitorInspectorContent"><p class="monitor-empty">Selecciona un nodo para inspeccionar propiedades previstas o confirmadas.</p></div>
+              </section>
+            </aside>
+          </div>
+
+          <div class="monitor-lower-grid">
+            <section class="scope-panel" aria-labelledby="scopeTitle">
+              <div class="monitor-subheading"><h3 id="scopeTitle">Osciloscopio de actividad</h3><span>ESTIMACIONES DEL FLUJO</span></div>
+              <canvas id="activityScope" height="130" aria-label="Señales estimadas de complejidad, contexto y costo"></canvas>
+              <dl class="scope-legend">
+                <div><dt>Complejidad estimada</dt><dd id="complexitySignal">BAJA</dd></div>
+                <div><dt>Contexto estimado</dt><dd id="contextSignal">BAJO</dd></div>
+                <div><dt>Costo estimado</dt><dd id="costSignal">BAJO</dd></div>
+              </dl>
+            </section>
+
+            <section class="monitor-sliders" aria-labelledby="sliderTitle">
+              <div class="monitor-subheading"><h3 id="sliderTitle">Regulación semántica</h3><span>MODIFICA EL PROMPT</span></div>
+              <label for="rigor">Rigor editorial <output id="rigorValue">70</output><input id="rigor" type="range" min="0" max="100" value="70"></label>
+              <label for="creativity">Creatividad permitida <output id="creativityValue">35</output><input id="creativity" type="range" min="0" max="100" value="35"></label>
+              <label for="canonProtection">Protección del canon <output id="canonProtectionValue">90</output><input id="canonProtection" type="range" min="0" max="100" value="90"></label>
+              <label for="voiceProtection">Protección de voz <output id="voiceProtectionValue">90</output><input id="voiceProtection" type="range" min="0" max="100" value="90"></label>
+              <label for="consumptionLimit">Límite de consumo <output id="consumptionLimitValue">55</output><input id="consumptionLimit" type="range" min="0" max="100" value="55"></label>
+            </section>
+
+            <section class="monitor-switches" aria-labelledby="switchTitle">
+              <div class="monitor-subheading"><h3 id="switchTitle">Interruptores</h3><span>OFF / ON</span></div>
+              <label><input id="allowWeb" type="checkbox"><span>Búsqueda web</span></label>
+              <label><input id="allowSubagents" type="checkbox"><span>Permitir subagentes</span></label>
+              <label><input id="allowFileChanges" type="checkbox"><span>Cambios de archivos</span></label>
+              <label><input id="blindComparison" type="checkbox"><span>Comparación ciega</span></label>
+              <label><input id="updateMemory" type="checkbox"><span>Actualizar memoria</span></label>
+              <label><input id="showWaiting" type="checkbox"><span>Mostrar módulos en espera</span></label>
+              <label><input id="liveTelemetry" type="checkbox"><span>Telemetría en vivo</span></label>
+              <label><input id="flowAnimation" type="checkbox" checked><span>Animación de flujo</span></label>
+              <label><input id="scanlinesToggle" type="checkbox" checked><span>Scanlines</span></label>
+              <label><input id="highContrastToggle" type="checkbox"><span>Alto contraste</span></label>
+            </section>
+          </div>
+
+          <div class="monitor-button-bank" aria-label="Acciones del monitor">
+            <button id="centerNetwork" type="button">CENTRAR RED</button>
+            <button id="isolateRoute" type="button" aria-pressed="false">AISLAR RUTA</button>
+            <button id="showDetails" type="button">MOSTRAR DETALLES</button>
+            <button id="monitorBack" type="button">REGRESAR</button>
+            <button id="monitorReset" type="button">RESTABLECER</button>
+            <button id="pauseMonitor" type="button">PAUSAR MONITOR</button>
+            <button id="stopExecution" class="danger" type="button" disabled>DETENER EJECUCIÓN</button>
+            <button id="loadSimulation" type="button">CARGAR SIMULACIÓN</button>
+            <button id="clearSimulation" type="button">LIMPIAR SIMULACIÓN</button>
+            <button id="copyMonitorReport" type="button">COPIAR INFORME</button>
+            <button id="monitorOpenCodex" class="primary" type="button">ABRIR EN CODEX</button>
+          </div>
+
+          <details class="depth-reference">
+            <summary>Escala de profundidad operativa</summary>
+            <ol id="depthLegend"></ol>
+          </details>
+          <p class="monitor-disclaimer">El monitor representa componentes y eventos expuestos. No muestra cadena de pensamiento ni razonamiento privado.</p>
+          <div id="monitorAnnouncement" class="sr-only" role="status" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="frequentTitle">
+        <div class="section-heading">
+          <div><div class="eyebrow">Acceso rápido</div><h2 id="frequentTitle">Seis acciones frecuentes</h2></div>
+        </div>
+        <div class="card-grid frequent-grid" id="frequentActions" aria-live="polite"></div>
+      </section>
+
+      <section class="tools-section" id="toolsSection" hidden aria-labelledby="toolsTitle">
+        <div class="section-heading">
+          <div><div class="eyebrow">Caja de herramientas</div><h2 id="toolsTitle">Todos los flujos</h2></div>
+          <button class="button ghost compact" id="hideTools" type="button">Ocultar</button>
+        </div>
+
+        <div class="tool-controls">
+          <label class="search-field" for="actionSearch">
+            <span aria-hidden="true">⌕</span>
+            <input id="actionSearch" type="search" placeholder="Buscar una acción…" autocomplete="off">
+          </label>
+          <div class="category-tabs" id="categoryTabs" role="tablist" aria-label="Filtrar por categoría"></div>
+        </div>
+
+        <div class="saved-layout">
+          <section class="saved-panel" aria-labelledby="favoritesTitle">
+            <h3 id="favoritesTitle">Favoritos</h3>
+            <div class="mini-list" id="favoritesList"><p class="empty">Aún no tienes favoritos.</p></div>
+          </section>
+          <section class="saved-panel" aria-labelledby="recentTitle">
+            <h3 id="recentTitle">Acciones recientes</h3>
+            <div class="mini-list" id="recentList"><p class="empty">Aún no hay acciones recientes.</p></div>
+          </section>
+        </div>
+
+        <div class="section-heading subsection-heading">
+          <h3>Presets principales</h3>
+          <span class="muted">Configuraciones seguras y reutilizables</span>
+        </div>
+        <div class="card-grid" id="presetGrid"></div>
+
+        <div class="section-heading subsection-heading">
+          <h3 id="catalogTitle">Acciones por objetivo</h3>
+          <span class="muted" id="resultCount"></span>
+        </div>
+        <div class="card-grid compact-grid" id="actionGrid" aria-labelledby="catalogTitle"></div>
+
+        <details class="builder" id="customBuilder">
+          <summary>
+            <span><strong>Constructor de flujo personalizado</strong><small>Opciones avanzadas para casos especiales</small></span>
+            <span aria-hidden="true">＋</span>
+          </summary>
+          <form id="builderForm">
+            <div class="builder-grid">
+              <label>Modo
+                <select id="builderMode">
+                  <option>Tutor Ligero</option>
+                  <option>Revisión de Capítulo</option>
+                  <option>Profundo</option>
+                </select>
+              </label>
+              <label>Objetivo
+                <select id="builderObjective">
+                  <option>orientar</option><option>preparar</option><option>escribir</option><option>diagnosticar</option><option>enseñar</option><option>revisar</option><option>comparar</option><option>comprobar</option><option>actualizar</option><option>exportar</option>
+                </select>
+              </label>
+              <label>Alcance
+                <select id="builderScope">
+                  <option>pregunta</option><option>selección</option><option>escena</option><option>capítulo</option><option>novela</option><option>saga</option>
+                </select>
+              </label>
+              <label>Extensión
+                <select id="builderExtent">
+                  <option>400 palabras</option><option>700 palabras</option><option>1.000 palabras</option><option>flexible</option>
+                </select>
+              </label>
+              <label>Número de candidatos
+                <select id="builderCandidates">
+                  <option value="0">0 — ninguno</option><option value="2">2 candidatos</option><option value="3">3 candidatos</option><option value="4">4 candidatos</option>
+                </select>
+              </label>
+            </div>
+
+            <fieldset>
+              <legend>Agentes o roles especializados</legend>
+              <div class="checkbox-grid" id="agentOptions"></div>
+              <small>En Tutor Ligero se interpretan como una especialidad del agente principal; no se activan subagentes.</small>
+            </fieldset>
+
+            <fieldset>
+              <legend>Permisos y operaciones</legend>
+              <div class="checkbox-grid options-grid">
+                <label><input type="checkbox" name="web"> Permitir búsqueda web</label>
+                <label><input type="checkbox" name="additionalFiles"> Permitir lectura adicional</label>
+                <label><input type="checkbox" name="propose"> Permitir proponer cambios</label>
+                <label><input type="checkbox" name="write"> Permitir escribir archivos</label>
+                <label><input type="checkbox" name="memory"> Actualizar memoria al terminar</label>
+                <label><input type="checkbox" name="generate"> Generar candidatos</label>
+                <label><input type="checkbox" name="blind"> Ejecutar comparación ciega</label>
+              </div>
+            </fieldset>
+
+            <label for="customIntent">Qué quieres conseguir
+              <textarea id="customIntent" rows="3" placeholder="Describe el resultado que necesitas, sin pegar el manuscrito completo."></textarea>
+            </label>
+
+            <div class="consumption-panel" aria-live="polite">
+              <div><span>Consumo estimado</span><strong id="builderConsumption" data-level="bajo">BAJO</strong></div>
+              <p id="builderConsumptionReason">Tutor Ligero, alcance breve y sin operaciones adicionales.</p>
+            </div>
+            <ul class="warning-list" id="builderWarnings" aria-live="polite"></ul>
+            <button class="button primary" type="submit">Preparar flujo personalizado</button>
+            <button class="button ghost" id="resetBuilder" type="reset">Restablecer opciones</button>
+          </form>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <p>Local, sin dependencias externas y sin envío automático.</p>
+      <button class="text-button" id="footerSkills" type="button">Abrir selector de Skills</button>
+    </footer>
+  </div>
+
+  <dialog id="promptDialog" aria-labelledby="promptTitle">
+    <div class="dialog-shell">
+      <div class="dialog-header">
+        <div><div class="eyebrow">Prompt generado</div><h2 id="promptTitle">Revisar antes de abrir</h2></div>
+        <button class="icon-button" id="closeDialog" type="button" aria-label="Cerrar">×</button>
+      </div>
+      <div class="flow-summary">
+        <span id="selectedMode">Tutor Ligero</span>
+        <span id="selectedConsumption" data-level="bajo">BAJO</span>
+      </div>
+      <p id="consumptionExplanation" class="muted"></p>
+      <ul class="warning-list" id="flowWarnings"></ul>
+      <textarea id="promptPreview" rows="18" aria-label="Prompt generado" spellcheck="true"></textarea>
+      <div class="dialog-actions">
+        <button class="button primary large" id="openCodex" type="button">Abrir en Codex</button>
+        <button class="button secondary" id="copyPrompt" type="button">Copiar prompt</button>
+        <button class="button ghost" id="togglePrompt" type="button">Ocultar prompt</button>
+        <button class="button ghost" id="resetFlow" type="button">Restablecer opciones</button>
+      </div>
+      <p class="protocol-help">El enlace prepara un chat nuevo y no envía el mensaje. Si <code>codex://</code> no responde, usa «Copiar prompt».</p>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="vendor/cytoscape.min.js" defer></script>
+  <script src="monitor/depth-engine.js" defer></script>
+  <script src="monitor/activity-scope.js" defer></script>
+  <script src="monitor/graph-engine.js" defer></script>
+  <script src="monitor/telemetry-client.js" defer></script>
+  <script src="monitor/monitor-accessibility.js" defer></script>
+  <script src="app.js?v=20260731-lore-dock-2" defer></script>
+  <script src="monitor/monitor.js" defer></script>
+</body>
+</html>
