@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "disclaimer": "La profundidad operativa describe el flujo visible solicitado; no representa razonamiento privado del modelo.",
+  "levels": [
+    {"level":0,"id":"directo","label":"DIRECTO","description":"Respuesta sin protocolo especializado."},
+    {"level":1,"id":"asistencia","label":"ASISTENCIA","description":"Sistema Tántalo y un protocolo."},
+    {"level":2,"id":"especialista","label":"ESPECIALISTA","description":"Una especialidad adicional."},
+    {"level":3,"id":"contraste","label":"CONTRASTE","description":"Dos especialistas o comprobación cruzada."},
+    {"level":4,"id":"laboratorio","label":"LABORATORIO","description":"Candidatos, comparación o integración."},
+    {"level":5,"id":"auditoria","label":"AUDITORÍA","description":"Torneo, canon, evaluadores y cierre documentado."}
+  ]
+}

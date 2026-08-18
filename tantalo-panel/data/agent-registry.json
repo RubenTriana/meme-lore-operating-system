@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": ".codex/agents/*.toml",
+  "agents": [
+    {"id":"tutor-narrativo","label":"Tutor narrativo","specialty":"Conducción de escritura y pregunta de alto impacto","sandbox":"read-only","estimatedCost":"bajo","categories":["hoy","escribir"]},
+    {"id":"arquitecto-narrativo","label":"Arquitecto narrativo","specialty":"Función, causalidad, escalada y giros","sandbox":"read-only","estimatedCost":"medio","categories":["escribir","laboratorio"]},
+    {"id":"guardian-canon","label":"Guardián del canon","specialty":"Canon, cronología, conocimiento y vetos","sandbox":"read-only","estimatedCost":"medio","categories":["revisar","cierre"]},
+    {"id":"analista-voz","label":"Analista de voz","specialty":"Identidad autoral y homogeneización","sandbox":"read-only","estimatedCost":"medio","categories":["revisar"]},
+    {"id":"editor-desarrollo","label":"Editor de desarrollo","specialty":"Estructura, causalidad y prioridad dominante","sandbox":"read-only","estimatedCost":"medio","categories":["revisar","laboratorio"]},
+    {"id":"editor-comercial","label":"Editor comercial","specialty":"Claridad, tensión y propulsión","sandbox":"read-only","estimatedCost":"medio","categories":["revisar","laboratorio"]},
+    {"id":"editor-literario","label":"Editor literario","specialty":"Precisión, ritmo, imagen y subtexto","sandbox":"read-only","estimatedCost":"medio","categories":["revisar","laboratorio"]},
+    {"id":"psicologo-personajes","label":"Psicólogo de personajes","specialty":"Deseo, defensa, contradicción y transformación","sandbox":"read-only","estimatedCost":"medio","categories":["revisar"]},
+    {"id":"lector-cero","label":"Lector cero","specialty":"Experiencia con información limitada al lector","sandbox":"read-only","estimatedCost":"medio","categories":["revisar"]},
+    {"id":"critico-hostil","label":"Crítico hostil","specialty":"Caso de rechazo fuerte y verificable","sandbox":"read-only","estimatedCost":"medio","categories":["laboratorio"]},
+    {"id":"defensor-original","label":"Defensor del original","specialty":"Protección de energía, rareza, intención y voz","sandbox":"read-only","estimatedCost":"medio","categories":["laboratorio"]},
+    {"id":"mentor-aprendizaje","label":"Mentor de aprendizaje","specialty":"Práctica deliberada mínima y verificable","sandbox":"read-only","estimatedCost":"medio","categories":["aprender"]},
+    {"id":"integrador-editorial","label":"Integrador editorial","specialty":"Integración autorizada de candidatos","sandbox":"workspace-write","estimatedCost":"alto","categories":["laboratorio","cierre"]}
+  ]
+}

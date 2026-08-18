@@ -1,0 +1,9 @@
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 3
+default_subagent_reasoning_effort = "medium"
+interrupt_message = true
+
+# Los roles se cargan automáticamente desde .codex/agents/.
+# Los analistas y el Mentor de Aprendizaje son de solo lectura; solo integrador-editorial puede escribir.
+# Los subagentes permanecen inactivos en Tutor Ligero; este valor se aplica solo cuando otro modo autoriza su uso.

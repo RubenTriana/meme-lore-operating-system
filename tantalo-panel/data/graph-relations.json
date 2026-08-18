@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "objectiveProtocols": {
+    "orientar": "protocolo-tutoria",
+    "preparar": "flujo-capitulo",
+    "escribir": "protocolo-borrador",
+    "diagnosticar": "rubrica-editorial",
+    "enseñar": "protocolo-aprendizaje",
+    "revisar": "modo-revision",
+    "comparar": "modo-profundo",
+    "comprobar": "protocolo-canon",
+    "actualizar": "definicion-terminado",
+    "exportar": "definicion-terminado"
+  },
+  "presetProfiles": {
+    "continuar-escribiendo": {"protocol":"protocolo-borrador","implicitAgents":["tutor-narrativo"],"result":"Respuesta de acompañamiento"},
+    "diagnostico-rapido": {"protocol":"rubrica-editorial","implicitAgents":["tutor-narrativo"],"result":"Diagnóstico prioritario"},
+    "microaprendizaje": {"protocol":"protocolo-aprendizaje","extraProtocols":["curaduria-minima"],"result":"Ejercicio deliberado"},
+    "revision-capitulo": {"protocol":"modo-revision","extraProtocols":["rubrica-editorial"],"result":"Informe de capítulo"},
+    "comprobar-continuidad": {"protocol":"protocolo-canon","result":"Informe de continuidad"},
+    "torneo-versiones": {"protocol":"modo-profundo","candidateGroup":true,"evaluator":true,"result":"Finalistas comparados"},
+    "cerrar-capitulo": {"protocol":"definicion-terminado","result":"Cierre documentado"}
+  },
+  "relations": ["INVOCA","CONSULTA","ENTREGA","VALIDA","COMPARA","VETA","INTEGRA","LEE","PROPONE CAMBIO","ESCRIBE","ACTUALIZA MEMORIA"]
+}

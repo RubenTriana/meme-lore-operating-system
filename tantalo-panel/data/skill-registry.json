@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": [
+    ".agents/skills/sistema-tantalo/SKILL.md",
+    ".agents/skills/sistema-tantalo/agents/openai.yaml"
+  ],
+  "contentPolicy": "Índice resumido: el navegador no recibe instrucciones completas de las skills.",
+  "skills": [
+    {
+      "id": "sistema-tantalo",
+      "name": "sistema-tantalo",
+      "label": "Sistema Tántalo",
+      "description": "Enruta tutoría, escritura, revisión, continuidad y aprendizaje deliberado con contexto selectivo.",
+      "location": ".agents/skills/sistema-tantalo/SKILL.md",
+      "category": "orquestación narrativa",
+      "dependencies": [],
+      "enabled": true,
+      "relations": [
+        "protocolo-tutoria",
+        "flujo-capitulo",
+        "rubrica-editorial",
+        "protocolo-voz",
+        "protocolo-canon",
+        "protocolo-aprendizaje",
+        "definicion-terminado"
+      ]
+    }
+  ]
+}

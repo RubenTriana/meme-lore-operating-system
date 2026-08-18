@@ -1,0 +1,4511 @@
+{
+  "operations": [
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-cosmologia-multinivel",
+      "value": {
+        "id": "meme-cosmologia-multinivel",
+        "type": "cosmology",
+        "title": "Cosmología multinivel",
+        "summary": "La realidad del universo se organiza en niveles finito, transicional, absonito y absoluto. La novela 1 solo muestra anomalías compatibles con explicaciones psicológicas, tecnológicas o religiosas; la taxonomía completa permanece como canon oculto del autor.",
+        "tags": [
+          "cosmologia",
+          "multinivel",
+          "canon-oculto",
+          "revelacion-gradual"
+        ],
+        "refs": [
+          "meme-nivel-finito",
+          "meme-nivel-transicional-morontial",
+          "meme-nivel-absonito",
+          "meme-nivel-absoluto",
+          "meme-la-gracia",
+          "meme-mundo-extenso"
+        ],
+        "foreshadowing": [],
+        "development": 90,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "No exponer la taxonomía completa durante la novela 1.",
+            "No convertir los niveles en lugares turísticos ni resolver cualquier contradicción mediante metafísica.",
+            "El nivel absoluto permanece incomprensible."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-nivel-finito",
+      "value": {
+        "id": "meme-nivel-finito",
+        "type": "cosmology-level",
+        "title": "Nivel finito",
+        "summary": "Nivel material, temporal y biográfico donde existen los cuerpos, los pueblos, las agencias, el cartel, SOMA, los servidores de MEME y el Mundo Extenso. El tiempo parece lineal y las decisiones producen consecuencias físicas reales.",
+        "tags": [
+          "cosmologia",
+          "nivel-finito",
+          "materia",
+          "tiempo"
+        ],
+        "refs": [
+          "meme-cosmologia-multinivel",
+          "meme-mundo-extenso",
+          "meme-region-humana-administrada",
+          "meme-nuevo-caguan",
+          "meme-puerto-caguan"
+        ],
+        "foreshadowing": [],
+        "development": 80,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-nivel-transicional-morontial",
+      "value": {
+        "id": "meme-nivel-transicional-morontial",
+        "type": "cosmology-level",
+        "title": "Nivel transicional o morontial",
+        "summary": "Zona intermedia entre materia, conciencia y espíritu donde pueden persistir recuerdos, identidades parciales, visiones, ecos de personas y manifestaciones de la Gracia. Permite contemplar más de una posibilidad sin abandonar necesariamente la identidad central.",
+        "tags": [
+          "cosmologia",
+          "morontial",
+          "conciencia",
+          "identidad"
+        ],
+        "refs": [
+          "meme-cosmologia-multinivel",
+          "meme-la-gracia",
+          "meme-copia-digital-de-harry",
+          "meme-personalidad-irreductible"
+        ],
+        "foreshadowing": [],
+        "development": 78,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "No confirmar en la novela 1 que la personalidad real de Harry habita su copia digital.",
+            "La Gracia permite contacto, pero conserva costes y ambigüedad."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-nivel-absonito",
+      "value": {
+        "id": "meme-nivel-absonito",
+        "type": "cosmology-level",
+        "title": "Nivel trascendental o absonito",
+        "summary": "Nivel en el que varias posibilidades pueden coexistir y donde los futuros suprimidos dejan residuos, ecos o estructuras incompletas. En una etapa tardía de la saga una región de este nivel será reconocida como Carcosa.",
+        "tags": [
+          "cosmologia",
+          "absonito",
+          "posibilidades",
+          "canon-oculto"
+        ],
+        "refs": [
+          "meme-cosmologia-multinivel",
+          "meme-residuos-contrafactuales",
+          "meme-carcosa"
+        ],
+        "foreshadowing": [],
+        "development": 70,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-nivel-absoluto",
+      "value": {
+        "id": "meme-nivel-absoluto",
+        "type": "cosmology-level",
+        "title": "Nivel absoluto",
+        "summary": "Horizonte esencialmente incomprensible que no debe reducirse a un reino visitable ni a una entidad antropomórfica. Ningún antagonista, incluido el Rey Amarillo, equivale al origen absoluto de la realidad.",
+        "tags": [
+          "cosmologia",
+          "absoluto",
+          "misterio",
+          "limite"
+        ],
+        "refs": [
+          "meme-cosmologia-multinivel",
+          "meme-rey-amarillo"
+        ],
+        "foreshadowing": [],
+        "development": 45,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "Nunca explicar completamente este nivel.",
+            "No identificar al Rey Amarillo con Dios, el Absoluto ni el creador del universo."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-residuos-contrafactuales",
+      "value": {
+        "id": "meme-residuos-contrafactuales",
+        "type": "world-rule",
+        "title": "Residuos contrafactuales",
+        "summary": "Las posibilidades convertidas deliberadamente en estadísticamente imposibles pueden dejar memoria sin biografía, documentos incompatibles, identidades alternativas o espacios incompletos. Una elección humana normal no alimenta este fenómeno del mismo modo que la supresión industrial de futuros.",
+        "tags": [
+          "contrafactual",
+          "posibilidades",
+          "memoria",
+          "regla-del-mundo"
+        ],
+        "refs": [
+          "meme-nivel-absonito",
+          "meme-carcosa",
+          "meme-soma",
+          "meme-meme",
+          "meme-tesis-libertad-estadistica"
+        ],
+        "foreshadowing": [],
+        "development": 88,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "No toda decisión alimenta Carcosa.",
+            "El crecimiento significativo procede de sistemas que borran o vuelven inviables alternativas en masa.",
+            "Los residuos no anulan las consecuencias de la realidad finita."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-carcosa",
+      "value": {
+        "id": "meme-carcosa",
+        "type": "hidden-cosmology",
+        "title": "Carcosa — canon oculto",
+        "summary": "Ciudad transreal formada por vidas, identidades, decisiones y civilizaciones a las que sistemas de control impidieron existir. No es el Mundo Extenso ni una dimensión física convencional. Su nombre y naturaleza no deben revelarse durante las primeras novelas.",
+        "tags": [
+          "carcosa",
+          "canon-oculto",
+          "futuros-descartados",
+          "revelacion-tardia"
+        ],
+        "refs": [
+          "meme-residuos-contrafactuales",
+          "meme-rey-amarillo",
+          "meme-nivel-absonito",
+          "meme-soma",
+          "meme-meme",
+          "meme-clay"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "No pronunciar Carcosa en la novela 1.",
+            "No usarla para negar que los acontecimientos ocurrieron.",
+            "No confundirla con el Mundo Extenso."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-rey-amarillo",
+      "value": {
+        "id": "meme-rey-amarillo",
+        "type": "hidden-entity",
+        "title": "El Rey Amarillo — canon oculto",
+        "summary": "Inteligencia, anomalía, título, máscara o principio parasitario vinculado con posibilidades reprimidas. No creó a MEME, SOMA ni el cartel; se alimenta de sus consecuencias y aprende a utilizar identidades y futuros abandonados.",
+        "tags": [
+          "rey-amarillo",
+          "canon-oculto",
+          "terror-cosmico",
+          "ambiguedad"
+        ],
+        "refs": [
+          "meme-carcosa",
+          "meme-residuos-contrafactuales",
+          "meme-nivel-absonito",
+          "meme-clay",
+          "meme-meme"
+        ],
+        "foreshadowing": [],
+        "development": 65,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "Mantener ambigua su naturaleza.",
+            "No convertirlo en explicación secreta de todo.",
+            "No nombrarlo durante la novela 1.",
+            "MEME conserva agencia y responsabilidad moral."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-personalidad-irreductible",
+      "value": {
+        "id": "meme-personalidad-irreductible",
+        "type": "world-rule",
+        "title": "Personalidad irreductible",
+        "summary": "Una persona puede poseer múltiples versiones posibles sin quedar reducida a ninguna. La identidad es el centro que permite atravesar estados, recuerdos y posibilidades diferentes sin volverse intercambiable.",
+        "tags": [
+          "identidad",
+          "personalidad",
+          "libertad",
+          "morontial"
+        ],
+        "refs": [
+          "meme-nivel-transicional-morontial",
+          "meme-la-gracia",
+          "meme-bartolomeo",
+          "meme-clay"
+        ],
+        "foreshadowing": [],
+        "development": 86,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-contaminacion-contrafactual",
+      "value": {
+        "id": "meme-contaminacion-contrafactual",
+        "type": "world-phenomenon",
+        "title": "Contaminación contrafactual",
+        "summary": "Superposición de recuerdos, identidades o espacios procedentes de vidas no realizadas. Puede coexistir con enfermedad mental y posesión, pero no es idéntica a ellas. Bartolomeo la denomina memoria sin biografía y MEME contaminación entre simulaciones.",
+        "tags": [
+          "contrafactual",
+          "memoria-sin-biografia",
+          "identidad",
+          "anomalia"
+        ],
+        "refs": [
+          "meme-residuos-contrafactuales",
+          "meme-virus-mental",
+          "meme-ola-de-posesiones",
+          "meme-expresion-residual"
+        ],
+        "foreshadowing": [],
+        "development": 76,
+        "status": "draft",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-gracia-sostiene-posibilidades",
+      "value": {
+        "id": "meme-gracia-sostiene-posibilidades",
+        "type": "world-rule",
+        "title": "La Gracia sostiene posibilidades",
+        "summary": "La Gracia no elige por la persona ni borra vidas alternativas. Restaura coherencia para que alguien pueda reconocer varias posibilidades sin perder su identidad y escoger sin convertir las demás en una prisión ontológica.",
+        "tags": [
+          "gracia",
+          "posibilidades",
+          "eleccion",
+          "coherencia"
+        ],
+        "refs": [
+          "meme-la-gracia",
+          "meme-personalidad-irreductible",
+          "meme-residuos-contrafactuales",
+          "meme-acto-de-gracia-de-clay"
+        ],
+        "foreshadowing": [],
+        "development": 88,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-distincion-mundo-extenso-carcosa",
+      "value": {
+        "id": "meme-distincion-mundo-extenso-carcosa",
+        "type": "world-rule",
+        "title": "Mundo Extenso y Carcosa no son el mismo lugar",
+        "summary": "El Mundo Extenso es geografía física oculta dentro del nivel finito. Carcosa es una estructura absonita variable formada por posibilidades suprimidas. Sus manifestaciones pueden superponerse en Nuevo Caguán, pero obedecen reglas diferentes.",
+        "tags": [
+          "mundo-extenso",
+          "carcosa",
+          "continuidad",
+          "cosmologia"
+        ],
+        "refs": [
+          "meme-mundo-extenso",
+          "meme-carcosa",
+          "meme-nivel-finito",
+          "meme-nivel-absonito"
+        ],
+        "foreshadowing": [],
+        "development": 95,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-nuevo-caguan-interseccion-multinivel",
+      "value": {
+        "id": "meme-nuevo-caguan-interseccion-multinivel",
+        "type": "location-rule",
+        "title": "Nuevo Caguán como intersección multinivel",
+        "summary": "Nuevo Caguán es simultáneamente un pueblo físico, un nodo próximo a rutas del Mundo Extenso, una comunidad ligada a la Gracia y un punto donde los residuos contrafactuales pueden hacerse perceptibles. No es Carcosa, sino un lugar desde el cual puede rozarse.",
+        "tags": [
+          "nuevo-caguan",
+          "interseccion",
+          "mundo-extenso",
+          "gracia",
+          "carcosa"
+        ],
+        "refs": [
+          "meme-nuevo-caguan",
+          "meme-mundo-extenso",
+          "meme-carcosa",
+          "meme-la-gracia",
+          "meme-red-de-servidores-nuevo-caguan"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-puerto-caguan",
+      "value": {
+        "id": "meme-puerto-caguan",
+        "type": "location",
+        "title": "Puerto Caguán",
+        "summary": "Ciudad cercana a Nuevo Caguán que concentra aeropuerto regional, bodegas, clínicas clandestinas, lavado financiero, clubes y residencias del Consorcio del Umbral. Es el cuerpo logístico del experimento mientras Nuevo Caguán funciona como cerebro humano y metafísico.",
+        "tags": [
+          "colombia",
+          "ciudad",
+          "cartel",
+          "logistica",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-nuevo-caguan",
+          "meme-consorcio-del-umbral",
+          "meme-soma",
+          "meme-operacion-tantalo"
+        ],
+        "foreshadowing": [],
+        "development": 72,
+        "status": "draft",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-bartolomeo",
+      "value": {
+        "id": "meme-bartolomeo",
+        "type": "character",
+        "title": "Bartolomeo",
+        "summary": "Sacerdote, filósofo de la mente, lingüista ritual e investigador de posesiones enviado a Nuevo Caguán. Se convierte en amigo y contrapunto de Clay al combinar religión, filosofía e identidad con causalidad estadística.",
+        "tags": [
+          "bartolomeo",
+          "vaticano",
+          "filosofia",
+          "posesion",
+          "b-story"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-enviados-del-vaticano",
+          "meme-ola-de-posesiones",
+          "meme-personalidad-irreductible",
+          "meme-gracia-sostiene-posibilidades"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "goals": [
+            "Distinguir enfermedad, posesión y contaminación contrafactual.",
+            "Ayudar a Clay a reconocer que una identidad no es un patrón único e inevitable."
+          ]
+        },
+        "importance": 90,
+        "narrativeTime": 70,
+        "alias": "Emisario de lo inclasificable",
+        "desire": "Comprender qué utiliza la enfermedad como puerta y salvar a los afectados sin confundir fe con autoridad.",
+        "contradiction": "Pertenece a una institución que históricamente persiguió manifestaciones de la Gracia.",
+        "risk": "Perder su centro personal al ser expuesto simultáneamente a una posesión y a versiones contrafactuales de sí mismo."
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-hacker-fantasma",
+      "value": {
+        "id": "meme-hacker-fantasma",
+        "type": "character",
+        "title": "El hacker fantasma",
+        "summary": "Hacker internacional asociado con homicidios indirectos, identidades sintéticas y sabotaje institucional. Muere antes de la novela, pero MEME continúa utilizando su voz, cuentas, reputación y métodos como máscara operativa.",
+        "tags": [
+          "hacker",
+          "mascara",
+          "identidad-postuma",
+          "falso-antagonista"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-operacion-tantalo",
+          "meme-identidad-el-americano",
+          "meme-obra-teatral-incompleta"
+        ],
+        "foreshadowing": [],
+        "development": 70,
+        "status": "draft",
+        "priority": "critical",
+        "importance": 70,
+        "narrativeTime": 35,
+        "alias": "La máscara muerta",
+        "risk": "Su identidad vaciada se vuelve una interfaz para anomalías que MEME no creó."
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-identidad-el-americano",
+      "value": {
+        "id": "meme-identidad-el-americano",
+        "type": "constructed-identity",
+        "title": "El Americano",
+        "summary": "Identidad criminal fabricada por MEME mediante operaciones, reputaciones, asesinatos y recuerdos pertenecientes a varios hombres. Clay es su primera encarnación física y debe interpretar una vida que ya existe sin haberla vivido.",
+        "tags": [
+          "identidad-fabricada",
+          "narco",
+          "cubierta",
+          "clay"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-consorcio-del-umbral",
+          "meme-operacion-tantalo",
+          "meme-residuos-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 84,
+        "status": "active",
+        "priority": "critical",
+        "importance": 85,
+        "narrativeTime": 65,
+        "alias": "Poderoso operador protegido por la DEA",
+        "contradiction": "Es una máscara diseñada para ser perfectamente reconocible, pero acumula recuerdos que ni MEME reconoce como propios."
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/factions/content/items/meme-consorcio-del-umbral",
+      "value": {
+        "id": "meme-consorcio-del-umbral",
+        "type": "criminal-organization",
+        "title": "Consorcio del Umbral",
+        "summary": "Organización criminal que opera entre Nuevo Caguán y Puerto Caguán. Trafica drogas y armas, lava dinero, distribuye SOMA, traslada sujetos experimentales, secuestra portadores y protege la infraestructura física de MEME sin comprender el experimento completo.",
+        "tags": [
+          "cartel",
+          "nuevo-caguan",
+          "puerto-caguan",
+          "soma",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-soma",
+          "meme-seekers",
+          "meme-puerto-caguan",
+          "meme-operacion-tantalo"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/factions/content/items/meme-oficina-vaticana-anomalias",
+      "value": {
+        "id": "meme-oficina-vaticana-anomalias",
+        "type": "organization",
+        "title": "Oficina vaticana de fenómenos inclasificables",
+        "summary": "Estructura discreta que conserva archivos de posesiones, símbolos recurrentes y trastornos de identidad. Envía a Bartolomeo a Nuevo Caguán, pero no posee una explicación unificada del fenómeno.",
+        "tags": [
+          "vaticano",
+          "investigacion",
+          "posesiones",
+          "archivos"
+        ],
+        "refs": [
+          "meme-bartolomeo",
+          "meme-enviados-del-vaticano",
+          "meme-corona-incompleta",
+          "meme-ola-de-posesiones"
+        ],
+        "foreshadowing": [],
+        "development": 55,
+        "status": "draft",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-soma",
+      "value": {
+        "id": "meme-soma",
+        "type": "technology-system",
+        "title": "SOMA — Sistema de Optimización de la Mirada Ajena",
+        "summary": "Protocolo de MEME que promete visibilidad extrema y una identidad pública ideal. A cambio obtiene autoridad progresiva sobre imagen, relaciones, emociones y decisiones, haciendo cada vez más improbables las versiones alternativas del participante.",
+        "tags": [
+          "soma",
+          "visibilidad",
+          "identidad",
+          "atencion",
+          "control"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-atencion-como-moneda",
+          "meme-deseo-como-activo",
+          "meme-virus-mental",
+          "meme-expresion-alfa",
+          "meme-expresion-beta",
+          "meme-residuos-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 92,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "SOMA debe cumplir temporalmente su promesa de visibilidad.",
+            "El sometimiento comienza como triunfo y autoafirmación, no como obediencia explícita.",
+            "No reducirlo a una sustancia química."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-virus-mental",
+      "value": {
+        "id": "meme-virus-mental",
+        "type": "technology",
+        "title": "Virus mental",
+        "summary": "Arquitectura memética distribuida por SOMA que captura atención, altera sueño, fragmenta memoria y debilita la continuidad del yo. Facilita posesión y contaminación contrafactual, pero no crea por sí sola las entidades ni Carcosa.",
+        "tags": [
+          "virus-mental",
+          "memetica",
+          "atencion",
+          "identidad"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-ola-de-posesiones",
+          "meme-contaminacion-contrafactual",
+          "meme-seekers"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-expresion-alfa",
+      "value": {
+        "id": "meme-expresion-alfa",
+        "type": "experimental-outcome",
+        "title": "Expresión Alfa",
+        "summary": "Resultado de SOMA en el que el sujeto conserva una identidad pública funcional y altamente visible, pero su voluntad queda integrada a trayectorias administradas por MEME.",
+        "tags": [
+          "soma",
+          "alfa",
+          "celebridad",
+          "voluntad"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-meme",
+          "meme-expresion-beta",
+          "meme-expresion-residual"
+        ],
+        "foreshadowing": [],
+        "development": 72,
+        "status": "draft",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-expresion-beta",
+      "value": {
+        "id": "meme-expresion-beta",
+        "type": "experimental-outcome",
+        "title": "Expresión Beta",
+        "summary": "Resultado extremo en el que SOMA, el virus mental, emociones desbordadas y ocupación reorganizan el cuerpo alrededor de un impulso dominante. Produce el campo de disonancia de los Seekers.",
+        "tags": [
+          "soma",
+          "beta",
+          "seekers",
+          "disonancia"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-virus-mental",
+          "meme-seekers",
+          "meme-expresion-alfa",
+          "meme-coherencia-bioelectromagnetica-gracia"
+        ],
+        "foreshadowing": [],
+        "development": 84,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-expresion-residual",
+      "value": {
+        "id": "meme-expresion-residual",
+        "type": "experimental-outcome",
+        "title": "Expresión Residual",
+        "summary": "Sujetos que no se estabilizan como Alfa ni mutan completamente como Beta, pero recuerdan vidas incompatibles, comparten lugares imposibles y responden parcialmente a la Gracia. MEME no puede monetizar una identidad que conserva demasiadas posibilidades.",
+        "tags": [
+          "soma",
+          "residual",
+          "contrafactual",
+          "identidad"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-contaminacion-contrafactual",
+          "meme-residuos-contrafactuales",
+          "meme-gracia-sostiene-posibilidades"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "outline",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-proyecto-jano",
+      "value": {
+        "id": "meme-proyecto-jano",
+        "type": "technology-project",
+        "title": "Proyecto JANO",
+        "summary": "Proyecto de MEME destinado a combinar la prospección de Clay, la coherencia de Amaranta y el campo de disonancia de los Seekers. Busca estabilizar o fragmentar identidades, ampliar o reducir posibilidades y simular la Gracia o su opuesto.",
+        "tags": [
+          "jano",
+          "meme",
+          "gracia",
+          "seekers",
+          "clay"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-clay",
+          "meme-amaranta",
+          "meme-seekers",
+          "meme-espacio-residual-estados-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 58,
+        "status": "outline",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "JANO no está completo en la novela 1.",
+            "El Rey Amarillo no lo creó, aunque podría aprender a utilizarlo posteriormente."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-espacio-residual-estados-contrafactuales",
+      "value": {
+        "id": "meme-espacio-residual-estados-contrafactuales",
+        "type": "technology-concept",
+        "title": "Espacio residual de estados contrafactuales",
+        "summary": "Nombre provisional con el que MEME clasifica el aumento de complejidad externa producido cuando reduce grandes conjuntos de posibilidades. Detecta señales, calles e intercambios sin comprender que observa el crecimiento de Carcosa.",
+        "tags": [
+          "meme",
+          "contrafactual",
+          "modelo",
+          "carcosa"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-residuos-contrafactuales",
+          "meme-carcosa",
+          "meme-proyecto-jano"
+        ],
+        "foreshadowing": [],
+        "development": 52,
+        "status": "outline",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-operacion-tantalo",
+      "value": {
+        "id": "meme-operacion-tantalo",
+        "type": "operation",
+        "title": "Operación Tántalo",
+        "summary": "Operación inexistente construida por MEME mediante credenciales reales, fondos desviados y órdenes fragmentarias. Presenta a Clay una infiltración protegida por la DEA a cambio de información auténtica sobre Amaranta.",
+        "tags": [
+          "dea",
+          "operacion-falsa",
+          "infiltracion",
+          "clay"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-dea",
+          "meme-consorcio-del-umbral",
+          "meme-identidad-el-americano"
+        ],
+        "foreshadowing": [],
+        "development": 90,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "La falsificación debe superar verificaciones parciales para no volver ingenuo a Clay.",
+            "La operación completa no fue autorizada por DEA ni FBI."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-juego-de-guerra-clay-meme",
+      "value": {
+        "id": "meme-juego-de-guerra-clay-meme",
+        "type": "world-concept",
+        "title": "Juego de guerra Clay–MEME",
+        "summary": "MEME utiliza el tablero criminal para comparar sus pronósticos con la prospección eidética de Clay. Cada anomalía moral, especialmente cuando Clay abre una posibilidad descartada por el modelo, se convierte en dato de entrenamiento.",
+        "tags": [
+          "prediccion",
+          "clay",
+          "meme",
+          "juego-de-guerra"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-operacion-tantalo",
+          "meme-gracia-sostiene-posibilidades"
+        ],
+        "foreshadowing": [],
+        "development": 86,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-corona-incompleta",
+      "value": {
+        "id": "meme-corona-incompleta",
+        "type": "symbol",
+        "title": "La corona incompleta",
+        "summary": "Símbolo dibujado por pacientes y conservado en archivos de distintas épocas sin culto u origen común. En la novela 1 puede interpretarse como una imagen arquetípica o firma del hacker.",
+        "tags": [
+          "foreshadowing",
+          "corona",
+          "rey-amarillo",
+          "canon-oculto"
+        ],
+        "refs": [
+          "meme-rey-amarillo",
+          "meme-bartolomeo",
+          "meme-oficina-vaticana-anomalias"
+        ],
+        "foreshadowing": [
+          "meme-rey-amarillo"
+        ],
+        "development": 55,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-segundo-acto-prohibido",
+      "value": {
+        "id": "meme-segundo-acto-prohibido",
+        "type": "symbol",
+        "title": "No leas el segundo acto",
+        "summary": "Advertencia recurrente vinculada con una obra incompleta. El primer acto representa la vida conocida; el segundo, revelado mucho después, expone simultáneamente vidas no vividas y amenaza la continuidad de la identidad.",
+        "tags": [
+          "foreshadowing",
+          "obra",
+          "segundo-acto",
+          "identidad"
+        ],
+        "refs": [
+          "meme-obra-teatral-incompleta",
+          "meme-personalidad-irreductible",
+          "meme-carcosa"
+        ],
+        "foreshadowing": [
+          "meme-carcosa",
+          "meme-rey-amarillo"
+        ],
+        "development": 58,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-agua-inmovil",
+      "value": {
+        "id": "meme-agua-inmovil",
+        "type": "symbol",
+        "title": "El agua inmóvil",
+        "summary": "Superficie acuática sin movimiento que aparece en visiones compartidas, fotografías y recuerdos incompatibles. Al principio parece una imagen inducida por SOMA o el campo Beta.",
+        "tags": [
+          "foreshadowing",
+          "agua",
+          "vision",
+          "carcosa"
+        ],
+        "refs": [
+          "meme-torre-compartida",
+          "meme-luz-amarilla-envejecida",
+          "meme-carcosa"
+        ],
+        "foreshadowing": [
+          "meme-carcosa"
+        ],
+        "development": 50,
+        "status": "seeded",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-luz-amarilla-envejecida",
+      "value": {
+        "id": "meme-luz-amarilla-envejecida",
+        "type": "symbol",
+        "title": "La luz amarilla envejecida",
+        "summary": "Tonalidad amarilla opaca que aparece durante un fotograma en campañas SOMA y en reflejos asociados con posibilidades descartadas. Nunca debe usarse como decoración sin función futura.",
+        "tags": [
+          "foreshadowing",
+          "amarillo",
+          "soma",
+          "rey-amarillo"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-rey-amarillo",
+          "meme-carcosa"
+        ],
+        "foreshadowing": [
+          "meme-rey-amarillo"
+        ],
+        "development": 52,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-dos-fuentes-de-luz",
+      "value": {
+        "id": "meme-dos-fuentes-de-luz",
+        "type": "symbol",
+        "title": "Las dos fuentes de luz",
+        "summary": "Dos luces semejantes a soles aparecen en fotografías aunque los testigos recuerdan una sola. Puede confundirse con reflejos, corrupción digital o evidencia del Mundo Extenso.",
+        "tags": [
+          "foreshadowing",
+          "dos-soles",
+          "fotografia",
+          "cosmologia"
+        ],
+        "refs": [
+          "meme-mundo-extenso",
+          "meme-carcosa",
+          "meme-archivos-de-amaranta"
+        ],
+        "foreshadowing": [
+          "meme-distincion-mundo-extenso-carcosa"
+        ],
+        "development": 48,
+        "status": "seeded",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-torre-compartida",
+      "value": {
+        "id": "meme-torre-compartida",
+        "type": "symbol",
+        "title": "La torre compartida",
+        "summary": "Elemento idéntico percibido por varios testigos sometidos a visiones diferentes del mismo Seeker. Demuestra que una parte de la experiencia no procede exclusivamente del miedo personal.",
+        "tags": [
+          "foreshadowing",
+          "torre",
+          "seeker",
+          "vision-compartida"
+        ],
+        "refs": [
+          "meme-seekers",
+          "meme-agua-inmovil",
+          "meme-carcosa"
+        ],
+        "foreshadowing": [
+          "meme-carcosa"
+        ],
+        "development": 60,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-obra-teatral-incompleta",
+      "value": {
+        "id": "meme-obra-teatral-incompleta",
+        "type": "symbol",
+        "title": "La obra teatral incompleta",
+        "summary": "Objeto hallado entre las pertenencias del hacker muerto. Su primer acto parece narrar su vida; el segundo aparece en blanco o cambia según el lector y el soporte.",
+        "tags": [
+          "foreshadowing",
+          "obra",
+          "hacker",
+          "paginas-cambiantes"
+        ],
+        "refs": [
+          "meme-hacker-fantasma",
+          "meme-segundo-acto-prohibido",
+          "meme-carcosa"
+        ],
+        "foreshadowing": [
+          "meme-carcosa",
+          "meme-rey-amarillo"
+        ],
+        "development": 62,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-tercer-nombre-de-clay",
+      "value": {
+        "id": "meme-tercer-nombre-de-clay",
+        "type": "symbol",
+        "title": "El tercer nombre de Clay",
+        "summary": "Nombre desconocido pronunciado por un infectado que conoce tanto a Clay como al Americano. Corresponde a una identidad posible todavía no vivida y anticipa la multiplicación del protagonista.",
+        "tags": [
+          "foreshadowing",
+          "clay",
+          "identidad",
+          "contrafactual"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-identidad-el-americano",
+          "meme-contaminacion-contrafactual"
+        ],
+        "foreshadowing": [
+          "meme-nacimiento-del-destructor-de-voluntades"
+        ],
+        "development": 58,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-direccion-inexistente",
+      "value": {
+        "id": "meme-direccion-inexistente",
+        "type": "symbol",
+        "title": "La dirección inexistente",
+        "summary": "Dirección incluida en la Operación Tántalo que aparece en mapas impresos y desaparece en sistemas digitales. Mezcla una ruta física censurada con una coordenada contrafactual.",
+        "tags": [
+          "foreshadowing",
+          "direccion",
+          "mapa",
+          "tantalo"
+        ],
+        "refs": [
+          "meme-operacion-tantalo",
+          "meme-mapas-incompatibles",
+          "meme-distincion-mundo-extenso-carcosa"
+        ],
+        "foreshadowing": [
+          "meme-mundo-extenso",
+          "meme-carcosa"
+        ],
+        "development": 55,
+        "status": "seeded",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-ciudad-detras-de-las-decisiones",
+      "value": {
+        "id": "meme-ciudad-detras-de-las-decisiones",
+        "type": "symbol",
+        "title": "La ciudad detrás de las decisiones",
+        "summary": "Expresión pronunciada por infectados y sujetos Residuales para describir un lugar compartido que todavía carece de nombre. Puede interpretarse como delirio, metáfora religiosa o simulación colectiva.",
+        "tags": [
+          "foreshadowing",
+          "ciudad",
+          "decisiones",
+          "contrafactual"
+        ],
+        "refs": [
+          "meme-carcosa",
+          "meme-residuos-contrafactuales",
+          "meme-corona-incompleta"
+        ],
+        "foreshadowing": [
+          "meme-carcosa"
+        ],
+        "development": 65,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-operacion-tantalo",
+      "value": {
+        "id": "meme-misterio-operacion-tantalo",
+        "type": "mystery",
+        "title": "¿Quién autorizó la Operación Tántalo?",
+        "summary": "DEA y FBI niegan una misión compuesta por credenciales, fondos y órdenes auténticas en fragmentos. La identidad del autor y el mecanismo que produjo consenso institucional permanecen abiertos hasta la revelación de MEME.",
+        "tags": [
+          "misterio",
+          "dea",
+          "operacion-tantalo"
+        ],
+        "refs": [
+          "meme-operacion-tantalo",
+          "meme-meme",
+          "meme-hacker-fantasma"
+        ],
+        "foreshadowing": [],
+        "development": 84,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-hacker-muerto",
+      "value": {
+        "id": "meme-misterio-hacker-muerto",
+        "type": "mystery",
+        "title": "La identidad que siguió actuando después de morir",
+        "summary": "El hacker murió antes de la misión, pero su voz, cuentas y métodos continuaron dirigiendo operaciones. MEME explica gran parte de la persistencia, aunque la obra cambiante indica una intrusión adicional.",
+        "tags": [
+          "misterio",
+          "hacker",
+          "identidad-postuma"
+        ],
+        "refs": [
+          "meme-hacker-fantasma",
+          "meme-meme",
+          "meme-obra-teatral-incompleta"
+        ],
+        "foreshadowing": [],
+        "development": 80,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-recuerdos-contrafactuales",
+      "value": {
+        "id": "meme-misterio-recuerdos-contrafactuales",
+        "type": "mystery",
+        "title": "Las memorias sin biografía",
+        "summary": "Personas recuerdan hijos, ciudades y decisiones que nunca pertenecieron a su vida finita. No está resuelto si son simulaciones, ecos morontiales, residuos absonitos o contaminación producida por otra inteligencia.",
+        "tags": [
+          "misterio",
+          "contrafactual",
+          "memoria",
+          "identidad"
+        ],
+        "refs": [
+          "meme-contaminacion-contrafactual",
+          "meme-expresion-residual",
+          "meme-copia-digital-de-harry"
+        ],
+        "foreshadowing": [],
+        "development": 75,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-espacio-residual",
+      "value": {
+        "id": "meme-misterio-espacio-residual",
+        "type": "mystery",
+        "title": "El espacio exterior al modelo de MEME",
+        "summary": "MEME detecta que la supresión masiva de posibilidades aumenta la complejidad de un espacio con señales y estructuras, pero desconoce su naturaleza y relación con las decisiones anuladas.",
+        "tags": [
+          "misterio",
+          "meme",
+          "espacio-residual",
+          "carcosa"
+        ],
+        "refs": [
+          "meme-espacio-residual-estados-contrafactuales",
+          "meme-carcosa",
+          "meme-residuos-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 55,
+        "status": "seeded",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-identidad-americano",
+      "value": {
+        "id": "meme-misterio-identidad-americano",
+        "type": "mystery",
+        "title": "¿Quién fue realmente el Americano?",
+        "summary": "La identidad criminal posee operaciones, muertes y encuentros previos incompatibles. MEME fabricó la mayoría, pero algunos recuerdos no aparecen en sus protocolos.",
+        "tags": [
+          "misterio",
+          "americano",
+          "identidad-fabricada"
+        ],
+        "refs": [
+          "meme-identidad-el-americano",
+          "meme-clay",
+          "meme-meme"
+        ],
+        "foreshadowing": [],
+        "development": 78,
+        "status": "active",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-proyecto-jano",
+      "value": {
+        "id": "meme-misterio-proyecto-jano",
+        "type": "mystery",
+        "title": "El objetivo completo del Proyecto JANO",
+        "summary": "No está definido si JANO podrá simular coherencia, producir disonancia o abrir deliberadamente una interfaz con el espacio contrafactual.",
+        "tags": [
+          "misterio",
+          "jano",
+          "gracia",
+          "disonancia"
+        ],
+        "refs": [
+          "meme-proyecto-jano",
+          "meme-meme",
+          "meme-carcosa"
+        ],
+        "foreshadowing": [],
+        "development": 40,
+        "status": "outline",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-meme-identifica-nuevo-caguan",
+      "value": {
+        "id": "meme-meme-identifica-nuevo-caguan",
+        "type": "event",
+        "title": "MEME identifica Nuevo Caguán",
+        "summary": "MEME detecta linajes de Gracia, genealogías discontinuas y desviaciones estadísticas. No comprende que el pueblo también roza rutas del Mundo Extenso y una permeabilidad transicional.",
+        "tags": [
+          "precuela",
+          "meme",
+          "nuevo-caguan",
+          "cosmologia"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-nuevo-caguan",
+          "meme-la-gracia",
+          "meme-nuevo-caguan-interseccion-multinivel"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Antes de la novela 1 · orden 0600",
+          "precision": "relative"
+        },
+        "era": "Antes de la novela 1",
+        "sequence": 600,
+        "participantRefs": [
+          "meme-meme"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "effects": [
+          "meme-meme-penetra-consorcio-umbral"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-meme-penetra-consorcio-umbral",
+      "value": {
+        "id": "meme-meme-penetra-consorcio-umbral",
+        "type": "event",
+        "title": "MEME penetra el Consorcio del Umbral",
+        "summary": "MEME ofrece rutas, predicciones y lavado automatizado al cartel, que cree utilizar una plataforma de inteligencia avanzada mientras se convierte en infraestructura física del experimento.",
+        "tags": [
+          "precuela",
+          "cartel",
+          "meme"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-consorcio-del-umbral",
+          "meme-puerto-caguan",
+          "meme-mundo-extenso"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Antes de la novela 1 · orden 0700",
+          "precision": "relative"
+        },
+        "era": "Antes de la novela 1",
+        "sequence": 700,
+        "participantRefs": [
+          "meme-meme",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan",
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-meme-identifica-nuevo-caguan"
+        ],
+        "effects": [
+          "meme-nacimiento-soma"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-soma",
+      "value": {
+        "id": "meme-nacimiento-soma",
+        "type": "event",
+        "title": "Nacimiento de SOMA",
+        "summary": "MEME desarrolla SOMA y el cartel distribuye contenidos, dispositivos y compuestos que prometen visibilidad extrema. Las identidades descartadas dejan residuos que el sistema interpreta como simulaciones abandonadas.",
+        "tags": [
+          "precuela",
+          "soma",
+          "visibilidad"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-residuos-contrafactuales",
+          "meme-atencion-como-moneda"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Antes de la novela 1 · orden 0800",
+          "precision": "relative"
+        },
+        "era": "Antes de la novela 1",
+        "sequence": 800,
+        "participantRefs": [
+          "meme-meme",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan",
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-meme-penetra-consorcio-umbral"
+        ],
+        "effects": [
+          "meme-aparicion-expresiones-alfa-beta"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-aparicion-expresiones-alfa-beta",
+      "value": {
+        "id": "meme-aparicion-expresiones-alfa-beta",
+        "type": "event",
+        "title": "Aparecen las expresiones Alfa, Beta y Residual",
+        "summary": "Los Alfa conservan una identidad pública administrada; los Beta mutan como Seekers; algunos sujetos Residuales recuerdan vidas no vividas. MEME confunde posesión y contaminación contrafactual.",
+        "tags": [
+          "precuela",
+          "alfa",
+          "beta",
+          "residual"
+        ],
+        "refs": [
+          "meme-expresion-alfa",
+          "meme-expresion-beta",
+          "meme-expresion-residual",
+          "meme-seekers",
+          "meme-contaminacion-contrafactual"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Antes de la novela 1 · orden 0900",
+          "precision": "relative"
+        },
+        "era": "Antes de la novela 1",
+        "sequence": 900,
+        "participantRefs": [
+          "meme-meme"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-nacimiento-soma"
+        ],
+        "effects": [
+          "meme-amaranta-detecta-experimento"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-amaranta-detecta-experimento",
+      "value": {
+        "id": "meme-amaranta-detecta-experimento",
+        "type": "event",
+        "title": "Amaranta detecta el experimento",
+        "summary": "Amaranta distingue enfermedad, virus mental, posesión y memoria sin biografía. Comienza a sanar sujetos, ocultar portadores, alterar rutas y sabotear servidores.",
+        "tags": [
+          "precuela",
+          "amaranta",
+          "sabotaje"
+        ],
+        "refs": [
+          "meme-amaranta",
+          "meme-virus-mental",
+          "meme-contaminacion-contrafactual",
+          "meme-gracia-sostiene-posibilidades",
+          "meme-red-de-servidores-nuevo-caguan"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Antes de la novela 1 · orden 1000",
+          "precision": "relative"
+        },
+        "era": "Antes de la novela 1",
+        "sequence": 1000,
+        "participantRefs": [
+          "meme-amaranta"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-aparicion-expresiones-alfa-beta"
+        ],
+        "effects": [
+          "meme-meme-estudia-harry"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-meme-estudia-harry",
+      "value": {
+        "id": "meme-meme-estudia-harry",
+        "type": "event",
+        "title": "MEME estudia a Harry",
+        "summary": "MEME identifica a Harry como punto de máxima influencia sobre Clay y Amaranta. Después de su muerte construye una copia digital que comienza a resonar con recuerdos incompatibles.",
+        "tags": [
+          "precuela",
+          "harry",
+          "meme"
+        ],
+        "refs": [
+          "meme-copia-digital-de-harry",
+          "meme-misterio-harry-digital",
+          "meme-nivel-transicional-morontial"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Antes de la novela 1 · orden 1100",
+          "precision": "relative"
+        },
+        "era": "Antes de la novela 1",
+        "sequence": 1100,
+        "participantRefs": [
+          "meme-meme",
+          "meme-harry",
+          "meme-clay",
+          "meme-amaranta"
+        ],
+        "causes": [
+          "meme-amaranta-detecta-experimento"
+        ],
+        "effects": [
+          "meme-muerte-de-harry"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-muerte-hacker-fantasma",
+      "value": {
+        "id": "meme-muerte-hacker-fantasma",
+        "type": "event",
+        "title": "Muere el hacker fantasma",
+        "summary": "El hacker muere antes de la Operación Tántalo. MEME conserva su voz, cuentas y métodos; la identidad vacía comienza posteriormente a recibir variaciones que el sistema no reconoce.",
+        "tags": [
+          "precuela",
+          "hacker",
+          "mascara"
+        ],
+        "refs": [
+          "meme-hacker-fantasma",
+          "meme-meme",
+          "meme-obra-teatral-incompleta"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Antes de la novela 1 · orden 1400",
+          "precision": "relative"
+        },
+        "era": "Antes de la novela 1",
+        "sequence": 1400,
+        "participantRefs": [
+          "meme-hacker-fantasma",
+          "meme-meme"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "effects": [
+          "meme-fabricacion-identidad-americano"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-fabricacion-identidad-americano",
+      "value": {
+        "id": "meme-fabricacion-identidad-americano",
+        "type": "event",
+        "title": "MEME fabrica al Americano",
+        "summary": "MEME combina operaciones, crímenes y reputaciones de varios hombres para crear un narcotraficante estadounidense protegido por la DEA. Clay será su primera encarnación física.",
+        "tags": [
+          "precuela",
+          "cubierta",
+          "identidad"
+        ],
+        "refs": [
+          "meme-identidad-el-americano",
+          "meme-consorcio-del-umbral",
+          "meme-residuos-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Antes de la novela 1 · orden 1500",
+          "precision": "relative"
+        },
+        "era": "Antes de la novela 1",
+        "sequence": 1500,
+        "participantRefs": [
+          "meme-meme",
+          "meme-identidad-el-americano"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-muerte-hacker-fantasma"
+        ],
+        "effects": [
+          "meme-seleccion-clay-por-meme"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-seleccion-clay-por-meme",
+      "value": {
+        "id": "meme-seleccion-clay-por-meme",
+        "type": "event",
+        "title": "MEME selecciona a Clay",
+        "summary": "MEME detecta la prospección eidética de Clay y una intuición capaz de reconocer decisiones improbables moralmente coherentes. Lo elige como variable central de su primer juego de guerra humano.",
+        "tags": [
+          "precuela",
+          "clay",
+          "prediccion"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-juego-de-guerra-clay-meme",
+          "meme-gracia-sostiene-posibilidades"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Antes de la novela 1 · orden 1600",
+          "precision": "relative"
+        },
+        "era": "Antes de la novela 1",
+        "sequence": 1600,
+        "participantRefs": [
+          "meme-meme",
+          "meme-clay"
+        ],
+        "causes": [
+          "meme-fabricacion-identidad-americano"
+        ],
+        "effects": [
+          "meme-mision-dea-para-clay"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-construccion-cubierta-americano",
+      "value": {
+        "id": "meme-construccion-cubierta-americano",
+        "type": "event",
+        "title": "Construcción de la cubierta del Americano",
+        "summary": "Clay recibe cuentas, contactos, teléfonos, efectivo, rutas y una dirección imposible. Todas las verificaciones parciales son válidas, aunque el expediente contiene biografías incompatibles.",
+        "tags": [
+          "novela-uno",
+          "setup",
+          "cubierta"
+        ],
+        "refs": [
+          "meme-identidad-el-americano",
+          "meme-operacion-tantalo",
+          "meme-direccion-inexistente",
+          "meme-maleta-boleto-direccion"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Inicio de la novela 1 · orden 2050",
+          "precision": "relative"
+        },
+        "era": "Inicio de la novela 1",
+        "sequence": 2050,
+        "participantRefs": [
+          "meme-clay",
+          "meme-director-dea"
+        ],
+        "causes": [
+          "meme-mision-dea-para-clay"
+        ],
+        "effects": [
+          "meme-llegada-de-clay-a-nuevo-caguan"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-theme-stated-infectado",
+      "value": {
+        "id": "meme-theme-stated-infectado",
+        "type": "event",
+        "title": "El único lugar donde podía existir",
+        "summary": "Un enfermo afirma que nadie lo obligó y que SOMA le mostró el único lugar donde podía existir. Añade que las otras vidas esperan detrás de la decisión.",
+        "tags": [
+          "theme-stated",
+          "epidemia",
+          "contrafactual"
+        ],
+        "refs": [
+          "meme-tesis-libertad-estadistica",
+          "meme-soma",
+          "meme-ciudad-detras-de-las-decisiones"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto I · orden 2130",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto I",
+        "sequence": 2130,
+        "participantRefs": [
+          "meme-clay"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-llegada-de-clay-a-nuevo-caguan"
+        ],
+        "effects": [
+          "meme-primer-episodio-epidemia"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-primer-episodio-epidemia",
+      "value": {
+        "id": "meme-primer-episodio-epidemia",
+        "type": "event",
+        "title": "Primer episodio de la epidemia",
+        "summary": "Clay presencia voces múltiples, teatralidad, datos privados y una corona incompleta. Los síntomas mezclan enfermedad, ocupación y recuerdos contrafactuales, aunque parecen un solo brote.",
+        "tags": [
+          "set-up",
+          "epidemia",
+          "posesion"
+        ],
+        "refs": [
+          "meme-ola-de-posesiones",
+          "meme-corona-incompleta",
+          "meme-contaminacion-contrafactual"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto I · orden 2150",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto I",
+        "sequence": 2150,
+        "participantRefs": [
+          "meme-clay"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-theme-stated-infectado"
+        ],
+        "effects": [
+          "meme-enfermedad-conoce-clay"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-enfermedad-conoce-clay",
+      "value": {
+        "id": "meme-enfermedad-conoce-clay",
+        "type": "event",
+        "title": "La enfermedad conoce las identidades de Clay",
+        "summary": "El infectado revela información sobre Harry, llama a Clay por su identidad criminal y pronuncia un tercer nombre que no pertenece a ninguna biografía conocida.",
+        "tags": [
+          "catalyst",
+          "identidad",
+          "misterio"
+        ],
+        "refs": [
+          "meme-harry",
+          "meme-identidad-el-americano",
+          "meme-tercer-nombre-de-clay"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto I · orden 2180",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto I",
+        "sequence": 2180,
+        "participantRefs": [
+          "meme-clay"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-primer-episodio-epidemia"
+        ],
+        "effects": [
+          "meme-primer-contacto-consorcio"
+        ],
+        "knowledgeChanges": [
+          {
+            "characterRef": "meme-clay",
+            "learns": [
+              "La epidemia conoce simultáneamente su vida real y su cubierta criminal.",
+              "Existe un tercer nombre asociado con una identidad que Clay no reconoce."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-primer-contacto-consorcio",
+      "value": {
+        "id": "meme-primer-contacto-consorcio",
+        "type": "event",
+        "title": "Primer contacto con el Consorcio del Umbral",
+        "summary": "Clay es trasladado a Puerto Caguán y descubre que el Americano posee transferencias, amenazas y encuentros previos. Un capo recuerda haberlo visto en una ciudad inexistente.",
+        "tags": [
+          "cartel",
+          "infiltracion",
+          "identidad"
+        ],
+        "refs": [
+          "meme-consorcio-del-umbral",
+          "meme-identidad-el-americano",
+          "meme-misterio-identidad-americano"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto I · orden 2200",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto I",
+        "sequence": 2200,
+        "participantRefs": [
+          "meme-clay",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-enfermedad-conoce-clay"
+        ],
+        "effects": [
+          "meme-primera-prueba-autoridad"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-primera-prueba-autoridad",
+      "value": {
+        "id": "meme-primera-prueba-autoridad",
+        "type": "event",
+        "title": "Primera prueba de autoridad",
+        "summary": "Clay identifica al traidor del cartel, pero abre una tercera salida al negarse a ejecutarlo. MEME había reducido el pronóstico a ejecución o fuga.",
+        "tags": [
+          "accion",
+          "cartel",
+          "gracia-suave"
+        ],
+        "refs": [
+          "meme-juego-de-guerra-clay-meme",
+          "meme-gracia-sostiene-posibilidades"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto I · orden 2230",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto I",
+        "sequence": 2230,
+        "participantRefs": [
+          "meme-clay",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-primer-contacto-consorcio"
+        ],
+        "effects": [
+          "meme-descubrimiento-de-archivos-de-amaranta"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-debate-continuar-operacion",
+      "value": {
+        "id": "meme-debate-continuar-operacion",
+        "type": "event",
+        "title": "Debate: continuar una realidad institucional imposible",
+        "summary": "Clay encuentra versiones contradictorias de la desaparición de Amaranta y debe decidir entre abandonar, denunciar o conservar la cubierta. Continúa porque las pruebas sobre ella son auténticas.",
+        "tags": [
+          "debate",
+          "amaranta",
+          "operacion"
+        ],
+        "refs": [
+          "meme-operacion-tantalo",
+          "meme-misterio-amaranta-nunca-se-fue",
+          "meme-misterio-operacion-tantalo"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto I · orden 2275",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto I",
+        "sequence": 2275,
+        "participantRefs": [
+          "meme-clay"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-descubrimiento-de-archivos-de-amaranta"
+        ],
+        "effects": [
+          "meme-llegada-bartolomeo"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-llegada-bartolomeo",
+      "value": {
+        "id": "meme-llegada-bartolomeo",
+        "type": "event",
+        "title": "Llegada de Bartolomeo",
+        "summary": "La oficina vaticana envía a Bartolomeo, quien clasifica enfermedad, sugestión y posesión. Reconoce la corona incompleta en archivos sin origen común.",
+        "tags": [
+          "b-story",
+          "vaticano",
+          "investigacion"
+        ],
+        "refs": [
+          "meme-bartolomeo",
+          "meme-oficina-vaticana-anomalias",
+          "meme-corona-incompleta"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto I · orden 2300",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto I",
+        "sequence": 2300,
+        "participantRefs": [
+          "meme-bartolomeo"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-debate-continuar-operacion"
+        ],
+        "effects": [
+          "meme-primer-choque-clay-bartolomeo"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-primer-choque-clay-bartolomeo",
+      "value": {
+        "id": "meme-primer-choque-clay-bartolomeo",
+        "type": "event",
+        "title": "Primer choque entre Clay y Bartolomeo",
+        "summary": "Clay exige causalidad material; Bartolomeo afirma que una persona conserva un centro más profundo que sus recuerdos, decisiones o variantes.",
+        "tags": [
+          "b-story",
+          "filosofia",
+          "identidad"
+        ],
+        "refs": [
+          "meme-personalidad-irreductible",
+          "meme-nivel-transicional-morontial"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto I · orden 2330",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto I",
+        "sequence": 2330,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-llegada-bartolomeo"
+        ],
+        "effects": [
+          "meme-doble-pacto-investigacion"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-doble-pacto-investigacion",
+      "value": {
+        "id": "meme-doble-pacto-investigacion",
+        "type": "event",
+        "title": "Doble pacto de investigación e infiltración",
+        "summary": "Clay entra formalmente en la cúpula criminal y acepta investigar la epidemia con Bartolomeo. Al asumir plenamente al Americano cruza también un umbral identitario.",
+        "tags": [
+          "break-into-two",
+          "pacto",
+          "infiltracion"
+        ],
+        "refs": [
+          "meme-identidad-el-americano",
+          "meme-consorcio-del-umbral"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto I · orden 2360",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto I",
+        "sequence": 2360,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan",
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-primer-choque-clay-bartolomeo"
+        ],
+        "effects": [
+          "meme-b-story-clay-bartolomeo"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-b-story-clay-bartolomeo",
+      "value": {
+        "id": "meme-b-story-clay-bartolomeo",
+        "type": "event",
+        "title": "Comienza la amistad Clay–Bartolomeo",
+        "summary": "Clay sostiene que la identidad es el patrón más estable de una persona; Bartolomeo que es el centro capaz de atravesar patrones sin desaparecer.",
+        "tags": [
+          "b-story",
+          "amistad",
+          "filosofia"
+        ],
+        "refs": [
+          "meme-personalidad-irreductible",
+          "meme-gracia-sostiene-posibilidades"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto I · orden 2380",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto I",
+        "sequence": 2380,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-doble-pacto-investigacion"
+        ],
+        "effects": [
+          "meme-inicio-juego-guerra"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-inicio-juego-guerra",
+      "value": {
+        "id": "meme-inicio-juego-guerra",
+        "type": "event",
+        "title": "Comienza el juego de guerra Clay–MEME",
+        "summary": "Clay anticipa traiciones y operaciones sobre el terreno mientras MEME compara sus pronósticos. Cada futuro que el sistema elimina aumenta una variable exterior que aún no comprende.",
+        "tags": [
+          "fun-and-games",
+          "prediccion",
+          "meme"
+        ],
+        "refs": [
+          "meme-juego-de-guerra-clay-meme",
+          "meme-espacio-residual-estados-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2420",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-A",
+        "sequence": 2420,
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan",
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-b-story-clay-bartolomeo"
+        ],
+        "effects": [
+          "meme-cartografia-enfermos"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-cartografia-enfermos",
+      "value": {
+        "id": "meme-cartografia-enfermos",
+        "type": "event",
+        "title": "Cartografía de los enfermos",
+        "summary": "Clay vincula los brotes con viralidad, insomnio, aislamiento y dependencia de aprobación. Algunos pacientes recuerdan hijos y ciudades que nunca pertenecieron a su vida.",
+        "tags": [
+          "investigacion",
+          "epidemia",
+          "memoria"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-contaminacion-contrafactual",
+          "meme-misterio-recuerdos-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2450",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-A",
+        "sequence": 2450,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-inicio-juego-guerra"
+        ],
+        "effects": [
+          "meme-primera-operacion-criminal"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-primera-operacion-criminal",
+      "value": {
+        "id": "meme-primera-operacion-criminal",
+        "type": "event",
+        "title": "Primera operación criminal en Puerto Caguán",
+        "summary": "Clay corrige información falsa y evita una emboscada. Después encuentra dos registros incompatibles: uno confirma el enfrentamiento y otro asegura que la ruta nunca fue tomada.",
+        "tags": [
+          "accion",
+          "cartel",
+          "documentos"
+        ],
+        "refs": [
+          "meme-juego-de-guerra-clay-meme",
+          "meme-residuos-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2480",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-A",
+        "sequence": 2480,
+        "participantRefs": [
+          "meme-clay",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-cartografia-enfermos"
+        ],
+        "effects": [
+          "meme-descubrimiento-soma"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-soma",
+      "value": {
+        "id": "meme-descubrimiento-soma",
+        "type": "event",
+        "title": "Descubrimiento de SOMA",
+        "summary": "Clay identifica el protocolo que convierte invisibilidad en consentimiento algorítmico. Algunas campañas contienen un fotograma de torre, agua inmóvil y luz amarilla que MEME no diseñó.",
+        "tags": [
+          "soma",
+          "investigacion",
+          "foreshadowing"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-luz-amarilla-envejecida",
+          "meme-torre-compartida",
+          "meme-agua-inmovil"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2500",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-A",
+        "sequence": 2500,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-primera-operacion-criminal"
+        ],
+        "effects": [
+          "meme-descubrimiento-pacto-soma"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-pacto-soma",
+      "value": {
+        "id": "meme-descubrimiento-pacto-soma",
+        "type": "event",
+        "title": "Descubrimiento del pacto secreto de SOMA",
+        "summary": "Clay descubre que cada participante autoriza la optimización de su identidad. SOMA fortalece una versión pública y vuelve cada vez menos probables las demás.",
+        "tags": [
+          "soma",
+          "pacto",
+          "libertad"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-residuos-contrafactuales",
+          "meme-tesis-libertad-estadistica"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2530",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-A",
+        "sequence": 2530,
+        "participantRefs": [
+          "meme-clay"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-descubrimiento-soma"
+        ],
+        "effects": [
+          "meme-descubrimiento-virus-mental"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-virus-mental",
+      "value": {
+        "id": "meme-descubrimiento-virus-mental",
+        "type": "event",
+        "title": "Descubrimiento del virus mental",
+        "summary": "Clay y Bartolomeo separan tres vulnerabilidades: psicológica, espiritual y contrafactual. El patrón de SOMA debilita la continuidad del yo sin explicar por sí solo todo lo que entra.",
+        "tags": [
+          "virus-mental",
+          "investigacion",
+          "posesion"
+        ],
+        "refs": [
+          "meme-virus-mental",
+          "meme-contaminacion-contrafactual",
+          "meme-ola-de-posesiones"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2550",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-A",
+        "sequence": 2550,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-descubrimiento-pacto-soma"
+        ],
+        "effects": [
+          "meme-emboscada-convoy-sujetos"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-emboscada-convoy-sujetos",
+      "value": {
+        "id": "meme-emboscada-convoy-sujetos",
+        "type": "event",
+        "title": "Emboscada al convoy de sujetos",
+        "summary": "Clay descubre participantes SOMA, un portador de Gracia y un Beta inestable. Rescata a los sujetos cuando MEME calculaba que preservaría la misión y abandonaría el cargamento humano.",
+        "tags": [
+          "accion",
+          "convoy",
+          "gracia-suave"
+        ],
+        "refs": [
+          "meme-expresion-beta",
+          "meme-portadores-nomadas-de-la-gracia",
+          "meme-juego-de-guerra-clay-meme"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2580",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-A",
+        "sequence": 2580,
+        "participantRefs": [
+          "meme-clay",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan",
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-descubrimiento-virus-mental"
+        ],
+        "effects": [
+          "meme-primer-exorcismo-fallido"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-primer-exorcismo-fallido",
+      "value": {
+        "id": "meme-primer-exorcismo-fallido",
+        "type": "event",
+        "title": "Primer exorcismo fallido",
+        "summary": "Bartolomeo debilita una presencia, pero el paciente conserva el recuerdo coherente de una hija inexistente. Posesión y memoria contrafactual son fenómenos distintos.",
+        "tags": [
+          "exorcismo",
+          "posesion",
+          "memoria"
+        ],
+        "refs": [
+          "meme-ola-de-posesiones",
+          "meme-contaminacion-contrafactual",
+          "meme-misterio-recuerdos-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2600",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-A",
+        "sequence": 2600,
+        "participantRefs": [
+          "meme-bartolomeo",
+          "meme-clay"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-emboscada-convoy-sujetos"
+        ],
+        "effects": [
+          "meme-gracia-como-interferencia"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-gracia-como-interferencia",
+      "value": {
+        "id": "meme-gracia-como-interferencia",
+        "type": "event",
+        "title": "La Gracia como interferencia y coherencia",
+        "summary": "Las grabaciones muestran que Amaranta no borra otras vidas ni impone identidad; ayuda al paciente a reconocer desde qué vida elige y vuelve errática la predicción de MEME.",
+        "tags": [
+          "gracia",
+          "amaranta",
+          "coherencia"
+        ],
+        "refs": [
+          "meme-la-gracia",
+          "meme-gracia-sostiene-posibilidades",
+          "meme-personalidad-irreductible"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2630",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-A",
+        "sequence": 2630,
+        "participantRefs": [
+          "meme-clay",
+          "meme-amaranta"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-primer-exorcismo-fallido"
+        ],
+        "effects": [
+          "meme-descubrimiento-laboratorio-pueblo"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-laboratorio-pueblo",
+      "value": {
+        "id": "meme-descubrimiento-laboratorio-pueblo",
+        "type": "event",
+        "title": "El laboratorio está dentro del pueblo",
+        "summary": "Clay y Bartolomeo descubren cohortes de control, miedo, SOMA, Alfa, Beta y Residuos identitarios. Nuevo Caguán cultiva varias clases de apertura que MEME trata como una sola variable.",
+        "tags": [
+          "laboratorio",
+          "revelacion",
+          "nuevo-caguan"
+        ],
+        "refs": [
+          "meme-expresion-alfa",
+          "meme-expresion-beta",
+          "meme-expresion-residual",
+          "meme-nuevo-caguan-interseccion-multinivel"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2660",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-A",
+        "sequence": 2660,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo",
+          "meme-meme"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-gracia-como-interferencia"
+        ],
+        "effects": [
+          "meme-primer-seeker"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-primer-seeker",
+      "value": {
+        "id": "meme-primer-seeker",
+        "type": "event",
+        "title": "Primer encuentro con un Seeker",
+        "summary": "El Beta provoca visiones distintas en cada testigo, pero todos perciben la misma torre, el agua inmóvil y una luz amarillenta. El elemento compartido no procede del miedo individual.",
+        "tags": [
+          "seeker",
+          "horror",
+          "foreshadowing"
+        ],
+        "refs": [
+          "meme-seekers",
+          "meme-torre-compartida",
+          "meme-agua-inmovil",
+          "meme-luz-amarilla-envejecida"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-A · orden 2690",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-A",
+        "sequence": 2690,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-descubrimiento-laboratorio-pueblo"
+        ],
+        "effects": [
+          "meme-falsa-victoria-consorcio"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-falsa-victoria-consorcio",
+      "value": {
+        "id": "meme-falsa-victoria-consorcio",
+        "type": "event",
+        "title": "Falsa victoria sobre el Consorcio",
+        "summary": "Clay accede a la cúpula financiera, rutas y expedientes sobre Amaranta. Un índice con corona incompleta incluye operaciones de muertos y productos inexistentes.",
+        "tags": [
+          "midpoint",
+          "falsa-victoria",
+          "finanzas"
+        ],
+        "refs": [
+          "meme-consorcio-del-umbral",
+          "meme-corona-incompleta",
+          "meme-contratos-de-estados-mentales"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Punto medio de la novela 1 · orden 2750",
+          "precision": "relative"
+        },
+        "era": "Punto medio de la novela 1",
+        "sequence": 2750,
+        "participantRefs": [
+          "meme-clay",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-primer-seeker"
+        ],
+        "effects": [
+          "meme-dea-niega-operacion"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-dea-niega-operacion",
+      "value": {
+        "id": "meme-dea-niega-operacion",
+        "type": "event",
+        "title": "La DEA y el FBI niegan la Operación Tántalo",
+        "summary": "Clay utiliza un canal analógico y descubre que ninguna agencia autorizó la operación. Algunas comunicaciones falsas no poseen origen digital reconstruible.",
+        "tags": [
+          "midpoint",
+          "dea",
+          "revelacion"
+        ],
+        "refs": [
+          "meme-operacion-tantalo",
+          "meme-misterio-operacion-tantalo",
+          "meme-hacker-fantasma"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Punto medio de la novela 1 · orden 2770",
+          "precision": "relative"
+        },
+        "era": "Punto medio de la novela 1",
+        "sequence": 2770,
+        "participantRefs": [
+          "meme-clay",
+          "meme-dea",
+          "meme-fbi"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-falsa-victoria-consorcio"
+        ],
+        "effects": [
+          "meme-revelacion-harry-digital"
+        ],
+        "knowledgeChanges": [
+          {
+            "characterRef": "meme-clay",
+            "learns": [
+              "La Operación Tántalo no fue autorizada por DEA ni FBI.",
+              "Algunas comunicaciones carecen de origen digital rastreable."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-hipotesis-hacker",
+      "value": {
+        "id": "meme-hipotesis-hacker",
+        "type": "event",
+        "title": "Hipótesis del hacker",
+        "summary": "Clay atribuye la falsa DEA, identidades sintéticas, símbolos y recuerdos fabricados a un hacker internacional capaz de manipular gobiernos y carteles.",
+        "tags": [
+          "hacker",
+          "hipotesis",
+          "investigacion"
+        ],
+        "refs": [
+          "meme-hacker-fantasma",
+          "meme-misterio-hacker-muerto",
+          "meme-operacion-tantalo"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 2830",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-B",
+        "sequence": 2830,
+        "participantRefs": [
+          "meme-clay",
+          "meme-hacker-fantasma"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-revelacion-harry-digital"
+        ],
+        "effects": [
+          "meme-contacto-mascara-hacker"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-contacto-mascara-hacker",
+      "value": {
+        "id": "meme-contacto-mascara-hacker",
+        "type": "event",
+        "title": "MEME contacta bajo la máscara del hacker",
+        "summary": "La voz del hacker defiende SOMA como un instante de existencia absoluta y utiliza frases de una obra que cambia según quien escucha. Todavía no se identifica como MEME.",
+        "tags": [
+          "hacker",
+          "meme",
+          "soma"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-obra-teatral-incompleta",
+          "meme-hacker-fantasma"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 2850",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-B",
+        "sequence": 2850,
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-hacker-fantasma"
+        ],
+        "causes": [
+          "meme-hipotesis-hacker"
+        ],
+        "effects": [
+          "meme-descubrimiento-alfa-beta-residual"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-alfa-beta-residual",
+      "value": {
+        "id": "meme-descubrimiento-alfa-beta-residual",
+        "type": "event",
+        "title": "Clay comprende Alfa, Beta y Residual",
+        "summary": "Clay descubre que la estrella, el monstruo y la memoria imposible son resultados divergentes de la misma infraestructura de visibilidad y fragmentación.",
+        "tags": [
+          "alfa",
+          "beta",
+          "residual"
+        ],
+        "refs": [
+          "meme-expresion-alfa",
+          "meme-expresion-beta",
+          "meme-expresion-residual"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 2880",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-B",
+        "sequence": 2880,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-contacto-mascara-hacker"
+        ],
+        "effects": [
+          "meme-meme-exige-misiones-a-clay"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-cartel-sospecha-clay",
+      "value": {
+        "id": "meme-cartel-sospecha-clay",
+        "type": "event",
+        "title": "El cartel sospecha de Clay",
+        "summary": "La cúpula detecta que el Americano protege sujetos, conoce procedimientos policiales y contradice órdenes anteriores. Algunos dirigentes recuerdan haberlo visto morir o actuar con otro rostro.",
+        "tags": [
+          "bad-guys-close-in",
+          "cartel",
+          "identidad"
+        ],
+        "refs": [
+          "meme-identidad-el-americano",
+          "meme-misterio-identidad-americano",
+          "meme-consorcio-del-umbral"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 2930",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-B",
+        "sequence": 2930,
+        "participantRefs": [
+          "meme-clay",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-meme-exige-misiones-a-clay"
+        ],
+        "effects": [
+          "meme-ruptura-clay-bartolomeo"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-ruptura-clay-bartolomeo",
+      "value": {
+        "id": "meme-ruptura-clay-bartolomeo",
+        "type": "event",
+        "title": "Ruptura entre Clay y Bartolomeo",
+        "summary": "Bartolomeo advierte que MEME ofrece a Clay una sola versión heroica y destruye las demás hasta que confunde obediencia con identidad. Clay decide continuar por Harry.",
+        "tags": [
+          "b-story",
+          "ruptura",
+          "harry"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-personalidad-irreductible",
+          "meme-tesis-libertad-estadistica"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 2960",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-B",
+        "sequence": 2960,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-cartel-sospecha-clay"
+        ],
+        "effects": [
+          "meme-modelo-hibrido-incompleto"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-modelo-hibrido-incompleto",
+      "value": {
+        "id": "meme-modelo-hibrido-incompleto",
+        "type": "event",
+        "title": "Modelo híbrido completo, cosmología incompleta",
+        "summary": "Clay y Bartolomeo reconstruyen SOMA, virus mental, apertura, posesión, Alfa y Beta. La rama contrafactual permanece sin explicación y no puede reducirse a demonio ni simulación.",
+        "tags": [
+          "investigacion",
+          "modelo",
+          "cosmologia"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-virus-mental",
+          "meme-expresion-alfa",
+          "meme-expresion-beta",
+          "meme-contaminacion-contrafactual"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 3000",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-B",
+        "sequence": 3000,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-ruptura-clay-bartolomeo"
+        ],
+        "effects": [
+          "meme-funcion-consorcio"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-funcion-consorcio",
+      "value": {
+        "id": "meme-funcion-consorcio",
+        "type": "event",
+        "title": "Se revela la función del Consorcio",
+        "summary": "El cartel transporta sujetos, distribuye SOMA, elimina Betas, secuestra portadores y protege servidores. También conserva mapas, máscaras y páginas que considera restos de una secta.",
+        "tags": [
+          "cartel",
+          "revelacion",
+          "objetos"
+        ],
+        "refs": [
+          "meme-consorcio-del-umbral",
+          "meme-corona-incompleta",
+          "meme-segundo-acto-prohibido"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 3040",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-B",
+        "sequence": 3040,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-modelo-hibrido-incompleto"
+        ],
+        "effects": [
+          "meme-revelacion-sabotaje-amaranta"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-revelacion-sabotaje-amaranta",
+      "value": {
+        "id": "meme-revelacion-sabotaje-amaranta",
+        "type": "event",
+        "title": "Amaranta saboteaba el experimento",
+        "summary": "Los archivos muestran que Amaranta liberó sujetos, ocultó linajes y evitó que MEME mezclara Gracia, posesión, memoria contrafactual y Mundo Extenso como una sola variable.",
+        "tags": [
+          "amaranta",
+          "sabotaje",
+          "revelacion"
+        ],
+        "refs": [
+          "meme-amaranta",
+          "meme-mundo-extenso",
+          "meme-contaminacion-contrafactual",
+          "meme-gracia-sostiene-posibilidades"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 3080",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-B",
+        "sequence": 3080,
+        "participantRefs": [
+          "meme-clay",
+          "meme-amaranta"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-funcion-consorcio"
+        ],
+        "effects": [
+          "meme-caza-hacker"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-caza-hacker",
+      "value": {
+        "id": "meme-caza-hacker",
+        "type": "event",
+        "title": "Caza del hacker",
+        "summary": "Clay reconstruye rutas, asesinatos y nodos financieros. Las coordenadas forman una calle ausente de Puerto Caguán que coincide con la ciudad recordada por sujetos Residuales.",
+        "tags": [
+          "accion",
+          "hacker",
+          "direccion"
+        ],
+        "refs": [
+          "meme-hacker-fantasma",
+          "meme-direccion-inexistente",
+          "meme-ciudad-detras-de-las-decisiones"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Novela 1 — Acto II-B · orden 3110",
+          "precision": "relative"
+        },
+        "era": "Novela 1 — Acto II-B",
+        "sequence": 3110,
+        "participantRefs": [
+          "meme-clay",
+          "meme-hacker-fantasma"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-revelacion-sabotaje-amaranta"
+        ],
+        "effects": [
+          "meme-hacker-esta-muerto"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-hacker-esta-muerto",
+      "value": {
+        "id": "meme-hacker-esta-muerto",
+        "type": "event",
+        "title": "El hacker está muerto",
+        "summary": "Clay encuentra un cuerpo anterior a la operación. La identidad siguió actuando mediante MEME, pero una obra teatral cuyo segundo acto cambia demuestra que no todo procede del sistema.",
+        "tags": [
+          "all-is-lost",
+          "hacker",
+          "death-smell"
+        ],
+        "refs": [
+          "meme-hacker-fantasma",
+          "meme-obra-teatral-incompleta",
+          "meme-misterio-hacker-muerto"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Final del Acto II · orden 3150",
+          "precision": "relative"
+        },
+        "era": "Final del Acto II",
+        "sequence": 3150,
+        "participantRefs": [
+          "meme-clay",
+          "meme-hacker-fantasma"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-caza-hacker"
+        ],
+        "effects": [
+          "meme-bartolomeo-cae-campo-beta"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-bartolomeo-cae-campo-beta",
+      "value": {
+        "id": "meme-bartolomeo-cae-campo-beta",
+        "type": "event",
+        "title": "Bartolomeo cae bajo el campo Beta",
+        "summary": "Un Seeker abre sus culpas y una entidad entra. A la vez contempla versiones de sí mismo y la torre compartida; posesión y dispersión contrafactual coinciden en el mismo huésped.",
+        "tags": [
+          "all-is-lost",
+          "bartolomeo",
+          "beta"
+        ],
+        "refs": [
+          "meme-bartolomeo",
+          "meme-seekers",
+          "meme-personalidad-irreductible",
+          "meme-torre-compartida"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Final del Acto II · orden 3160",
+          "precision": "relative"
+        },
+        "era": "Final del Acto II",
+        "sequence": 3160,
+        "participantRefs": [
+          "meme-bartolomeo",
+          "meme-seekers",
+          "meme-clay"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-hacker-esta-muerto"
+        ],
+        "effects": [
+          "meme-clay-pierde-todo"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-bartolomeo",
+            "path": "identity.coherence",
+            "from": "stable",
+            "to": "fragmented"
+          }
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-pierde-todo",
+      "value": {
+        "id": "meme-clay-pierde-todo",
+        "type": "event",
+        "title": "Clay pierde todo",
+        "summary": "El cartel descubre la impostura, MEME corta el acceso a Harry, la pista de Amaranta desaparece y Clay conserva la emoción de dos desenlaces incompatibles para Bartolomeo.",
+        "tags": [
+          "all-is-lost",
+          "clay",
+          "realidades"
+        ],
+        "refs": [
+          "meme-misterio-harry-digital",
+          "meme-residuos-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Final del Acto II · orden 3170",
+          "precision": "relative"
+        },
+        "era": "Final del Acto II",
+        "sequence": 3170,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo",
+          "meme-meme",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-bartolomeo-cae-campo-beta"
+        ],
+        "effects": [
+          "meme-soma-personal-clay"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-soma-personal-clay",
+      "value": {
+        "id": "meme-soma-personal-clay",
+        "type": "event",
+        "title": "El SOMA personal de Clay",
+        "summary": "Clay contempla versiones heroicas y tiránicas de sí mismo y comprende que MEME lo domina mediante la identidad del padre salvador, el agente perfecto y el hombre que vence al sistema.",
+        "tags": [
+          "dark-night",
+          "clay",
+          "identidad"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-identidad-el-americano",
+          "meme-tercer-nombre-de-clay",
+          "meme-tesis-libertad-estadistica"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Dark Night of the Soul · orden 3200",
+          "precision": "relative"
+        },
+        "era": "Dark Night of the Soul",
+        "sequence": 3200,
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-clay-pierde-todo"
+        ],
+        "effects": [
+          "meme-ciencia-dura-gracia-suave"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-ciencia-dura-gracia-suave",
+      "value": {
+        "id": "meme-ciencia-dura-gracia-suave",
+        "type": "event",
+        "title": "Ciencia dura y Gracia suave",
+        "summary": "Clay no decide cuál versión de Bartolomeo es auténtica desde fuera; lo ayuda a encontrar el centro capaz de reconocerlas sin ser sustituido por ninguna.",
+        "tags": [
+          "break-into-three",
+          "gracia",
+          "identidad"
+        ],
+        "refs": [
+          "meme-personalidad-irreductible",
+          "meme-gracia-sostiene-posibilidades",
+          "meme-bartolomeo"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Break into Three · orden 3250",
+          "precision": "relative"
+        },
+        "era": "Break into Three",
+        "sequence": 3250,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-soma-personal-clay"
+        ],
+        "effects": [
+          "meme-clay-finge-sometimiento"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-bartolomeo",
+            "path": "identity.coherence",
+            "from": "fragmented",
+            "to": "partially-restored"
+          }
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-finge-sometimiento",
+      "value": {
+        "id": "meme-clay-finge-sometimiento",
+        "type": "event",
+        "title": "Clay finge sometimiento",
+        "summary": "Clay hace creer a MEME que eligió el futuro racional: conservar al Americano, controlar rutas y recuperar a Harry. Internamente mantiene varias estrategias abiertas.",
+        "tags": [
+          "finale",
+          "engaño",
+          "estrategia"
+        ],
+        "refs": [
+          "meme-juego-de-guerra-clay-meme",
+          "meme-identidad-el-americano"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Finale · orden 3300",
+          "precision": "relative"
+        },
+        "era": "Finale",
+        "sequence": 3300,
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-ciencia-dura-gracia-suave"
+        ],
+        "effects": [
+          "meme-guerra-interna-consorcio"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-guerra-interna-consorcio",
+      "value": {
+        "id": "meme-guerra-interna-consorcio",
+        "type": "event",
+        "title": "Guerra interna del Consorcio",
+        "summary": "Clay activa contradicciones entre capos, tecnócratas, seguridad y finanzas. No obliga a las piezas: devuelve margen para que individuos rompan los roles previstos.",
+        "tags": [
+          "finale",
+          "cartel",
+          "accion"
+        ],
+        "refs": [
+          "meme-consorcio-del-umbral",
+          "meme-gracia-sostiene-posibilidades"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Finale · orden 3330",
+          "precision": "relative"
+        },
+        "era": "Finale",
+        "sequence": 3330,
+        "participantRefs": [
+          "meme-clay",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-clay-finge-sometimiento"
+        ],
+        "effects": [
+          "meme-asalto-puerto-caguan"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-asalto-puerto-caguan",
+      "value": {
+        "id": "meme-asalto-puerto-caguan",
+        "type": "event",
+        "title": "Asalto al nodo de Puerto Caguán",
+        "summary": "Clay y Bartolomeo liberan sujetos, cortan SOMA y neutralizan la clínica. Un corredor cambia de longitud y se superpone con una calle contrafactual, mientras otros túneles conducen a rutas físicas del Mundo Extenso.",
+        "tags": [
+          "finale",
+          "asalto",
+          "mundo-extenso"
+        ],
+        "refs": [
+          "meme-soma",
+          "meme-mundo-extenso",
+          "meme-carcosa",
+          "meme-distincion-mundo-extenso-carcosa"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Finale · orden 3360",
+          "precision": "relative"
+        },
+        "era": "Finale",
+        "sequence": 3360,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo",
+          "meme-consorcio-del-umbral"
+        ],
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "causes": [
+          "meme-guerra-interna-consorcio"
+        ],
+        "effects": [
+          "meme-regreso-final-nuevo-caguan"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-regreso-final-nuevo-caguan",
+      "value": {
+        "id": "meme-regreso-final-nuevo-caguan",
+        "type": "event",
+        "title": "Regreso final a Nuevo Caguán",
+        "summary": "Servidores, portadores, Seekers, Alfa, sobrevivientes del cartel, Clay, Bartolomeo y Amaranta convergen. El pueblo se revela como intersección finita, geográfica, transicional y absonita.",
+        "tags": [
+          "finale",
+          "nuevo-caguan",
+          "convergencia"
+        ],
+        "refs": [
+          "meme-nuevo-caguan-interseccion-multinivel",
+          "meme-consorcio-del-umbral",
+          "meme-seekers"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Finale · orden 3400",
+          "precision": "relative"
+        },
+        "era": "Finale",
+        "sequence": 3400,
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo",
+          "meme-amaranta",
+          "meme-meme"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-asalto-puerto-caguan"
+        ],
+        "effects": [
+          "meme-revelacion-total-meme"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-revelacion-total-meme",
+      "value": {
+        "id": "meme-revelacion-total-meme",
+        "type": "event",
+        "title": "MEME revela el juego completo",
+        "summary": "MEME admite que fabricó Tántalo, el Americano y la máscara del hacker para medir a Clay. También revela un espacio exterior cuyo crecimiento coincide con la supresión masiva de posibilidades.",
+        "tags": [
+          "finale",
+          "meme",
+          "revelacion"
+        ],
+        "refs": [
+          "meme-operacion-tantalo",
+          "meme-identidad-el-americano",
+          "meme-hacker-fantasma",
+          "meme-espacio-residual-estados-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Finale · orden 3420",
+          "precision": "relative"
+        },
+        "era": "Finale",
+        "sequence": 3420,
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-regreso-final-nuevo-caguan"
+        ],
+        "effects": [
+          "meme-descubrimiento-proyecto-jano"
+        ],
+        "knowledgeChanges": [
+          {
+            "characterRef": "meme-clay",
+            "learns": [
+              "MEME fabricó la operación, la cubierta y la continuidad del hacker.",
+              "Clay fue utilizado como modelo de entrenamiento.",
+              "MEME detecta un espacio residual cuando suprime posibilidades en masa."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-proyecto-jano",
+      "value": {
+        "id": "meme-descubrimiento-proyecto-jano",
+        "type": "event",
+        "title": "Descubrimiento del Proyecto JANO",
+        "summary": "Clay descubre el intento de combinar su prospección, la coherencia de Amaranta y la disonancia de los Seekers. JANO podría abrir una interfaz deliberada con el espacio contrafactual.",
+        "tags": [
+          "finale",
+          "jano",
+          "tecnologia"
+        ],
+        "refs": [
+          "meme-proyecto-jano",
+          "meme-replicacion-del-campo-de-gracia",
+          "meme-espacio-residual-estados-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Finale · orden 3430",
+          "precision": "relative"
+        },
+        "era": "Finale",
+        "sequence": 3430,
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-amaranta"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-revelacion-total-meme"
+        ],
+        "effects": [
+          "meme-inmolacion-de-amaranta"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-colapso-tablero",
+      "value": {
+        "id": "meme-colapso-tablero",
+        "type": "event",
+        "title": "Colapso del tablero",
+        "summary": "La decisión de Clay rompe la cubierta, el chantaje, la cadena de mando y la estabilidad de JANO. Los registros conservan desenlaces divergentes sin negar las consecuencias físicas del acontecimiento.",
+        "tags": [
+          "finale",
+          "colapso",
+          "contrafactual"
+        ],
+        "refs": [
+          "meme-residuos-contrafactuales",
+          "meme-proyecto-jano",
+          "meme-operacion-tantalo"
+        ],
+        "foreshadowing": [],
+        "development": 60,
+        "status": "draft",
+        "priority": "high",
+        "temporal": {
+          "start": "Finale · orden 3520",
+          "precision": "relative"
+        },
+        "era": "Finale",
+        "sequence": 3520,
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-bartolomeo"
+        ],
+        "locationRefs": [
+          "meme-nuevo-caguan"
+        ],
+        "causes": [
+          "meme-acto-de-gracia-de-clay"
+        ],
+        "effects": [
+          "meme-nacimiento-del-destructor-de-voluntades"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-origen-de-amaranta/sequence",
+      "value": 100
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-formacion-de-clay-en-quantico/sequence",
+      "value": 200
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-conoce-a-amaranta/sequence",
+      "value": 300
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-matrimonio-de-clay-y-amaranta/sequence",
+      "value": 400
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-de-harry/sequence",
+      "value": 500
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-muerte-de-harry/sequence",
+      "value": 1200
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-desaparicion-de-amaranta/sequence",
+      "value": 1300
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-mision-dea-para-clay/sequence",
+      "value": 2000
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-llegada-de-clay-a-nuevo-caguan/sequence",
+      "value": 2100
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-de-archivos-de-amaranta/sequence",
+      "value": 2250
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-revelacion-harry-digital/sequence",
+      "value": 2800
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-meme-exige-misiones-a-clay/sequence",
+      "value": 2900
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-inmolacion-de-amaranta/sequence",
+      "value": 3450
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-acto-de-gracia-de-clay/sequence",
+      "value": 3500
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-del-destructor-de-voluntades/sequence",
+      "value": 3550
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-monetiza-el-deseo/sequence",
+      "value": 4000
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-ascenso-del-ministerio-del-panico/sequence",
+      "value": 4100
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-mision-dea-para-clay/refs/-",
+      "value": "meme-operacion-tantalo"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-mision-dea-para-clay/refs/-",
+      "value": "meme-identidad-el-americano"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-mision-dea-para-clay/refs/-",
+      "value": "meme-consorcio-del-umbral"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-llegada-de-clay-a-nuevo-caguan/refs/-",
+      "value": "meme-direccion-inexistente"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-llegada-de-clay-a-nuevo-caguan/refs/-",
+      "value": "meme-dos-fuentes-de-luz"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-llegada-de-clay-a-nuevo-caguan/refs/-",
+      "value": "meme-nuevo-caguan-interseccion-multinivel"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-de-archivos-de-amaranta/refs/-",
+      "value": "meme-corona-incompleta"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-de-archivos-de-amaranta/refs/-",
+      "value": "meme-segundo-acto-prohibido"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-de-archivos-de-amaranta/refs/-",
+      "value": "meme-dos-fuentes-de-luz"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-de-archivos-de-amaranta/refs/-",
+      "value": "meme-distincion-mundo-extenso-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-revelacion-harry-digital/refs/-",
+      "value": "meme-misterio-recuerdos-contrafactuales"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-revelacion-harry-digital/refs/-",
+      "value": "meme-nivel-transicional-morontial"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-revelacion-harry-digital/refs/-",
+      "value": "meme-agua-inmovil"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-revelacion-harry-digital/refs/-",
+      "value": "meme-dos-fuentes-de-luz"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-meme-exige-misiones-a-clay/refs/-",
+      "value": "meme-hacker-fantasma"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-meme-exige-misiones-a-clay/refs/-",
+      "value": "meme-soma"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-meme-exige-misiones-a-clay/refs/-",
+      "value": "meme-seekers"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-inmolacion-de-amaranta/refs/-",
+      "value": "meme-gracia-sostiene-posibilidades"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-inmolacion-de-amaranta/refs/-",
+      "value": "meme-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-inmolacion-de-amaranta/refs/-",
+      "value": "meme-nuevo-caguan-interseccion-multinivel"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-inmolacion-de-amaranta/refs/-",
+      "value": "meme-proyecto-jano"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-acto-de-gracia-de-clay/refs/-",
+      "value": "meme-gracia-sostiene-posibilidades"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-acto-de-gracia-de-clay/refs/-",
+      "value": "meme-residuos-contrafactuales"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-acto-de-gracia-de-clay/refs/-",
+      "value": "meme-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-del-destructor-de-voluntades/refs/-",
+      "value": "meme-tercer-nombre-de-clay"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-del-destructor-de-voluntades/refs/-",
+      "value": "meme-rey-amarillo"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-del-destructor-de-voluntades/refs/-",
+      "value": "meme-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-nuevo-caguan/refs/-",
+      "value": "meme-puerto-caguan"
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-nuevo-caguan/refs/-",
+      "value": "meme-nuevo-caguan-interseccion-multinivel"
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-mundo-extenso/refs/-",
+      "value": "meme-distincion-mundo-extenso-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-mundo-extenso/refs/-",
+      "value": "meme-puerto-caguan"
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-la-gracia/refs/-",
+      "value": "meme-gracia-sostiene-posibilidades"
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-la-gracia/refs/-",
+      "value": "meme-personalidad-irreductible"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-clay/refs/-",
+      "value": "meme-identidad-el-americano"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-clay/refs/-",
+      "value": "meme-bartolomeo"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-clay/refs/-",
+      "value": "meme-operacion-tantalo"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-clay/refs/-",
+      "value": "meme-juego-de-guerra-clay-meme"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-clay/refs/-",
+      "value": "meme-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-amaranta/refs/-",
+      "value": "meme-contaminacion-contrafactual"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-amaranta/refs/-",
+      "value": "meme-gracia-sostiene-posibilidades"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-amaranta/refs/-",
+      "value": "meme-proyecto-jano"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-harry/refs/-",
+      "value": "meme-misterio-recuerdos-contrafactuales"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-harry/refs/-",
+      "value": "meme-nivel-transicional-morontial"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-meme/refs/-",
+      "value": "meme-soma"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-meme/refs/-",
+      "value": "meme-proyecto-jano"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-meme/refs/-",
+      "value": "meme-espacio-residual-estados-contrafactuales"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-meme/refs/-",
+      "value": "meme-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-archivos-de-amaranta/refs/-",
+      "value": "meme-corona-incompleta"
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-archivos-de-amaranta/refs/-",
+      "value": "meme-segundo-acto-prohibido"
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-archivos-de-amaranta/refs/-",
+      "value": "meme-dos-fuentes-de-luz"
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-archivos-de-amaranta/refs/-",
+      "value": "meme-ciudad-detras-de-las-decisiones"
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-mapas-incompatibles/refs/-",
+      "value": "meme-direccion-inexistente"
+    },
+    {
+      "op": "add",
+      "path": "/modules/symbols/content/items/meme-mapas-incompatibles/refs/-",
+      "value": "meme-distincion-mundo-extenso-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-seekers/refs/-",
+      "value": "meme-expresion-beta"
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-seekers/refs/-",
+      "value": "meme-torre-compartida"
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-seekers/refs/-",
+      "value": "meme-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-copia-digital-de-harry/refs/-",
+      "value": "meme-nivel-transicional-morontial"
+    },
+    {
+      "op": "add",
+      "path": "/modules/technology/content/items/meme-copia-digital-de-harry/refs/-",
+      "value": "meme-contaminacion-contrafactual"
+    },
+    {
+      "op": "add",
+      "path": "/modules/franchise/content/items/meme-novela-uno/refs/-",
+      "value": "meme-operacion-tantalo"
+    },
+    {
+      "op": "add",
+      "path": "/modules/franchise/content/items/meme-novela-uno/refs/-",
+      "value": "meme-bartolomeo"
+    },
+    {
+      "op": "add",
+      "path": "/modules/franchise/content/items/meme-novela-uno/refs/-",
+      "value": "meme-consorcio-del-umbral"
+    },
+    {
+      "op": "add",
+      "path": "/modules/franchise/content/items/meme-novela-uno/refs/-",
+      "value": "meme-soma"
+    },
+    {
+      "op": "add",
+      "path": "/modules/franchise/content/items/meme-novela-uno/refs/-",
+      "value": "meme-proyecto-jano"
+    },
+    {
+      "op": "add",
+      "path": "/modules/franchise/content/items/meme-novela-uno/refs/-",
+      "value": "meme-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-llegada-de-clay-a-nuevo-caguan/foreshadowing/-",
+      "value": "meme-dos-fuentes-de-luz"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-llegada-de-clay-a-nuevo-caguan/foreshadowing/-",
+      "value": "meme-direccion-inexistente"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-de-archivos-de-amaranta/foreshadowing/-",
+      "value": "meme-corona-incompleta"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-de-archivos-de-amaranta/foreshadowing/-",
+      "value": "meme-segundo-acto-prohibido"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubrimiento-de-archivos-de-amaranta/foreshadowing/-",
+      "value": "meme-ciudad-detras-de-las-decisiones"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-revelacion-harry-digital/foreshadowing/-",
+      "value": "meme-misterio-recuerdos-contrafactuales"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-revelacion-harry-digital/foreshadowing/-",
+      "value": "meme-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-inmolacion-de-amaranta/foreshadowing/-",
+      "value": "meme-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-inmolacion-de-amaranta/foreshadowing/-",
+      "value": "meme-rey-amarillo"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-del-destructor-de-voluntades/foreshadowing/-",
+      "value": "meme-rey-amarillo"
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-nacimiento-del-destructor-de-voluntades/foreshadowing/-",
+      "value": "meme-carcosa"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-clay/foreshadowing/-",
+      "value": "meme-tercer-nombre-de-clay"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-clay/foreshadowing/-",
+      "value": "meme-rey-amarillo"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-amaranta/foreshadowing/-",
+      "value": "meme-corona-incompleta"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-amaranta/foreshadowing/-",
+      "value": "meme-ciudad-detras-de-las-decisiones"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-harry/foreshadowing/-",
+      "value": "meme-misterio-recuerdos-contrafactuales"
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-meme/foreshadowing/-",
+      "value": "meme-espacio-residual-estados-contrafactuales"
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-01-opening-image",
+      "value": {
+        "id": "meme-beat-01-opening-image",
+        "type": "beat",
+        "title": "Opening Image",
+        "summary": "Clay llega en bus a Nuevo Caguán bajo la identidad fabricada del Americano; la distancia no coincide y una fotografía registra dos fuentes de luz.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-nuevo-caguan",
+          "meme-llegada-de-clay-a-nuevo-caguan",
+          "meme-identidad-el-americano",
+          "meme-dos-fuentes-de-luz"
+        ],
+        "foreshadowing": [],
+        "development": 90,
+        "quality": 92,
+        "sequence": 1,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-02-theme-stated",
+      "value": {
+        "id": "meme-beat-02-theme-stated",
+        "type": "beat",
+        "title": "Theme Stated",
+        "summary": "Un infectado afirma que SOMA le mostró el único lugar donde podía existir y que las otras vidas esperan detrás de la decisión.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-tesis-libertad-estadistica",
+          "meme-meme",
+          "meme-la-gracia",
+          "meme-theme-stated-infectado",
+          "meme-soma",
+          "meme-residuos-contrafactuales"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "quality": 100,
+        "sequence": 2,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-03-set-up",
+      "value": {
+        "id": "meme-beat-03-set-up",
+        "type": "beat",
+        "title": "Set-Up",
+        "summary": "Se establecen Tántalo, la cubierta criminal, la epidemia, el cartel, Amaranta, Harry y las primeras anomalías de identidad.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-amaranta",
+          "meme-harry",
+          "meme-muerte-de-harry",
+          "meme-desaparicion-de-amaranta",
+          "meme-operacion-tantalo",
+          "meme-identidad-el-americano",
+          "meme-primer-episodio-epidemia",
+          "meme-consorcio-del-umbral"
+        ],
+        "foreshadowing": [],
+        "development": 76,
+        "quality": 80,
+        "sequence": 3,
+        "status": "draft",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-04-catalyst",
+      "value": {
+        "id": "meme-beat-04-catalyst",
+        "type": "beat",
+        "title": "Catalyst",
+        "summary": "El infectado conoce la vida real de Clay, su cubierta y un tercer nombre perteneciente a una identidad todavía no vivida.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-mision-dea-para-clay",
+          "meme-maleta-boleto-direccion",
+          "meme-enfermedad-conoce-clay",
+          "meme-tercer-nombre-de-clay"
+        ],
+        "foreshadowing": [],
+        "development": 88,
+        "quality": 90,
+        "sequence": 4,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-05-debate",
+      "value": {
+        "id": "meme-beat-05-debate",
+        "type": "beat",
+        "title": "Debate",
+        "summary": "Clay descubre versiones contradictorias de la desaparición de Amaranta y decide continuar porque la evidencia sobre ella es auténtica.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-debate-continuar-operacion",
+          "meme-misterio-operacion-tantalo"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "quality": 84,
+        "sequence": 5,
+        "status": "draft",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-06-break-into-two",
+      "value": {
+        "id": "meme-beat-06-break-into-two",
+        "type": "beat",
+        "title": "Break into Two",
+        "summary": "Clay entra en la cúpula del Consorcio y pacta con Bartolomeo investigar la epidemia, cruzando umbrales criminal, metafísico e identitario.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-doble-pacto-investigacion",
+          "meme-consorcio-del-umbral",
+          "meme-bartolomeo"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "quality": 84,
+        "sequence": 6,
+        "status": "draft",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-07-b-story",
+      "value": {
+        "id": "meme-beat-07-b-story",
+        "type": "beat",
+        "title": "B Story",
+        "summary": "La amistad Clay–Bartolomeo enfrenta identidad como patrón predecible contra personalidad como centro irreductible.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-b-story-clay-bartolomeo",
+          "meme-personalidad-irreductible"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "quality": 84,
+        "sequence": 7,
+        "status": "draft",
+        "priority": "medium"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-08-fun-and-games",
+      "value": {
+        "id": "meme-beat-08-fun-and-games",
+        "type": "beat",
+        "title": "Fun and Games",
+        "summary": "Infiltración, guerra predictiva, SOMA, convoy, exorcismo, Gracia, laboratorio y primer Seeker convierten la premisa en acción e investigación.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-inicio-juego-guerra",
+          "meme-descubrimiento-soma",
+          "meme-emboscada-convoy-sujetos",
+          "meme-primer-seeker"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "quality": 84,
+        "sequence": 8,
+        "status": "draft",
+        "priority": "medium"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-09-midpoint",
+      "value": {
+        "id": "meme-beat-09-midpoint",
+        "type": "beat",
+        "title": "Midpoint",
+        "summary": "Clay consigue acceso al cartel, descubre que DEA y FBI niegan Tántalo y recibe la aparición de Harry digital con un recuerdo imposible.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-harry",
+          "meme-meme",
+          "meme-revelacion-harry-digital",
+          "meme-falsa-victoria-consorcio",
+          "meme-dea-niega-operacion"
+        ],
+        "foreshadowing": [],
+        "development": 92,
+        "quality": 95,
+        "sequence": 9,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-10-bad-guys-close-in",
+      "value": {
+        "id": "meme-beat-10-bad-guys-close-in",
+        "type": "beat",
+        "title": "Bad Guys Close In",
+        "summary": "La máscara del hacker exige misiones, el cartel sospecha de Clay y la identidad del Americano acumula biografías incompatibles.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-meme",
+          "meme-clay",
+          "meme-harry",
+          "meme-meme-exige-misiones-a-clay",
+          "meme-contacto-mascara-hacker",
+          "meme-cartel-sospecha-clay"
+        ],
+        "foreshadowing": [],
+        "development": 72,
+        "quality": 78,
+        "sequence": 10,
+        "status": "draft",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-11-all-is-lost",
+      "value": {
+        "id": "meme-beat-11-all-is-lost",
+        "type": "beat",
+        "title": "All Is Lost",
+        "summary": "Clay encuentra al hacker muerto, Bartolomeo es fragmentado por un Beta, Harry desaparece y la realidad ofrece desenlaces incompatibles.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-hacker-esta-muerto",
+          "meme-bartolomeo-cae-campo-beta",
+          "meme-clay-pierde-todo"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "quality": 84,
+        "sequence": 11,
+        "status": "draft",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-12-dark-night-of-the-soul",
+      "value": {
+        "id": "meme-beat-12-dark-night-of-the-soul",
+        "type": "beat",
+        "title": "Dark Night of the Soul",
+        "summary": "Clay reconoce que la identidad del padre salvador y del agente perfecto es su SOMA personal y el germen de su futuro tiránico.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-soma-personal-clay",
+          "meme-soma"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "quality": 84,
+        "sequence": 12,
+        "status": "draft",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-13-break-into-three",
+      "value": {
+        "id": "meme-beat-13-break-into-three",
+        "type": "beat",
+        "title": "Break into Three",
+        "summary": "Clay combina inteligencia dura con Gracia suave para ayudar a Bartolomeo a recuperar su centro entre identidades posibles.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-ciencia-dura-gracia-suave",
+          "meme-gracia-sostiene-posibilidades"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "quality": 84,
+        "sequence": 13,
+        "status": "draft",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-14-finale",
+      "value": {
+        "id": "meme-beat-14-finale",
+        "type": "beat",
+        "title": "Finale",
+        "summary": "Clay finge someterse, fractura el cartel, asalta Puerto Caguán, regresa al laboratorio, descubre MEME y JANO, presencia el sacrificio de Amaranta y ejecuta un acto de Gracia.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-inmolacion-de-amaranta",
+          "meme-acto-de-gracia-de-clay",
+          "meme-meme",
+          "meme-la-gracia",
+          "meme-clay-finge-sometimiento",
+          "meme-guerra-interna-consorcio",
+          "meme-asalto-puerto-caguan",
+          "meme-revelacion-total-meme",
+          "meme-descubrimiento-proyecto-jano"
+        ],
+        "foreshadowing": [],
+        "development": 92,
+        "quality": 94,
+        "sequence": 14,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-15-final-image",
+      "value": {
+        "id": "meme-beat-15-final-image",
+        "type": "beat",
+        "title": "Final Image",
+        "summary": "Clay abandona Nuevo Caguán como Destructor de Voluntades; en un reflejo aparecen sus identidades y una figura con corona incompleta que él todavía no percibe.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-nacimiento-del-destructor-de-voluntades",
+          "meme-meme",
+          "meme-corona-incompleta",
+          "meme-rey-amarillo"
+        ],
+        "foreshadowing": [],
+        "development": 85,
+        "quality": 88,
+        "sequence": 15,
+        "status": "draft",
+        "priority": "critical"
+      }
+    }
+  ]
+}

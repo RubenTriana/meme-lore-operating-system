@@ -1,0 +1,10 @@
+interface:
+  display_name: "Sistema Tántalo"
+  short_description: "Tutoría, continuidad y revisión de El Evangelio del Azar"
+  icon_small: "./assets/tantalo-icon.svg"
+  icon_large: "./assets/tantalo-icon.svg"
+  brand_color: "#D6A84F"
+  default_prompt: "Usa $sistema-tantalo para orientarme y continuar mi novela desde el contexto activo."
+
+policy:
+  allow_implicit_invocation: true

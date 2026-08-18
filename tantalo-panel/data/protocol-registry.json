@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": ".agents/skills/sistema-tantalo/references/",
+  "protocols": [
+    {"id":"protocolo-tutoria","label":"Protocolo de tutoría","path":".agents/skills/sistema-tantalo/references/protocolo-tutoria.md","category":"tutoria","depth":1},
+    {"id":"protocolo-borrador","label":"Protocolo de borrador","path":".agents/skills/sistema-tantalo/references/flujo-capitulo.md","category":"escritura","depth":1},
+    {"id":"flujo-capitulo","label":"Flujo de capítulo","path":".agents/skills/sistema-tantalo/references/flujo-capitulo.md","category":"escritura","depth":2},
+    {"id":"rubrica-editorial","label":"Rúbrica editorial","path":".agents/skills/sistema-tantalo/references/rubrica-editorial.md","category":"revision","depth":2},
+    {"id":"protocolo-voz","label":"Protocolo de voz","path":".agents/skills/sistema-tantalo/references/protocolo-voz.md","category":"revision","depth":2},
+    {"id":"protocolo-canon","label":"Protocolo de canon","path":".agents/skills/sistema-tantalo/references/protocolo-canon.md","category":"canon","depth":2},
+    {"id":"protocolo-aprendizaje","label":"Aprendizaje deliberado","path":".agents/skills/sistema-tantalo/references/protocolo-aprendizaje-deliberado.md","category":"aprendizaje","depth":1},
+    {"id":"curaduria-minima","label":"Curaduría mínima","path":".agents/skills/sistema-tantalo/references/criterios-calidad-fuentes.md","category":"aprendizaje","depth":2},
+    {"id":"modo-revision","label":"Modo revisión de capítulo","path":".agents/skills/sistema-tantalo/references/modo-revision-capitulo.md","category":"revision","depth":1},
+    {"id":"modo-profundo","label":"Modo profundo","path":".agents/skills/sistema-tantalo/references/modo-profundo.md","category":"laboratorio","depth":1},
+    {"id":"definicion-terminado","label":"Definición de terminado","path":".agents/skills/sistema-tantalo/references/definicion-de-terminado.md","category":"cierre","depth":4}
+  ]
+}

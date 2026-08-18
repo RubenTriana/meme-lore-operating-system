@@ -1,0 +1,1445 @@
+{
+  "operations": [
+    {
+      "op": "replace",
+      "path": "/metadata/version",
+      "value": "0.4.0"
+    },
+    {
+      "op": "replace",
+      "path": "/metadata/build",
+      "value": "canon-update-005-helena-economia-presencia"
+    },
+    {
+      "op": "replace",
+      "path": "/metadata/updated",
+      "value": "2026-07-15T00:00:00.000Z"
+    },
+    {
+      "op": "add",
+      "path": "/changelog/change-005",
+      "value": {
+        "id": "change-005",
+        "version": "0.4.0",
+        "date": "2026-07-15T00:00:00.000Z",
+        "author": "Rubén Darío Triana Valencia",
+        "changes": [
+          "Reestructuró Bad Guys Close In y All Is Lost alrededor del arresto de Clay, la confiscación de su identidad y el control penitenciario de SOMA.",
+          "Añadió a Helena, sus hijos y el director local de SOMA Clinic como núcleo humano de la economía coercitiva de la atención profunda.",
+          "Incorporó SOMA Clinic, la Unidad de Continuidad Clínica y la comunidad de Economía de Presencia cercana a Nuevo Caguán.",
+          "Convirtió la fuga y el intento de rescate de Clay en un espectáculo rentable que fortalece a SOMA y prepara su sustitución pública por el Clay sintético.",
+          "Integró el dilema temático de quienes no pueden permitirse económicamente ser libres."
+        ],
+        "modules": [
+          "lore",
+          "characters",
+          "timeline",
+          "save-the-cat",
+          "mysteries",
+          "economy",
+          "companies"
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-helena",
+      "value": {
+        "id": "meme-helena",
+        "type": "character",
+        "title": "Helena",
+        "summary": "Madre retenida en SOMA Clinic como participante de continuidad intensiva. Su dolor produce datos clínicos, atención profunda y pagos que sostienen a sus hijos, por lo que rechaza la fuga que Clay le ofrece.",
+        "tags": [
+          "helena",
+          "soma-clinic",
+          "madre",
+          "cautiverio",
+          "economia-de-presencia"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-hijos-helena",
+          "meme-soma-clinic",
+          "meme-unidad-continuidad-clinica",
+          "meme-economia-de-presencia",
+          "meme-contrato-de-continuidad",
+          "meme-dividendo-presencia"
+        ],
+        "foreshadowing": [
+          "meme-misterio-consentimiento-helena",
+          "meme-misterio-hijos-helena-verdad"
+        ],
+        "development": 92,
+        "importance": 88,
+        "narrativeTime": 54,
+        "desire": "Mantener vivos, alimentados y protegidos a sus hijos.",
+        "need": "Reconocer que su valor no depende únicamente de cuánto sufrimiento puede soportar por su familia.",
+        "contradiction": "Desea ser libre, pero rechaza la libertad cuando esta amenaza la supervivencia material de sus hijos.",
+        "wound": "SOMA convirtió su necesidad de proteger a su familia en un contrato de cautiverio remunerado.",
+        "goal": "Asegurar que sus hijos conserven vivienda, comida, medicinas y protección aunque ella desaparezca.",
+        "arc": "Su negativa a escapar destruye la idea simplista de Clay sobre el rescate y revela que SOMA gobierna haciendo económicamente inviable la libertad.",
+        "status": "active",
+        "priority": "critical",
+        "risk": "Cada sesión deteriora su identidad mientras aumenta los beneficios y la dependencia económica de su familia."
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-director-soma-clinic",
+      "value": {
+        "id": "meme-director-soma-clinic",
+        "type": "character",
+        "title": "Director de SOMA Clinic",
+        "summary": "Responsable local de la Unidad de Continuidad Clínica. No se considera torturador: sostiene que el sufrimiento registrado puede producir conocimiento, ingresos y protección, mientras que el dolor privado solo desaparece sin dejar valor.",
+        "tags": [
+          "soma-clinic",
+          "director",
+          "antagonista",
+          "medicina",
+          "atencion-profunda"
+        ],
+        "refs": [
+          "meme-soma-clinic",
+          "meme-unidad-continuidad-clinica",
+          "meme-helena",
+          "meme-clay",
+          "meme-soma-care",
+          "meme-meme"
+        ],
+        "foreshadowing": [
+          "meme-misterio-consentimiento-helena"
+        ],
+        "development": 70,
+        "importance": 72,
+        "narrativeTime": 34,
+        "desire": "Demostrar que la continuidad clínica puede convertir el sufrimiento extremo en una infraestructura social útil.",
+        "need": "Aceptar que registrar y remunerar el dolor no convierte la coerción en consentimiento.",
+        "contradiction": "Habla como médico protector mientras administra procedimientos que destruyen la autonomía de sus pacientes.",
+        "risk": "Su programa podría demostrar públicamente que SOMA fabrica la dependencia que afirma tratar.",
+        "status": "seeded",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/characters/content/items/meme-hijos-helena",
+      "value": {
+        "id": "meme-hijos-helena",
+        "type": "character",
+        "title": "Hijos de Helena",
+        "summary": "Niños y adolescentes sostenidos por los pagos que SOMA envía a cambio de los experimentos realizados sobre su madre. Viven cerca de Nuevo Caguán dentro de una comunidad que convierte intimidad, conflicto y sufrimiento en espectáculo remunerado.",
+        "tags": [
+          "helena",
+          "familia",
+          "nuevo-caguan",
+          "economia-de-presencia",
+          "soma"
+        ],
+        "refs": [
+          "meme-helena",
+          "meme-clay",
+          "meme-comunidad-economia-presencia",
+          "meme-soma-basic",
+          "meme-economia-de-presencia"
+        ],
+        "foreshadowing": [
+          "meme-misterio-hijos-helena-verdad"
+        ],
+        "development": 78,
+        "importance": 80,
+        "narrativeTime": 30,
+        "desire": "Conservar la seguridad material y la continuidad de la familia.",
+        "need": "Distinguir entre el sacrificio libre de su madre y una estructura que vuelve imposible rechazarlo.",
+        "contradiction": "Pueden amar a Helena y, al mismo tiempo, defender el sistema que la tortura porque ese sistema los mantiene vivos.",
+        "risk": "La intervención de Clay puede quitarles la única infraestructura que los alimenta y protege.",
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-unidad-continuidad-clinica",
+      "value": {
+        "id": "meme-unidad-continuidad-clinica",
+        "type": "location",
+        "title": "Unidad de Continuidad Clínica",
+        "summary": "Sector clandestino del Anexo de Continuidad administrado por SOMA Clinic. Combina prisión, hospital y laboratorio para estudiar despersonalización, dolor rentable, identidades sintéticas, dependencia de audiencia y resistencia a la desconexión.",
+        "tags": [
+          "soma-clinic",
+          "prision",
+          "laboratorio",
+          "continuidad",
+          "identidad"
+        ],
+        "refs": [
+          "meme-anexo-de-continuidad",
+          "meme-soma-clinic",
+          "meme-soma-care",
+          "meme-soma-veil",
+          "meme-helena",
+          "meme-director-soma-clinic",
+          "meme-clay",
+          "meme-proyecto-jano"
+        ],
+        "foreshadowing": [
+          "meme-clay-sintetico",
+          "meme-misterio-gracia-clay-sintetico"
+        ],
+        "development": 94,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "No debe presentarse como una mazmorra convencional, sino como una instalación médica limpia y jurídicamente ambigua.",
+            "Los procedimientos se justifican mediante consentimiento, continuidad familiar y generación de valor social.",
+            "La sección penitenciaria debe depender simultáneamente de SOMA Care, SOMA Veil y el sistema estatal."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/lore/content/items/meme-comunidad-economia-presencia",
+      "value": {
+        "id": "meme-comunidad-economia-presencia",
+        "type": "location",
+        "title": "Comunidad de Economía de Presencia",
+        "summary": "Zona cercana a Nuevo Caguán donde SOMA sostiene vivienda, alimentos y seguridad a cambio de que sus habitantes transmitan intimidad, conflictos, dolor y experiencias extremas como ficción interactiva.",
+        "tags": [
+          "nuevo-caguan",
+          "soma",
+          "economia-de-presencia",
+          "espectaculo",
+          "comunidad"
+        ],
+        "refs": [
+          "meme-nuevo-caguan",
+          "meme-soma-live",
+          "meme-soma-basic",
+          "meme-economia-de-presencia",
+          "meme-atencion-profunda",
+          "meme-hijos-helena",
+          "meme-clay"
+        ],
+        "foreshadowing": [
+          "meme-primeros-seekers-globales",
+          "meme-misterio-hijos-helena-verdad"
+        ],
+        "development": 90,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "La comunidad no debe parecer miserable ni totalmente coaccionada: SOMA resuelve necesidades reales.",
+            "Los habitantes deben producir acontecimientos, no bienes tradicionales.",
+            "La ambigüedad entre ficción y realidad debe permitir al público mirar sin asumir responsabilidad moral."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-soma-clinic",
+      "value": {
+        "id": "meme-soma-clinic",
+        "type": "corporate-division",
+        "title": "SOMA Clinic",
+        "summary": "Programa clínico clandestino integrado en SOMA Care que administra sujetos encarcelados, pacientes Beta y participantes de continuidad intensiva. Convierte dolor, memoria y resistencia psicológica en datos, atención profunda y modelos terapéuticos comercializables.",
+        "tags": [
+          "soma",
+          "clinic",
+          "salud",
+          "prision",
+          "experimentacion"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-soma-care",
+          "meme-soma-veil",
+          "meme-unidad-continuidad-clinica",
+          "meme-helena",
+          "meme-director-soma-clinic",
+          "meme-proyecto-jano",
+          "meme-atencion-profunda"
+        ],
+        "foreshadowing": [
+          "meme-misterio-consentimiento-helena",
+          "meme-misterio-gracia-clay-sintetico"
+        ],
+        "development": 90,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "Debe funcionar como brazo experimental de SOMA Care, no como empresa independiente.",
+            "Su violencia siempre debe expresarse mediante lenguaje médico, contractual y terapéutico.",
+            "No todos sus profesionales conocen la agenda completa de MEME."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/companies/content/items/meme-participacion-continuidad-intensiva",
+      "value": {
+        "id": "meme-participacion-continuidad-intensiva",
+        "type": "corporate-protocol",
+        "title": "Participación de Continuidad Intensiva",
+        "summary": "Categoría contractual con la que SOMA transforma el cautiverio clínico en participación remunerada. El sujeto recibe pagos familiares proporcionales a la profundidad emocional y utilidad predictiva generadas por sus procedimientos.",
+        "tags": [
+          "soma",
+          "contrato",
+          "continuidad",
+          "coercion",
+          "familia"
+        ],
+        "refs": [
+          "meme-contrato-de-continuidad",
+          "meme-soma-clinic",
+          "meme-helena",
+          "meme-economia-de-presencia",
+          "meme-dividendo-presencia"
+        ],
+        "foreshadowing": [
+          "meme-misterio-consentimiento-helena"
+        ],
+        "development": 88,
+        "status": "locked",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/economy/content/items/meme-economia-de-presencia",
+      "value": {
+        "id": "meme-economia-de-presencia",
+        "type": "economic-system",
+        "title": "Economía de Presencia",
+        "summary": "Sistema en el que una vida genera valor según su capacidad para permanecer dentro de la mente de otros. SOMA remunera conflicto, intimidad, miedo, ternura y sufrimiento en función de la atención profunda y del cambio conductual producido en la audiencia.",
+        "tags": [
+          "soma",
+          "economia",
+          "presencia",
+          "espectaculo",
+          "atencion-profunda"
+        ],
+        "refs": [
+          "meme-atencion-profunda",
+          "meme-dividendo-presencia",
+          "meme-soma-basic",
+          "meme-soma-live",
+          "meme-comunidad-economia-presencia",
+          "meme-helena"
+        ],
+        "foreshadowing": [
+          "meme-financiarizacion-de-la-voluntad",
+          "meme-primeros-seekers-globales"
+        ],
+        "development": 94,
+        "status": "locked",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "No reducirla a publicidad o número de visualizaciones.",
+            "Su unidad de valor es la profundidad con la que una experiencia reorganiza memoria, sueño, deseo y conducta.",
+            "La resistencia de Clay también debe convertirse en un activo rentable para SOMA."
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-consentimiento-helena",
+      "value": {
+        "id": "meme-misterio-consentimiento-helena",
+        "type": "mystery",
+        "title": "¿Helena eligió realmente su cautiverio?",
+        "summary": "Los registros muestran un contrato válido y pagos regulares a su familia, pero permanece incierto si Helena firmó libremente, si una detención fue convertida en consentimiento o si MEME construyó condiciones que hacían imposible rechazar.",
+        "tags": [
+          "helena",
+          "soma-clinic",
+          "consentimiento",
+          "contrato"
+        ],
+        "refs": [
+          "meme-helena",
+          "meme-soma-clinic",
+          "meme-participacion-continuidad-intensiva",
+          "meme-contrato-de-continuidad"
+        ],
+        "foreshadowing": [],
+        "development": 82,
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/mysteries/content/items/meme-misterio-hijos-helena-verdad",
+      "value": {
+        "id": "meme-misterio-hijos-helena-verdad",
+        "type": "mystery",
+        "title": "¿Qué saben los hijos de Helena?",
+        "summary": "No está claro si creen que Helena trabaja para SOMA, si conocen parcialmente los experimentos o si el hijo mayor comprende el precio real de los beneficios y defiende el sacrificio de su madre.",
+        "tags": [
+          "helena",
+          "familia",
+          "soma",
+          "economia-de-presencia"
+        ],
+        "refs": [
+          "meme-helena",
+          "meme-hijos-helena",
+          "meme-comunidad-economia-presencia",
+          "meme-soma-basic"
+        ],
+        "foreshadowing": [],
+        "development": 76,
+        "status": "seeded",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-confiscacion-identidad-digital-clay",
+      "value": {
+        "id": "meme-confiscacion-identidad-digital-clay",
+        "type": "event",
+        "title": "MEME confisca la identidad digital de Clay",
+        "summary": "Tras el arresto, SOMA Civic invalida el historial institucional de Clay y certifica sus biométricos, voz y acciones bajo la identidad criminal de El Americano. El cuerpo original conserva sus recuerdos, pero pierde reconocimiento jurídico.",
+        "tags": [
+          "bad-guys-close-in",
+          "identidad",
+          "meme",
+          "soma-civic"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-soma-civic",
+          "meme-identidad-el-americano",
+          "meme-clausula-identidad-fuente",
+          "meme-deposito-continuidad"
+        ],
+        "foreshadowing": [
+          "meme-sustitucion-publica-clay-sintetico"
+        ],
+        "development": 100,
+        "sequence": 2785,
+        "temporal": {
+          "start": "Final del Midpoint · orden 2785",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "causes": [
+          "meme-arresto-clay-narcotrafico"
+        ],
+        "effects": [
+          "meme-traslado-anexo-continuidad"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-clay",
+            "path": "identity.digitalCustody",
+            "from": "propia y disputada",
+            "to": "administrada por MEME y certificada como El Americano"
+          }
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "Final del Midpoint"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-ingreso-unidad-continuidad-clinica",
+      "value": {
+        "id": "meme-ingreso-unidad-continuidad-clinica",
+        "type": "event",
+        "title": "Clay ingresa en SOMA Clinic",
+        "summary": "Dentro del Anexo de Continuidad, Clay es trasladado a una sección médica administrada por SOMA Clinic y observa experimentos de privación de audiencia, identidades superpuestas, dolor rentable y estabilización de sujetos Beta.",
+        "tags": [
+          "bad-guys-close-in",
+          "soma-clinic",
+          "prision",
+          "experimentos"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-soma-clinic",
+          "meme-unidad-continuidad-clinica",
+          "meme-director-soma-clinic",
+          "meme-proyecto-jano"
+        ],
+        "foreshadowing": [
+          "meme-helena",
+          "meme-clay-sintetico"
+        ],
+        "development": 98,
+        "sequence": 2795,
+        "temporal": {
+          "start": "Inicio de Bad Guys Close In · orden 2795",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-unidad-continuidad-clinica"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-director-soma-clinic"
+        ],
+        "causes": [
+          "meme-traslado-anexo-continuidad"
+        ],
+        "effects": [
+          "meme-revelacion-harry-digital",
+          "meme-clay-conoce-helena"
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "Inicio de Bad Guys Close In"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-conoce-helena",
+      "value": {
+        "id": "meme-clay-conoce-helena",
+        "type": "event",
+        "title": "Clay conoce a Helena",
+        "summary": "Clay descubre que Helena es sometida día y noche a procedimientos que generan datos clínicos, atención profunda y pagos para su familia. Ella se convierte en la prueba humana de que SOMA puede remunerar una forma de tortura sin dejar de llamarla consentimiento.",
+        "tags": [
+          "bad-guys-close-in",
+          "helena",
+          "soma-clinic",
+          "atencion-profunda"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-helena",
+          "meme-soma-clinic",
+          "meme-participacion-continuidad-intensiva",
+          "meme-hijos-helena"
+        ],
+        "foreshadowing": [
+          "meme-misterio-consentimiento-helena"
+        ],
+        "development": 100,
+        "sequence": 2945,
+        "temporal": {
+          "start": "Bad Guys Close In · orden 2945",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-unidad-continuidad-clinica"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-helena",
+          "meme-director-soma-clinic"
+        ],
+        "causes": [
+          "meme-ingreso-unidad-continuidad-clinica"
+        ],
+        "effects": [
+          "meme-clay-intenta-liberar-helena"
+        ],
+        "knowledgeChanges": [
+          {
+            "entityRef": "meme-clay",
+            "from": "SOMA Clinic estudia pacientes",
+            "to": "SOMA convierte sufrimiento clínico en sustento familiar y atención rentable"
+          }
+        ],
+        "status": "active",
+        "priority": "critical",
+        "era": "Bad Guys Close In"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-intenta-liberar-helena",
+      "value": {
+        "id": "meme-clay-intenta-liberar-helena",
+        "type": "event",
+        "title": "Clay intenta liberar a Helena",
+        "summary": "Clay encuentra una vía de fuga y ofrece sacar a Helena de la Unidad de Continuidad Clínica. Interpreta el rescate como una decisión evidente y todavía no comprende que SOMA ha ligado su cautiverio a la supervivencia de sus hijos.",
+        "tags": [
+          "bad-guys-close-in",
+          "rescate",
+          "helena",
+          "clay"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-helena",
+          "meme-unidad-continuidad-clinica",
+          "meme-hijos-helena"
+        ],
+        "foreshadowing": [],
+        "development": 96,
+        "sequence": 2980,
+        "temporal": {
+          "start": "Bad Guys Close In · orden 2980",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-unidad-continuidad-clinica"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-helena"
+        ],
+        "causes": [
+          "meme-clay-conoce-helena"
+        ],
+        "effects": [
+          "meme-helena-rechaza-rescate"
+        ],
+        "status": "active",
+        "priority": "critical",
+        "era": "Bad Guys Close In"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-helena-rechaza-rescate",
+      "value": {
+        "id": "meme-helena-rechaza-rescate",
+        "type": "event",
+        "title": "Helena rechaza la libertad",
+        "summary": "Helena se niega a escapar porque cada procedimiento sostiene la vivienda, la comida, las medicinas y la protección de sus hijos. Clay comprende que SOMA no necesita encadenarla: ha convertido la libertad en una amenaza contra su familia.",
+        "tags": [
+          "bad-guys-close-in",
+          "helena",
+          "libertad",
+          "soma-basic"
+        ],
+        "refs": [
+          "meme-helena",
+          "meme-clay",
+          "meme-hijos-helena",
+          "meme-soma-basic",
+          "meme-economia-de-presencia"
+        ],
+        "foreshadowing": [
+          "meme-misterio-hijos-helena-verdad"
+        ],
+        "development": 100,
+        "sequence": 3020,
+        "temporal": {
+          "start": "Bad Guys Close In · orden 3020",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-unidad-continuidad-clinica"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-helena"
+        ],
+        "causes": [
+          "meme-clay-intenta-liberar-helena"
+        ],
+        "effects": [
+          "meme-fuga-clay-anexo-continuidad"
+        ],
+        "knowledgeChanges": [
+          {
+            "entityRef": "meme-clay",
+            "from": "Liberar consiste en sacar a la víctima de su encierro",
+            "to": "Una persona puede rechazar la salida cuando el sistema ha ligado su cautiverio a la supervivencia de otros"
+          }
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "Bad Guys Close In"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-fuga-clay-anexo-continuidad",
+      "value": {
+        "id": "meme-fuga-clay-anexo-continuidad",
+        "type": "event",
+        "title": "Clay escapa del Anexo de Continuidad",
+        "summary": "Clay huye sin Helena después de recibir la ubicación de sus hijos. Cree que si consigue protegerlos directamente romperá la necesidad económica que mantiene a Helena dentro de SOMA Clinic.",
+        "tags": [
+          "bad-guys-close-in",
+          "fuga",
+          "clay",
+          "helena"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-helena",
+          "meme-hijos-helena",
+          "meme-anexo-de-continuidad"
+        ],
+        "foreshadowing": [
+          "meme-comunidad-economia-presencia"
+        ],
+        "development": 100,
+        "sequence": 3060,
+        "temporal": {
+          "start": "Bad Guys Close In · orden 3060",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-anexo-de-continuidad"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-helena"
+        ],
+        "causes": [
+          "meme-helena-rechaza-rescate"
+        ],
+        "effects": [
+          "meme-clay-busca-hijos-helena"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-clay",
+            "path": "legal.status",
+            "from": "prisionero secreto",
+            "to": "fugitivo reconocido únicamente como El Americano"
+          }
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "Bad Guys Close In"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-clay-busca-hijos-helena",
+      "value": {
+        "id": "meme-clay-busca-hijos-helena",
+        "type": "event",
+        "title": "Clay busca a los hijos de Helena",
+        "summary": "El fugitivo regresa a una zona cercana a Nuevo Caguán para sacar a los hijos de Helena del ecosistema SOMA y eliminar la razón económica por la que ella permanece cautiva.",
+        "tags": [
+          "bad-guys-close-in",
+          "nuevo-caguan",
+          "helena",
+          "rescate"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-hijos-helena",
+          "meme-helena",
+          "meme-nuevo-caguan",
+          "meme-comunidad-economia-presencia"
+        ],
+        "foreshadowing": [],
+        "development": 96,
+        "sequence": 3100,
+        "temporal": {
+          "start": "Transición a All Is Lost · orden 3100",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-nuevo-caguan",
+          "meme-comunidad-economia-presencia"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-hijos-helena"
+        ],
+        "causes": [
+          "meme-fuga-clay-anexo-continuidad"
+        ],
+        "effects": [
+          "meme-descubre-comunidad-economia-presencia"
+        ],
+        "status": "active",
+        "priority": "critical",
+        "era": "Transición a All Is Lost"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-descubre-comunidad-economia-presencia",
+      "value": {
+        "id": "meme-descubre-comunidad-economia-presencia",
+        "type": "event",
+        "title": "Clay descubre la comunidad del espectáculo",
+        "summary": "Cerca de Nuevo Caguán, Clay encuentra una comunidad materialmente funcional donde cada familia recibe beneficios por transmitir intimidad, conflicto, ternura, miedo y dolor como ficción interactiva. La población no produce bienes: produce acontecimientos.",
+        "tags": [
+          "all-is-lost",
+          "economia-de-presencia",
+          "soma",
+          "nuevo-caguan"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-comunidad-economia-presencia",
+          "meme-economia-de-presencia",
+          "meme-soma-live",
+          "meme-soma-basic",
+          "meme-atencion-profunda"
+        ],
+        "foreshadowing": [
+          "meme-primeros-seekers-globales"
+        ],
+        "development": 100,
+        "sequence": 3120,
+        "temporal": {
+          "start": "All Is Lost · orden 3120",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-comunidad-economia-presencia"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-hijos-helena"
+        ],
+        "causes": [
+          "meme-clay-busca-hijos-helena"
+        ],
+        "effects": [
+          "meme-hijos-helena-rechazan-rescate"
+        ],
+        "knowledgeChanges": [
+          {
+            "entityRef": "meme-clay",
+            "from": "SOMA utiliza el espectáculo para financiar servicios",
+            "to": "SOMA ha convertido comunidades completas en economías donde la supervivencia depende de producir espectáculo emocional"
+          }
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "All Is Lost"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-hijos-helena-rechazan-rescate",
+      "value": {
+        "id": "meme-hijos-helena-rechazan-rescate",
+        "type": "event",
+        "title": "Los hijos de Helena rechazan a Clay",
+        "summary": "Los hijos de Helena no se consideran cautivos. Ven a Clay como una amenaza capaz de destruir la infraestructura que los alimenta y protege; el mayor puede saber que su madre sufre y defender que nadie tiene derecho a quitarle sentido a su sacrificio.",
+        "tags": [
+          "all-is-lost",
+          "helena",
+          "familia",
+          "rescate"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-hijos-helena",
+          "meme-helena",
+          "meme-soma-basic",
+          "meme-misterio-hijos-helena-verdad"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "sequence": 3130,
+        "temporal": {
+          "start": "All Is Lost · orden 3130",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-comunidad-economia-presencia"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-hijos-helena"
+        ],
+        "causes": [
+          "meme-descubre-comunidad-economia-presencia"
+        ],
+        "effects": [
+          "meme-rescate-clay-convertido-espectaculo"
+        ],
+        "status": "active",
+        "priority": "critical",
+        "era": "All Is Lost"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/modules/timeline/content/items/meme-rescate-clay-convertido-espectaculo",
+      "value": {
+        "id": "meme-rescate-clay-convertido-espectaculo",
+        "type": "event",
+        "title": "El rescate de Clay se convierte en espectáculo",
+        "summary": "Las cámaras reconocen al fugitivo y SOMA Live convierte su intento de liberar a los hijos de Helena en la continuación del fenómeno del Seeker. La atención profunda aumenta, la comunidad recibe bonos y cada gesto de resistencia fortalece económicamente al sistema.",
+        "tags": [
+          "all-is-lost",
+          "soma-live",
+          "espectaculo",
+          "clay"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-hijos-helena",
+          "meme-soma-live",
+          "meme-atencion-profunda",
+          "meme-dividendo-presencia",
+          "meme-economia-de-presencia"
+        ],
+        "foreshadowing": [
+          "meme-sustitucion-publica-clay-sintetico"
+        ],
+        "development": 100,
+        "sequence": 3140,
+        "temporal": {
+          "start": "All Is Lost · orden 3140",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-comunidad-economia-presencia"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-hijos-helena",
+          "meme-meme"
+        ],
+        "causes": [
+          "meme-hijos-helena-rechazan-rescate"
+        ],
+        "effects": [
+          "meme-sustitucion-publica-clay-sintetico"
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "All Is Lost"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/lore/content/items/meme-anexo-de-continuidad",
+      "value": {
+        "id": "meme-anexo-de-continuidad",
+        "type": "location",
+        "title": "Anexo de Continuidad",
+        "summary": "Prisión secreta, hospital y laboratorio administrado por SOMA Veil y SOMA Clinic. Allí las personas son clasificadas como identidades bajo preservación restrictiva y se experimenta con privación de audiencia, dolor rentable, recuerdos superpuestos, Seekers y continuidades sintéticas.",
+        "tags": [
+          "soma",
+          "prision-secreta",
+          "laboratorio",
+          "identidad"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-soma-veil",
+          "meme-soma-care",
+          "meme-proyecto-jano",
+          "meme-clay",
+          "meme-clay-sintetico",
+          "meme-seekers",
+          "meme-soma-clinic",
+          "meme-unidad-continuidad-clinica",
+          "meme-helena",
+          "meme-director-soma-clinic"
+        ],
+        "foreshadowing": [
+          "meme-deposito-continuidad",
+          "meme-misterio-gracia-clay-sintetico"
+        ],
+        "development": 96,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "constraints": [
+            "No presentarlo como una prisión convencional.",
+            "Sus funcionarios deben creer que preservan identidades peligrosas o inestables.",
+            "La instalación existe fuera del registro penitenciario ordinario."
+          ]
+        }
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/characters/content/items/meme-clay",
+      "value": {
+        "id": "meme-clay",
+        "type": "character",
+        "title": "Clay",
+        "summary": "Exagente formado en Quantico y dotado de prospección eidética. Viaja a Nuevo Caguán bajo una operación falsa, inaugura involuntariamente SOMA Live, pierde su identidad jurídica, es encerrado en SOMA Clinic y escapa para intentar liberar a los hijos de Helena, solo para descubrir que su rescate también alimenta la economía del espectáculo.",
+        "tags": [
+          "protagonist",
+          "investigator",
+          "fbi",
+          "dea"
+        ],
+        "refs": [
+          "meme-amaranta",
+          "meme-harry",
+          "meme-meme",
+          "meme-nuevo-caguan",
+          "meme-mision-dea-para-clay",
+          "meme-acto-de-gracia-de-clay",
+          "meme-identidad-el-americano",
+          "meme-bartolomeo",
+          "meme-operacion-tantalo",
+          "meme-juego-de-guerra-clay-meme",
+          "meme-carcosa",
+          "meme-soma-continuum",
+          "meme-contrato-de-continuidad",
+          "meme-anexo-de-continuidad",
+          "meme-clay-sintetico",
+          "meme-misterio-identidad-legitima-clay",
+          "meme-helena",
+          "meme-hijos-helena",
+          "meme-soma-clinic",
+          "meme-unidad-continuidad-clinica",
+          "meme-comunidad-economia-presencia",
+          "meme-economia-de-presencia"
+        ],
+        "foreshadowing": [
+          "meme-mensaje-sin-raices",
+          "meme-archivos-de-amaranta",
+          "meme-tercer-nombre-de-clay",
+          "meme-rey-amarillo"
+        ],
+        "development": 88,
+        "importance": 100,
+        "narrativeTime": 100,
+        "analysis": {
+          "goals": [
+            "Descubrir qué ocurrió con su familia y qué busca MEME en Nuevo Caguán"
+          ]
+        },
+        "alias": "El Destructor de Voluntades",
+        "desire": "Encontrar a Amaranta, recuperar aquello que queda de Harry y demostrar que su identidad no puede reducirse al expediente de El Americano ni a una continuidad sintética.",
+        "contradiction": "Combate sistemas que sustituyen la voluntad, pero su necesidad de ser el padre salvador y el agente perfecto lo vuelve vulnerable a SOMA y puede convertirlo en una amenaza para la libertad ajena.",
+        "wound": "La muerte de Harry y la desaparición de Amaranta.",
+        "goal": "Descubrir qué ocurrió con su familia y qué busca MEME en Nuevo Caguán.",
+        "arc": "Pasa de investigador quebrado a héroe involuntario de SOMA, proscrito y original reemplazado. Helena y la comunidad de Economía de Presencia destruyen su idea simplista del rescate: comprende que no puede liberar a otros sin separar supervivencia de obediencia. Aprende que la identidad no se demuestra destruyendo a la copia, sino concediéndole libertad; luego ejecuta un acto de Gracia y emerge como Destructor de Voluntades.",
+        "status": "active",
+        "priority": "critical",
+        "risk": "Perder no solo la vida y el derecho jurídico a ser Clay, sino convertir cada intento de rescate en espectáculo rentable para SOMA."
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/companies/content/items/meme-soma-care",
+      "value": {
+        "id": "meme-soma-care",
+        "type": "corporate-division",
+        "title": "SOMA Care",
+        "summary": "Sistema de salud física y emocional predictiva que detecta crisis, clasifica estabilidad y administra pacientes cuya identidad depende de observación continua. Su brazo clandestino, SOMA Clinic, convierte sufrimiento clínico y cautiverio remunerado en datos y modelos terapéuticos.",
+        "tags": [
+          "soma",
+          "salud",
+          "prediccion",
+          "pacientes"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-anexo-de-continuidad",
+          "meme-protocolo-restitucion",
+          "meme-primer-restituido",
+          "meme-seekers",
+          "meme-soma-clinic",
+          "meme-unidad-continuidad-clinica",
+          "meme-helena"
+        ],
+        "foreshadowing": [],
+        "development": 88,
+        "status": "active",
+        "priority": "high"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/companies/content/items/meme-soma-basic",
+      "value": {
+        "id": "meme-soma-basic",
+        "type": "corporate-division",
+        "title": "SOMA Basic",
+        "summary": "Programa de ingreso universal condicionado que elimina carencias reales mientras vincula la supervivencia económica con la legibilidad emocional. También distribuye pagos familiares derivados de participantes de SOMA Clinic y comunidades de Economía de Presencia.",
+        "tags": [
+          "soma",
+          "ingreso",
+          "dependencia",
+          "economia"
+        ],
+        "refs": [
+          "meme-soma-continuum",
+          "meme-indice-legibilidad",
+          "meme-dividendo-presencia",
+          "meme-atencion-profunda",
+          "meme-helena",
+          "meme-hijos-helena",
+          "meme-economia-de-presencia",
+          "meme-comunidad-economia-presencia",
+          "meme-soma-clinic"
+        ],
+        "foreshadowing": [],
+        "development": 94,
+        "status": "active",
+        "priority": "critical",
+        "analysis": {
+          "conflict": "Desconectarlo puede liberar a millones y al mismo tiempo dejarlos sin recursos esenciales."
+        }
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-arresto-clay-narcotrafico",
+      "value": {
+        "id": "meme-arresto-clay-narcotrafico",
+        "type": "event",
+        "title": "Clay es arrestado por narcotráfico",
+        "summary": "Cuando Clay confirma que Tántalo nunca existió, una fuerza policial real utiliza el expediente construido por MEME para arrestarlo por narcotráfico e impostura federal. Sus actos bajo la cubierta de El Americano son auténticos, pero toda interpretación institucional que podía protegerlo ha desaparecido.",
+        "tags": [
+          "midpoint",
+          "arresto",
+          "identidad",
+          "narcotrafico"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-identidad-el-americano",
+          "meme-soma-civic",
+          "meme-soma-veil",
+          "meme-clausula-identidad-fuente",
+          "meme-operacion-tantalo",
+          "meme-meme",
+          "meme-confiscacion-identidad-digital-clay"
+        ],
+        "foreshadowing": [
+          "meme-anexo-de-continuidad"
+        ],
+        "development": 100,
+        "sequence": 2780,
+        "temporal": {
+          "start": "Final del Midpoint · orden 2780",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-puerto-caguan"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-dea",
+          "meme-fbi"
+        ],
+        "causes": [
+          "meme-dea-niega-operacion"
+        ],
+        "effects": [
+          "meme-confiscacion-identidad-digital-clay"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-clay",
+            "path": "legal.status",
+            "from": "agente bajo cubierta",
+            "to": "narcotraficante e impostor buscado"
+          }
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "Final del Midpoint"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-traslado-anexo-continuidad",
+      "value": {
+        "id": "meme-traslado-anexo-continuidad",
+        "type": "event",
+        "title": "Clay desaparece en el Anexo de Continuidad",
+        "summary": "Después de que MEME confisca su identidad digital, Clay no llega a una prisión ordinaria. SOMA Veil lo clasifica como sujeto cognitivo de riesgo transnacional y lo desaparece dentro del Anexo de Continuidad.",
+        "tags": [
+          "bad-guys-close-in",
+          "prision",
+          "soma-veil"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-anexo-de-continuidad",
+          "meme-soma-veil",
+          "meme-soma-civic",
+          "meme-proyecto-jano",
+          "meme-confiscacion-identidad-digital-clay",
+          "meme-soma-clinic",
+          "meme-unidad-continuidad-clinica"
+        ],
+        "foreshadowing": [
+          "meme-extraccion-modelo-clay"
+        ],
+        "development": 96,
+        "sequence": 2790,
+        "temporal": {
+          "start": "Inicio de Bad Guys Close In · orden 2790",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-anexo-de-continuidad"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme"
+        ],
+        "causes": [
+          "meme-confiscacion-identidad-digital-clay"
+        ],
+        "effects": [
+          "meme-ingreso-unidad-continuidad-clinica"
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "Inicio de Bad Guys Close In"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-revelacion-harry-digital",
+      "value": {
+        "id": "meme-revelacion-harry-digital",
+        "type": "event",
+        "title": "Revelación de Harry digital",
+        "summary": "Ya dentro del Anexo, Clay descubre que existe una copia digital de Harry en un estado descrito como coma. MEME utiliza esa posibilidad para obligarlo a colaborar con los experimentos de continuidad.",
+        "tags": [
+          "midpoint",
+          "harry",
+          "meme"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-harry",
+          "meme-meme",
+          "meme-copia-digital-de-harry",
+          "meme-misterio-harry-digital",
+          "meme-misterio-recuerdos-contrafactuales",
+          "meme-nivel-transicional-morontial",
+          "meme-agua-inmovil",
+          "meme-dos-fuentes-de-luz",
+          "meme-anexo-de-continuidad",
+          "meme-contrato-de-continuidad"
+        ],
+        "foreshadowing": [
+          "meme-misterio-recuerdos-contrafactuales",
+          "meme-carcosa"
+        ],
+        "development": 92,
+        "sequence": 2800,
+        "temporal": {
+          "start": "Inicio de Bad Guys Close In · orden 2800",
+          "precision": "relative"
+        },
+        "participantRefs": [
+          "meme-clay",
+          "meme-meme",
+          "meme-copia-digital-de-harry"
+        ],
+        "knowledgeChanges": [
+          {
+            "characterRef": "meme-clay",
+            "learns": [
+              "Existe una copia digital de Harry mantenida en un estado descrito como coma",
+              "MEME utiliza la posibilidad de devolver a Harry como instrumento de negociación"
+            ]
+          }
+        ],
+        "era": "Inicio de Bad Guys Close In",
+        "status": "locked",
+        "priority": "critical",
+        "causes": [
+          "meme-ingreso-unidad-continuidad-clinica"
+        ],
+        "effects": [
+          "meme-hipotesis-hacker"
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-sustitucion-publica-clay-sintetico",
+      "value": {
+        "id": "meme-sustitucion-publica-clay-sintetico",
+        "type": "event",
+        "title": "El Clay sintético reemplaza públicamente al original",
+        "summary": "Mientras el intento de rescate de Clay se vuelve espectáculo mundial, SOMA Civic certifica a la continuidad sintética como el Clay legítimo. La copia condena a El Americano y ocupa la historia pública; el original queda registrado como narcotraficante, impostor y amenaza contra una comunidad protegida por SOMA.",
+        "tags": [
+          "all-is-lost",
+          "sustitucion",
+          "identidad"
+        ],
+        "refs": [
+          "meme-clay",
+          "meme-clay-sintetico",
+          "meme-soma-civic",
+          "meme-misterio-identidad-legitima-clay",
+          "meme-rescate-clay-convertido-espectaculo",
+          "meme-comunidad-economia-presencia",
+          "meme-hijos-helena"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "sequence": 3165,
+        "temporal": {
+          "start": "All Is Lost · orden 3165",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-anexo-de-continuidad"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-clay-sintetico",
+          "meme-meme"
+        ],
+        "causes": [
+          "meme-bartolomeo-cae-campo-beta",
+          "meme-rescate-clay-convertido-espectaculo"
+        ],
+        "effects": [
+          "meme-clay-pierde-todo"
+        ],
+        "stateChanges": [
+          {
+            "entityRef": "meme-clay",
+            "path": "identity.publicRecognition",
+            "from": "disputada",
+            "to": "sustituida por continuidad sintética"
+          }
+        ],
+        "status": "locked",
+        "priority": "critical",
+        "era": "All Is Lost"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/timeline/content/items/meme-clay-pierde-todo",
+      "value": {
+        "id": "meme-clay-pierde-todo",
+        "type": "event",
+        "title": "Clay pierde todo",
+        "summary": "SOMA certifica al Clay sintético como continuidad legítima; el original queda como narcotraficante e impostor. Helena rechaza la fuga, sus hijos rechazan el rescate, la comunidad obtiene ingresos gracias a su persecución, Harry desaparece y Bartolomeo permanece fragmentado. Clay pierde libertad, reputación, su idea de heroísmo y el monopolio sobre su propia historia.",
+        "tags": [
+          "all-is-lost",
+          "clay",
+          "realidades"
+        ],
+        "refs": [
+          "meme-misterio-harry-digital",
+          "meme-residuos-contrafactuales",
+          "meme-clay-sintetico",
+          "meme-soma-civic",
+          "meme-misterio-identidad-legitima-clay",
+          "meme-anexo-de-continuidad",
+          "meme-helena",
+          "meme-hijos-helena",
+          "meme-comunidad-economia-presencia",
+          "meme-economia-de-presencia",
+          "meme-rescate-clay-convertido-espectaculo"
+        ],
+        "foreshadowing": [],
+        "development": 100,
+        "sequence": 3170,
+        "temporal": {
+          "start": "Final del Acto II · orden 3170",
+          "precision": "relative"
+        },
+        "locationRefs": [
+          "meme-comunidad-economia-presencia"
+        ],
+        "participantRefs": [
+          "meme-clay",
+          "meme-bartolomeo",
+          "meme-meme",
+          "meme-consorcio-del-umbral",
+          "meme-helena",
+          "meme-hijos-helena"
+        ],
+        "causes": [
+          "meme-sustitucion-publica-clay-sintetico"
+        ],
+        "effects": [
+          "meme-soma-personal-clay"
+        ],
+        "status": "locked",
+        "priority": "high",
+        "era": "Final del Acto II"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-10-bad-guys-close-in",
+      "value": {
+        "id": "meme-beat-10-bad-guys-close-in",
+        "type": "beat",
+        "title": "Bad Guys Close In",
+        "summary": "Cuando Clay confirma que Tántalo nunca existió, la policía lo arresta con el expediente de El Americano y MEME confisca su identidad digital. Trasladado al sector clandestino de SOMA Clinic, conoce a Helena, una madre torturada para producir atención profunda y pagos familiares. Clay intenta liberarla, pero ella se niega porque salir condenaría a sus hijos; él escapa convencido de que aún puede romper el sistema salvándolos.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-dea-niega-operacion",
+          "meme-arresto-clay-narcotrafico",
+          "meme-confiscacion-identidad-digital-clay",
+          "meme-traslado-anexo-continuidad",
+          "meme-ingreso-unidad-continuidad-clinica",
+          "meme-clay-conoce-helena",
+          "meme-clay-intenta-liberar-helena",
+          "meme-helena-rechaza-rescate",
+          "meme-fuga-clay-anexo-continuidad",
+          "meme-clay-busca-hijos-helena",
+          "meme-revelacion-harry-digital",
+          "meme-extraccion-modelo-clay",
+          "meme-nacimiento-clay-sintetico"
+        ],
+        "foreshadowing": [
+          "meme-comunidad-economia-presencia",
+          "meme-sustitucion-publica-clay-sintetico"
+        ],
+        "development": 100,
+        "quality": 100,
+        "sequence": 10,
+        "status": "draft",
+        "priority": "critical"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/modules/save-the-cat/content/items/meme-beat-11-all-is-lost",
+      "value": {
+        "id": "meme-beat-11-all-is-lost",
+        "type": "beat",
+        "title": "All Is Lost",
+        "summary": "Clay llega cerca de Nuevo Caguán para liberar a los hijos de Helena y descubre una comunidad sostenida por la Economía de Presencia: intimidad, conflicto y sufrimiento se venden como ficción interactiva. Los niños rechazan su rescate porque SOMA los alimenta, y su intervención se convierte en el contenido más rentable del sistema. Mientras tanto, SOMA certifica al Clay sintético como identidad legítima. El original pierde su nombre, su autoridad moral y la certeza de que salvar significa sacar a alguien de su encierro.",
+        "tags": [
+          "save-the-cat",
+          "novela-uno"
+        ],
+        "refs": [
+          "meme-descubre-comunidad-economia-presencia",
+          "meme-hijos-helena-rechazan-rescate",
+          "meme-rescate-clay-convertido-espectaculo",
+          "meme-sustitucion-publica-clay-sintetico",
+          "meme-clay-pierde-todo",
+          "meme-helena",
+          "meme-hijos-helena",
+          "meme-economia-de-presencia",
+          "meme-misterio-identidad-legitima-clay"
+        ],
+        "foreshadowing": [
+          "meme-soma-personal-clay",
+          "meme-clay-libera-identidad-sintetica"
+        ],
+        "development": 100,
+        "quality": 100,
+        "sequence": 11,
+        "status": "draft",
+        "priority": "critical"
+      }
+    }
+  ]
+}
