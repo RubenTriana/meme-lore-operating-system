@@ -1,0 +1,10 @@
+{
+  "status": "GLOSARIO_DE_TRABAJO",
+  "terms": [
+    {"term":"copia principal","meaning":"voz que afirma y organiza","status":"APROBADO_PARA_CODICE"},
+    {"term":"glosa posterior","meaning":"voz que disputa autoridad y distribución de coste","status":"APROBADO_PARA_CODICE"},
+    {"term":"tercera mano","meaning":"voz que preserva una pregunta abierta","status":"APROBADO_PARA_CODICE"},
+    {"term":"batallas imposibles","meaning":"visiones incompatibles, no historia factual","status":"HIPOTESIS"},
+    {"term":"Lengua Semilla","meaning":"capa no activada","status":"PENDIENTE"}
+  ]
+}

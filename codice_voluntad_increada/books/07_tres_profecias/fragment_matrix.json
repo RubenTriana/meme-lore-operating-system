@@ -1,0 +1,9 @@
+{
+  "unit":"07_tres_profecias",
+  "status":"EDICION_DE_TRABAJO",
+  "fragments":[
+    {"id":"CVI-07-01","title":"El que abre con una herida","purpose":"La salida puede dañar a quien la abre.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-07-02","title":"La guardiana del jardín cerrado","purpose":"Cuidado y control se vuelven indistinguibles bajo miedo.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-07-03","title":"La voz que pide no ser copia","purpose":"La memoria no agota a la persona.","canonicalStatus":"HIPOTESIS"}
+  ]
+}

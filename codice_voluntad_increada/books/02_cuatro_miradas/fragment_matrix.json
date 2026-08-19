@@ -1,0 +1,69 @@
+{
+  "unit": "02_cuatro_miradas",
+  "status": "BORRADOR_PROPUESTO",
+  "fragments": [
+    {
+      "id": "CVI-02-01",
+      "title": "La batalla de la campana alta",
+      "battleType": "cielo",
+      "sourceAttributed": "Vigía del arco; procedencia no verificable",
+      "visibleMeaning": "Quien domina la altura puede llamar defensa a su vigilancia.",
+      "alternativeReading": "La campana podría ser una ciudad, una tormenta o una metáfora de autoridad.",
+      "canonicalStatus": "HIPOTESIS"
+    },
+    {
+      "id": "CVI-02-02",
+      "title": "La guerra de la piedra hueca",
+      "battleType": "superficie/subsuelo",
+      "sourceAttributed": "Cavador sin nombre; copia incompleta",
+      "visibleMeaning": "Una frontera que sostiene vidas también puede elegir quién carga su peso.",
+      "alternativeReading": "El subsuelo puede designar túneles, trabajo oculto o una memoria reprimida.",
+      "canonicalStatus": "HIPOTESIS"
+    },
+    {
+      "id": "CVI-02-02A",
+      "title": "El canto de las manos sin tierra",
+      "battleType": "superficie/subsuelo",
+      "sourceAttributed": "Hoja cosida a la relación del cavador; mano no identificada",
+      "visibleMeaning": "La carga compartida de manera desigual convierte el sostén en obediencia forzada.",
+      "alternativeReading": "Las manos pueden ser trabajadores, familiares, muertos recordados o custodios de una memoria colectiva.",
+      "canonicalStatus": "HIPOTESIS"
+    },
+    {
+      "id": "CVI-02-03",
+      "title": "Las aguas detrás del cuenco",
+      "battleType": "aguas",
+      "sourceAttributed": "Relación atribuida a una navegante; atribución discutida",
+      "visibleMeaning": "El límite prometido como protección puede volverse una forma de encierro.",
+      "alternativeReading": "El cuenco puede ser domo, costa, vasija ritual o mapa incompleto.",
+      "canonicalStatus": "HIPOTESIS"
+    },
+    {
+      "id": "CVI-02-03A",
+      "title": "La cuerda que vuelve",
+      "battleType": "aguas",
+      "sourceAttributed": "Nota atribuida a un guardacostas; la firma fue raspada",
+      "visibleMeaning": "Un límite puede volverse evidencia de aquello que intenta ocultar.",
+      "alternativeReading": "La cuerda puede ser una ruta, una deuda, una frontera política o la memoria de quienes no regresaron.",
+      "canonicalStatus": "HIPOTESIS"
+    },
+    {
+      "id": "CVI-02-04",
+      "title": "El que vino de afuera",
+      "battleType": "llegada exterior",
+      "sourceAttributed": "Testigo expulsado; texto conservado por adversarios",
+      "visibleMeaning": "Toda comunidad puede inventar un invasor para no mirar sus propios cercos.",
+      "alternativeReading": "El visitante puede ser extranjero, mensajero, exiliado o un recuerdo que retorna.",
+      "canonicalStatus": "HIPOTESIS"
+    },
+    {
+      "id": "CVI-02-04A",
+      "title": "El polvo que no eligió lado",
+      "battleType": "llegada exterior",
+      "sourceAttributed": "Añadido en la misma tinta que la glosa; atribución deliberadamente ambigua",
+      "visibleMeaning": "La pregunta del extranjero revela que el límite necesita versiones para sostenerse.",
+      "alternativeReading": "El polvo puede ser viaje, ruina, trabajo, ceniza o un recuerdo que ninguna ciudad admite como propio.",
+      "canonicalStatus": "HIPOTESIS"
+    }
+  ]
+}

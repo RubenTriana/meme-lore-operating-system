@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "entries": [
+    {
+      "id": "CV-001",
+      "topic": "Cosmogonía como hecho",
+      "status": "RESUELTO_POR_LIMITE_EDITORIAL",
+      "rule": "Las visiones de origen no prueban una historia factual del universo."
+    },
+    {
+      "id": "CV-002",
+      "topic": "Retorno de la Gracia",
+      "status": "PROHIBIDO",
+      "rule": "El Códice no puede prometer ni producir una restitución de la Gracia."
+    },
+    {
+      "id": "CV-003",
+      "topic": "Guerras ancestrales y geografías imposibles",
+      "status": "HIPOTESIS_CONTROLADA",
+      "rule": "Solo pueden figurar como visiones, parábolas o transmisiones interesadas hasta aprobación canónica expresa."
+    },
+    {
+      "id": "CV-004",
+      "topic": "Las Cuatro Miradas",
+      "status": "HIPOTESIS_CONTROLADA",
+      "rule": "Las crónicas de cielo, subsuelo, aguas y llegada exterior se contradicen entre sí y no establecen pueblos, lugares ni batallas como hechos del universo."
+    }
+  ]
+}

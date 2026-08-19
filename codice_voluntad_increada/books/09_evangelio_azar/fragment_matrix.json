@@ -1,0 +1,9 @@
+{
+  "unit":"09_evangelio_azar",
+  "status":"EDICION_DE_TRABAJO",
+  "fragments":[
+    {"id":"CVI-09-01","title":"La moneda de canto","purpose":"La elección no se reduce a resultado garantizado.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-09-02","title":"El tercer interruptor","purpose":"Toda asignación técnica es una decisión sobre vidas.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-09-03","title":"Después de la última promesa","purpose":"La voluntad ordinaria persiste sin milagro restaurador.","canonicalStatus":"HIPOTESIS"}
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "purpose": "Registrar relecturas posibles sin adelantar revelaciones dramáticas.",
+  "entries": [
+    {
+      "id": "RM-CVI-01-01-04",
+      "origin": "CVI-01-01",
+      "destination": "CVI-01-04",
+      "relation": "revela sesgo",
+      "firstPlausibleReading": "Los custodios fracasan al intentar medir aquello que desean preservar.",
+      "laterPlausibleReading": "La categoría de lo que queda fuera puede ser una estrategia del custodio para ocultar su propio acto de encierro.",
+      "activation": "Dentro de El Silencio Anterior",
+      "spoilerRisk": "BAJO",
+      "status": "HIPOTESIS"
+    },
+    {
+      "id": "RM-CVI-01-02-03",
+      "origin": "CVI-01-02",
+      "destination": "CVI-01-03",
+      "relation": "invierte",
+      "firstPlausibleReading": "Medir una amenaza puede ser una forma prudente de cuidar.",
+      "laterPlausibleReading": "Guardar un nombre o fijar una distancia puede convertir la prudencia en derecho a administrar al otro.",
+      "activation": "Dentro de El Silencio Anterior",
+      "spoilerRisk": "BAJO",
+      "status": "HIPOTESIS"
+    },
+    {
+      "id": "RM-CVI-01-02-02A",
+      "origin": "CVI-01-02",
+      "destination": "CVI-02-02A",
+      "relation": "hereda una imagen",
+      "firstPlausibleReading": "La medida intenta acompañar una amenaza sin poseerla.",
+      "laterPlausibleReading": "Medir también puede distribuir el peso de una amenaza sobre el cuerpo que parece más disponible.",
+      "activation": "Entre El Silencio Anterior y Las Cuatro Miradas",
+      "spoilerRisk": "BAJO",
+      "status": "HIPOTESIS"
+    },
+    {
+      "id": "RM-CVI-02-03A-04",
+      "origin": "CVI-02-03A",
+      "destination": "CVI-02-04",
+      "relation": "corrige",
+      "firstPlausibleReading": "La cuerda prueba que existe una mano o una tierra fuera del límite.",
+      "laterPlausibleReading": "La espera puede inventar la mano exterior; aun así, la invención revela una pérdida real que el límite administra.",
+      "activation": "Dentro de Las Cuatro Miradas",
+      "spoilerRisk": "BAJO",
+      "status": "HIPOTESIS"
+    },
+    {
+      "id": "RM-CVI-02-01-04A",
+      "origin": "CVI-02-01",
+      "destination": "CVI-02-04A",
+      "relation": "contradice",
+      "firstPlausibleReading": "Los nombres que caen del cielo obligan a los vigías a defender un techo amenazado.",
+      "laterPlausibleReading": "Los nombres, la ceniza y el enemigo pueden ser versiones producidas para que un límite parezca inevitable.",
+      "activation": "Dentro de Las Cuatro Miradas",
+      "spoilerRisk": "BAJO",
+      "status": "HIPOTESIS"
+    },
+    {
+      "id": "RM-CVI-03-08",
+      "origin": "CVI-03-03",
+      "destination": "CVI-08-03",
+      "relation": "anticipa",
+      "firstPlausibleReading": "Una cuenta aparentemente neutral puede clasificar a las personas.",
+      "laterPlausibleReading": "La promesa de garantía puede fabricar el contexto que hace obediente a la cuenta.",
+      "activation": "Entre La Primera Medida y La Gran Imitación",
+      "spoilerRisk": "MEDIO",
+      "status": "HIPOTESIS"
+    },
+    {
+      "id": "RM-CVI-05-09",
+      "origin": "CVI-05-03",
+      "destination": "CVI-09-03",
+      "relation": "corrige",
+      "firstPlausibleReading": "Un mapa incompleto protege porque impide la propiedad del conjunto.",
+      "laterPlausibleReading": "La protección incompleta deja pérdidas reales y no garantiza que alguien regrese.",
+      "activation": "Entre El Testamento de los Doce Nombres y El Evangelio del Azar",
+      "spoilerRisk": "MEDIO",
+      "status": "HIPOTESIS"
+    },
+    {
+      "id": "RM-CVI-06-07",
+      "origin": "CVI-06-02",
+      "destination": "CVI-07-03",
+      "relation": "contradice",
+      "firstPlausibleReading": "Rechazar una garantía injusta conserva dignidad.",
+      "laterPlausibleReading": "Una demanda de continuidad tampoco puede ser resuelta por una respuesta automática o sentimental.",
+      "activation": "Entre El Libro de los Vencidos y Las Tres Profecías",
+      "spoilerRisk": "MEDIO",
+      "status": "HIPOTESIS"
+    }
+  ]
+}

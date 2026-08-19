@@ -1,0 +1,11 @@
+{
+  "status": "REGISTRO_DE_HIPOTESIS",
+  "symbols": [
+    {"id":"pagina-sin-numero","meaning":"posibilidad no repartida","status":"HIPOTESIS"},
+    {"id":"piedra-hueca","meaning":"carga invisibilizada","status":"HIPOTESIS"},
+    {"id":"cuerda-que-vuelve","meaning":"frontera, rescate y ausencia","status":"HIPOTESIS"},
+    {"id":"doce-huecos","meaning":"protección y pérdida de un mapa incompleto","status":"HIPOTESIS"},
+    {"id":"moneda-canto","meaning":"elección sin garantía","status":"HIPOTESIS"}
+  ],
+  "ciphers": []
+}

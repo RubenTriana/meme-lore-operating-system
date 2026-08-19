@@ -1,0 +1,9 @@
+{
+  "unit":"05_doce_nombres",
+  "status":"EDICION_DE_TRABAJO",
+  "fragments":[
+    {"id":"CVI-05-01","title":"Los doce huecos","purpose":"Evita que los nombres legibles se vuelvan objetivos.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-05-02","title":"La adopción del río","purpose":"Defiende que pertenencia no equivale a sangre o archivo.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-05-03","title":"El testamento sin dueño","purpose":"Niega que un custodio pueda poseer el conjunto.","canonicalStatus":"HIPOTESIS"}
+  ]
+}

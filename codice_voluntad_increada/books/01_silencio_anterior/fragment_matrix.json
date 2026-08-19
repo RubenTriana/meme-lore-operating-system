@@ -1,0 +1,54 @@
+{
+  "unit": "01_silencio_anterior",
+  "status": "BORRADOR_PROPUESTO",
+  "fragments": [
+    {
+      "id": "CVI-01-01",
+      "title": "La página sin número",
+      "purpose": "Abrir la idea de una posibilidad no reclamada.",
+      "sourceAttributed": "Copia sin fecha, intervenida por glosa posterior dominante",
+      "dominantVoice": "Glosador posterior no identificado",
+      "symbol": "Página sin número",
+      "visibleMeaning": "El silencio no es vacío.",
+      "hiddenMeaning": "PENDIENTE",
+      "revelationStatus": "RESERVADO_PARA_REVELACION",
+      "canonicalStatus": "HIPOTESIS"
+    },
+    {
+      "id": "CVI-01-02",
+      "title": "La medida que llega tarde",
+      "purpose": "Contrastar cuidado y captura sin nombrar sistemas.",
+      "sourceAttributed": "Misma copia; glosa posterior preservada",
+      "dominantVoice": "Glosador posterior no identificado",
+      "symbol": "Hilo de medida",
+      "visibleMeaning": "Medir no equivale a comprender.",
+      "hiddenMeaning": "PENDIENTE",
+      "revelationStatus": "RESERVADO_PARA_REVELACION",
+      "canonicalStatus": "HIPOTESIS"
+    },
+    {
+      "id": "CVI-01-03",
+      "title": "El nombre que no se toma",
+      "purpose": "Presentar la negativa a apropiarse de una elección ajena.",
+      "sourceAttributed": "Misma copia; línea final disputada por glosa posterior",
+      "dominantVoice": "Glosador posterior no identificado",
+      "symbol": "Nombre no tomado",
+      "visibleMeaning": "El cuidado no exige posesión.",
+      "hiddenMeaning": "PENDIENTE",
+      "revelationStatus": "RESERVADO_PARA_REVELACION",
+      "canonicalStatus": "HIPOTESIS"
+    },
+    {
+      "id": "CVI-01-04",
+      "title": "Glosa de la mano borrada",
+      "purpose": "Romper la autoridad única de la copia.",
+      "sourceAttributed": "Glosador posterior no identificado",
+      "dominantVoice": "Glosador posterior no identificado",
+      "symbol": "Raspadura",
+      "visibleMeaning": "Toda custodia puede convertirse en dominio.",
+      "hiddenMeaning": "PENDIENTE",
+      "revelationStatus": "RESERVADO_PARA_REVELACION",
+      "canonicalStatus": "HIPOTESIS"
+    }
+  ]
+}

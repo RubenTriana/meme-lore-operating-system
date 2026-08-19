@@ -1,0 +1,17 @@
+{
+  "status": "APROBADO_PARA_CODICE_NO_CANONICO",
+  "assessor": "Coordinación editorial; no subagente",
+  "scores": {
+    "coherenciaCanon": 5,
+    "originalidadReligiosa": 4,
+    "misterio": 5,
+    "claridadContemporanea": 4,
+    "funcionNarrativa": 4,
+    "diferenciacionDeVoces": 4
+  },
+  "limitations": [
+    "No mide aún la inserción en una novela concreta.",
+    "No constituye aprobación autoral ni declaración CANON_CODICE."
+  ],
+  "nextRequirement": "Solo una revisión estilística futura puede reabrir esta aprobación."
+}

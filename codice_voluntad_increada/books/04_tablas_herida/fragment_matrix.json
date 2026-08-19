@@ -1,0 +1,9 @@
+{
+  "unit":"04_tablas_herida",
+  "status":"EDICION_DE_TRABAJO",
+  "fragments":[
+    {"id":"CVI-04-01","title":"La tabla partida","purpose":"Niega que el daño produzca derecho de propiedad.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-04-02","title":"La sangre en el archivo","purpose":"Distingue memoria de prueba de cargo.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-04-03","title":"La venda que aprieta","purpose":"Cuestiona el cuidado que inmoviliza.","canonicalStatus":"HIPOTESIS"}
+  ]
+}

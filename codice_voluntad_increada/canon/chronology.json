@@ -1,0 +1,15 @@
+{
+  "status": "ORDEN_RITUAL_NO_FACTUAL",
+  "units": [
+    "01_silencio_anterior",
+    "02_cuatro_miradas",
+    "03_primera_medida",
+    "04_tablas_herida",
+    "05_doce_nombres",
+    "06_libro_vencidos",
+    "07_tres_profecias",
+    "08_gran_imitacion",
+    "09_evangelio_azar"
+  ],
+  "rule": "El orden organiza la lectura y la relectura; no prueba el orden histórico de hechos del universo."
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "REFERENCIA_DERIVADA_NO_CANONICA",
+  "constraints": [
+    {
+      "id": "constraint-gracia",
+      "status": "CONFIRMADO",
+      "statement": "La Gracia preserva una alternativa ajena sin imponerla ni eliminar consecuencias.",
+      "source": "source-universe-master"
+    },
+    {
+      "id": "constraint-extincion",
+      "status": "CONFIRMADO",
+      "statement": "El Protocolo Cero extingue la Gracia viva sin rama secreta, copia, heredero tardío ni retorno metafísico.",
+      "source": "source-universe-master"
+    },
+    {
+      "id": "constraint-clay",
+      "status": "CONFIRMADO",
+      "statement": "Las decisiones finales de Clay son trágicas y distributivas; no constituyen una redención limpia.",
+      "source": "source-universe-master"
+    },
+    {
+      "id": "constraint-position",
+      "status": "APROBADO_POR_AUTOR",
+      "statement": "El Códice es paratexto primario y huella diegética secundaria, no una cronología factual ni una misión de Clay.",
+      "source": "source-brief-compatibilidad"
+    }
+  ]
+}

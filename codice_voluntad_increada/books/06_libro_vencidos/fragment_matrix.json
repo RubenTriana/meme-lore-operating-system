@@ -1,0 +1,9 @@
+{
+  "unit":"06_libro_vencidos",
+  "status":"EDICION_DE_TRABAJO",
+  "fragments":[
+    {"id":"CVI-06-01","title":"La mujer de las dos llaves","purpose":"Elige no apropiarse de una salida ajena y paga su pérdida.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-06-02","title":"El médico que no firmó","purpose":"Distingue salvar de convertir a alguien en garantía.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-06-03","title":"La derrota que no se vende","purpose":"Niega que el fracaso moral pueda convertirse en prestigio.","canonicalStatus":"HIPOTESIS"}
+  ]
+}

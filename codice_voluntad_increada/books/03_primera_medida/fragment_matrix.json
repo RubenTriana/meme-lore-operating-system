@@ -1,0 +1,9 @@
+{
+  "unit": "03_primera_medida",
+  "status": "EDICION_DE_TRABAJO",
+  "fragments": [
+    {"id":"CVI-03-01","title":"La vara húmeda","purpose":"La medida nace como ayuda y se convierte en derecho de asignación.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-03-02","title":"El cuenco de las demoras","purpose":"La espera se vuelve una cuenta que puede pesar sobre un cuerpo.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-03-03","title":"La cuenta que se cuenta sola","purpose":"La glosa sospecha de toda medida que se declara neutral.","canonicalStatus":"HIPOTESIS"}
+  ]
+}

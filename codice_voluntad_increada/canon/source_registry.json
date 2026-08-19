@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "entries": [
+    {
+      "id": "source-universe-master",
+      "path": "data/universe_master.json",
+      "authority": "CANON_TECNICO_ACTIVO",
+      "version": "0.9.0",
+      "updated": "2026-07-31T18:05:00.000000Z",
+      "use": "Límite y verificación de toda afirmación del Códice"
+    },
+    {
+      "id": "source-contexto-activo",
+      "path": "CONTEXTO_ACTIVO.md",
+      "authority": "CONTEXTO_EDITORIAL",
+      "use": "Restricciones de revelación y decisiones de sesión; no sustituye al canon técnico"
+    },
+    {
+      "id": "source-brief-compatibilidad",
+      "path": "codice_voluntad_increada/BRIEF_COMPATIBILIDAD.md",
+      "authority": "HIPOTESIS_DE_DISENO_APROBADA",
+      "use": "Contrato editorial y límites del artefacto"
+    }
+  ]
+}

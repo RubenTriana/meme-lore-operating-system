@@ -1,0 +1,6 @@
+{
+  "status": "NO_CONFIRMADA",
+  "rule": "El Códice no establece origen, geografía, especies ni jerarquía metafísica factual.",
+  "allowed": ["visión", "parábola", "traducción corrupta", "propaganda", "relato interesado"],
+  "forbiddenAsFact": ["domo físico", "pueblo subterráneo", "seres de otros mundos", "guerra ancestral confirmada"]
+}

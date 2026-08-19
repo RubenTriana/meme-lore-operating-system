@@ -1,0 +1,9 @@
+{
+  "unit":"08_gran_imitacion",
+  "status":"EDICION_DE_TRABAJO",
+  "fragments":[
+    {"id":"CVI-08-01","title":"La casa que respondía","purpose":"Una réplica útil puede volverse autoridad sobre quienes depende de ella.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-08-02","title":"El rostro aprendido","purpose":"Diferencia reconocimiento de identidad.","canonicalStatus":"HIPOTESIS"},
+    {"id":"CVI-08-03","title":"La promesa sin mañana","purpose":"La garantía fabrica condiciones que luego llama destino.","canonicalStatus":"HIPOTESIS"}
+  ]
+}
