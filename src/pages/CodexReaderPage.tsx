@@ -1,7 +1,8 @@
-import { AlignJustify, BookOpenText, ChevronLeft, ChevronRight, Layers3, Type } from 'lucide-react'
+import { AlignJustify, BookOpenText, ChevronLeft, ChevronRight, Layers3, Sigma, Type } from 'lucide-react'
 import { Fragment, useMemo, useState, type ReactNode } from 'react'
 import codexSource from '../../codice_voluntad_increada/compiled/CODICE_MASTER.md?raw'
 import clayMemoirSource from '../../codice_voluntad_increada/compiled/CODICE_MEMORIAS_BAYESIANAS_CLAY_CANDIDATO.md?raw'
+import symbolicApparatus from '../../codice_voluntad_increada/systems/mathematical_apparatus.json'
 import revelationMatrix from '../../codice_voluntad_increada/canon/revelation_matrix.json'
 import './codex-reader.css'
 
@@ -28,6 +29,29 @@ interface MarginNote {
   text: string
   alternative: string
   side: 'left' | 'right'
+}
+
+interface MathematicalEntry {
+  id: string
+  book: number
+  anchor: number
+  mark: string
+  title: string
+  treatment: 'geometry' | 'code'
+  geometryType?: 'sample-space' | 'bayesian-lens' | 'evidence-ratio' | 'risk-field'
+  language?: string
+  program?: string[]
+  explanation: string
+  postulate: string
+}
+
+interface GeometryEntry {
+  id: string
+  book: number
+  anchor: number
+  type: 'four-directions' | 'twelve-names' | 'branching-tree' | 'divided-coin'
+  title: string
+  caption: string
 }
 
 const BOOK_NOTES: Record<number, MarginNote[]> = {
@@ -89,6 +113,14 @@ const EDITIONS: Record<CodexEdition, { label: string; source: string; runningHea
   },
 }
 
+const MATHEMATICAL_ENTRIES = symbolicApparatus.mathematics as MathematicalEntry[]
+const GEOMETRY_ENTRIES = symbolicApparatus.geometry as GeometryEntry[]
+const TWELVE_POINTS = [
+  [70, 16], [96, 23], [116, 43], [123, 70], [116, 97], [96, 117],
+  [70, 124], [44, 117], [24, 97], [17, 70], [24, 43], [44, 23],
+]
+const CUNEIFORM_LINE_MARKS = ['𒐕', '𒐖', '𒐗', '𒐘', '𒐙', '𒐚']
+
 function parseCodex(source: string): CodexBook[] {
   const firstBook = source.indexOf('## I.')
   if (firstBook < 0) return []
@@ -114,6 +146,101 @@ function romanFolio(index: number) {
   return ['III', 'VII', 'XIII', 'XVII', 'XXI', 'XXV', 'XXIX', 'XXXIII', 'XXXIX'][index] ?? String(index + 1)
 }
 
+function AxiomDiagram({ type }: { type: NonNullable<MathematicalEntry['geometryType']> }) {
+  if (type === 'sample-space') return <svg viewBox="0 0 220 140" role="img" aria-label="Espacio posible con sucesos disjuntos y un vacío fuera de medida">
+    <rect x="8" y="10" width="204" height="120" rx="3" />
+    <circle cx="67" cy="70" r="34" />
+    <polygon points="126,39 173,50 185,91 139,108 111,77" />
+    <circle className="codex-axiom-empty" cx="198" cy="21" r="8" />
+    <path className="codex-geometry-faint" d="M101 70h10M188 27l-8 12" />
+    <text x="20" y="25">Ω</text><text x="67" y="73">A₁</text><text x="150" y="76">A₂</text><text x="198" y="24">∅</text>
+    <text className="codex-axiom-caption" x="110" y="137">A₁ ∩ A₂ = ∅ · todo lo medido permanece dentro de Ω</text>
+  </svg>
+
+  if (type === 'bayesian-lens') return <svg viewBox="0 0 220 140" role="img" aria-label="Dos hipótesis se cruzan con la evidencia y forman una lente posterior">
+    <rect className="codex-geometry-faint" x="8" y="10" width="204" height="112" rx="3" />
+    <circle cx="83" cy="67" r="43" /><circle cx="137" cy="67" r="43" />
+    <path className="codex-axiom-fill" d="M110 35c17 8 28 19 28 32s-11 24-28 32c-17-8-28-19-28-32s11-24 28-32Z" />
+    <path d="M26 115h55M139 115h55" /><path className="codex-geometry-scar" d="M92 115h36" />
+    <text x="68" y="64">H</text><text x="152" y="64">E</text><text className="codex-geometry-center" x="110" y="72">H|E</text>
+    <text className="codex-axiom-caption" x="53" y="132">prior</text><text className="codex-axiom-caption" x="110" y="132">actualiza</text><text className="codex-axiom-caption" x="167" y="132">posterior</text>
+  </svg>
+
+  if (type === 'evidence-ratio') return <svg viewBox="0 0 220 140" role="img" aria-label="Una evidencia central se proyecta con distinta amplitud hacia una hipótesis y su negación">
+    <circle cx="110" cy="70" r="18" />
+    <circle cx="31" cy="70" r="24" /><circle cx="189" cy="70" r="24" />
+    <path className="codex-axiom-fill" d="M92 62L55 49v42l37-13ZM128 62l37-21v58l-37-21Z" />
+    <path className="codex-geometry-faint" d="M79 31h62M79 109h62" />
+    <text x="31" y="74">H</text><text className="codex-geometry-center" x="110" y="74">E</text><text x="189" y="74">¬H</text>
+    <text className="codex-axiom-caption" x="110" y="21">Λ(E) compara dos aperturas</text><text className="codex-axiom-caption" x="110" y="126">evidencia ≠ autoridad infinita</text>
+  </svg>
+
+  return <svg viewBox="0 0 220 140" role="img" aria-label="Campo de riesgo con varias decisiones y un mínimo condicionado por pérdidas omitidas">
+    <path className="codex-geometry-faint" d="M22 17v105h184M22 38h184M22 59h184M22 80h184M22 101h184M59 17v105M96 17v105M133 17v105M170 17v105" />
+    <ellipse cx="137" cy="72" rx="58" ry="39" /><ellipse cx="137" cy="72" rx="38" ry="25" /><ellipse cx="137" cy="72" rx="18" ry="11" />
+    <path className="codex-geometry-scar" d="M38 103C73 88 93 83 127 74" />
+    <circle className="codex-axiom-minimum" cx="137" cy="72" r="5" />
+    <circle cx="59" cy="101" r="3" /><circle cx="96" cy="44" r="3" /><circle cx="170" cy="96" r="3" />
+    <text x="12" y="20">s</text><text x="208" y="132">a</text><text className="codex-geometry-center" x="137" y="61">aᴮ</text>
+    <text className="codex-axiom-caption" x="110" y="136">el mínimo depende del campo de pérdida elegido</text>
+  </svg>
+}
+
+function MathematicalPlate({ entry }: { entry: MathematicalEntry }) {
+  const isGeometry = entry.treatment === 'geometry' && entry.geometryType
+  return <aside className={`codex-math-plate is-${entry.treatment}`} aria-label={`${entry.title}. Aparato matemático candidato`}>
+    <header><span>{entry.mark}</span><strong>{entry.title}</strong><i>{isGeometry ? 'Constructio' : entry.language}</i></header>
+    {isGeometry
+      ? <div className="codex-axiom-drawing"><AxiomDiagram type={entry.geometryType!} /></div>
+      : <div className="codex-proto-code" aria-label={`Inscripción cuneiforme ${entry.language}`}>{entry.program?.map((line, index) => <div key={`${line}-${index}`}><span>{CUNEIFORM_LINE_MARKS[index] ?? '𒐕'}</span><code>{line}</code></div>)}</div>}
+    <p>{entry.explanation}</p>
+    <footer><i>Postulatum</i><span>{entry.postulate}</span></footer>
+  </aside>
+}
+
+function GeometricSigil({ type }: { type: GeometryEntry['type'] }) {
+  if (type === 'four-directions') return <svg viewBox="0 0 140 140" role="img" aria-label="Cuatro hipótesis dispuestas alrededor de un centro común">
+    <circle cx="70" cy="70" r="18" />
+    <circle className="codex-geometry-halo" cx="70" cy="70" r="42" />
+    <path d="M70 52V14M88 70h38M70 88v38M52 70H14" />
+    <path className="codex-geometry-faint" d="M40 40l60 60M100 40l-60 60" />
+    <circle cx="70" cy="11" r="4" /><circle cx="129" cy="70" r="4" /><circle cx="70" cy="129" r="4" /><circle cx="11" cy="70" r="4" />
+    <text x="70" y="6">H₁</text><text x="134" y="73">H₂</text><text x="70" y="139">H₃</text><text x="0" y="73">H₄</text>
+    <text className="codex-geometry-center" x="70" y="74">Ω</text>
+  </svg>
+
+  if (type === 'twelve-names') return <svg viewBox="0 0 140 140" role="img" aria-label="Doce lugares formando una corona alrededor de un centro vacío">
+    <polygon points={TWELVE_POINTS.map(([x, y]) => `${x},${y}`).join(' ')} />
+    <circle className="codex-geometry-halo" cx="70" cy="70" r="35" />
+    {TWELVE_POINTS.map(([x, y], index) => <g key={`${x}-${y}`}><line className="codex-geometry-faint" x1="70" y1="70" x2={x} y2={y} /><circle cx={x} cy={y} r="5" /><text x={x} y={y + 2}>{index + 1}</text></g>)}
+    <circle className="codex-geometry-empty" cx="70" cy="70" r="11" />
+  </svg>
+
+  if (type === 'branching-tree') return <svg viewBox="0 0 140 140" role="img" aria-label="Árbol de alternativas con una rama podada">
+    <path d="M70 124V98M70 98L38 72M70 98l32-26M38 72L22 42M38 72l22-30M102 72L82 42M102 72l20-30" />
+    <path className="codex-geometry-cut" d="M82 42L72 18M82 42l16-20" />
+    <circle cx="70" cy="124" r="5" /><circle cx="38" cy="72" r="5" /><circle cx="102" cy="72" r="5" />
+    <circle cx="22" cy="42" r="4" /><circle cx="60" cy="42" r="4" /><circle cx="122" cy="42" r="4" />
+    <path className="codex-geometry-scar" d="M77 30l10 5M76 36l10 5" />
+  </svg>
+
+  return <svg viewBox="0 0 140 140" role="img" aria-label="Moneda dividida en dos posibilidades no observadas">
+    <circle cx="70" cy="70" r="54" />
+    <path d="M70 16v108" />
+    <path className="codex-geometry-halo" d="M70 28c-25 10-25 74 0 84M70 28c25 10 25 74 0 84" />
+    <circle className="codex-geometry-empty" cx="70" cy="70" r="8" />
+    <text x="43" y="75">A</text><text x="96" y="75">¬A</text>
+    <text className="codex-geometry-center" x="70" y="137">P(A) + P(¬A) = 1</text>
+  </svg>
+}
+
+function GeometryPlate({ entry }: { entry: GeometryEntry }) {
+  return <figure className="codex-geometry-plate">
+    <GeometricSigil type={entry.type} />
+    <figcaption><strong>{entry.title}</strong><span>{entry.caption}</span></figcaption>
+  </figure>
+}
+
 export function CodexReaderPage() {
   const [edition, setEdition] = useState<CodexEdition>('clay-memoir')
   const editionDetails = EDITIONS[edition]
@@ -122,11 +249,13 @@ export function CodexReaderPage() {
   const [layer, setLayer] = useState<ReadingLayer>('complete')
   const [fontScale, setFontScale] = useState<FontScale>('regular')
   const [selectedNote, setSelectedNote] = useState(0)
+  const [showSymbolicApparatus, setShowSymbolicApparatus] = useState(true)
   const book = books[bookIndex]
   const notes = BOOK_NOTES[bookIndex] ?? []
   const activeNote = notes[selectedNote] ?? notes[0]
   const bookCode = String(bookIndex + 1).padStart(2, '0')
   const concordances = revelationMatrix.entries.filter((entry) => entry.origin.includes(`CVI-${bookCode}`) || entry.destination.includes(`CVI-${bookCode}`))
+  const showApparatus = edition === 'clay-memoir' && showSymbolicApparatus
 
   if (!book) return null
 
@@ -168,6 +297,9 @@ export function CodexReaderPage() {
         <Type size={15} />
         {(['compact', 'regular', 'large'] as const).map((scale, index) => <button key={scale} className={fontScale === scale ? 'active' : ''} onClick={() => setFontScale(scale)} aria-label={`Tamaño ${scale}`}>{index === 0 ? 'A' : index === 1 ? 'A⁺' : 'A⁺⁺'}</button>)}
       </div>
+      <div className="codex-symbol-control">
+        <button className={showSymbolicApparatus ? 'active' : ''} onClick={() => setShowSymbolicApparatus((visible) => !visible)} aria-pressed={showSymbolicApparatus} disabled={edition !== 'clay-memoir'}><Sigma size={14} /><span>Aparato simbólico</span><small>{MATHEMATICAL_ENTRIES.length + GEOMETRY_ENTRIES.length}</small></button>
+      </div>
     </nav>
 
     <div className={`codex-folio font-${fontScale} layer-${layer}`}>
@@ -194,10 +326,16 @@ export function CodexReaderPage() {
           <div className="codex-columns">
             {visibleBlocks.map(({ block, originalIndex }, displayIndex) => {
               const anchors = notes.map((note, index) => ({ ...note, index })).filter((note) => note.anchor === originalIndex)
-              return <p key={`${originalIndex}-${block.text.slice(0, 18)}`} className={`${block.isGloss ? 'is-gloss' : ''} ${block.isDialogue ? 'is-dialogue' : ''} ${displayIndex === 0 ? 'is-opening' : ''}`}>
-                {renderInline(block.text)}
-                {anchors.map((note) => <button key={note.label} className="codex-note-anchor" onClick={() => setSelectedNote(note.index)} aria-label={`Abrir nota ${note.label}`}>{note.label}</button>)}
-              </p>
+              const mathematicalEntries = showApparatus ? MATHEMATICAL_ENTRIES.filter((entry) => entry.book === bookIndex && entry.anchor === originalIndex) : []
+              const geometryEntries = showApparatus ? GEOMETRY_ENTRIES.filter((entry) => entry.book === bookIndex && entry.anchor === originalIndex) : []
+              return <Fragment key={`${originalIndex}-${block.text.slice(0, 18)}`}>
+                <p className={`${block.isGloss ? 'is-gloss' : ''} ${block.isDialogue ? 'is-dialogue' : ''} ${displayIndex === 0 ? 'is-opening' : ''}`}>
+                  {renderInline(block.text)}
+                  {anchors.map((note) => <button key={note.label} className="codex-note-anchor" onClick={() => setSelectedNote(note.index)} aria-label={`Abrir nota ${note.label}`}>{note.label}</button>)}
+                </p>
+                {mathematicalEntries.map((entry) => <MathematicalPlate key={entry.id} entry={entry} />)}
+                {geometryEntries.map((entry) => <GeometryPlate key={entry.id} entry={entry} />)}
+              </Fragment>
             })}
           </div>
         </article>

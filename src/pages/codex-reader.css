@@ -9,15 +9,18 @@
 .codex-toolbar button { height: 34px; border: 1px solid transparent; border-radius: 7px; background: transparent; color: #888; font-size: 10px; transition: .16s; }
 .codex-toolbar button:hover { color: #eee; background: #222; }
 .codex-toolbar button.active { border-color: rgba(207,148,51,.35); background: rgba(207,148,51,.11); color: #e4b769; }
-.codex-book-control, .codex-layer-control, .codex-type-control { display: flex; align-items: center; gap: 4px; }
+.codex-book-control, .codex-layer-control, .codex-type-control, .codex-symbol-control { display: flex; align-items: center; gap: 4px; }
 .codex-book-control { flex: 1 1 420px; }
 .codex-book-control > button { width: 34px; display: grid; place-items: center; border-color: #2c2c2c; background: #181818; }
 .codex-book-control label { min-width: 0; flex: 1; display: grid; grid-template-columns: auto minmax(0,1fr); align-items: center; gap: 9px; color: #666; font: 9px "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
 .codex-book-control .codex-edition-select { flex: 0 1 245px; }
 .codex-book-control select { width: 100%; height: 36px; padding: 0 32px 0 10px; border: 1px solid #303030; border-radius: 7px; outline: 0; background: #181818; color: #d3d3d3; font-size: 11px; }
-.codex-layer-control, .codex-type-control { padding-left: 11px; border-left: 1px solid #292929; color: #676767; }
+.codex-layer-control, .codex-type-control, .codex-symbol-control { padding-left: 11px; border-left: 1px solid #292929; color: #676767; }
 .codex-layer-control button { padding: 0 9px; }
 .codex-type-control button { min-width: 31px; padding: 0 6px; font-family: Georgia, serif; }
+.codex-symbol-control button { display: flex; align-items: center; gap: 6px; padding: 0 9px; white-space: nowrap; }
+.codex-symbol-control button small { display: grid; place-items: center; min-width: 17px; height: 17px; border: 1px solid #3b3428; border-radius: 50%; color: #9d7a43; font: 8px "DM Mono", monospace; }
+.codex-symbol-control button:disabled { opacity: .32; cursor: not-allowed; }
 
 .codex-folio { --ink: #261c13; --faded-ink: #715c44; --rust: #81451e; position: relative; isolation: isolate; overflow: hidden; min-height: 980px; padding: 28px 31px 20px; color: var(--ink); border: 1px solid #80643f; border-radius: 4px 10px 7px 3px; background:
   radial-gradient(circle at 7% 12%, rgba(115,65,22,.16) 0 1px, transparent 2px),
@@ -41,7 +44,7 @@
 .codex-ornament::before, .codex-ornament::after { content: ''; height: 1px; background: linear-gradient(90deg, transparent, currentColor); }
 .codex-ornament::after { transform: rotate(180deg); }
 .codex-ornament span { font-size: 20px; }
-.codex-columns { column-count: 2; column-gap: clamp(27px, 3vw, 43px); column-rule: 1px solid rgba(79,52,27,.28); text-align: justify; text-justify: inter-word; hyphens: auto; }
+.codex-columns { column-count: 2; column-gap: clamp(27px, 3vw, 43px); column-rule: 1px solid rgba(79,52,27,.28); text-align: justify; text-justify: inter-word; hyphens: auto; orphans: 3; widows: 3; }
 .codex-columns p { break-inside: avoid; margin: 0 0 .86em; color: var(--ink); font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif; font-size: 13px; line-height: 1.45; }
 .codex-columns p.is-opening::first-letter { float: left; margin: .05em .09em 0 0; padding: .02em .1em .02em; border: 1px solid rgba(68,39,18,.55); background: rgba(125,70,27,.07); color: #5e2f16; font-family: "Old English Text MT", Georgia, serif; font-size: 3.35em; font-weight: 700; line-height: .83; text-shadow: 1px 1px rgba(255,255,255,.35); }
 .codex-columns em { color: #5f3e27; font-weight: 600; }
@@ -49,9 +52,57 @@
 .codex-columns .is-dialogue { padding-left: 1.4em; text-indent: -1.4em; }
 .codex-note-anchor { display: inline-grid; place-items: center; min-width: 15px; height: 15px; margin-left: 3px; padding: 0 3px; border: 0; border-radius: 50%; background: transparent; color: var(--rust); font: 700 9px Georgia, serif; vertical-align: super; }
 .codex-note-anchor:hover, .codex-note-anchor:focus-visible { outline: 1px solid rgba(101,52,22,.55); background: rgba(112,61,25,.09); }
+.codex-math-plate, .codex-geometry-plate { position: relative; width: 100%; display: inline-block; break-inside: avoid; page-break-inside: avoid; margin: .8em 0 1.2em; color: #2e2015; text-align: left; }
+.codex-math-plate { padding: 11px 12px 10px; border: 1px solid rgba(75,43,21,.52); background:
+  linear-gradient(90deg, rgba(117,65,24,.06) 1px, transparent 1px),
+  linear-gradient(rgba(117,65,24,.05) 1px, transparent 1px),
+  rgba(247,226,181,.35); background-size: 16px 16px; box-shadow: inset 0 0 18px rgba(86,50,21,.08), 2px 3px 0 rgba(91,54,25,.08); }
+.codex-math-plate::before, .codex-math-plate::after { content: ''; position: absolute; width: 17px; height: 17px; pointer-events: none; }
+.codex-math-plate::before { top: -4px; left: -4px; border-top: 1px solid #6b3f22; border-left: 1px solid #6b3f22; }
+.codex-math-plate::after { right: -4px; bottom: -4px; border-right: 1px solid #6b3f22; border-bottom: 1px solid #6b3f22; }
+.codex-math-plate > header { display: grid; grid-template-columns: 21px minmax(0, 1fr) auto; align-items: center; gap: 7px; padding-bottom: 7px; border-bottom: 1px solid rgba(79,45,22,.32); }
+.codex-math-plate > header span { display: grid; place-items: center; width: 20px; height: 20px; border: 1px solid rgba(92,50,22,.58); border-radius: 50%; color: #713a1b; font: 9px Georgia, serif; }
+.codex-math-plate > header strong { color: #4a2d1b; font: 700 9px "Palatino Linotype", Georgia, serif; font-variant: small-caps; letter-spacing: .08em; }
+.codex-math-plate > header > i { color: #81552e; font: 6px "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+.codex-axiom-drawing { margin: 9px 0 8px; padding: 7px 6px 3px; border-top: 3px double rgba(77,44,22,.32); border-bottom: 3px double rgba(77,44,22,.32); background: radial-gradient(circle at center, rgba(118,65,26,.07), transparent 70%); }
+.codex-axiom-drawing svg { display: block; width: 100%; max-height: 168px; overflow: visible; fill: none; stroke: #59351f; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; }
+.codex-axiom-drawing svg text { fill: #5e3a22; stroke: none; font: 8px "Cambria Math", Georgia, serif; text-anchor: middle; }
+.codex-axiom-drawing svg .codex-axiom-caption { font-size: 6.5px; font-style: italic; letter-spacing: .02em; }
+.codex-axiom-drawing svg .codex-axiom-empty { fill: rgba(241,222,182,.75); stroke-dasharray: 2 2; }
+.codex-axiom-drawing svg .codex-axiom-fill { fill: rgba(126,67,27,.13); stroke-width: .9; }
+.codex-axiom-drawing svg .codex-axiom-minimum { fill: #7e3f1d; stroke: #5c2b15; }
+.codex-axiom-drawing svg .codex-geometry-faint { opacity: .36; stroke-width: .75; stroke-dasharray: 2 2; }
+.codex-axiom-drawing svg .codex-geometry-scar { stroke: #823f1c; stroke-width: 1.7; }
+.codex-axiom-drawing svg .codex-geometry-center { font-size: 10px; font-weight: 700; }
+.codex-proto-code { margin: 9px 0 8px; overflow: hidden; padding: 5px 6px; border: 3px double rgba(77,44,22,.48); background:
+  radial-gradient(circle at 16% 20%, rgba(110,59,22,.08) 0 1px, transparent 1.5px),
+  linear-gradient(94deg, rgba(117,65,24,.055), transparent 18%, rgba(117,65,24,.035) 70%, transparent),
+  rgba(238,216,172,.18); color: #3a2719; box-shadow: inset 0 0 18px rgba(88,49,20,.08); text-align: left; }
+.codex-proto-code > div { display: grid; grid-template-columns: 28px minmax(0, 1fr); min-height: 27px; border-top: 1px solid rgba(91,53,26,.14); }
+.codex-proto-code > div:first-child { border-top: 0; }
+.codex-proto-code > div > span { display: grid; place-items: center; border-right: 1px solid rgba(91,53,26,.18); color: #8b5c33; font: 11px "Segoe UI Historic", "Noto Sans Cuneiform", serif; }
+.codex-proto-code code { min-width: 0; padding: 4px 8px; color: #3b281a; font: 13px/1.45 "Segoe UI Historic", "Noto Sans Cuneiform", "Cambria Math", serif; letter-spacing: .04em; white-space: pre-wrap; overflow-wrap: anywhere; text-shadow: 0 .3px rgba(255,255,255,.3); }
+.codex-columns .codex-math-plate > p { margin: 0; color: #5d4731; font-size: 9.4px; line-height: 1.48; text-align: left; }
+.codex-math-plate > footer { display: grid; grid-template-columns: auto 1fr; gap: 6px; margin-top: 7px; padding-top: 6px; border-top: 1px solid rgba(79,45,22,.22); }
+.codex-math-plate > footer i { color: #7b431f; font: 700 7px "Palatino Linotype", Georgia, serif; letter-spacing: .1em; text-transform: uppercase; }
+.codex-math-plate > footer span { color: #3f2b1c; font: italic 8.8px/1.4 Georgia, serif; }
+.codex-geometry-plate { margin-top: 1em; padding: 12px 11px 10px; border-top: 3px double rgba(75,43,21,.46); border-bottom: 3px double rgba(75,43,21,.46); background: radial-gradient(circle, rgba(129,74,29,.07), transparent 68%); text-align: center; }
+.codex-geometry-plate::before { content: 'FIGURA'; position: absolute; top: -6px; left: 50%; padding: 0 7px; transform: translateX(-50%); background: #ebd5a8; color: #765333; font: 6px "DM Mono", monospace; letter-spacing: .2em; }
+.codex-geometry-plate svg { display: block; width: min(150px, 72%); margin: 0 auto 8px; overflow: visible; fill: none; stroke: #59351f; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; }
+.codex-geometry-plate svg text { fill: #5e3a22; stroke: none; font: 6px "Cambria Math", Georgia, serif; text-anchor: middle; }
+.codex-geometry-plate svg .codex-geometry-center { font-size: 8px; font-weight: 700; }
+.codex-geometry-plate svg .codex-geometry-halo { stroke-width: .8; stroke-dasharray: 2.5 3.2; }
+.codex-geometry-plate svg .codex-geometry-faint { opacity: .38; stroke-width: .75; }
+.codex-geometry-plate svg .codex-geometry-empty { fill: rgba(240,219,174,.7); stroke-width: 1.2; stroke-dasharray: 2 2; }
+.codex-geometry-plate svg .codex-geometry-cut { opacity: .32; stroke-dasharray: 3 3; }
+.codex-geometry-plate svg .codex-geometry-scar { stroke: #823f1c; stroke-width: 1.6; }
+.codex-geometry-plate figcaption { display: grid; gap: 3px; padding-top: 7px; border-top: 1px solid rgba(80,47,25,.24); }
+.codex-geometry-plate figcaption strong { color: #4a2c1a; font: 700 9px "Palatino Linotype", Georgia, serif; font-variant: small-caps; letter-spacing: .07em; }
+.codex-geometry-plate figcaption span { color: #6a5239; font: italic 8.8px/1.42 Georgia, serif; }
 .layer-hands .codex-columns p:not(.is-gloss) { color: rgba(38,28,19,.38); }
 .layer-hands .codex-columns p:not(.is-gloss) em { color: #4c2918; background: rgba(127,71,26,.08); }
 .layer-hands .codex-columns .is-gloss { color: #321b10; background: rgba(120,67,25,.08); }
+.layer-hands .codex-math-plate, .layer-hands .codex-geometry-plate { opacity: .52; }
 .font-compact .codex-columns p { font-size: 11.7px; line-height: 1.4; }
 .font-large .codex-columns p { font-size: 14.4px; line-height: 1.52; }
 
@@ -99,7 +150,7 @@
   .codex-apparatus { grid-template-columns: .8fr 1.2fr; }.codex-concordances { grid-column: 1 / -1; }
 }
 @media (max-width: 930px) {
-  .codex-toolbar { flex-wrap: wrap; }.codex-book-control { flex-basis: 100%; }.codex-layer-control { flex: 1; border-left: 0; padding-left: 0; }.codex-type-control { margin-left: auto; }
+  .codex-toolbar { flex-wrap: wrap; }.codex-book-control { flex-basis: 100%; }.codex-layer-control { flex: 1; border-left: 0; padding-left: 0; }.codex-type-control { margin-left: auto; }.codex-symbol-control { margin-left: auto; }
   .codex-folio-grid { grid-template-columns: 1fr 1fr; }
   .codex-manuscript { grid-column: 1 / -1; grid-row: 1; }
   .codex-margin { grid-row: 2; padding-top: 8px; }.codex-margin-right { padding-top: 8px; }
@@ -109,11 +160,13 @@
 @media (max-width: 690px) {
   .codex-reader-intro { flex-direction: column; }.codex-status { margin-top: -14px; }
   .codex-layer-control { width: 100%; overflow-x: auto; }.codex-layer-control svg { display: none; }.codex-layer-control button { flex: 1 0 auto; }
-  .codex-type-control { width: 100%; margin-left: 0; padding: 7px 0 0; border-top: 1px solid #292929; border-left: 0; }
+  .codex-type-control { width: auto; margin-left: 0; padding: 7px 0 0; border-top: 1px solid #292929; border-left: 0; }
+  .codex-symbol-control { flex: 1; justify-content: flex-end; margin-left: 0; padding: 7px 0 0; border-top: 1px solid #292929; border-left: 0; }
   .codex-folio { min-height: 0; padding: 21px 17px 16px; }
   .codex-running-head { font-size: 7px; letter-spacing: .08em; }
   .codex-folio-grid { grid-template-columns: 1fr; }
   .codex-columns { column-count: 1; }
+  .codex-axiom-drawing svg { max-height: 220px; }.codex-proto-code code { font-size: 10px; }.codex-columns .codex-math-plate > p, .codex-math-plate > footer span, .codex-geometry-plate figcaption span { font-size: 10px; }
   .codex-margin { grid-column: 1; }.codex-margin-left { grid-row: 2; }.codex-margin-right { grid-row: 3; }
   .codex-margin button { min-height: 0; }
   .codex-page-footer { grid-template-columns: 1fr auto; }.codex-page-footer > p { display: none; }

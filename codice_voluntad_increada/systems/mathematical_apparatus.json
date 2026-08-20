@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "CANDIDATO_ARTISTICO_NO_CANONICO",
+  "edition": "clay-memoir",
+  "purpose": "Vincular pasajes escogidos con postulados matemáticos y símbolos geométricos sin convertir el aparato en explicación factual del universo.",
+  "mathematics": [
+    {
+      "id": "MATH-CVI-01-A",
+      "book": 0,
+      "anchor": 0,
+      "mark": "I",
+      "title": "Axiomas del espacio posible",
+      "treatment": "geometry",
+      "geometryType": "sample-space",
+      "explanation": "Una probabilidad solo existe después de declarar un espacio Ω. Lo excluido de Ω no recibe probabilidad cero: deja de ser preguntado.",
+      "postulate": "Ninguna medida puede absolver la elección de su universo."
+    },
+    {
+      "id": "MATH-CVI-01-B",
+      "book": 0,
+      "anchor": 5,
+      "mark": "II",
+      "title": "Esperanza no es destino",
+      "treatment": "code",
+      "language": "𒇷𒈨𒉡 · LIMEN",
+      "program": ["𒄑 𒌦𒈨 → 𒊑₀", "𒁹 𒈨𒀀 = 𒐕", "𒌓 𒄩, 𒉿 ∈ 𒊑₀ :", "  𒁍 𒈨𒀀, 𒄩, 𒉿", "𒉆 𒈨𒀀 ≠ 𒆠(𒄩)"],
+      "explanation": "La esperanza matemática describe el centro de una distribución; no determina la suerte de una observación particular.",
+      "postulate": "El promedio del dolor no contiene el dolor de una persona."
+    },
+    {
+      "id": "MATH-CVI-02-A",
+      "book": 1,
+      "anchor": 9,
+      "mark": "III",
+      "title": "Teorema de la mirada corregida",
+      "treatment": "geometry",
+      "geometryType": "bayesian-lens",
+      "explanation": "La evidencia E no habla sola: modifica una creencia previa P(H). Una tasa base temerosa puede condenar incluso ante una señal débil.",
+      "postulate": "Actualizar no es obedecer al miedo; es permitir que la evidencia también lo contradiga."
+    },
+    {
+      "id": "MATH-CVI-03-A",
+      "book": 2,
+      "anchor": 4,
+      "mark": "IV",
+      "title": "La función de pérdida oculta",
+      "treatment": "code",
+      "language": "𒇷𒈨𒉡 · LIMEN",
+      "program": ["𒄑 𒅗𒆷 → 𒊑₀", "𒁹 𒂵𒉌 = 𒐕", "𒌓 𒁺 ∈ 𒊑₀ :", "  𒋗 𒂵𒉌, 𒉺(𒁺, 𒌨 𒈨)", "𒂊 𒈨 ← 𒀀𒌓𒈨𒉡 𒂵𒉌", "𒆳 𒉺"],
+      "explanation": "Todo estimador minimiza alguna pérdida L. Si la función no declara qué error cuesta más, esa preferencia permanece escondida en el resultado.",
+      "postulate": "No existe optimización inocente cuando las pérdidas tienen nombre."
+    },
+    {
+      "id": "MATH-CVI-04-A",
+      "book": 3,
+      "anchor": 0,
+      "mark": "V",
+      "title": "Razón de evidencia",
+      "treatment": "geometry",
+      "geometryType": "evidence-ratio",
+      "explanation": "Una herida puede elevar las probabilidades de una hipótesis, pero ninguna razón de verosimilitud describe por sí sola la casa completa.",
+      "postulate": "La evidencia merece peso; no recibe por ello autoridad infinita."
+    },
+    {
+      "id": "MATH-CVI-06-A",
+      "book": 5,
+      "anchor": 0,
+      "mark": "VI",
+      "title": "Elección bajo incertidumbre",
+      "treatment": "code",
+      "language": "𒇷𒈨𒉡 · LIMEN",
+      "program": ["𒌓 𒀀 ∈ 𒂊𒋼 :", "  𒊺 𒋾[𒀀] ← 𒉿(𒋗|𒀀) · 𒌑", "𒂊 𒊑₀ ← 𒀀𒌓𒈨𒊑 𒋾", "𒁕 𒅆 𒇷𒄿 ≁ 𒈨𒋫", "𒌋 𒊑₀"],
+      "explanation": "La regla selecciona la acción de mayor utilidad esperada únicamente si todas las consecuencias pueden compararse en una misma escala.",
+      "postulate": "Una vida inconmensurable rompe la comodidad de la suma."
+    },
+    {
+      "id": "MATH-CVI-08-A",
+      "book": 7,
+      "anchor": 3,
+      "mark": "VII",
+      "title": "Predicción no es intervención",
+      "treatment": "code",
+      "language": "𒇷𒈨𒉡 · LIMEN",
+      "program": ["𒅆 𒊑₀ = 𒉿(𒅀 | 𒀀)", "𒄭 𒀀 ← 𒀀𒁀", "𒀭 𒀀", "𒈨 𒊑₁ = 𒉿(𒅀)", "𒉆 𒊑₀ ≠ 𒊑₁"],
+      "explanation": "Observar un resultado después de A no prueba que imponer A lo cause. Una casa que cierra el mundo altera el futuro que luego presume predecir.",
+      "postulate": "El modelo que interviene debe responder por el mañana que fabrica."
+    },
+    {
+      "id": "MATH-CVI-09-A",
+      "book": 8,
+      "anchor": 3,
+      "mark": "VIII",
+      "title": "Riesgo de Bayes",
+      "treatment": "geometry",
+      "geometryType": "risk-field",
+      "explanation": "La acción bayesiana minimiza la pérdida esperada. No demuestra que la pérdida elegida sea justa ni que los estados omitidos carezcan de valor.",
+      "postulate": "Minimizar el daño no convierte al decisor en autor de la salvación."
+    }
+  ],
+  "geometry": [
+    {
+      "id": "GEOM-CVI-02-A",
+      "book": 1,
+      "anchor": 0,
+      "type": "four-directions",
+      "title": "Mandala de las cuatro hipótesis",
+      "caption": "Cuatro direcciones comparten un mismo centro; cambiar el eje no elimina la mano que lo trazó."
+    },
+    {
+      "id": "GEOM-CVI-05-A",
+      "book": 4,
+      "anchor": 0,
+      "type": "twelve-names",
+      "title": "Corona de los doce ausentes",
+      "caption": "Doce lugares rodean un centro que permanece sin nombre: pertenencia sin posesión del conjunto."
+    },
+    {
+      "id": "GEOM-CVI-07-A",
+      "book": 6,
+      "anchor": 0,
+      "type": "branching-tree",
+      "title": "Árbol de alternativas podadas",
+      "caption": "Toda puerta elegida conserva la sombra geométrica de las ramas que dejaron de ser habitables."
+    },
+    {
+      "id": "GEOM-CVI-09-A",
+      "book": 8,
+      "anchor": 0,
+      "type": "divided-coin",
+      "title": "Sello de la moneda no observada",
+      "caption": "Dos caras ocupan un solo círculo; antes de la observación, ninguna merece ser tratada como inexistente."
+    }
+  ]
+}
