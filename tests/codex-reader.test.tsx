@@ -1,5 +1,6 @@
 import { act } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
+import { MemoryRouter } from 'react-router-dom'
 import { CodexReaderPage } from '../src/pages/CodexReaderPage'
 
 function selectValue(select: HTMLSelectElement, value: string) {
@@ -7,7 +8,7 @@ function selectValue(select: HTMLSelectElement, value: string) {
   select.dispatchEvent(new Event('change', { bubbles: true }))
 }
 
-describe('Codex symbolic apparatus', () => {
+describe('Codex stratified artifact', () => {
   let container: HTMLDivElement
   let root: Root
 
@@ -16,7 +17,7 @@ describe('Codex symbolic apparatus', () => {
     container = document.createElement('div')
     document.body.append(container)
     root = createRoot(container)
-    await act(async () => root.render(<CodexReaderPage />))
+    await act(async () => root.render(<MemoryRouter><CodexReaderPage /></MemoryRouter>))
   })
 
   afterEach(async () => {
@@ -24,31 +25,38 @@ describe('Codex symbolic apparatus', () => {
     container.remove()
   })
 
-  it('splits the eight axioms between geometric constructions and LIMEN programs', async () => {
-    expect(container.querySelectorAll('.codex-math-plate')).toHaveLength(2)
-    expect(container.querySelectorAll('.codex-axiom-drawing')).toHaveLength(1)
-    expect(container.querySelectorAll('.codex-proto-code')).toHaveLength(1)
-    expect(container.textContent).toContain('𒇷𒈨𒉡 · LIMEN')
-    expect(container.textContent).toContain('𒁍 𒈨𒀀, 𒄩, 𒉿')
-    const toggle = [...container.querySelectorAll<HTMLButtonElement>('button')].find((button) => button.textContent?.includes('Aparato simbólico'))!
-    expect(toggle.getAttribute('aria-pressed')).toBe('true')
-
-    await act(async () => toggle.click())
-    expect(container.querySelectorAll('.codex-math-plate')).toHaveLength(0)
-    expect(container.querySelectorAll('.codex-geometry-plate')).toHaveLength(0)
+  it('opens as a material reconstruction with a native Seed Language fragment', () => {
+    expect(container.querySelector('.codex-artifact')?.getAttribute('data-fragment')).toBe('CVI-F01')
+    expect(container.querySelectorAll('.seed-inscription')).toHaveLength(1)
+    expect(container.querySelectorAll('.seed-glyph').length).toBeGreaterThan(8)
+    expect(container.textContent).toContain('Mano del Custodio')
+    expect(container.textContent).not.toContain('𒇷𒈨𒉡 · LIMEN')
+    expect(container.querySelector('.codex-collation')?.hasAttribute('open')).toBe(false)
   })
 
-  it('renders the geometric mandala in book II and protects the original edition', async () => {
+  it('varies the page archetype and separates Clay mathematics into modern scholia', async () => {
     const [editionSelect, bookSelect] = [...container.querySelectorAll<HTMLSelectElement>('select')]
     await act(async () => selectValue(bookSelect, '1'))
-    expect(container.querySelectorAll('.codex-geometry-plate')).toHaveLength(1)
-    expect(container.querySelectorAll('.codex-axiom-drawing')).toHaveLength(1)
-    expect(container.textContent).toContain('Mandala de las cuatro hipótesis')
+    expect(container.querySelector('.codex-artifact')?.classList.contains('archetype-ritual-diagram')).toBe(true)
+    expect(container.querySelectorAll('.ritual-diagram')).toHaveLength(1)
+    expect(container.textContent).toContain('quinto radio')
 
-    await act(async () => selectValue(editionSelect, 'master'))
-    expect(container.querySelectorAll('.codex-math-plate')).toHaveLength(0)
-    expect(container.querySelectorAll('.codex-geometry-plate')).toHaveLength(0)
-    const toggle = [...container.querySelectorAll<HTMLButtonElement>('button')].find((button) => button.textContent?.includes('Aparato simbólico'))!
-    expect(toggle.disabled).toBe(true)
+    await act(async () => selectValue(editionSelect, 'clay-memoir'))
+    expect(container.querySelectorAll('.seed-inscription')).toHaveLength(0)
+    expect(container.querySelector('.modern-scholia')).not.toBeNull()
+    expect(container.textContent).toContain('Escolios matemáticos de atribución dudosa')
+  })
+
+  it('translates anachronisms in the artifact layer and exposes print export', async () => {
+    const [, bookSelect] = [...container.querySelectorAll<HTMLSelectElement>('select')]
+    await act(async () => selectValue(bookSelect, '8'))
+    expect(container.textContent).toContain('tres dientes en una caja sin aliento')
+    expect(container.textContent).not.toContain('tres interruptores')
+
+    const printSpy = vi.spyOn(window, 'print').mockImplementation(() => undefined)
+    const printButton = [...container.querySelectorAll<HTMLButtonElement>('button')].find((button) => button.textContent?.includes('Imprimir / PDF'))!
+    await act(async () => printButton.click())
+    expect(printSpy).toHaveBeenCalledOnce()
+    printSpy.mockRestore()
   })
 })

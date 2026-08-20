@@ -10,3 +10,4 @@
 - **Agentes de apoyo invocados:** Tejedor de Referencias Cruzadas como protocolo editorial; ningún subagente autónomo.
 - **Bloqueos reales:** ninguno.
 - **Siguiente decisión autoral:** lectura integral y aprobación, rechazo o ajuste de los bloques 03–09.
+- **Reconstrucción material (2026-08-19):** existe una interfaz candidata de archivo sagrado estratificado con cinco manos, nueve tipologías de fragmento, daños causales, Lengua Semilla propia y cédula moderna separada. No altera `CODICE_MASTER.md`, no activa una cronología factual y espera aprobación artística del autor.

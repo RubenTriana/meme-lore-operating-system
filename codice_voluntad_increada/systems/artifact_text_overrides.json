@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "CANDIDATO_DE_TRANSCRIPCION_ARCAICA_NO_CANONICO",
+  "purpose": "Mantener intacta la edición maestra y sustituir únicamente anacronismos en la reconstrucción material visible.",
+  "replacements": [
+    {"from":"Había tres interruptores:","to":"Había tres dientes en una caja sin aliento:","reason":"evitar vocabulario eléctrico en la voz antigua"},
+    {"from":"Lo técnico también firma con nombres","to":"La obra sin rostro también deja nombres bajo su sello","reason":"traducir abstracción contemporánea a materia y autoridad"},
+    {"from":"su cálculo había vencido","to":"su cuenta había vencido","reason":"conservar la idea de predicción sin voz matemática moderna"}
+  ]
+}

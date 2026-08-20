@@ -1,0 +1,15 @@
+{
+  "schemaVersion":"1.0.0",
+  "status":"INVENTARIO_VISUAL_CANDIDATO_NO_CANONICO",
+  "symbols":[
+    {"id":"campo-abierto","form":"cuenco sin base entre dos puntos","probableMeaning":"posibilidad no cercada","variants":["abierto a la izquierda","abierto hacia arriba"],"hands":["anterior","raspada"],"contexts":["silencio","azar"],"certainty":"media"},
+    {"id":"cuerda-trenzada","form":"dos ondas unidas por tres nudos","probableMeaning":"rescate, frontera o deuda","variants":["nudo final ausente"],"hands":["anterior","custodio"],"contexts":["agua","transmisión"],"certainty":"alta"},
+    {"id":"piedra-hueca","form":"rombo abierto con peso superior","probableMeaning":"carga transmitida","variants":["abertura invertida"],"hands":["custodio","raspada"],"contexts":["subsuelo","revuelta"],"certainty":"media"},
+    {"id":"cuenco-lluvia","form":"arco que recibe cinco trazos","probableMeaning":"memoria repetida o medida ritual","variants":["cuatro gotas tras censura"],"hands":["custodio","exegeta"],"contexts":["crecida","duelo"],"certainty":"alta"},
+    {"id":"doce-ausencias","form":"corona incompleta de doce muescas","probableMeaning":"custodia distribuida","variants":["ocho muescas conservadas"],"hands":["anterior","exegeta"],"contexts":["nombres","mapa"],"certainty":"baja"},
+    {"id":"doble-llave","form":"dos dientes que comparten un aro","probableMeaning":"elección inconmensurable","variants":["un diente raspado"],"hands":["custodio"],"contexts":["sacrificio","puerta"],"certainty":"media"},
+    {"id":"jardin-cercado","form":"semilla dentro de cuatro trazos no unidos","probableMeaning":"protección que puede volverse dominio","variants":["cerco cerrado por el Exégeta"],"hands":["custodio","exegeta"],"contexts":["profecía","cuidado"],"certainty":"alta"},
+    {"id":"boca-sin-aliento","form":"óvalo atravesado por ecos concéntricos","probableMeaning":"voz compuesta o recuerdo sin infancia","variants":["centro vacío","centro sellado"],"hands":["imposible"],"contexts":["imitación","advertencia"],"certainty":"muy baja"},
+    {"id":"moneda-no-vista","form":"círculo partido cuyo centro permanece abierto","probableMeaning":"elección sin garantía","variants":["partición oblicua"],"hands":["anterior","raspada"],"contexts":["azar","responsabilidad"],"certainty":"media"}
+  ]
+}

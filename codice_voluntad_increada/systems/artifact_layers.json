@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "CANDIDATO_HISTORICO_MATERIAL_NO_CANONICO",
+  "note": "La historia material organiza la experiencia del lector; no establece una cronologia factual del universo.",
+  "hands": [
+    {"id":"anterior","name":"La Mano Anterior","role":"señal y operación","pigment":"carbon-mineral","certainty":"muy baja"},
+    {"id":"custodio","name":"La Mano del Custodio","role":"transmisión oral y parábola","pigment":"iron-brown","certainty":"media"},
+    {"id":"exegeta","name":"La Mano del Exégeta","role":"orden, doctrina y censura","pigment":"oxide-black","certainty":"alta"},
+    {"id":"raspada","name":"La Mano Raspada","role":"réplica marginal y restitución dudosa","pigment":"madder-faded","certainty":"baja"},
+    {"id":"imposible","name":"La Mano Imposible","role":"corrección anómala no atribuida","pigment":"impossible-grey","certainty":"indeterminada"}
+  ],
+  "pigments": {
+    "carbon-mineral":"negro mineral mate con pérdida granular",
+    "iron-brown":"pardo ferroso absorbido por la fibra",
+    "oxide-black":"negro doctrinal de trazo más uniforme",
+    "madder-faded":"rojo de raíz muy oxidado, casi terroso",
+    "impossible-grey":"gris que no coincide con el envejecimiento del soporte",
+    "restoration-neutral":"grafito frío reservado a la reconstrucción moderna"
+  },
+  "fragments": [
+    {
+      "id":"CVI-F01","book":0,"shelfmark":"M-Ø / hoja sin número","archetype":"palimpsest","support":"piel delgada reutilizada sobre una hoja de fibras","attributedAge":"capa anterior; copia del Custodio mucho más tardía","provenance":"cofre de barro sellado; procedencia no demostrada","hands":["anterior","custodio","raspada"],"propheticVoice":"indeterminada","damage":["abrasión de reutilización","borde inferior perdido por humedad"],"damageCause":"la hoja fue lavada antes de recibir la parábola del hilo","reliability":"0.41","contamination":"posible interpolación; no atribuida"
+    },
+    {
+      "id":"CVI-F02","book":1,"shelfmark":"A-4 / rueda de los bordes","archetype":"ritual-diagram","support":"papel de fibras largas plegado en cuatro","attributedAge":"tradición del Custodio con ordenación posterior","provenance":"archivo de una comunidad navegante no identificada","hands":["custodio","exegeta","raspada"],"propheticVoice":"narrador de batallas; fuente incompatible","damage":["mancha de agua salobre","quinta dirección recortada"],"damageCause":"uso durante ceremonias bajo lluvia y censura posterior del borde exterior","reliability":"0.36","contamination":"alta disputa doctrinal"
+    },
+    {
+      "id":"CVI-F03","book":2,"shelfmark":"R-11 / vara y cuenco","archetype":"sewn-leaf","support":"dos fragmentos de papel de corteza cosidos con fibra oscura","attributedAge":"copias separadas reunidas en restauración antigua","provenance":"hallazgo junto a marcas de crecida","hands":["custodio","exegeta","imposible"],"propheticVoice":"Clay, atribución posterior y no verificable","damage":["costura atraviesa una cuenta","pigmento gris bajo el hilo"],"damageCause":"dos tradiciones incompatibles fueron forzadas a compartir hoja","reliability":"0.53","contamination":"la línea gris parece posterior al sellado"
+    },
+    {
+      "id":"CVI-F04","book":3,"shelfmark":"H-3 / tablas de la herida","archetype":"censored-passage","support":"pergamino grueso raspado en tres campañas","attributedAge":"Custodio; normalización del Exégeta","provenance":"relicario sin inventario","hands":["custodio","exegeta","raspada"],"propheticVoice":"Amaranta, atribución temática no factual","damage":["nombre raspado","gota oscura fijada en el pliegue"],"damageCause":"una autoridad convirtió memoria del dolor en criterio de obediencia","reliability":"0.48","contamination":"moderada"
+    },
+    {
+      "id":"CVI-F05","book":4,"shelfmark":"D-12 / corona incompleta","archetype":"reconstructed-fragment","support":"doce tiras de soportes distintos montadas sobre refuerzo moderno","attributedAge":"fragmentos no coetáneos","provenance":"colección dispersa reunida sin cadena completa de custodia","hands":["anterior","exegeta","raspada"],"propheticVoice":"Amaranta o una custodia de nombres","damage":["cuatro tiras faltantes","perforaciones alineadas"],"damageCause":"los nombres fueron separados para impedir que una sola casa poseyera el mapa","reliability":"0.29","contamination":"muy alta; montaje moderno visible"
+    },
+    {
+      "id":"CVI-F06","book":5,"shelfmark":"V-2 / hoja de las dos llaves","archetype":"folded-leaf","support":"hoja vegetal girada y reutilizada","attributedAge":"copia del Custodio con sentencia doctrinal","provenance":"interior de una cubierta posterior","hands":["custodio","exegeta"],"propheticVoice":"Harry, atribución por misericordia y no por identidad","damage":["doblez horizontal gastado por apertura","texto anterior visible al reverso"],"damageCause":"la hoja fue ocultada dentro de otra encuadernación","reliability":"0.57","contamination":"baja, salvo título añadido"
+    },
+    {
+      "id":"CVI-F07","book":6,"shelfmark":"P-3 / tres anuncios","archetype":"nearly-empty","support":"lámina pálida con tres columnas breves","attributedAge":"incierta; glifos anteriores a la copia","provenance":"inventario perdido","hands":["anterior","custodio","imposible"],"propheticVoice":"Clay, Amaranta y memoria sin nacimiento; atribuciones abiertas","damage":["gran vacío central","corrección que cambia entre copias"],"damageCause":"el soporte fue reservado para una cuarta voz que no aparece","reliability":"0.33","contamination":"anomalía no identificada"
+    },
+    {
+      "id":"CVI-F08","book":7,"shelfmark":"I-8 / casa de las voces","archetype":"facing-translation","support":"transcripción sobre papel de trapo junto a una copia más antigua","attributedAge":"traducción tardía del Exégeta","provenance":"archivo de una casa clausurada","hands":["custodio","exegeta","imposible"],"propheticVoice":"Hastur o MEME; identidad deliberadamente no confirmada","damage":["transferencia de tinta entre caras","una frase aparece bajo el parche"],"damageCause":"la hoja permaneció cerrada en ambiente húmedo y recibió una sustitución posterior","reliability":"0.38","contamination":"crítica; autoría imposible de probar"
+    },
+    {
+      "id":"CVI-F09","book":8,"shelfmark":"E-0 / borde del azar","archetype":"charred-fragment","support":"papel de fibras con parche de piel","attributedAge":"compilación final; cierre ausente","provenance":"rescatado del incendio de un depósito de copias","hands":["anterior","custodio","raspada"],"propheticVoice":"Clay, atribución apócrifa","damage":["esquina quemada","última palabra perdida","parche cosido"],"damageCause":"la hoja sobrevivió al quedar prensada dentro de otra cubierta","reliability":"0.46","contamination":"el final existe en dos versiones incompatibles"
+    }
+  ]
+}

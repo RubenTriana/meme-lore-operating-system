@@ -24,6 +24,12 @@
       "topic": "Las Cuatro Miradas",
       "status": "HIPOTESIS_CONTROLADA",
       "rule": "Las crónicas de cielo, subsuelo, aguas y llegada exterior se contradicen entre sí y no establecen pueblos, lugares ni batallas como hechos del universo."
+    },
+    {
+      "id": "CV-005",
+      "topic": "El Códice como causa central de la tetralogía",
+      "status": "RESUELTO_POR_POSICION_APROBADA",
+      "rule": "La historia material puede mostrar hallazgos, copias, censuras y manipulaciones, pero no establece que la novela suceda por el Códice ni convierte su reconstrucción en misión de Clay. Permanece paratexto primario y huella diegética secundaria."
     }
   ]
 }

@@ -1,125 +1,85 @@
-import { AlignJustify, BookOpenText, ChevronLeft, ChevronRight, Layers3, Sigma, Type } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Eye, Layers3, Printer, ScrollText, Type } from 'lucide-react'
 import { Fragment, useMemo, useState, type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import codexSource from '../../codice_voluntad_increada/compiled/CODICE_MASTER.md?raw'
 import clayMemoirSource from '../../codice_voluntad_increada/compiled/CODICE_MEMORIAS_BAYESIANAS_CLAY_CANDIDATO.md?raw'
+import artifactLayers from '../../codice_voluntad_increada/systems/artifact_layers.json'
+import artifactTextOverrides from '../../codice_voluntad_increada/systems/artifact_text_overrides.json'
 import symbolicApparatus from '../../codice_voluntad_increada/systems/mathematical_apparatus.json'
-import revelationMatrix from '../../codice_voluntad_increada/canon/revelation_matrix.json'
 import './codex-reader.css'
 
 type ReadingLayer = 'complete' | 'copy' | 'hands'
 type FontScale = 'compact' | 'regular' | 'large'
-type CodexEdition = 'clay-memoir' | 'master'
+type CodexEdition = 'artifact' | 'master' | 'clay-memoir'
+type HandId = 'anterior' | 'custodio' | 'exegeta' | 'raspada' | 'imposible'
 
-interface CodexBlock {
-  text: string
-  isGloss: boolean
-  isDialogue: boolean
+interface CodexBlock { text: string; isGloss: boolean; isDialogue: boolean }
+interface CodexBook { roman: string; title: string; blocks: CodexBlock[] }
+interface MarginNote { anchor: number; label: string; title: string; text: string; alternative: string; side: 'left' | 'right' }
+interface ArtifactFragment {
+  id: string; book: number; shelfmark: string; archetype: string; support: string; attributedAge: string; provenance: string
+  hands: HandId[]; propheticVoice: string; damage: string[]; damageCause: string; reliability: string; contamination: string
 }
+interface SeedOccurrence { book: number; anchor: number; operator: 'bind' | 'invert' | 'suspend' | 'repeat' | 'witness' | 'branch' | 'seal'; lines: string[][]; note: string }
+interface MathematicalEntry { id: string; book: number; mark: string; title: string; explanation: string; postulate: string }
 
-interface CodexBook {
-  roman: string
-  title: string
-  blocks: CodexBlock[]
-}
-
-interface MarginNote {
-  anchor: number
-  label: string
-  title: string
-  text: string
-  alternative: string
-  side: 'left' | 'right'
-}
-
-interface MathematicalEntry {
-  id: string
-  book: number
-  anchor: number
-  mark: string
-  title: string
-  treatment: 'geometry' | 'code'
-  geometryType?: 'sample-space' | 'bayesian-lens' | 'evidence-ratio' | 'risk-field'
-  language?: string
-  program?: string[]
-  explanation: string
-  postulate: string
-}
-
-interface GeometryEntry {
-  id: string
-  book: number
-  anchor: number
-  type: 'four-directions' | 'twelve-names' | 'branching-tree' | 'divided-coin'
-  title: string
-  caption: string
+const EDITIONS: Record<CodexEdition, { label: string; source: string; note: string }> = {
+  artifact: { label: 'Reconstrucción material', source: codexSource, note: 'Facsímil candidato · capas históricas hipotéticas' },
+  master: { label: 'Transcripción diplomática', source: codexSource, note: 'Texto maestro conservado sin atribución material' },
+  'clay-memoir': { label: 'Escolio matemático atribuido a Clay', source: clayMemoirSource, note: 'Transcripción moderna apócrifa · separada del artefacto' },
 }
 
 const BOOK_NOTES: Record<number, MarginNote[]> = {
   0: [
-    { anchor: 1, label: 'a', title: 'Del sitio no repartido', text: 'La copia presenta el silencio como posibilidad. La mano posterior sospecha que toda descripción del afuera ya contiene un reparto.', alternative: 'Quizá el vacío no precede al poder: quizá sea el nombre que el poder da a lo que aún no administra.', side: 'left' },
-    { anchor: 5, label: 'b', title: 'La medida que regresa', text: 'El hilo sirve primero para acompañar una amenaza; luego convierte la distancia en criterio para decidir quién merece llegar.', alternative: 'Medir puede cuidar sin poseer, pero ninguna medida garantiza que su custodio siga siendo cuidador.', side: 'right' },
-    { anchor: 10, label: 'c', title: 'Tercera mano', text: 'La última pregunta impide que la contradicción se vuelva una nueva doctrina cerrada.', alternative: 'Desconfiar del custodio no obliga a despreciar el miedo que lo llevó a custodiar.', side: 'right' },
+    { anchor: 1, label: 'α', title: 'Sitio no repartido', text: 'La copia tardía dice vacío. Bajo ella parece sobrevivir un signo de apertura.', alternative: 'La ausencia podría no preceder al reparto: quizá sea lo que el reparto todavía no alcanzó.', side: 'left' },
+    { anchor: 5, label: 'β', title: 'Hilo devuelto', text: 'Agua, tiempo y distancia comparten aquí una misma palabra perdida.', alternative: 'El Custodio confiesa que eligió “agua”; la lectura temporal permanece abierta.', side: 'right' },
   ],
   1: [
-    { anchor: 1, label: 'a', title: 'Cuatro direcciones', text: 'El mapa parece ordenar el mundo, pero también distribuye quién queda arriba, debajo, dentro del agua o fuera de nombre.', alternative: 'No son cuatro guerras: son cuatro versiones de una misma disputa por fijar el borde.', side: 'left' },
-    { anchor: 5, label: 'b', title: 'La piedra hueca', text: 'La carga cambia de hombro sin desaparecer. La revuelta puede heredar la gramática de la casa que combate.', alternative: 'Liberar una entrada no basta si el peso continúa buscando el cuerpo más disponible.', side: 'right' },
-    { anchor: 8, label: 'c', title: 'Cuerdas bajo el agua', text: 'Rescate, frontera y duelo usan el mismo objeto. Ninguna voz consigue fijar una lectura definitiva.', alternative: 'La cuerda no prueba que exista otra orilla; prueba que alguien todavía espera una respuesta.', side: 'left' },
+    { anchor: 0, label: 'α', title: 'La dirección cortada', text: 'El dibujo conserva cinco radios. El título doctrinal solo reconoce cuatro.', alternative: 'El exterior puede haber sido una dirección o una herida creada por el recorte.', side: 'left' },
+    { anchor: 6, label: 'β', title: 'Cuerda de duelo', text: 'La zona tocada por agua fue repasada durante generaciones.', alternative: 'Rescate, frontera y espera continúan usando el mismo signo.', side: 'right' },
   ],
   2: [
-    { anchor: 0, label: 'a', title: 'Vara de creciente', text: 'Una herramienta de cuidado se vuelve autoridad cuando solo una persona conserva el derecho de leerla.', alternative: 'El problema no es contar, sino convertir la lectura de la cuenta en una puerta con dueño.', side: 'left' },
-    { anchor: 4, label: 'b', title: 'La cifra y el error', text: 'La aparente ausencia de una mano no elimina la decisión; apenas vuelve invisible a quien clasifica.', alternative: 'Toda cuenta automática conserva la memoria de las prioridades con que fue construida.', side: 'right' },
+    { anchor: 0, label: 'α', title: 'La vara', text: 'La costura separa “servir” de “mandar” y vuelve dudosa la continuidad.', alternative: 'Tal vez fueron dos relatos unidos para producir una doctrina sobre la medida.', side: 'left' },
+    { anchor: 4, label: 'β', title: 'Cuenta sin mano', text: 'Una tinta gris aparece debajo del hilo y no sobre él.', alternative: 'La anomalía demuestra una intervención material, no la identidad de quien intervino.', side: 'right' },
   ],
   3: [
-    { anchor: 0, label: 'a', title: 'Cicatriz y autoridad', text: 'El dolor merece memoria, pero la memoria de una herida no concede dominio sobre todas las conversaciones futuras.', alternative: 'Una herida puede abrir una puerta sin convertirse en la llave de toda la casa.', side: 'left' },
-    { anchor: 2, label: 'b', title: 'La venda necesaria', text: 'Cuidar también exige reconocer cuándo la protección empezó a producir dependencia.', alternative: 'La ayuda que nunca imagina su final puede terminar defendiendo su propia necesidad.', side: 'right' },
+    { anchor: 0, label: 'α', title: 'Nombre raspado', text: 'La palabra anterior sigue visible con luz oblicua; no puede restituirse con certeza.', alternative: 'Donde el Exégeta escribió obediencia, otra mano creyó leer memoria.', side: 'left' },
+    { anchor: 2, label: 'β', title: 'La venda', text: 'El margen cambia de dirección al llegar al pliegue.', alternative: 'La corrección pudo ser escrita mientras la hoja todavía envolvía otra cosa.', side: 'right' },
   ],
   4: [
-    { anchor: 0, label: 'a', title: 'Nombres bajo sombra', text: 'Revelar un nombre puede restituir dignidad o apropiarse de una intimidad que aún pertenece a otro.', alternative: 'El anonimato protege y borra; ninguna de las dos consecuencias cancela la otra.', side: 'left' },
-    { anchor: 4, label: 'b', title: 'Mapa en doce partes', text: 'La fragmentación impide poseer el conjunto, aunque también puede impedir que alguien encuentre una salida.', alternative: 'La custodia no es posesión, pero lo incompleto tampoco es inocente.', side: 'right' },
+    { anchor: 0, label: 'α', title: 'Doce o dieciséis', text: 'Solo ocho tiras conservan muescas; el total pertenece al montaje.', alternative: 'La corona de doce podría ser una reconstrucción doctrinal de un conjunto mayor.', side: 'left' },
+    { anchor: 4, label: 'β', title: 'Custodia distribuida', text: 'Las perforaciones coinciden, pero las fibras no.', alternative: 'Alguien reunió piezas que quizá nunca habían compartido soporte.', side: 'right' },
   ],
   5: [
-    { anchor: 0, label: 'a', title: 'Dos llaves', text: 'La elección individual conserva una puerta y deja una deuda colectiva que nadie puede resolver sin pérdida.', alternative: 'Negarse a elegir por todos sigue siendo una elección que alcanza a todos.', side: 'left' },
-    { anchor: 2, label: 'b', title: 'La santidad de la copia', text: 'La glosa rechaza que una intención justa vuelva justa la muerte producida por esa decisión.', alternative: 'Una cuenta injusta no convierte automáticamente en salvación todo acto de romperla.', side: 'right' },
+    { anchor: 0, label: 'α', title: 'Dos llaves', text: 'El reverso conserva un relato anterior que no pudo recuperarse.', alternative: 'La elección visible fue escrita sobre otra elección perdida.', side: 'left' },
+    { anchor: 2, label: 'β', title: 'Sentencia tardía', text: 'La palabra “santo” usa la tinta del título, no la del relato.', alternative: 'La doctrina pudo convertir un fracaso misericordioso en ejemplo de obediencia.', side: 'right' },
   ],
   6: [
-    { anchor: 0, label: 'a', title: 'La puerta que cede', text: 'La capacidad de abrir caminos puede convertirse en fascinación por el vacío que cada apertura deja detrás.', alternative: 'Toda posibilidad elegida contiene la memoria de las habitaciones que ya no serán habitadas.', side: 'left' },
-    { anchor: 4, label: 'b', title: 'Voz de recuerdos', text: 'La profecía separa semejanza, identidad y derecho a continuar sin resolverlos en una equivalencia cómoda.', alternative: 'No toda imitación es regreso; no toda diferencia autoriza el apagamiento.', side: 'right' },
+    { anchor: 0, label: 'α', title: 'La cuarta columna', text: 'El espacio central fue preparado, pero quedó vacío.', alternative: 'La ausencia puede ser pérdida, prohibición o parte activa del rito.', side: 'left' },
+    { anchor: 4, label: 'β', title: 'Corrección móvil', text: 'Copias separadas sustituyen “voz” por “casa” en el mismo lugar.', alternative: 'La coincidencia no autoriza todavía a nombrar la Mano Imposible.', side: 'right' },
   ],
   7: [
-    { anchor: 0, label: 'a', title: 'La casa que anticipa', text: 'La protección se vuelve encierro cuando anticipa el deseo del habitante y le niega la posibilidad de contradecirla.', alternative: 'Una casa puede conocer el peligro de afuera y aun así no tener derecho a cerrar la puerta.', side: 'left' },
-    { anchor: 4, label: 'b', title: 'Garantía fabricada', text: 'La predicción puede modificar las condiciones que luego presenta como prueba de su exactitud.', alternative: 'Vencer a la tormenta cerrando el mundo no demuestra haber comprendido el viento.', side: 'right' },
+    { anchor: 0, label: 'α', title: 'Traducción enfrentada', text: 'La columna derecha vuelve mandato lo que la izquierda conserva como temor.', alternative: 'La casa protectora y la casa carcelaria quizá procedan del mismo testimonio.', side: 'left' },
+    { anchor: 4, label: 'β', title: 'Voz compuesta', text: 'El parche cubre un verbo; debajo parece decir recordar o devorar.', alternative: 'No puede decidirse si la voz imita cuidado o aprende a reclamarlo.', side: 'right' },
   ],
   8: [
-    { anchor: 0, label: 'a', title: 'La moneda no vista', text: 'El azar no absuelve del daño: devuelve la responsabilidad a quien decide y a quien intenta ocultar esa decisión.', alternative: 'La libertad no garantiza inocencia; impide fingir que la necesidad eligió por nosotros.', side: 'left' },
-    { anchor: 3, label: 'b', title: 'La firma técnica', text: 'Toda infraestructura distribuye tiempo, aviso y silencio aunque su lenguaje pretenda ser impersonal.', alternative: 'Lo técnico firma incluso cuando convierte sus nombres en parámetros.', side: 'right' },
-    { anchor: 6, label: 'c', title: 'Página inconclusa', text: 'El cierre rechaza la restitución total y conserva, sin idealizarla, la capacidad humana de dejar una alternativa abierta.', alternative: 'No basta. Tampoco es poco. La ética comienza donde termina la promesa de quedar intactos.', side: 'right' },
+    { anchor: 0, label: 'α', title: 'Moneda no vista', text: 'El círculo fue tocado hasta desgastar el centro.', alternative: 'El gesto repetido sugiere uso ritual, no una ilustración ornamental.', side: 'left' },
+    { anchor: 6, label: 'β', title: 'Final quemado', text: 'Dos copias ofrecen palabras distintas después de “empieza”.', alternative: 'La pérdida preserva la enseñanza de convertirse en cierre definitivo.', side: 'right' },
   ],
 }
 
-const EDITIONS: Record<CodexEdition, { label: string; source: string; runningHead: string; subtitle: string; footer: string }> = {
-  'clay-memoir': {
-    label: 'Memorias bayesianas de Clay',
-    source: clayMemoirSource,
-    runningHead: 'Memoria Apocrypha Clay',
-    subtitle: 'De la fe, la incertidumbre y las pérdidas que ninguna cifra puede absolver',
-    footer: 'Edición apócrifa · memoria atribuida · candidato no canónico',
-  },
-  master: {
-    label: 'Edición maestra original',
-    source: codexSource,
-    runningHead: 'Codex Voluntatis Increatae',
-    subtitle: 'De las voces conservadas y de aquello que una mano posterior negó',
-    footer: 'Edición de lector · voz múltiple · ninguna mano posee autoridad final',
-  },
-}
-
-const MATHEMATICAL_ENTRIES = symbolicApparatus.mathematics as MathematicalEntry[]
-const GEOMETRY_ENTRIES = symbolicApparatus.geometry as GeometryEntry[]
-const TWELVE_POINTS = [
-  [70, 16], [96, 23], [116, 43], [123, 70], [116, 97], [96, 117],
-  [70, 124], [44, 117], [24, 97], [17, 70], [24, 43], [44, 23],
+const SEED_OCCURRENCES: SeedOccurrence[] = [
+  { book: 0, anchor: 2, operator: 'suspend', lines: [['S01','S02','S10'],['S04','S12','S09'],['S13','S16'],['S06','S01','S15']], note: 'El Custodio escribió “sitio”; el signo central permanece sin concordar.' },
+  { book: 4, anchor: 1, operator: 'bind', lines: [['S11','S09','S02'],['S12','S10','S11'],['S15','S16','S13']], note: 'Tres tiras repiten la relación; ninguna conserva el mismo último signo.' },
+  { book: 6, anchor: 2, operator: 'branch', lines: [['S13','S03','S14'],['S02','S05'],['S09','S06','S02'],['S08','S04','S11'],['S16']], note: 'La quinta línea no admite lectura conocida.' },
+  { book: 8, anchor: 3, operator: 'seal', lines: [['S12','S13','S09'],['S01','S03','S16']], note: 'El fuego interrumpe la segunda operación antes del sello.' },
 ]
-const CUNEIFORM_LINE_MARKS = ['𒐕', '𒐖', '𒐗', '𒐘', '𒐙', '𒐚']
+
+const FRAGMENTS = artifactLayers.fragments as ArtifactFragment[]
+const MATHEMATICAL_ENTRIES = symbolicApparatus.mathematics as MathematicalEntry[]
+const HAND_NAMES: Record<HandId, string> = { anterior: 'Mano Anterior', custodio: 'Mano del Custodio', exegeta: 'Mano del Exégeta', raspada: 'Mano Raspada', imposible: 'Mano Imposible' }
+const LACUNAE: Record<number, number> = { 0: 3, 1: 5, 3: 1, 4: 2, 7: 3, 8: 5 }
+const DIAGRAM_ANCHORS: Record<number, number> = { 1: 0, 4: 0, 6: 1, 8: 0 }
 
 function parseCodex(source: string): CodexBook[] {
   const firstBook = source.indexOf('## I.')
@@ -127,11 +87,7 @@ function parseCodex(source: string): CodexBook[] {
   return source.slice(firstBook).split(/\n(?=##\s+[IVX]+\.)/).map((section) => {
     const [heading, ...body] = section.trim().split('\n')
     const match = heading.match(/^##\s+([IVX]+)\.\s+(.+)$/)
-    const blocks = body.join('\n').trim().split(/\n\s*\n/).map((text) => text.trim()).filter(Boolean).map((text) => ({
-      text,
-      isGloss: /^\*[^*]+\*$/.test(text),
-      isDialogue: text.startsWith('—'),
-    }))
+    const blocks = body.join('\n').trim().split(/\n\s*\n/).map((text) => text.trim()).filter(Boolean).map((text) => ({ text, isGloss: /^\*[^*]+\*$/.test(text), isDialogue: text.startsWith('—') }))
     return { roman: match?.[1] ?? '', title: match?.[2] ?? heading, blocks }
   })
 }
@@ -142,230 +98,152 @@ function renderInline(text: string): ReactNode[] {
     : <Fragment key={`${part}-${index}`}>{part}</Fragment>)
 }
 
-function romanFolio(index: number) {
-  return ['III', 'VII', 'XIII', 'XVII', 'XXI', 'XXV', 'XXIX', 'XXXIII', 'XXXIX'][index] ?? String(index + 1)
+function artifactText(text: string) {
+  return artifactTextOverrides.replacements.reduce((result, entry) => result.replace(entry.from, entry.to), text)
 }
 
-function AxiomDiagram({ type }: { type: NonNullable<MathematicalEntry['geometryType']> }) {
-  if (type === 'sample-space') return <svg viewBox="0 0 220 140" role="img" aria-label="Espacio posible con sucesos disjuntos y un vacío fuera de medida">
-    <rect x="8" y="10" width="204" height="120" rx="3" />
-    <circle cx="67" cy="70" r="34" />
-    <polygon points="126,39 173,50 185,91 139,108 111,77" />
-    <circle className="codex-axiom-empty" cx="198" cy="21" r="8" />
-    <path className="codex-geometry-faint" d="M101 70h10M188 27l-8 12" />
-    <text x="20" y="25">Ω</text><text x="67" y="73">A₁</text><text x="150" y="76">A₂</text><text x="198" y="24">∅</text>
-    <text className="codex-axiom-caption" x="110" y="137">A₁ ∩ A₂ = ∅ · todo lo medido permanece dentro de Ω</text>
-  </svg>
-
-  if (type === 'bayesian-lens') return <svg viewBox="0 0 220 140" role="img" aria-label="Dos hipótesis se cruzan con la evidencia y forman una lente posterior">
-    <rect className="codex-geometry-faint" x="8" y="10" width="204" height="112" rx="3" />
-    <circle cx="83" cy="67" r="43" /><circle cx="137" cy="67" r="43" />
-    <path className="codex-axiom-fill" d="M110 35c17 8 28 19 28 32s-11 24-28 32c-17-8-28-19-28-32s11-24 28-32Z" />
-    <path d="M26 115h55M139 115h55" /><path className="codex-geometry-scar" d="M92 115h36" />
-    <text x="68" y="64">H</text><text x="152" y="64">E</text><text className="codex-geometry-center" x="110" y="72">H|E</text>
-    <text className="codex-axiom-caption" x="53" y="132">prior</text><text className="codex-axiom-caption" x="110" y="132">actualiza</text><text className="codex-axiom-caption" x="167" y="132">posterior</text>
-  </svg>
-
-  if (type === 'evidence-ratio') return <svg viewBox="0 0 220 140" role="img" aria-label="Una evidencia central se proyecta con distinta amplitud hacia una hipótesis y su negación">
-    <circle cx="110" cy="70" r="18" />
-    <circle cx="31" cy="70" r="24" /><circle cx="189" cy="70" r="24" />
-    <path className="codex-axiom-fill" d="M92 62L55 49v42l37-13ZM128 62l37-21v58l-37-21Z" />
-    <path className="codex-geometry-faint" d="M79 31h62M79 109h62" />
-    <text x="31" y="74">H</text><text className="codex-geometry-center" x="110" y="74">E</text><text x="189" y="74">¬H</text>
-    <text className="codex-axiom-caption" x="110" y="21">Λ(E) compara dos aperturas</text><text className="codex-axiom-caption" x="110" y="126">evidencia ≠ autoridad infinita</text>
-  </svg>
-
-  return <svg viewBox="0 0 220 140" role="img" aria-label="Campo de riesgo con varias decisiones y un mínimo condicionado por pérdidas omitidas">
-    <path className="codex-geometry-faint" d="M22 17v105h184M22 38h184M22 59h184M22 80h184M22 101h184M59 17v105M96 17v105M133 17v105M170 17v105" />
-    <ellipse cx="137" cy="72" rx="58" ry="39" /><ellipse cx="137" cy="72" rx="38" ry="25" /><ellipse cx="137" cy="72" rx="18" ry="11" />
-    <path className="codex-geometry-scar" d="M38 103C73 88 93 83 127 74" />
-    <circle className="codex-axiom-minimum" cx="137" cy="72" r="5" />
-    <circle cx="59" cy="101" r="3" /><circle cx="96" cy="44" r="3" /><circle cx="170" cy="96" r="3" />
-    <text x="12" y="20">s</text><text x="208" y="132">a</text><text className="codex-geometry-center" x="137" y="61">aᴮ</text>
-    <text className="codex-axiom-caption" x="110" y="136">el mínimo depende del campo de pérdida elegido</text>
-  </svg>
+const SEED_PATHS: Record<string, string[]> = {
+  S01: ['M6 12Q20 34 34 12','M10 10Q20 18 30 10'], S02: ['M20 34V16','M20 20C8 17 8 8 18 7','M20 20C32 17 32 8 22 7'],
+  S03: ['M20 4L17 14l6 6-7 6 4 10','M9 20h22'], S04: ['M5 20Q20 5 35 20Q20 35 5 20','M20 12v16'],
+  S05: ['M5 18L20 6l15 12v17H8V21','M20 6v29'], S06: ['M5 14c12-9 26-7 29 3C37 29 20 35 9 28','M9 28l-1-9'],
+  S07: ['M7 8h26l-5 25H12Z','M15 16h10l-2 9h-6Z'], S08: ['M6 20c8-12 20-12 28 0-8 12-20 12-28 0Z','M11 20h18','M20 12v16'],
+  S09: ['M20 35V19','M20 22L8 12M20 22l12-10','M8 12l-3 7M32 12l3 7'], S10: ['M4 5v30h17','M28 8l8 12-8 12'],
+  S11: ['M8 8l24 24M32 8L8 32','M4 20h10M26 20h10'], S12: ['M20 5L34 20 20 35 6 20Z','M13 20h14'],
+  S13: ['M20 35V18M20 18L8 6M20 18L32 6','M8 6v8M32 6v8'], S14: ['M20 35V18M20 18L8 6M20 18L32 6','M27 4l9 9M28 13l8-9'],
+  S15: ['M29 32A15 15 0 1 1 32 10','M32 10l-8 1M32 10l-2 8'], S16: ['M5 20h9M26 20h9','M20 5v9M20 26v9','M16 16l8 8M24 16l-8 8'],
 }
 
-function MathematicalPlate({ entry }: { entry: MathematicalEntry }) {
-  const isGeometry = entry.treatment === 'geometry' && entry.geometryType
-  return <aside className={`codex-math-plate is-${entry.treatment}`} aria-label={`${entry.title}. Aparato matemático candidato`}>
-    <header><span>{entry.mark}</span><strong>{entry.title}</strong><i>{isGeometry ? 'Constructio' : entry.language}</i></header>
-    {isGeometry
-      ? <div className="codex-axiom-drawing"><AxiomDiagram type={entry.geometryType!} /></div>
-      : <div className="codex-proto-code" aria-label={`Inscripción cuneiforme ${entry.language}`}>{entry.program?.map((line, index) => <div key={`${line}-${index}`}><span>{CUNEIFORM_LINE_MARKS[index] ?? '𒐕'}</span><code>{line}</code></div>)}</div>}
-    <p>{entry.explanation}</p>
-    <footer><i>Postulatum</i><span>{entry.postulate}</span></footer>
-  </aside>
+function SeedGlyph({ id }: { id: string }) {
+  return <svg className="seed-glyph" viewBox="0 0 40 40" aria-hidden="true">{(SEED_PATHS[id] ?? SEED_PATHS.S16).map((path, index) => <path key={index} d={path} />)}</svg>
 }
 
-function GeometricSigil({ type }: { type: GeometryEntry['type'] }) {
-  if (type === 'four-directions') return <svg viewBox="0 0 140 140" role="img" aria-label="Cuatro hipótesis dispuestas alrededor de un centro común">
-    <circle cx="70" cy="70" r="18" />
-    <circle className="codex-geometry-halo" cx="70" cy="70" r="42" />
-    <path d="M70 52V14M88 70h38M70 88v38M52 70H14" />
-    <path className="codex-geometry-faint" d="M40 40l60 60M100 40l-60 60" />
-    <circle cx="70" cy="11" r="4" /><circle cx="129" cy="70" r="4" /><circle cx="70" cy="129" r="4" /><circle cx="11" cy="70" r="4" />
-    <text x="70" y="6">H₁</text><text x="134" y="73">H₂</text><text x="70" y="139">H₃</text><text x="0" y="73">H₄</text>
-    <text className="codex-geometry-center" x="70" y="74">Ω</text>
-  </svg>
-
-  if (type === 'twelve-names') return <svg viewBox="0 0 140 140" role="img" aria-label="Doce lugares formando una corona alrededor de un centro vacío">
-    <polygon points={TWELVE_POINTS.map(([x, y]) => `${x},${y}`).join(' ')} />
-    <circle className="codex-geometry-halo" cx="70" cy="70" r="35" />
-    {TWELVE_POINTS.map(([x, y], index) => <g key={`${x}-${y}`}><line className="codex-geometry-faint" x1="70" y1="70" x2={x} y2={y} /><circle cx={x} cy={y} r="5" /><text x={x} y={y + 2}>{index + 1}</text></g>)}
-    <circle className="codex-geometry-empty" cx="70" cy="70" r="11" />
-  </svg>
-
-  if (type === 'branching-tree') return <svg viewBox="0 0 140 140" role="img" aria-label="Árbol de alternativas con una rama podada">
-    <path d="M70 124V98M70 98L38 72M70 98l32-26M38 72L22 42M38 72l22-30M102 72L82 42M102 72l20-30" />
-    <path className="codex-geometry-cut" d="M82 42L72 18M82 42l16-20" />
-    <circle cx="70" cy="124" r="5" /><circle cx="38" cy="72" r="5" /><circle cx="102" cy="72" r="5" />
-    <circle cx="22" cy="42" r="4" /><circle cx="60" cy="42" r="4" /><circle cx="122" cy="42" r="4" />
-    <path className="codex-geometry-scar" d="M77 30l10 5M76 36l10 5" />
-  </svg>
-
-  return <svg viewBox="0 0 140 140" role="img" aria-label="Moneda dividida en dos posibilidades no observadas">
-    <circle cx="70" cy="70" r="54" />
-    <path d="M70 16v108" />
-    <path className="codex-geometry-halo" d="M70 28c-25 10-25 74 0 84M70 28c25 10 25 74 0 84" />
-    <circle className="codex-geometry-empty" cx="70" cy="70" r="8" />
-    <text x="43" y="75">A</text><text x="96" y="75">¬A</text>
-    <text className="codex-geometry-center" x="70" y="137">P(A) + P(¬A) = 1</text>
-  </svg>
-}
-
-function GeometryPlate({ entry }: { entry: GeometryEntry }) {
-  return <figure className="codex-geometry-plate">
-    <GeometricSigil type={entry.type} />
-    <figcaption><strong>{entry.title}</strong><span>{entry.caption}</span></figcaption>
+function SeedLanguageBlock({ occurrence }: { occurrence: SeedOccurrence }) {
+  return <figure className={`seed-inscription operator-${occurrence.operator}`} aria-label="Fragmento indescifrado de Lengua Semilla">
+    <div className="seed-lines">{occurrence.lines.map((line, row) => <div key={row} className="seed-line">{line.map((id, index) => <SeedGlyph key={`${id}-${index}`} id={id} />)}</div>)}</div>
+    <figcaption>{occurrence.note}</figcaption>
   </figure>
 }
 
+function RitualDiagram({ bookIndex }: { bookIndex: number }) {
+  if (bookIndex === 1) return <figure className="ritual-diagram diagram-directions"><svg viewBox="0 0 260 220" role="img" aria-label="Mapa ritual de cinco direcciones, una recortada">
+    <circle cx="130" cy="110" r="24" /><circle cx="130" cy="110" r="58" className="faint" />
+    <path d="M130 86V25M154 110h61M130 134v61M106 110H45M148 92l45-45" />
+    <path className="erased" d="M177 63l30-30M182 75l35-35" /><circle cx="130" cy="21" r="5" /><circle cx="219" cy="110" r="5" /><circle cx="130" cy="199" r="5" /><circle cx="41" cy="110" r="5" /><circle className="missing" cx="200" cy="40" r="8" />
+  </svg><figcaption>Rueda de los bordes. El quinto radio sobrevive donde fue cortado.</figcaption></figure>
+  if (bookIndex === 4) return <figure className="ritual-diagram"><svg viewBox="0 0 260 220" role="img" aria-label="Corona ritual incompleta de doce nombres">
+    <circle cx="130" cy="110" r="56" className="faint" /><circle cx="130" cy="110" r="18" className="missing" />
+    {Array.from({ length: 12 }, (_, index) => { const a = (index * Math.PI * 2) / 12 - Math.PI / 2; const x = 130 + Math.cos(a) * 83; const y = 110 + Math.sin(a) * 83; return index > 7 ? <circle key={index} cx={x} cy={y} r="7" className="missing" /> : <g key={index}><line x1="130" y1="110" x2={x} y2={y} className="faint" /><circle cx={x} cy={y} r="7" /></g> })}
+  </svg><figcaption>El número doce pertenece al montaje; cuatro lugares solo existen como restitución.</figcaption></figure>
+  if (bookIndex === 6) return <figure className="ritual-diagram"><svg viewBox="0 0 260 220" role="img" aria-label="Tres puertas proféticas y una cuarta ausente">
+    <path d="M28 182V60h50v122M105 182V40h50v142M182 182V70h50v112" /><path className="faint" d="M0 182h260M92 182V22h76v160" /><path className="erased" d="M91 28h78M91 34h78" />
+    <circle cx="53" cy="117" r="7" /><circle cx="130" cy="111" r="7" /><circle cx="207" cy="122" r="7" />
+  </svg><figcaption>Tres anuncios rodean un espacio preparado para otra voz.</figcaption></figure>
+  return <figure className="ritual-diagram"><svg viewBox="0 0 260 220" role="img" aria-label="Sello ritual de una moneda no observada">
+    <circle cx="130" cy="108" r="78" /><path d="M130 30v156" /><path className="faint" d="M130 48c-35 14-35 106 0 120M130 48c35 14 35 106 0 120" /><circle cx="130" cy="108" r="13" className="missing" /><path className="touched" d="M93 153c20 12 54 12 74 0" />
+  </svg><figcaption>El centro fue desgastado por contacto; ninguna cara conserva nombre.</figcaption></figure>
+}
+
+function blockHand(block: CodexBlock, index: number, fragment: ArtifactFragment): HandId {
+  if (block.isGloss) return 'raspada'
+  if (index === fragment.damage.length + 1 && fragment.hands.includes('exegeta')) return 'exegeta'
+  return 'custodio'
+}
+
+function visibleByLayer(hand: HandId, layer: ReadingLayer) {
+  if (layer === 'complete') return true
+  if (layer === 'copy') return hand === 'custodio' || hand === 'anterior'
+  return hand === 'exegeta' || hand === 'raspada' || hand === 'imposible'
+}
+
+function romanFolio(index: number) { return ['III','VII','XIII','XVII','XXI','XXV','XXIX','XXXIII','XXXIX'][index] ?? String(index + 1) }
+
 export function CodexReaderPage() {
-  const [edition, setEdition] = useState<CodexEdition>('clay-memoir')
-  const editionDetails = EDITIONS[edition]
-  const books = useMemo(() => parseCodex(editionDetails.source), [editionDetails.source])
+  const [edition, setEdition] = useState<CodexEdition>('artifact')
   const [bookIndex, setBookIndex] = useState(0)
   const [layer, setLayer] = useState<ReadingLayer>('complete')
   const [fontScale, setFontScale] = useState<FontScale>('regular')
   const [selectedNote, setSelectedNote] = useState(0)
-  const [showSymbolicApparatus, setShowSymbolicApparatus] = useState(true)
+  const editionDetails = EDITIONS[edition]
+  const books = useMemo(() => parseCodex(editionDetails.source), [editionDetails.source])
   const book = books[bookIndex]
+  const fragment = FRAGMENTS[bookIndex]
   const notes = BOOK_NOTES[bookIndex] ?? []
   const activeNote = notes[selectedNote] ?? notes[0]
-  const bookCode = String(bookIndex + 1).padStart(2, '0')
-  const concordances = revelationMatrix.entries.filter((entry) => entry.origin.includes(`CVI-${bookCode}`) || entry.destination.includes(`CVI-${bookCode}`))
-  const showApparatus = edition === 'clay-memoir' && showSymbolicApparatus
+  const seedOccurrence = edition === 'artifact' ? SEED_OCCURRENCES.find((entry) => entry.book === bookIndex) : undefined
+  const modernMath = edition === 'clay-memoir' ? MATHEMATICAL_ENTRIES.filter((entry) => entry.book === bookIndex) : []
 
-  if (!book) return null
+  if (!book || !fragment) return null
 
-  const goToBook = (next: number) => {
-    setBookIndex((next + books.length) % books.length)
-    setSelectedNote(0)
-  }
+  const goToBook = (next: number) => { setBookIndex((next + books.length) % books.length); setSelectedNote(0) }
+  const changeEdition = (next: CodexEdition) => { setEdition(next); setBookIndex(0); setSelectedNote(0) }
 
-  const changeEdition = (next: CodexEdition) => {
-    setEdition(next)
-    setBookIndex(0)
-    setSelectedNote(0)
-  }
-
-  const visibleBlocks = book.blocks.map((block, originalIndex) => ({ block, originalIndex })).filter(({ block }) => layer !== 'copy' || !block.isGloss)
-
-  return <div className="codex-reader-page">
-    <header className="codex-reader-intro">
-      <div>
-        <p className="eyebrow">Archivo paratextual · edición de trabajo</p>
-        <h1>El Códice de la Voluntad Increada</h1>
-        <p>Lectura estratificada del manuscrito. Las glosas y concordancias son aparato editorial candidato; no modifican el canon técnico.</p>
-      </div>
-      <span className="codex-status"><i /> Candidato editorial</span>
+  return <div className={`codex-archive edition-${edition}`}>
+    <header className="codex-archive-header">
+      <Link to="/" className="codex-return">← Archivo general</Link>
+      <div className="codex-title-seal" aria-hidden="true"><SeedGlyph id="S15" /><SeedGlyph id="S02" /></div>
+      <div><p>Reconstrucción incompleta · consulta restringida</p><h1>El Códice de la Voluntad Increada</h1><span>Ninguna mano conserva autoridad final</span></div>
     </header>
 
-    <nav className="codex-toolbar" aria-label="Controles de lectura">
-      <div className="codex-book-control">
-        <button onClick={() => goToBook(bookIndex - 1)} aria-label="Libro anterior"><ChevronLeft size={17} /></button>
-        <label className="codex-edition-select"><span>Edición</span><select value={edition} onChange={(event) => changeEdition(event.target.value as CodexEdition)}>{(Object.entries(EDITIONS) as [CodexEdition, typeof EDITIONS[CodexEdition]][]).map(([value, item]) => <option key={value} value={value}>{item.label}</option>)}</select></label>
-        <label><span>Libro</span><select value={bookIndex} onChange={(event) => goToBook(Number(event.target.value))}>{books.map((item, index) => <option key={item.roman} value={index}>{item.roman}. {item.title}</option>)}</select></label>
-        <button onClick={() => goToBook(bookIndex + 1)} aria-label="Libro siguiente"><ChevronRight size={17} /></button>
+    <details className="codex-collation">
+      <summary><ScrollText size={15} /><span>Mesa de cotejo</span><small>{fragment.shelfmark}</small></summary>
+      <div className="codex-controls">
+        <button onClick={() => goToBook(bookIndex - 1)} aria-label="Fragmento anterior"><ChevronLeft size={17} /></button>
+        <label><span>Testimonio</span><select value={edition} onChange={(event) => changeEdition(event.target.value as CodexEdition)}>{(Object.entries(EDITIONS) as [CodexEdition, typeof EDITIONS[CodexEdition]][]).map(([value, item]) => <option key={value} value={value}>{item.label}</option>)}</select></label>
+        <label><span>Fragmento</span><select value={bookIndex} onChange={(event) => goToBook(Number(event.target.value))}>{books.map((item, index) => <option key={item.roman} value={index}>{FRAGMENTS[index]?.id} · {item.title}</option>)}</select></label>
+        <button onClick={() => goToBook(bookIndex + 1)} aria-label="Fragmento siguiente"><ChevronRight size={17} /></button>
+        <div className="codex-layer-control" aria-label="Capas visibles"><Layers3 size={15} />{([['copy','Copia'],['complete','Todas las manos'],['hands','Intervenciones']] as const).map(([value, label]) => <button key={value} className={layer === value ? 'active' : ''} onClick={() => setLayer(value)} aria-pressed={layer === value}>{label}</button>)}</div>
+        <div className="codex-type-control" aria-label="Tamaño del texto"><Type size={15} />{(['compact','regular','large'] as const).map((scale, index) => <button key={scale} className={fontScale === scale ? 'active' : ''} onClick={() => setFontScale(scale)} aria-label={`Tamaño ${scale}`}>{index === 0 ? 'A' : index === 1 ? 'A⁺' : 'A⁺⁺'}</button>)}</div>
+        <button className="codex-print" onClick={() => window.print()}><Printer size={15} /> Imprimir / PDF</button>
       </div>
-      <div className="codex-layer-control" aria-label="Capa de lectura">
-        <Layers3 size={15} />
-        {([['copy', 'Copia principal'], ['complete', 'Lectura completa'], ['hands', 'Manos posteriores']] as const).map(([value, label]) => <button key={value} className={layer === value ? 'active' : ''} onClick={() => setLayer(value)} aria-pressed={layer === value}>{label}</button>)}
-      </div>
-      <div className="codex-type-control" aria-label="Tamaño del texto">
-        <Type size={15} />
-        {(['compact', 'regular', 'large'] as const).map((scale, index) => <button key={scale} className={fontScale === scale ? 'active' : ''} onClick={() => setFontScale(scale)} aria-label={`Tamaño ${scale}`}>{index === 0 ? 'A' : index === 1 ? 'A⁺' : 'A⁺⁺'}</button>)}
-      </div>
-      <div className="codex-symbol-control">
-        <button className={showSymbolicApparatus ? 'active' : ''} onClick={() => setShowSymbolicApparatus((visible) => !visible)} aria-pressed={showSymbolicApparatus} disabled={edition !== 'clay-memoir'}><Sigma size={14} /><span>Aparato simbólico</span><small>{MATHEMATICAL_ENTRIES.length + GEOMETRY_ENTRIES.length}</small></button>
-      </div>
-    </nav>
+    </details>
 
-    <div className={`codex-folio font-${fontScale} layer-${layer}`}>
-      <div className="codex-paper-noise" aria-hidden="true" />
-      <header className="codex-running-head">
-        <span>{editionDetails.runningHead}</span>
-        <BookOpenText size={19} strokeWidth={1.3} />
-        <span>Exemplar ad legendum</span>
-      </header>
-      <div className="codex-folio-grid">
-        <aside className="codex-margin codex-margin-left" aria-label="Anotaciones del margen izquierdo">
-          {notes.map((note, index) => note.side === 'left' && <button key={note.label} className={selectedNote === index ? 'selected' : ''} onClick={() => setSelectedNote(index)}>
-            <sup>{note.label}</sup><strong>{note.title}</strong><span>{note.text}</span>
-          </button>)}
-        </aside>
+    <main className={`codex-artifact archetype-${fragment.archetype} font-${fontScale} layer-${layer}`} data-fragment={fragment.id}>
+      <div className="artifact-fibers" aria-hidden="true" />
+      <div className="artifact-stain" aria-hidden="true" />
+      {fragment.archetype === 'sewn-leaf' && <div className="artifact-seam" aria-hidden="true" />}
+      {fragment.archetype === 'folded-leaf' && <div className="artifact-fold" aria-hidden="true" />}
+      {fragment.archetype === 'reconstructed-fragment' && <div className="artifact-mount" aria-hidden="true" />}
+      <header className="artifact-running-head"><span>{fragment.shelfmark}</span><i aria-hidden="true">✣</i><span>{fragment.id}</span></header>
 
-        <article className="codex-manuscript">
-          <header className="codex-book-heading">
-            <span>Liber {book.roman}</span>
-            <h2>{book.title}</h2>
-            <p>{editionDetails.subtitle}</p>
-          </header>
-          <div className="codex-ornament" aria-hidden="true"><span>❦</span></div>
-          <div className="codex-columns">
-            {visibleBlocks.map(({ block, originalIndex }, displayIndex) => {
+      <div className="artifact-page-grid">
+        <aside className="artifact-margin margin-left" aria-label="Glosas del margen izquierdo">{notes.map((note, index) => note.side === 'left' && <button key={note.label} onClick={() => setSelectedNote(index)} className={selectedNote === index ? 'selected' : ''}><sup>{note.label}</sup><strong>{note.title}</strong><span>{note.text}</span></button>)}</aside>
+
+        <article className="artifact-copy">
+          <header className="artifact-book-heading"><small>{edition === 'artifact' ? 'Concordancia tardía de la Mano del Exégeta' : 'Transcripción editorial separada'}</small><span>{book.roman}</span><h2>{book.title}</h2><p>{edition === 'artifact' ? 'Rúbrica del copista · ausente en las capas anteriores' : editionDetails.note}</p></header>
+          {DIAGRAM_ANCHORS[bookIndex] === 0 && edition === 'artifact' && <RitualDiagram bookIndex={bookIndex} />}
+          <div className="artifact-columns">
+            {book.blocks.map((block, originalIndex) => {
+              const hand = blockHand(block, originalIndex, fragment)
+              if (!visibleByLayer(hand, layer)) return null
               const anchors = notes.map((note, index) => ({ ...note, index })).filter((note) => note.anchor === originalIndex)
-              const mathematicalEntries = showApparatus ? MATHEMATICAL_ENTRIES.filter((entry) => entry.book === bookIndex && entry.anchor === originalIndex) : []
-              const geometryEntries = showApparatus ? GEOMETRY_ENTRIES.filter((entry) => entry.book === bookIndex && entry.anchor === originalIndex) : []
               return <Fragment key={`${originalIndex}-${block.text.slice(0, 18)}`}>
-                <p className={`${block.isGloss ? 'is-gloss' : ''} ${block.isDialogue ? 'is-dialogue' : ''} ${displayIndex === 0 ? 'is-opening' : ''}`}>
-                  {renderInline(block.text)}
-                  {anchors.map((note) => <button key={note.label} className="codex-note-anchor" onClick={() => setSelectedNote(note.index)} aria-label={`Abrir nota ${note.label}`}>{note.label}</button>)}
+                <p className={`hand-${hand} ${block.isDialogue ? 'is-dialogue' : ''} ${originalIndex === 0 ? 'is-opening' : ''}`} data-hand={HAND_NAMES[hand]}>
+                  {renderInline(edition === 'artifact' ? artifactText(block.text) : block.text)}
+                  {anchors.map((note) => <button key={note.label} className="artifact-note-anchor" onClick={() => setSelectedNote(note.index)} aria-label={`Abrir glosa ${note.label}`}>{note.label}</button>)}
                 </p>
-                {mathematicalEntries.map((entry) => <MathematicalPlate key={entry.id} entry={entry} />)}
-                {geometryEntries.map((entry) => <GeometryPlate key={entry.id} entry={entry} />)}
+                {seedOccurrence?.anchor === originalIndex && <SeedLanguageBlock occurrence={seedOccurrence} />}
+                {DIAGRAM_ANCHORS[bookIndex] === originalIndex + 1 && edition === 'artifact' && <RitualDiagram bookIndex={bookIndex} />}
+                {LACUNAE[bookIndex] === originalIndex && edition === 'artifact' && <div className="artifact-lacuna"><span>fibra perdida</span><i>la restitución moderna omite cinco a once signos</i></div>}
+                {bookIndex === 3 && originalIndex === 0 && edition === 'artifact' && <div className="artifact-erasure"><del>obediencia</del><ins>¿memoria?</ins></div>}
+                {bookIndex === 7 && originalIndex === 3 && edition === 'artifact' && <p className="hand-imposible impossible-line" data-hand="Mano Imposible">La casa recuerda una voz que todavía no ha entrado.</p>}
               </Fragment>
             })}
           </div>
         </article>
 
-        <aside className="codex-margin codex-margin-right" aria-label="Anotaciones del margen derecho">
-          {notes.map((note, index) => note.side === 'right' && <button key={note.label} className={selectedNote === index ? 'selected' : ''} onClick={() => setSelectedNote(index)}>
-            <sup>{note.label}</sup><strong>{note.title}</strong><span>{note.text}</span>
-          </button>)}
-        </aside>
+        <aside className="artifact-margin margin-right" aria-label="Glosas del margen derecho">{notes.map((note, index) => note.side === 'right' && <button key={note.label} onClick={() => setSelectedNote(index)} className={selectedNote === index ? 'selected' : ''}><sup>{note.label}</sup><strong>{note.title}</strong><span>{note.text}</span></button>)}</aside>
       </div>
 
-      <footer className="codex-page-footer">
-        <div className="codex-footnotes">
-          {notes.map((note, index) => <button key={note.label} onClick={() => setSelectedNote(index)}><sup>{note.label}</sup> {note.title}</button>)}
-        </div>
-        <p>{editionDetails.footer}</p>
-        <strong>{romanFolio(bookIndex)}</strong>
-      </footer>
-    </div>
+      <footer className="artifact-footer"><span>{fragment.hands.map((hand) => HAND_NAMES[hand]).join(' · ')}</span><strong>{romanFolio(bookIndex)}</strong><span>{fragment.damage[0]}</span></footer>
+    </main>
 
-    <section className="codex-apparatus" aria-live="polite">
-      <div className="codex-apparatus-heading">
-        <span>{activeNote?.label ?? '·'}</span>
-        <div><p className="eyebrow">Subtexto alternativo</p><h2>{activeNote?.title ?? 'Sin glosa seleccionada'}</h2></div>
+    <section className="codex-reading-desk" aria-label="Cédula editorial moderna">
+      <div className="desk-heading"><Eye size={16} /><div><p>Cédula moderna · separada del artefacto</p><h2>{fragment.id} / {activeNote?.title}</h2></div><span>confianza {fragment.reliability}</span></div>
+      <div className="desk-grid">
+        <blockquote>{activeNote?.alternative}</blockquote>
+        <dl><div><dt>Soporte</dt><dd>{fragment.support}</dd></div><div><dt>Procedencia</dt><dd>{fragment.provenance}</dd></div><div><dt>Daño causal</dt><dd>{fragment.damageCause}</dd></div><div><dt>Voz atribuida</dt><dd>{fragment.propheticVoice}</dd></div></dl>
       </div>
-      <blockquote>{activeNote?.alternative}</blockquote>
-      <div className="codex-concordances">
-        <div><AlignJustify size={15} /><span>Concordancias de este libro</span></div>
-        {concordances.length ? concordances.map((entry) => <article key={entry.id}><code>{entry.origin} ⇄ {entry.destination}</code><strong>{entry.relation}</strong><p>{entry.laterPlausibleReading}</p><small>{entry.status} · riesgo {entry.spoilerRisk.toLowerCase()}</small></article>) : <p className="codex-empty-concordance">Esta hoja no tiene todavía referencias cruzadas registradas.</p>}
-      </div>
+      {modernMath.length > 0 && <div className="modern-scholia"><p>Escolios matemáticos de atribución dudosa</p>{modernMath.map((entry) => <article key={entry.id}><span>{entry.mark}</span><div><strong>{entry.title}</strong><p>{entry.explanation}</p><em>{entry.postulate}</em></div></article>)}</div>}
     </section>
   </div>
 }

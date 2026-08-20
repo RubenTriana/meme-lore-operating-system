@@ -1,6 +1,8 @@
 # 𒇷𒈨𒉡 · LIMEN
 
-**Estado:** `ESCRITURA_CUNEIFORME_ALGORITMICA_CANDIDATA_NO_EJECUTABLE`
+**Estado:** `EXPERIMENTO_ARCHIVADO_SUSTITUIDO_EN_LA_VISTA_DEL_ARTEFACTO`
+
+Esta capa se conserva para documentar la edición matemática anterior, pero ya no aparece como escritura originaria del archivo sagrado. La reconstrucción material usa la **Lengua Semilla**, dibujada con signos propios en SVG y especificada en `lengua_semilla_spec.md`.
 
 LIMEN es una notación apócrifa del Códice para expresar decisiones bajo incertidumbre mediante signos cuneiformes. No reproduce sumerio, acadio ni otra lengua histórica: asigna a signos antiguos una gramática algorítmica inventada. No es una tecnología canónica, un lenguaje implementado ni una descripción factual de MEME, SOMA o DAFX.
 
