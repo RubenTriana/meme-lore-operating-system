@@ -59,6 +59,36 @@ Las capturas de diagnóstico intermedias se eliminaron; solo permanecen la refer
 
 - `npm.cmd run build`: aprobado.
 - `npm.cmd run lint`: aprobado.
-- `npm.cmd test`: 35 archivos y 179 pruebas aprobadas.
+- `npm.cmd test`: 36 archivos y 181 pruebas aprobadas.
 - `npm.cmd run validate:canon`: aprobado, sin errores de validación ni advertencias.
-- Prueba específica del lector: 3 casos aprobados, incluidos separación de escolios, sustitución anacrónica y llamada de impresión.
+- Pruebas específicas: 3 casos del lector y 2 del espécimen aprobados; cubren separación de escolios, sustitución anacrónica, capitulares, repertorio español, Lengua Semilla y llamada de impresión.
+
+## Reconstrucción tipográfica · 2026-08-19
+
+Se sustituyó el conjunto de fallbacks y fuentes de sistema por Alegreya y EB Garamond alojadas localmente. Cinco manos comparten dos tradiciones tipográficas mediante pesos, itálicas auténticas, funciones OpenType y tratamientos deterministas; la Lengua Semilla continúa como SVG propio. Se añadió el espécimen interno `/codice/tipografia` y nueve capitulares dibujadas, una por fragmento.
+
+| Fragmento | Motivo capitular | Altura final a 1366 px | Overflow horizontal |
+|---|---|---:|---|
+| CVI-F01 | agua | 1020 px | no |
+| CVI-F02 | sendero | 1395 px | no |
+| CVI-F03 | semilla | 700 px | no |
+| CVI-F04 | ojo | 740 px | no |
+| CVI-F05 | cuerda | 1083 px | no |
+| CVI-F06 | cicatriz | 700 px | no |
+| CVI-F07 | puerta | 1020 px | no |
+| CVI-F08 | estrella | 800 px | no |
+| CVI-F09 | círculo abierto | 1106 px | no |
+
+La vista móvil efectiva de 375 px usa una sola columna, artefacto de 359 px y cuerpo de 15 px, sin desplazamiento horizontal. La auditoría de fuentes confirmó el repertorio español y `liga`, `dlig`, `smcp`, `c2sc`, `onum` y `kern` en las familias históricas. No quedan importaciones de Google Fonts ni solicitudes tipográficas externas.
+
+La prueba de impresión produjo una sola página A4 de 79 164 bytes, 2 110 caracteres extraíbles y subconjuntos incrustados Type 0 de Alegreya y EB Garamond. Las capas modernas quedan fuera del impreso.
+
+### Evidencia visual
+
+- Antes: `../captures/antes-tipografia-sacra.png`
+- Después, escritorio: `../captures/despues-tipografia-sacra-escritorio.png`
+- Después, móvil: `../captures/despues-tipografia-sacra-movil.png`
+- Espécimen: `../captures/especimen-tipografico.png` y `../captures/especimen-tipografico-movil.png`
+- Nueve fragmentos: `../captures/tipografia-fragmento-01.png` a `../captures/tipografia-fragmento-09.png`
+- Hoja de contacto: `../captures/tipografia-contacto-9-fragmentos.png`
+- Prueba A4: `../captures/codice-tipografia-prueba.pdf`

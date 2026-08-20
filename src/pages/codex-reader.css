@@ -6,6 +6,7 @@
   --iron: #493424;
   --doctrine: #18120e;
   --root-red: #704127;
+  font-family: var(--font-modern-editor);
   min-height: 100vh;
   padding: 28px clamp(18px, 4vw, 68px) 72px;
   color: #d8c8a6;
@@ -23,25 +24,26 @@
   gap: 22px;
   margin: 0 auto 20px;
 }
-.codex-return { color: #85765e; font: 10px "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+.codex-return { color: #85765e; font: 10px var(--font-modern-code); letter-spacing: .08em; text-transform: uppercase; }
 .codex-return:hover { color: #d7b879; }
 .codex-title-seal { width: 68px; height: 68px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 10px; border: 1px solid #51422f; border-radius: 50%; color: #a88a57; transform: rotate(-4deg); }
 .codex-title-seal .seed-glyph { width: 25px; }
-.codex-archive-header > div:last-child p, .codex-archive-header > div:last-child span { color: #756955; font: 9px "DM Mono", monospace; letter-spacing: .13em; text-transform: uppercase; }
-.codex-archive-header h1 { margin: 5px 0 4px; color: #ded1b7; font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif; font-size: clamp(26px, 3.1vw, 44px); font-weight: 400; line-height: 1; letter-spacing: -.035em; }
+.codex-archive-header > div:last-child p, .codex-archive-header > div:last-child span { color: #756955; font: 9px var(--font-modern-code); letter-spacing: .13em; text-transform: uppercase; }
+.codex-archive-header h1 { margin: 5px 0 4px; color: #ded1b7; font-family: var(--font-exegete); font-size: clamp(28px, 3.35vw, 48px); font-weight: 500; line-height: .94; letter-spacing: -.032em; }
 
 .codex-collation { width: min(1260px, 100%); margin: 0 auto 18px; border-block: 1px solid #2f2921; color: #95866f; }
-.codex-collation summary { min-height: 42px; display: flex; align-items: center; gap: 9px; cursor: pointer; list-style: none; font: 10px "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+.codex-collation summary { min-height: 42px; display: flex; align-items: center; gap: 9px; cursor: pointer; list-style: none; font: 10px var(--font-modern-code); letter-spacing: .1em; text-transform: uppercase; }
 .codex-collation summary::-webkit-details-marker { display: none; }
 .codex-collation summary:focus { outline: none; }
 .codex-collation summary:focus-visible { outline: 1px solid #69583f; outline-offset: -2px; }
 .codex-collation summary small { margin-left: auto; color: #5f5548; }
 .codex-collation[open] summary { border-bottom: 1px solid #2a251e; }
 .codex-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 9px; padding: 11px 0 13px; }
-.codex-controls > button, .codex-layer-control button, .codex-type-control button { min-height: 34px; padding: 0 10px; border: 1px solid #393126; border-radius: 2px; background: #17130f; color: #877964; font: 9px "DM Mono", monospace; }
+.codex-controls > button, .codex-layer-control button, .codex-type-control button, .codex-specimen-link { min-height: 34px; padding: 0 10px; border: 1px solid #393126; border-radius: 2px; background: #17130f; color: #877964; font: 9px var(--font-modern-code); }
 .codex-controls > button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
-.codex-controls button:hover, .codex-controls button.active { border-color: #8b6d3e; color: #d7b878; background: #211a12; }
-.codex-controls label { min-width: 210px; flex: 1; display: grid; gap: 4px; color: #665c4e; font: 8px "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }
+.codex-specimen-link { display: inline-flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap; }
+.codex-controls button:hover, .codex-controls button.active, .codex-specimen-link:hover { border-color: #8b6d3e; color: #d7b878; background: #211a12; }
+.codex-controls label { min-width: 210px; flex: 1; display: grid; gap: 4px; color: #665c4e; font: 8px var(--font-modern-code); letter-spacing: .1em; text-transform: uppercase; }
 .codex-controls select { width: 100%; height: 34px; padding: 0 8px; border: 1px solid #393126; border-radius: 2px; outline: 0; background: #17130f; color: #b9a98e; font-size: 10px; }
 .codex-layer-control, .codex-type-control { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; color: #6d604d; }
 .codex-layer-control { flex: 1 1 360px; }
@@ -64,7 +66,13 @@
     radial-gradient(ellipse at 78% 74%, rgba(103, 63, 25, .12), transparent 34%),
     linear-gradient(108deg, #cdb37b, #e2cd99 42%, #d2b77f 72%, #c4a66f);
   box-shadow: 0 38px 95px rgba(0, 0, 0, .65), inset 0 0 70px rgba(70, 39, 15, .28), inset 0 0 0 8px rgba(255, 240, 193, .07);
+  font-synthesis: none;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  text-rendering: optimizeLegibility;
 }
+.codex-artifact.font-compact { --type-body-size: 13.6px; --type-body-leading: 1.46; }
+.codex-artifact.font-regular { --type-body-size: 15px; --type-body-leading: 1.5; }
+.codex-artifact.font-large { --type-body-size: 16.6px; --type-body-leading: 1.56; }
 .codex-artifact::before, .codex-artifact::after { content: ''; position: absolute; pointer-events: none; z-index: 5; }
 .codex-artifact::before { inset: 10px; border: 1px solid rgba(77, 51, 27, .28); border-radius: 7px 2px 8px 3px; }
 .codex-artifact::after { inset: 0; opacity: .28; background: repeating-linear-gradient(5deg, transparent 0 8px, rgba(55, 34, 17, .055) 9px, transparent 10px 17px); mix-blend-mode: multiply; }
@@ -87,39 +95,40 @@
 .artifact-fold { position: absolute; z-index: 2; left: 20px; right: 20px; top: 54%; height: 18px; background: linear-gradient(180deg, transparent, rgba(84, 51, 24, .18) 42%, rgba(255, 238, 190, .2) 57%, transparent); transform: rotate(.3deg); }
 .artifact-mount { position: absolute; inset: 38px 8% 28px; z-index: -1; background: rgba(231, 215, 177, .24); border: 1px solid rgba(70, 48, 28, .2); box-shadow: 5px 4px 0 rgba(70, 45, 23, .12); transform: rotate(-.35deg); }
 
-.artifact-running-head { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 14px; padding: 0 8px 13px; border-bottom: 1px solid rgba(54, 36, 20, .44); color: #604a31; font: 8px "Palatino Linotype", Georgia, serif; letter-spacing: .16em; text-transform: uppercase; }
+.artifact-running-head { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 14px; padding: 0 8px 13px; border-bottom: 1px solid rgba(54, 36, 20, .44); color: #604a31; font: 600 9px var(--font-exegete); font-variant-caps: all-small-caps; font-feature-settings: 'smcp' 1, 'c2sc' 1, 'kern' 1; letter-spacing: .14em; }
 .artifact-running-head i { font-style: normal; font-size: 15px; }
 .artifact-running-head span:last-child { text-align: right; }
 .artifact-page-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(104px, 148px) minmax(0, 1fr) minmax(104px, 148px); gap: clamp(16px, 2.2vw, 32px); padding-top: 24px; }
 .artifact-copy { min-width: 0; }
 .artifact-book-heading { position: relative; max-width: 650px; margin: 0 auto 18px; text-align: center; }
-.artifact-book-heading small { display: block; color: #6e5436; font: italic 8px Georgia, serif; }
-.artifact-book-heading > span { display: inline-grid; place-items: center; width: 32px; height: 32px; margin-top: 8px; border: 1px solid rgba(83, 52, 26, .5); border-radius: 50%; color: #5f381d; font: 11px Georgia, serif; transform: rotate(-2deg); }
-.artifact-book-heading h2 { margin: 6px 0 7px; color: #21170f; font-family: "Old English Text MT", "Palatino Linotype", Georgia, serif; font-size: clamp(32px, 4vw, 54px); line-height: .95; letter-spacing: -.035em; text-wrap: balance; }
-.artifact-book-heading p { color: #735b3e; font: italic 9px Georgia, serif; }
+.artifact-book-heading small { display: block; color: #6e5436; font: italic 500 9px var(--font-exegete); }
+.artifact-book-heading > span { display: block; width: max-content; margin: 10px auto 4px; padding: 2px 10px 1px; border-block: 3px double rgba(91, 46, 27, .5); color: var(--ink-rubric-dark); font: 700 11px var(--font-exegete); font-variant-caps: all-small-caps; font-feature-settings: 'smcp' 1, 'c2sc' 1, 'onum' 1; letter-spacing: .1em; transform: rotate(-.25deg); }
+.artifact-book-heading h2 { margin: 5px 0 7px; color: #21170f; font-family: var(--font-exegete); font-size: clamp(36px, 4.2vw, 60px); font-weight: 600; line-height: .88; letter-spacing: -.03em; text-wrap: balance; font-feature-settings: 'liga' 1, 'dlig' 1, 'kern' 1; }
+.artifact-book-heading p { color: var(--ink-rubric-faded); font: italic 500 9.5px var(--font-exegete); }
 
-.artifact-columns { column-count: 2; column-gap: clamp(29px, 3.4vw, 48px); column-rule: 1px solid rgba(70, 46, 25, .22); text-align: justify; hyphens: auto; orphans: 3; widows: 3; }
-.artifact-columns > p { position: relative; break-inside: avoid; margin: 0 0 .92em; color: var(--iron); font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif; font-size: 13.4px; line-height: 1.47; letter-spacing: .004em; }
-.artifact-columns > p:nth-of-type(3n + 1) { transform: rotate(-.08deg); }
-.artifact-columns > p:nth-of-type(4n + 2) { transform: translateX(1px) rotate(.06deg); }
-.artifact-columns > p.is-opening::first-letter { float: left; margin: .04em .09em 0 0; color: #572e16; font-family: "Old English Text MT", Georgia, serif; font-size: 3.8em; font-weight: 700; line-height: .75; text-shadow: 1px 1px rgba(255, 238, 194, .35); }
-.artifact-columns .hand-custodio { color: #3f2d1e; }
-.artifact-columns .hand-exegeta { color: var(--doctrine); font-size: .96em; font-weight: 600; letter-spacing: .015em; }
-.artifact-columns .hand-exegeta::before { content: '✢'; margin-right: 5px; color: #6e4527; }
-.artifact-columns .hand-raspada { margin: 1.12em 0 1.25em; padding: .25em .4em .2em .7em; border-left: 1px solid rgba(104, 55, 31, .5); color: var(--root-red); font-family: "Segoe Print", "Bradley Hand", "Palatino Linotype", serif; font-size: .9em; line-height: 1.5; text-align: left; transform: rotate(-.35deg); }
-.artifact-columns .hand-imposible { color: #4e4b43; font-family: "Palatino Linotype", Georgia, serif; letter-spacing: .04em; text-shadow: 0 0 5px rgba(40, 45, 42, .28); }
+.artifact-columns { column-count: 2; column-gap: clamp(32px, 3.6vw, 52px); column-rule: 1px solid rgba(70, 46, 25, .22); text-align: left; hyphens: auto; orphans: 3; widows: 3; }
+.artifact-columns > p { position: relative; break-inside: avoid; margin: 0 0 1.03em; color: var(--ink-carbon-soft); font-family: var(--font-ancient-body); font-size: var(--type-body-size); line-height: var(--type-body-leading); letter-spacing: .002em; }
+.artifact-columns > p.hand-custodio:nth-of-type(3n + 1) { transform: translateY(.35px) rotate(-.055deg); }
+.artifact-columns > p.hand-custodio:nth-of-type(4n + 2) { transform: translateX(1px) rotate(.04deg); }
+.artifact-columns .hand-custodio { color: #3f2d1e; font-family: var(--font-custodian); font-weight: 400; font-feature-settings: 'liga' 1, 'kern' 1; }
+.artifact-columns .hand-custodio:nth-of-type(4n) { letter-spacing: .005em; }
+.artifact-columns .hand-exegeta { color: var(--ink-doctrinal); font-family: var(--font-exegete); font-size: .98em; font-weight: 600; letter-spacing: .012em; text-align: justify; font-feature-settings: 'liga' 1, 'kern' 1; }
+.artifact-columns .hand-exegeta::before { content: '✢'; margin-right: 5px; color: var(--ink-rubric); }
+.artifact-columns .hand-raspada { margin: 1.12em 0 1.3em; padding: .22em .45em .2em .8em; border-left: 1px solid rgba(104, 55, 31, .5); color: var(--ink-rubric); font-family: var(--font-scratched-hand); font-size: 1.01em; font-style: italic; font-weight: 600; line-height: 1.47; letter-spacing: .008em; text-align: left; transform: translateY(1px) rotate(-.42deg); font-feature-settings: 'liga' 1, 'kern' 1; }
+.artifact-columns .hand-raspada:nth-of-type(even) { font-size: .97em; transform: translateX(-1px) rotate(.28deg); }
+.artifact-columns .hand-imposible { color: var(--ink-impossible); font-family: var(--font-impossible-hand); font-weight: 500; letter-spacing: .055em; word-spacing: .045em; font-feature-settings: 'liga' 0, 'kern' 1; }
 .artifact-columns em { font-weight: 600; }
 .artifact-columns .is-dialogue { padding-left: 1.3em; text-indent: -1.3em; }
-.artifact-note-anchor { display: inline-grid; place-items: center; min-width: 15px; height: 15px; margin-left: 3px; padding: 0 2px; border: 0; background: transparent; color: #784223; font: 700 9px Georgia, serif; vertical-align: super; }
+.artifact-note-anchor { display: inline-grid; place-items: center; min-width: 15px; height: 15px; margin-left: 3px; padding: 0 2px; border: 0; background: transparent; color: #784223; font: 700 9px var(--font-exegete); vertical-align: super; }
 
 .artifact-margin { min-width: 0; display: flex; flex-direction: column; gap: 78px; padding-top: 85px; }
 .artifact-margin button { position: relative; width: 100%; padding: 0 5px 5px 14px; border: 0; border-left: 1px solid rgba(92, 52, 28, .36); background: transparent; color: #755036; text-align: left; transform: rotate(-1.1deg); }
 .artifact-margin button:nth-child(even) { transform: rotate(.8deg); }
 .artifact-margin button.selected { color: #552d1b; border-left-color: #6f321d; }
-.artifact-margin sup { position: absolute; left: -7px; top: -5px; font: 700 10px Georgia, serif; }
+.artifact-margin sup { position: absolute; left: -7px; top: -5px; font: 700 10px var(--font-exegete); }
 .artifact-margin strong, .artifact-margin span { display: block; }
-.artifact-margin strong { font: 700 9px "Palatino Linotype", Georgia, serif; font-variant: small-caps; letter-spacing: .05em; }
-.artifact-margin span { margin-top: 4px; font: italic 9px/1.45 "Segoe Print", "Bradley Hand", Georgia, serif; }
+.artifact-margin strong { font: 700 var(--type-gloss-size) var(--font-exegete); font-variant-caps: all-small-caps; font-feature-settings: 'smcp' 1, 'c2sc' 1; letter-spacing: .045em; }
+.artifact-margin span { margin-top: 4px; font: italic 500 var(--type-gloss-size)/var(--type-gloss-leading) var(--font-scratched-hand); }
 .margin-right { padding-top: 156px; }
 
 .seed-inscription { position: relative; width: 94%; display: inline-block; break-inside: avoid; margin: 1.2em 3% 1.5em; padding: 12px 14px 9px; border: 0; color: #382719; background: radial-gradient(ellipse at center, rgba(94, 58, 27, .09), transparent 70%); transform: rotate(-.5deg); }
@@ -130,18 +139,18 @@
 .seed-line:nth-child(even) { transform: translateX(13px); }
 .seed-glyph { width: 34px; height: 34px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
 .operator-suspend .seed-line:last-child { opacity: .48; }.operator-bind .seed-line { border-bottom: 1px solid rgba(65, 39, 21, .22); }.operator-branch .seed-line:nth-child(3) { justify-content: space-around; }.operator-seal .seed-line:last-child { opacity: .55; text-decoration: line-through; }
-.seed-inscription figcaption { padding-top: 9px; color: #714b30; font: italic 8.5px/1.35 "Segoe Print", Georgia, serif; text-align: center; }
+.seed-inscription figcaption { padding-top: 9px; color: #714b30; font: italic 500 9px/1.4 var(--font-scratched-hand); text-align: center; }
 
 .ritual-diagram { width: min(520px, 92%); break-inside: avoid; margin: 12px auto 24px; color: #4a301e; text-align: center; }
 .ritual-diagram svg { display: block; width: 100%; max-height: 260px; fill: none; stroke: currentColor; stroke-width: 1.45; stroke-linecap: round; stroke-linejoin: round; }
 .ritual-diagram .faint { opacity: .38; stroke-dasharray: 3 4; }.ritual-diagram .missing { fill: rgba(224, 204, 158, .62); opacity: .55; stroke-dasharray: 2 3; }.ritual-diagram .erased { stroke: #6d3a22; stroke-width: 3.2; opacity: .56; }.ritual-diagram .touched { stroke-width: 8; opacity: .16; }
-.ritual-diagram figcaption { width: 78%; margin: 4px auto 0; color: #684a31; font: italic 9px/1.4 Georgia, serif; }
+.ritual-diagram figcaption { width: 78%; margin: 4px auto 0; color: #684a31; font: italic 500 10px/1.4 var(--font-custodian); }
 .diagram-directions { margin-top: 2px; }
 
 .artifact-lacuna { position: relative; width: 93%; min-height: 58px; display: inline-grid; place-content: center; break-inside: avoid; margin: .8em 3% 1.2em; color: #7d6748; text-align: center; background: radial-gradient(ellipse, rgba(245, 228, 185, .52), rgba(120, 82, 39, .12) 68%, transparent 72%); clip-path: polygon(1% 15%, 12% 6%, 25% 12%, 39% 2%, 57% 11%, 72% 4%, 88% 13%, 99% 8%, 96% 87%, 79% 96%, 62% 88%, 45% 98%, 27% 89%, 10% 96%, 3% 77%); }
-.artifact-lacuna span { font: 8px "DM Mono", monospace; letter-spacing: .13em; text-transform: uppercase; }.artifact-lacuna i { margin-top: 4px; font: italic 8px Georgia, serif; }
+.artifact-lacuna span { font: 700 8px var(--font-exegete); font-variant-caps: all-small-caps; letter-spacing: .13em; }.artifact-lacuna i { margin-top: 4px; font: italic 500 8.5px var(--font-custodian); }
 .artifact-erasure { position: relative; width: max-content; max-width: 100%; display: inline-flex; gap: 12px; align-items: center; break-inside: avoid; margin: .5em 0 1.1em 12%; color: #51301d; transform: rotate(-1deg); }
-.artifact-erasure del { padding: 2px 8px; color: rgba(59, 37, 24, .44); text-decoration-thickness: 3px; text-decoration-color: rgba(70, 40, 23, .72); }.artifact-erasure ins { color: #764329; font: italic 11px "Segoe Print", Georgia, serif; text-decoration: none; }
+.artifact-erasure del { padding: 2px 8px; color: rgba(59, 37, 24, .44); text-decoration-thickness: 3px; text-decoration-color: rgba(70, 40, 23, .72); }.artifact-erasure ins { color: #764329; font: italic 600 12px var(--font-scratched-hand); text-decoration: none; }
 .impossible-line { padding: 8px 12px; border-block: 1px solid rgba(55, 53, 46, .26); transform: rotate(.12deg) !important; }
 
 .archetype-nearly-empty .artifact-columns { min-height: 580px; column-gap: 70px; }
@@ -152,21 +161,21 @@
 .archetype-reconstructed-fragment .artifact-columns { column-rule-style: dashed; }
 .archetype-censored-passage .hand-raspada { background: linear-gradient(177deg, transparent 42%, rgba(101, 54, 31, .2) 44% 58%, transparent 61%); }
 
-.artifact-footer { position: relative; z-index: 2; min-height: 42px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 14px; margin-top: 22px; padding: 12px 8px 0; border-top: 1px solid rgba(55, 37, 21, .38); color: #694f34; font: 8px Georgia, serif; }
+.artifact-footer { position: relative; z-index: 2; min-height: 42px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 14px; margin-top: 22px; padding: 12px 8px 0; border-top: 1px solid rgba(55, 37, 21, .38); color: #694f34; font: 500 9px var(--font-exegete); font-variant-caps: all-small-caps; letter-spacing: .025em; }
 .artifact-footer strong { font-size: 13px; }.artifact-footer span:last-child { text-align: right; }
 
 .codex-reading-desk { width: min(1120px, calc(100% - 40px)); margin: 34px auto 0; padding: 18px 20px; border: 1px solid #302a22; background: #12100d; color: #9b8e78; }
 .desk-heading { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 11px; padding-bottom: 12px; border-bottom: 1px solid #2b261f; }
-.desk-heading p { color: #655d51; font: 8px "DM Mono", monospace; letter-spacing: .1em; text-transform: uppercase; }.desk-heading h2 { margin-top: 3px; color: #c6b89f; font-family: Georgia, serif; font-size: 15px; font-weight: 400; }.desk-heading > span { color: #7e6a48; font: 9px "DM Mono", monospace; }
+.desk-heading p { color: #655d51; font: 8px var(--font-modern-code); letter-spacing: .1em; text-transform: uppercase; }.desk-heading h2 { margin-top: 3px; color: #c6b89f; font-family: var(--font-modern-editor); font-size: 15px; font-weight: 400; }.desk-heading > span { color: #7e6a48; font: 9px var(--font-modern-code); }
 .desk-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 24px; padding-top: 15px; }
-.desk-grid blockquote { margin: 0; padding-left: 15px; border-left: 1px solid #5e4e35; color: #b2a48c; font: italic 13px/1.65 Georgia, serif; }
-.desk-grid dl { display: grid; grid-template-columns: 1fr 1fr; gap: 11px 16px; margin: 0; }.desk-grid dl > div { min-width: 0; }.desk-grid dt { color: #625a4e; font: 8px "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }.desk-grid dd { margin: 4px 0 0; color: #958875; font-size: 10px; line-height: 1.45; }
-.modern-scholia { display: grid; gap: 7px; margin-top: 17px; padding-top: 13px; border-top: 1px solid #2c271f; }.modern-scholia > p { color: #6b604f; font: 8px "DM Mono", monospace; text-transform: uppercase; letter-spacing: .1em; }.modern-scholia article { display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 10px; background: #17140f; }.modern-scholia article > span { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid #4f432f; border-radius: 50%; color: #a58a59; font: 9px Georgia, serif; }.modern-scholia strong { color: #bfae91; font-size: 11px; }.modern-scholia p, .modern-scholia em { display: block; margin-top: 4px; color: #817665; font-size: 10px; line-height: 1.5; }.modern-scholia em { color: #9a8057; }
+.desk-grid blockquote { margin: 0; padding-left: 15px; border-left: 1px solid #5e4e35; color: #b2a48c; font: italic 13px/1.65 var(--font-modern-editor); }
+.desk-grid dl { display: grid; grid-template-columns: 1fr 1fr; gap: 11px 16px; margin: 0; }.desk-grid dl > div { min-width: 0; }.desk-grid dt { color: #625a4e; font: 8px var(--font-modern-code); letter-spacing: .08em; text-transform: uppercase; }.desk-grid dd { margin: 4px 0 0; color: #958875; font-size: 10px; line-height: 1.45; }
+.modern-scholia { display: grid; gap: 7px; margin-top: 17px; padding-top: 13px; border-top: 1px solid #2c271f; }.modern-scholia > p { color: #6b604f; font: 8px var(--font-modern-code); text-transform: uppercase; letter-spacing: .1em; }.modern-scholia article { display: grid; grid-template-columns: 28px 1fr; gap: 10px; padding: 10px; background: #17140f; }.modern-scholia article > span { display: grid; place-items: center; width: 25px; height: 25px; border: 1px solid #4f432f; border-radius: 50%; color: #a58a59; font: 9px var(--font-modern-editor); }.modern-scholia strong { color: #bfae91; font-size: 11px; }.modern-scholia p, .modern-scholia em { display: block; margin-top: 4px; color: #817665; font-size: 10px; line-height: 1.5; }.modern-scholia em { color: #9a8057; }
 
 .edition-master .codex-artifact, .edition-clay-memoir .codex-artifact { background: linear-gradient(105deg, #d2bd8d, #e1ce9f 49%, #cdb583); }
 .edition-master .artifact-stain, .edition-master .artifact-fibers, .edition-clay-memoir .artifact-stain, .edition-clay-memoir .artifact-fibers { opacity: .12; }
 .edition-master .artifact-margin, .edition-clay-memoir .artifact-margin { opacity: .58; }
-.edition-clay-memoir .artifact-book-heading p { color: #5b4c3a; font-family: "DM Mono", monospace; font-style: normal; text-transform: uppercase; }
+.edition-clay-memoir .artifact-book-heading p { color: #5b4c3a; font-family: var(--font-modern-code); font-style: normal; text-transform: uppercase; }
 
 @media (max-width: 1080px) {
   .codex-archive { padding-inline: 18px; }
@@ -197,11 +206,38 @@
 }
 
 @media print {
-  @page { size: A4 portrait; margin: 12mm; }
+  @page { size: A4 portrait; margin: 10mm; }
   body { background: #fff !important; }
   .codex-archive { padding: 0; background: #fff; }
   .codex-archive-header, .codex-collation, .codex-reading-desk { display: none !important; }
-  .codex-artifact { width: 100%; min-height: 0; margin: 0; border: 0; box-shadow: none; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-  .artifact-page-grid { grid-template-columns: 80px minmax(0, 1fr) 80px; gap: 10px; }
-  .artifact-columns > p { font-size: 10pt; }
+  .codex-artifact {
+    isolation: auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: visible;
+    margin: 0;
+    padding: 8mm 7mm 6mm;
+    border: 0;
+    border-radius: 0;
+    background: #dfc793;
+    box-shadow: none;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .codex-artifact::before, .codex-artifact::after, .artifact-fibers, .artifact-stain, .artifact-seam, .artifact-fold, .artifact-mount { display: none !important; }
+  .artifact-page-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4mm; padding-top: 5mm; }
+  .artifact-copy { grid-row: 1; min-width: 0; }
+  .margin-left { grid-row: 2; }
+  .margin-right { grid-row: 3; }
+  .artifact-book-heading { margin-bottom: 5mm; }
+  .artifact-book-heading h2 { font-size: 30pt; }
+  .artifact-columns { column-count: 2; column-gap: 8mm; column-rule-color: rgba(70,46,25,.22); }
+  .artifact-columns > p { font-size: 10.2pt; line-height: 1.43; transform: none !important; }
+  .artifact-margin { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; padding: 3mm 0 0; border-top: 1px solid rgba(70,46,25,.22); }
+  .artifact-margin button { break-inside: avoid; padding: 0 0 0 4mm; transform: none !important; }
+  .artifact-margin span, .artifact-margin strong { font-size: 7.5pt; }
+  .seed-inscription, .ritual-diagram, .artifact-lacuna { break-inside: avoid-page; }
+  .codex-drop-cap svg { mix-blend-mode: normal; }
+  .artifact-footer { break-inside: avoid; margin-top: 4mm; }
 }

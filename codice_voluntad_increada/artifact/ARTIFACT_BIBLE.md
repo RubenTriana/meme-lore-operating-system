@@ -49,3 +49,9 @@ Cada folio usa un conjunto limitado de daños registrado en `artifact_layers.jso
 7. Reconstrucción moderna mínima, explícita y reversible.
 
 Esta cronología es una hipótesis editorial sobre el objeto, no una cronología factual del universo narrativo.
+
+## Sistema tipográfico
+
+La reconstrucción usa dos familias locales para cinco manos: Alegreya articula Custodio y Raspada; EB Garamond articula Exégeta e Imposible. La intervención moderna conserva Inter/DM Mono fuera del soporte, y la Mano Anterior permanece como Lengua Semilla vectorial propia. Capitulares, rúbricas, pesos, cursivas, pigmentos y restricciones están definidos en [`TYPOGRAPHY_SYSTEM.md`](./TYPOGRAPHY_SYSTEM.md).
+
+Este sistema es una propuesta material reversible. Diferencia estratos sin atribuirles una cultura histórica real y no añade autoridad canónica al contenido.

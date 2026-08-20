@@ -21,6 +21,7 @@ const ExtractionPage = lazy(() => import('@/pages/ExtractionPage').then((module)
 const ProposalListPage = lazy(() => import('@/pages/ProposalListPage').then((module) => ({ default: module.ProposalListPage })))
 const ProposalDetailPage = lazy(() => import('@/pages/ProposalDetailPage').then((module) => ({ default: module.ProposalDetailPage })))
 const CodexReaderPage = lazy(() => import('@/pages/CodexReaderPage').then((module) => ({ default: module.CodexReaderPage })))
+const CodexTypographySpecimen = lazy(() => import('@/pages/CodexTypographySpecimen').then((module) => ({ default: module.CodexTypographySpecimen })))
 const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } } })
 
 function Loading() { return <main className="app-loading"><span className="loading-mark">M</span><p>Loading canonical universe…</p></main> }
@@ -29,7 +30,7 @@ function AppRoutes() {
   const { isLoading, validation } = useUniverseModel()
   if (isLoading) return <Loading />
   if (!validation.valid) return <ValidationScreen />
-  return <BrowserRouter><Suspense fallback={<Loading />}><Routes><Route path={codexRoute.slice(1)} element={<CodexReaderPage />} /><Route element={<AppShell />}><Route index element={<HomePage />} /><Route path="module/:moduleId" element={<ModulePage />} /><Route path="insights" element={<InsightsPage />} /><Route path={analysisRoute.slice(1)} element={<AnalysisPage />} /><Route path={connectionsRoute.slice(1)} element={<ConnectionsPage />} /><Route path={plausibilityRoute.slice(1)} element={<PlausibilityPage />} /><Route path={extractionRoute.slice(1)} element={<ExtractionPage />} /><Route path={proposalsRoute.slice(1)} element={<ProposalListPage />} /><Route path={`${proposalsRoute.slice(1)}/:proposalId`} element={<ProposalDetailPage />} /><Route path="changelog" element={<ChangelogPage />} /><Route path="settings" element={<SettingsPage />} /><Route path="developer" element={<DeveloperPage />} /><Route path="*" element={<Navigate to="/" replace />} /></Route></Routes></Suspense></BrowserRouter>
+  return <BrowserRouter><Suspense fallback={<Loading />}><Routes><Route path={codexRoute.slice(1)} element={<CodexReaderPage />} /><Route path={`${codexRoute.slice(1)}/tipografia`} element={<CodexTypographySpecimen />} /><Route element={<AppShell />}><Route index element={<HomePage />} /><Route path="module/:moduleId" element={<ModulePage />} /><Route path="insights" element={<InsightsPage />} /><Route path={analysisRoute.slice(1)} element={<AnalysisPage />} /><Route path={connectionsRoute.slice(1)} element={<ConnectionsPage />} /><Route path={plausibilityRoute.slice(1)} element={<PlausibilityPage />} /><Route path={extractionRoute.slice(1)} element={<ExtractionPage />} /><Route path={proposalsRoute.slice(1)} element={<ProposalListPage />} /><Route path={`${proposalsRoute.slice(1)}/:proposalId`} element={<ProposalDetailPage />} /><Route path="changelog" element={<ChangelogPage />} /><Route path="settings" element={<SettingsPage />} /><Route path="developer" element={<DeveloperPage />} /><Route path="*" element={<Navigate to="/" replace />} /></Route></Routes></Suspense></BrowserRouter>
 }
 
 export function App() {

@@ -1,11 +1,15 @@
 import { ChevronLeft, ChevronRight, Eye, Layers3, Printer, ScrollText, Type } from 'lucide-react'
 import { Fragment, useMemo, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
+import { CodexDropCap } from '@/components/codex/CodexDropCap'
+import { DROP_CAP_MOTIFS } from '@/components/codex/codexDropCapMotifs'
+import { SeedGlyph } from '@/components/codex/SeedGlyph'
 import codexSource from '../../codice_voluntad_increada/compiled/CODICE_MASTER.md?raw'
 import clayMemoirSource from '../../codice_voluntad_increada/compiled/CODICE_MEMORIAS_BAYESIANAS_CLAY_CANDIDATO.md?raw'
 import artifactLayers from '../../codice_voluntad_increada/systems/artifact_layers.json'
 import artifactTextOverrides from '../../codice_voluntad_increada/systems/artifact_text_overrides.json'
 import symbolicApparatus from '../../codice_voluntad_increada/systems/mathematical_apparatus.json'
+import '@/styles/codex-typography.css'
 import './codex-reader.css'
 
 type ReadingLayer = 'complete' | 'copy' | 'hands'
@@ -98,23 +102,20 @@ function renderInline(text: string): ReactNode[] {
     : <Fragment key={`${part}-${index}`}>{part}</Fragment>)
 }
 
+function renderOpening(text: string, bookIndex: number) {
+  const letter = text.charAt(0)
+  const remainder = text.slice(1)
+  const rubricMatch = remainder.match(/^(\S+(?:\s+\S+)?)([\s\S]*)$/)
+  return <>
+    <CodexDropCap letter={letter} motif={DROP_CAP_MOTIFS[bookIndex % DROP_CAP_MOTIFS.length]} />
+    {rubricMatch
+      ? <><span className="opening-rubric">{renderInline(rubricMatch[1])}</span><span>{renderInline(rubricMatch[2])}</span></>
+      : renderInline(remainder)}
+  </>
+}
+
 function artifactText(text: string) {
   return artifactTextOverrides.replacements.reduce((result, entry) => result.replace(entry.from, entry.to), text)
-}
-
-const SEED_PATHS: Record<string, string[]> = {
-  S01: ['M6 12Q20 34 34 12','M10 10Q20 18 30 10'], S02: ['M20 34V16','M20 20C8 17 8 8 18 7','M20 20C32 17 32 8 22 7'],
-  S03: ['M20 4L17 14l6 6-7 6 4 10','M9 20h22'], S04: ['M5 20Q20 5 35 20Q20 35 5 20','M20 12v16'],
-  S05: ['M5 18L20 6l15 12v17H8V21','M20 6v29'], S06: ['M5 14c12-9 26-7 29 3C37 29 20 35 9 28','M9 28l-1-9'],
-  S07: ['M7 8h26l-5 25H12Z','M15 16h10l-2 9h-6Z'], S08: ['M6 20c8-12 20-12 28 0-8 12-20 12-28 0Z','M11 20h18','M20 12v16'],
-  S09: ['M20 35V19','M20 22L8 12M20 22l12-10','M8 12l-3 7M32 12l3 7'], S10: ['M4 5v30h17','M28 8l8 12-8 12'],
-  S11: ['M8 8l24 24M32 8L8 32','M4 20h10M26 20h10'], S12: ['M20 5L34 20 20 35 6 20Z','M13 20h14'],
-  S13: ['M20 35V18M20 18L8 6M20 18L32 6','M8 6v8M32 6v8'], S14: ['M20 35V18M20 18L8 6M20 18L32 6','M27 4l9 9M28 13l8-9'],
-  S15: ['M29 32A15 15 0 1 1 32 10','M32 10l-8 1M32 10l-2 8'], S16: ['M5 20h9M26 20h9','M20 5v9M20 26v9','M16 16l8 8M24 16l-8 8'],
-}
-
-function SeedGlyph({ id }: { id: string }) {
-  return <svg className="seed-glyph" viewBox="0 0 40 40" aria-hidden="true">{(SEED_PATHS[id] ?? SEED_PATHS.S16).map((path, index) => <path key={index} d={path} />)}</svg>
 }
 
 function SeedLanguageBlock({ occurrence }: { occurrence: SeedOccurrence }) {
@@ -193,6 +194,7 @@ export function CodexReaderPage() {
         <button onClick={() => goToBook(bookIndex + 1)} aria-label="Fragmento siguiente"><ChevronRight size={17} /></button>
         <div className="codex-layer-control" aria-label="Capas visibles"><Layers3 size={15} />{([['copy','Copia'],['complete','Todas las manos'],['hands','Intervenciones']] as const).map(([value, label]) => <button key={value} className={layer === value ? 'active' : ''} onClick={() => setLayer(value)} aria-pressed={layer === value}>{label}</button>)}</div>
         <div className="codex-type-control" aria-label="Tamaño del texto"><Type size={15} />{(['compact','regular','large'] as const).map((scale, index) => <button key={scale} className={fontScale === scale ? 'active' : ''} onClick={() => setFontScale(scale)} aria-label={`Tamaño ${scale}`}>{index === 0 ? 'A' : index === 1 ? 'A⁺' : 'A⁺⁺'}</button>)}</div>
+        <Link className="codex-specimen-link" to="/codice/tipografia"><Type size={15} /> Sistema tipográfico</Link>
         <button className="codex-print" onClick={() => window.print()}><Printer size={15} /> Imprimir / PDF</button>
       </div>
     </details>
@@ -209,16 +211,17 @@ export function CodexReaderPage() {
         <aside className="artifact-margin margin-left" aria-label="Glosas del margen izquierdo">{notes.map((note, index) => note.side === 'left' && <button key={note.label} onClick={() => setSelectedNote(index)} className={selectedNote === index ? 'selected' : ''}><sup>{note.label}</sup><strong>{note.title}</strong><span>{note.text}</span></button>)}</aside>
 
         <article className="artifact-copy">
-          <header className="artifact-book-heading"><small>{edition === 'artifact' ? 'Concordancia tardía de la Mano del Exégeta' : 'Transcripción editorial separada'}</small><span>{book.roman}</span><h2>{book.title}</h2><p>{edition === 'artifact' ? 'Rúbrica del copista · ausente en las capas anteriores' : editionDetails.note}</p></header>
+          <header className="artifact-book-heading"><small>{edition === 'artifact' ? 'Concordancia tardía de la Mano del Exégeta' : 'Transcripción editorial separada'}</small><span>LIBER {book.roman}</span><h2>{book.title}</h2><p>{edition === 'artifact' ? 'Rúbrica del copista · ausente en las capas anteriores' : editionDetails.note}</p></header>
           {DIAGRAM_ANCHORS[bookIndex] === 0 && edition === 'artifact' && <RitualDiagram bookIndex={bookIndex} />}
           <div className="artifact-columns">
             {book.blocks.map((block, originalIndex) => {
               const hand = blockHand(block, originalIndex, fragment)
               if (!visibleByLayer(hand, layer)) return null
               const anchors = notes.map((note, index) => ({ ...note, index })).filter((note) => note.anchor === originalIndex)
+              const displayText = edition === 'artifact' ? artifactText(block.text) : block.text
               return <Fragment key={`${originalIndex}-${block.text.slice(0, 18)}`}>
                 <p className={`hand-${hand} ${block.isDialogue ? 'is-dialogue' : ''} ${originalIndex === 0 ? 'is-opening' : ''}`} data-hand={HAND_NAMES[hand]}>
-                  {renderInline(edition === 'artifact' ? artifactText(block.text) : block.text)}
+                  {originalIndex === 0 ? renderOpening(displayText, bookIndex) : renderInline(displayText)}
                   {anchors.map((note) => <button key={note.label} className="artifact-note-anchor" onClick={() => setSelectedNote(note.index)} aria-label={`Abrir glosa ${note.label}`}>{note.label}</button>)}
                 </p>
                 {seedOccurrence?.anchor === originalIndex && <SeedLanguageBlock occurrence={seedOccurrence} />}

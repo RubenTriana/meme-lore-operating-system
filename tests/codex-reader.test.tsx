@@ -27,9 +27,12 @@ describe('Codex stratified artifact', () => {
 
   it('opens as a material reconstruction with a native Seed Language fragment', () => {
     expect(container.querySelector('.codex-artifact')?.getAttribute('data-fragment')).toBe('CVI-F01')
+    expect(container.querySelector('.codex-drop-cap')?.getAttribute('data-motif')).toBe('water')
     expect(container.querySelectorAll('.seed-inscription')).toHaveLength(1)
     expect(container.querySelectorAll('.seed-glyph').length).toBeGreaterThan(8)
     expect(container.textContent).toContain('Mano del Custodio')
+    expect(container.textContent).toContain('LIBER I')
+    expect(container.querySelector<HTMLAnchorElement>('a[href="/codice/tipografia"]')).not.toBeNull()
     expect(container.textContent).not.toContain('𒇷𒈨𒉡 · LIMEN')
     expect(container.querySelector('.codex-collation')?.hasAttribute('open')).toBe(false)
   })
@@ -52,6 +55,7 @@ describe('Codex stratified artifact', () => {
     await act(async () => selectValue(bookSelect, '8'))
     expect(container.textContent).toContain('tres dientes en una caja sin aliento')
     expect(container.textContent).not.toContain('tres interruptores')
+    expect(container.querySelector('.codex-drop-cap')?.getAttribute('data-motif')).toBe('open-circle')
 
     const printSpy = vi.spyOn(window, 'print').mockImplementation(() => undefined)
     const printButton = [...container.querySelectorAll<HTMLButtonElement>('button')].find((button) => button.textContent?.includes('Imprimir / PDF'))!

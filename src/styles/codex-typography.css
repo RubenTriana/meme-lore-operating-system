@@ -1,0 +1,122 @@
+@font-face {
+  font-family: 'Codex Alegreya';
+  src: url('../assets/fonts/alegreya/alegreya-normal-400.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Codex Alegreya';
+  src: url('../assets/fonts/alegreya/alegreya-normal-700.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Codex Alegreya';
+  src: url('../assets/fonts/alegreya/alegreya-italic-500.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Codex Alegreya';
+  src: url('../assets/fonts/alegreya/alegreya-italic-600.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Codex EB Garamond';
+  src: url('../assets/fonts/eb-garamond/eb-garamond-normal-400.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Codex EB Garamond';
+  src: url('../assets/fonts/eb-garamond/eb-garamond-normal-500.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Codex EB Garamond';
+  src: url('../assets/fonts/eb-garamond/eb-garamond-normal-600.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Codex EB Garamond';
+  src: url('../assets/fonts/eb-garamond/eb-garamond-normal-700.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Codex EB Garamond';
+  src: url('../assets/fonts/eb-garamond/eb-garamond-italic-400.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Codex EB Garamond';
+  src: url('../assets/fonts/eb-garamond/eb-garamond-italic-500.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+}
+
+.codex-archive,
+.codex-type-specimen {
+  --font-ancient-body: 'Codex Alegreya', 'Iowan Old Style', Georgia, serif;
+  --font-custodian: 'Codex Alegreya', 'Iowan Old Style', Georgia, serif;
+  --font-exegete: 'Codex EB Garamond', 'Times New Roman', serif;
+  --font-scratched-hand: 'Codex Alegreya', 'Iowan Old Style', Georgia, serif;
+  --font-impossible-hand: 'Codex EB Garamond', 'Times New Roman', serif;
+  --font-modern-editor: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-modern-code: 'DM Mono', ui-monospace, monospace;
+  --font-seed-language: 'Codex Seed Vector';
+
+  --ink-carbon: #2b1c12;
+  --ink-carbon-soft: #493424;
+  --ink-rubric: #783b27;
+  --ink-rubric-dark: #5c2b1f;
+  --ink-rubric-faded: rgba(112, 50, 31, .68);
+  --ink-doctrinal: #18110d;
+  --ink-impossible: #3f403a;
+
+  --type-body-size: 15px;
+  --type-body-leading: 1.5;
+  --type-gloss-size: 10.5px;
+  --type-gloss-leading: 1.48;
+  --type-rubric-tracking: .075em;
+}
+
+.codex-drop-cap {
+  position: relative;
+  width: 3.15em;
+  height: 3.35em;
+  float: left;
+  display: grid;
+  place-items: center;
+  margin: -.05em .18em -.15em -.05em;
+  color: var(--ink-rubric-dark);
+  font: 700 1em/.85 var(--font-exegete);
+}
+
+.codex-drop-cap > span { position: relative; z-index: 1; font-size: 3.05em; }
+.codex-drop-cap svg { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; stroke: var(--ink-rubric); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; opacity: .84; mix-blend-mode: multiply; }
+.drop-cap-water svg, .drop-cap-cord svg, .drop-cap-scar svg { opacity: .7; }
+.opening-rubric { color: var(--ink-rubric-dark); font-variant-caps: small-caps; font-weight: 700; letter-spacing: .018em; }

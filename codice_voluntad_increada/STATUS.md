@@ -11,3 +11,5 @@
 - **Bloqueos reales:** ninguno.
 - **Siguiente decisión autoral:** lectura integral y aprobación, rechazo o ajuste de los bloques 03–09.
 - **Reconstrucción material (2026-08-19):** existe una interfaz candidata de archivo sagrado estratificado con cinco manos, nueve tipologías de fragmento, daños causales, Lengua Semilla propia y cédula moderna separada. No altera `CODICE_MASTER.md`, no activa una cronología factual y espera aprobación artística del autor.
+- **Sistema tipográfico (2026-08-19):** propuesta completa con Alegreya y EB Garamond locales, cinco manos diferenciadas, nueve capitulares dibujadas, espécimen interno, cobertura española y exportación A4 verificada. Permanece `PROPUESTA_TIPOGRAFICA_PENDIENTE_DE_APROBACION`.
+- **Reanudación:** comenzar por la comparación visual entre `/codice` y `/codice/tipografia`; no hace falta reconstruir ni regenerar recursos antes de decidir.
