@@ -1,6 +1,6 @@
 # Centro de Control Tántalo
 
-Panel web local para descubrir los flujos de Sistema Tántalo y preparar prompts revisables para Codex. No envía mensajes, no inicia agentes y no escribe en el manuscrito.
+Panel web local para descubrir los flujos de Sistema Tántalo, preparar prompts revisables y evaluar escritura bajo una acción explícita del autor. No inicia agentes ni escribe en el manuscrito.
 
 Toda la interfaz comparte un lenguaje de consola industrial de finales de los noventa: metal oscuro, pantallas verdosas, indicadores cian/ámbar/rojo, controles físicos y esquinas técnicas. Es una interpretación original de supervivencia tecnológica; no incorpora logotipos ni recursos de videojuegos.
 
@@ -8,6 +8,24 @@ Los títulos principales usan una serif editorial de alto contraste —Georgia c
 
 El botón superior **LoreSystem v2** abre la aplicación React actual dentro de una pestaña integrada. La interfaz se carga solo al pulsarlo y puede recargarse o cerrarse sin abandonar el Centro de Control.
 El lanzador prefiere el puerto local `5173` para conservar compatibilidad con paneles que ya estaban abiertos, reutiliza una instancia válida si existe y solo anuncia **EN LÍNEA** después de comprobar que la respuesta pertenece realmente a LoreSystem.
+
+## Mesa de Lectura
+
+La sección **Mesa de Lectura** permite pegar un fragmento, escena o capítulo sin escribirlo en archivos ni guardarlo en `localStorage`. Al recargar, cerrar o pulsar **Limpiar texto**, el manuscrito desaparece de la interfaz.
+
+Siempre están disponibles métricas descriptivas locales: palabras, oraciones, longitud media, párrafos, variedad léxica, diálogo estimado y repeticiones visibles. Estas métricas no se presentan como juicio editorial.
+
+La evaluación cualitativa dentro del panel utiliza un endpoint local, limitado a `localhost`, que llama a OpenAI Responses API con salida estructurada y `store: false`. Para activarlo desde la propia Mesa:
+
+1. pulsa **Configurar API**;
+2. crea una clave en la página oficial enlazada y pégala en el campo protegido;
+3. pulsa **Probar y guardar**.
+
+El servidor verifica la clave directamente contra `GET /v1/models`, la guarda como `TANTALO_OPENAI_API_KEY` en `.env.local` y activa el motor sin reiniciar. La clave no se devuelve al navegador, no aparece en logs y `.env.local` está excluido de Git. También puede configurarse manualmente copiando `.env.example` como `.env.local` y reiniciando el servidor.
+
+El modelo predeterminado es `gpt-5.4-mini` y puede cambiarse con `TANTALO_EVALUATION_MODEL`. La clave nunca se entrega al navegador. Sin clave, la Mesa conserva la lectura local y permite **Copiar y abrir en Codex**; el manuscrito viaja por el portapapeles y no se inserta en la URL `codex://`.
+
+Límites por alcance: 1.500 palabras para fragmento, 3.000 para escena y 6.000 para capítulo. El informe diagnostica con evidencia, efecto y prioridad; no reescribe, no modifica canon y termina con una sola acción concreta.
 
 ## API selectiva de contexto
 
@@ -103,7 +121,7 @@ La estimación es cualitativa. Considera modo, alcance, agentes, web, lectura ad
 
 ## Seguridad
 
-El servidor escucha solo en localhost. El panel no contiene servicios externos, no almacena secretos, no ejecuta comandos, no abre varios chats y nunca envía un prompt automáticamente.
+El servidor escucha solo en localhost, no ejecuta comandos, no abre varios chats y nunca envía un prompt automáticamente. Las únicas salidas externas opcionales son la comprobación explícita de la clave y la evaluación que el autor inicia con **Evaluar dentro de Tántalo**: la clave permanece en el servidor local, la solicitud usa `store: false` y el manuscrito no se registra en archivos ni en `localStorage`.
 
 La telemetría acepta únicamente una lista reducida de identificadores, estados, operaciones, tiempos, métricas, rutas relativas y resúmenes breves. Descarta métodos desconocidos, rutas ascendentes, URLs y JSON corrupto. No intenta mostrar razonamiento privado.
 

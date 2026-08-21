@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#050909">
   <title>Centro de Control Tántalo</title>
   <link rel="icon" href="assets/tantalo-mark.svg?v=20260731-industrial" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260801-selective-api">
+  <link rel="stylesheet" href="styles.css?v=20260821-api-setup">
   <link rel="stylesheet" href="monitor/monitor.css?v=20260731-editorial-display">
 </head>
 <body>
@@ -51,7 +51,7 @@
       <section class="hero" id="inicio" aria-labelledby="heroTitle">
         <div class="eyebrow">Laboratorio narrativo local</div>
         <h1 id="heroTitle">Tu novela, una decisión a la vez.</h1>
-        <p>Elige un objetivo. Tántalo prepara el prompt y tú lo revisas antes de abrir un chat nuevo en Codex.</p>
+        <p>Elige un objetivo o pega una selección en la Mesa de Lectura. Tántalo protege tu voz, el canon y tu autoridad sobre el manuscrito.</p>
         <div class="repo-setting">
           <label for="repoPath">Ruta del repositorio</label>
           <div class="inline-field">
@@ -88,6 +88,128 @@
           <p id="recommendationText">Prepararemos una acción breve con Tutor Ligero y sin modificar archivos.</p>
         </div>
         <button class="button primary large" id="recommendedAction" type="button">Preparar acción recomendada</button>
+      </section>
+
+      <section class="reading-desk" id="mesaLectura" aria-labelledby="readingDeskTitle">
+        <div class="reading-desk-heading">
+          <div>
+            <div class="eyebrow">Mesa de lectura · texto efímero</div>
+            <h2 id="readingDeskTitle">Pega tu escritura. Recibe un diagnóstico, no una sustitución.</h2>
+            <p>El manuscrito vive solo en esta sesión. No se guarda en el navegador, no modifica archivos y no cambia el canon.</p>
+          </div>
+          <div class="evaluator-connection">
+            <span class="evaluator-status" id="evaluatorStatus" data-state="checking" role="status">COMPROBANDO MOTOR…</span>
+            <button class="button ghost compact" id="toggleApiSetup" type="button" aria-controls="apiSetupPanel" aria-expanded="false">Configurar API</button>
+          </div>
+        </div>
+
+        <form class="api-setup-panel" id="apiSetupPanel" hidden>
+          <div class="api-setup-copy">
+            <div class="panel-kicker">CONEXIÓN SEGURA · SERVIDOR LOCAL</div>
+            <h3>Conecta una clave de proyecto de OpenAI</h3>
+            <p>Crea la clave en la plataforma oficial, pégala aquí y pulsa «Probar y guardar». Tántalo la verifica directamente con OpenAI y la conserva únicamente en <code>.env.local</code>, excluido de Git.</p>
+            <p><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer">Abrir creación de claves ↗</a> · <a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank" rel="noopener noreferrer">Revisar créditos API ↗</a></p>
+          </div>
+          <div class="api-key-field">
+            <label for="tantaloApiKey">API key</label>
+            <div class="inline-field">
+              <input id="tantaloApiKey" type="password" autocomplete="new-password" spellcheck="false" placeholder="sk-proj-…" aria-describedby="apiSetupStatus">
+              <button class="button primary" id="saveApiKey" type="submit">Probar y guardar</button>
+            </div>
+            <p id="apiSetupStatus" role="status">La clave no se mostrará, no llegará al cliente después de guardarse y nunca se incluirá en Git.</p>
+          </div>
+        </form>
+
+        <div class="reading-desk-grid">
+          <div class="reading-input-panel">
+            <div class="reading-controls">
+              <label for="readingScope">Alcance
+                <select id="readingScope">
+                  <option value="fragmento">Fragmento · hasta 1.500 palabras</option>
+                  <option value="escena">Escena · hasta 3.000 palabras</option>
+                  <option value="capitulo">Capítulo · hasta 6.000 palabras</option>
+                </select>
+              </label>
+              <label for="readingFocus">Enfoque editorial
+                <select id="readingFocus">
+                  <option value="general">Diagnóstico general</option>
+                  <option value="estructura">Estructura y causalidad</option>
+                  <option value="personajes">Personajes y agencia</option>
+                  <option value="dialogo">Diálogo y subtexto</option>
+                  <option value="tension">Tensión y propulsión</option>
+                  <option value="ritmo">Ritmo narrativo</option>
+                  <option value="estilo">Estilo e imagen</option>
+                  <option value="voz">Voz del autor</option>
+                  <option value="pov">Punto de vista</option>
+                  <option value="continuidad">Continuidad y canon</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="manuscript-label" for="readingText">
+              <span>Manuscrito para evaluar</span>
+              <textarea id="readingText" rows="18" autocomplete="off" spellcheck="true" placeholder="Pega aquí el fragmento, la escena o el capítulo. El texto no se conserva al recargar o cerrar esta página."></textarea>
+            </label>
+            <div class="manuscript-counter" id="readingCounter" aria-live="polite">
+              <strong>0</strong> palabras · <span>límite 1.500</span>
+            </div>
+
+            <label for="readingObjective">Indicación opcional del autor
+              <input id="readingObjective" type="text" maxlength="300" autocomplete="off" placeholder="Ej.: comprueba si la llegada conserva extrañeza sin revelar demasiado.">
+            </label>
+
+            <fieldset class="reading-protections">
+              <legend>Protecciones editoriales</legend>
+              <label><input id="readingProtectVoice" type="checkbox" checked> Proteger mi voz; no normalizar ni reescribir</label>
+              <label><input id="readingProtectCanon" type="checkbox" checked> No inventar canon ni adelantar revelaciones</label>
+            </fieldset>
+
+            <div class="reading-privacy-note">
+              <span aria-hidden="true">⛨</span>
+              <p><strong>Memoria volátil.</strong> Tántalo no usa <code>localStorage</code> para este texto. La evaluación API solicita <code>store: false</code>.</p>
+            </div>
+
+            <div class="reading-actions">
+              <button class="button primary large" id="runEvaluation" type="button" disabled>Comprobando motor…</button>
+              <button class="button secondary" id="openReadingInCodex" type="button">Copiar y abrir en Codex</button>
+              <button class="button ghost" id="clearReading" type="button">Limpiar texto</button>
+            </div>
+            <p class="reading-action-help" id="readingActionHelp">La lectura técnica local se actualiza mientras escribes.</p>
+          </div>
+
+          <aside class="local-reading-panel" aria-labelledby="localReadingTitle">
+            <div class="panel-kicker">LECTURA TÉCNICA LOCAL · SIN IA</div>
+            <h3 id="localReadingTitle">Pulso del fragmento</h3>
+            <p class="muted">Métricas descriptivas: orientan la lectura, pero no sustituyen el juicio editorial.</p>
+            <dl class="local-metrics">
+              <div><dt>Palabras</dt><dd id="metricWords">0</dd></div>
+              <div><dt>Oraciones</dt><dd id="metricSentences">0</dd></div>
+              <div><dt>Promedio/oración</dt><dd id="metricSentenceAverage">—</dd></div>
+              <div><dt>Párrafos</dt><dd id="metricParagraphs">0</dd></div>
+              <div><dt>Vocabulario único</dt><dd id="metricVariety">—</dd></div>
+              <div><dt>Diálogo estimado</dt><dd id="metricDialogue">—</dd></div>
+            </dl>
+            <div class="repetition-panel">
+              <h4>Repeticiones visibles</h4>
+              <div class="repetition-list" id="metricRepetitions"><span class="empty-metric">Pega texto para medir.</span></div>
+            </div>
+            <div class="local-signal" id="localSignal" data-level="neutral">
+              <strong>ESPERANDO TEXTO</strong>
+              <p>La señal local aparecerá cuando exista material suficiente.</p>
+            </div>
+          </aside>
+        </div>
+
+        <section class="evaluation-result" id="evaluationResult" aria-labelledby="evaluationResultTitle" hidden>
+          <div class="evaluation-result-header">
+            <div><div class="eyebrow">Informe Tántalo</div><h3 id="evaluationResultTitle">Evaluación editorial</h3></div>
+            <div class="evaluation-result-actions">
+              <span id="evaluationModel">MODELO —</span>
+              <button class="button ghost compact" id="copyEvaluation" type="button">Copiar informe</button>
+            </div>
+          </div>
+          <div id="evaluationResultBody" aria-live="polite"></div>
+        </section>
       </section>
 
       <section class="activation-monitor" id="monitor" aria-labelledby="monitorTitle">
@@ -397,7 +519,7 @@
     </main>
 
     <footer>
-      <p>Local, sin dependencias externas y sin envío automático.</p>
+      <p>Local; evaluación externa solo bajo acción explícita y sin almacenamiento del manuscrito.</p>
       <button class="text-button" id="footerSkills" type="button">Abrir selector de Skills</button>
     </footer>
   </div>
@@ -435,6 +557,7 @@
   <script src="monitor/monitor-accessibility.js" defer></script>
   <script src="lore-context-client.js?v=20260801-selective-api2" defer></script>
   <script src="app.js?v=20260801-selective-api3" defer></script>
+  <script src="reading-desk.js?v=20260821-api-setup" defer></script>
   <script src="monitor/monitor.js" defer></script>
 </body>
 </html>

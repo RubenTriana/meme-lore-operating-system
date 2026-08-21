@@ -60,6 +60,7 @@ const monitorStyles = fs.readFileSync(path.join(ROOT, "monitor", "monitor.css"),
 const panelStyles = fs.readFileSync(path.join(ROOT, "styles.css"), "utf8");
 const panelSource = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
 const loreContextSource = fs.readFileSync(path.join(ROOT, "lore-context-client.js"), "utf8");
+const readingDeskSource = fs.readFileSync(path.join(ROOT, "reading-desk.js"), "utf8");
 const launcherSource = fs.readFileSync(path.resolve(ROOT, "..", "ABRIR_PANEL_TANTALO.ps1"), "utf8");
 const panelMark = fs.readFileSync(path.join(ROOT, "assets", "tantalo-mark.svg"), "utf8");
 assert.ok(monitorSource.includes("monitorFilter"), "Faltan filtros");
@@ -82,6 +83,11 @@ assert.ok(monitorMarkup.includes('id="loreContextStatus"') && monitorMarkup.incl
 assert.ok(panelSource.includes("TantaloLoreContext?.plan") && panelSource.includes("resolveLoreContext"), "El Centro de Control no prepara consultas reales a LoreSystem v2");
 assert.ok(panelSource.includes("plan.request?.domains"), "La consulta debe leer los dominios del contrato de API");
 assert.ok(panelStyles.includes(".lore-context-query") && panelStyles.includes('data-state="full"'), "Falta la señal visual del contexto consultado");
+assert.ok(monitorMarkup.includes('id="mesaLectura"') && monitorMarkup.includes('id="readingText"') && monitorMarkup.includes('id="runEvaluation"'), "Falta la Mesa de Lectura o sus controles principales");
+assert.ok(monitorMarkup.includes('id="apiSetupPanel"') && monitorMarkup.includes('id="tantaloApiKey"') && monitorMarkup.includes('type="password"'), "Falta el configurador protegido de la API");
+assert.ok(monitorMarkup.includes("reading-desk.js") && panelStyles.includes(".reading-desk-grid") && panelStyles.includes(".evaluation-result"), "La Mesa de Lectura no está integrada visualmente");
+assert.ok(readingDeskSource.includes('pagehide') && readingDeskSource.includes("eraseVolatileText") && !readingDeskSource.includes('localStorage.setItem'), "El manuscrito debe permanecer en memoria volátil");
+assert.ok(readingDeskSource.includes("/api/tantalo/evaluation/configure") && readingDeskSource.includes("/api/tantalo/evaluation/run") && readingDeskSource.includes("buildCodexPackage"), "Falta el configurador, el puente cualitativo o su degradación a Codex");
 
 const loreSandbox = { window: {}, location: { href: "http://127.0.0.1:54695/tantalo-panel/" } };
 vm.runInNewContext(loreContextSource, loreSandbox, { filename: "lore-context-client.js" });
