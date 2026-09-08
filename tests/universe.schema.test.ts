@@ -7,6 +7,12 @@ describe('universe validation', () => {
     const result = validateUniverse(source)
     expect(result.valid).toBe(true)
     expect(result.errors).toHaveLength(0)
+    expect(result.data?.metadata.releaseStatus).toBe('CANON')
+    expect(result.data?.metadata.sourceManifest).toHaveLength(9)
+    expect(result.data?.settings?.canonApproval).toBeDefined()
+    expect(result.data?.changelog.find((entry) => entry.id === 'change-017')?.status).toBe(
+      'CANDIDATO_PARA_APROBACION',
+    )
   })
 
   it('reports broken cross references without crashing', () => {
@@ -28,7 +34,14 @@ describe('universe validation', () => {
     const valid = structuredClone(analysisEventFixture)
     const event = valid.modules[0].content.items?.[0]
     if (!event) throw new Error('The analytical fixture needs an event.')
-    event.continuity = { exceptions: [{ kind: 'causal-loop', ruleIds: ['undeclared-causal-cycle', 'knowledge-used-before-learning'] }] }
+    event.continuity = {
+      exceptions: [
+        {
+          kind: 'causal-loop',
+          ruleIds: ['undeclared-causal-cycle', 'knowledge-used-before-learning'],
+        },
+      ],
+    }
 
     expect(validateUniverse(valid).valid).toBe(true)
   })
@@ -44,11 +57,13 @@ describe('universe validation', () => {
     const result = validateUniverse(invalid)
 
     expect(result.valid).toBe(false)
-    expect(result.errors.map((error) => error.message)).toEqual(expect.arrayContaining([
-      'Broken cross-reference.',
-      'Broken character reference.',
-      'Broken state change entity reference.',
-    ]))
+    expect(result.errors.map((error) => error.message)).toEqual(
+      expect.arrayContaining([
+        'Broken cross-reference.',
+        'Broken character reference.',
+        'Broken state change entity reference.',
+      ]),
+    )
   })
 
   it('rejects invalid temporal intervals and temporal sequences', () => {
@@ -59,12 +74,20 @@ describe('universe validation', () => {
 
     const intervalResult = validateUniverse(invalid)
     expect(intervalResult.valid).toBe(false)
-    expect(intervalResult.errors.some((error) => error.message === 'Temporal end cannot be earlier than temporal start.')).toBe(true)
+    expect(
+      intervalResult.errors.some(
+        (error) => error.message === 'Temporal end cannot be earlier than temporal start.',
+      ),
+    ).toBe(true)
 
     event.temporal = { end: '2042-04-12', precision: 'day' }
     const sequenceResult = validateUniverse(invalid)
     expect(sequenceResult.valid).toBe(false)
-    expect(sequenceResult.errors.some((error) => error.message === 'Temporal end requires a temporal start.')).toBe(true)
+    expect(
+      sequenceResult.errors.some(
+        (error) => error.message === 'Temporal end requires a temporal start.',
+      ),
+    ).toBe(true)
   })
 
   it('rejects duplicate values that would create ambiguous references', () => {
@@ -76,6 +99,8 @@ describe('universe validation', () => {
     const result = validateUniverse(invalid)
 
     expect(result.valid).toBe(false)
-    expect(result.errors.some((error) => error.message === 'Duplicate participantRefs value.')).toBe(true)
+    expect(
+      result.errors.some((error) => error.message === 'Duplicate participantRefs value.'),
+    ).toBe(true)
   })
 })

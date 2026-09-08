@@ -1,4 +1,5 @@
 import type { Universe, UniverseEntity } from '@/types/universe'
+import { canonicalModuleItems } from '@/utils/canon-policy'
 
 export interface NovelDescriptor {
   id: string
@@ -23,9 +24,12 @@ function novelNumber(entity: UniverseEntity): number {
 }
 
 export function getNovelDescriptors(universe: Universe): NovelDescriptor[] {
-  const entries = universe.modules
-    .find((module) => module.id === 'franchise')
-    ?.content.items?.filter((entity) => entity.type === 'franchise-entry' && /^meme-novela-/.test(entity.id)) ?? []
+  const module = universe.modules.find((candidate) => candidate.id === 'franchise')
+  const entries = module
+    ? canonicalModuleItems(universe, module).filter(
+        (entity) => entity.type === 'franchise-entry' && /^meme-novela-/.test(entity.id),
+      )
+    : []
 
   return entries
     .map((entity) => {
@@ -59,6 +63,7 @@ export function novelLabelMap(novels: NovelDescriptor[]): Map<string, string> {
 
 export function filterByNovel(items: UniverseEntity[], selection: string): UniverseEntity[] {
   if (selection === 'all') return items
-  if (selection === 'transversal') return items.filter((entity) => getEntityNovelRefs(entity).length === 0)
+  if (selection === 'transversal')
+    return items.filter((entity) => getEntityNovelRefs(entity).length === 0)
   return items.filter((entity) => getEntityNovelRefs(entity).includes(selection))
 }

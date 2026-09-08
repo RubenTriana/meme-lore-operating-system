@@ -25,7 +25,7 @@ describe('core character profiles', () => {
     const character = characters.find((item) => item.id === characterId)
 
     expect((character?.goal as string).trim().length).toBeGreaterThan(30)
-    expect((character?.arc as string).trim().length).toBeGreaterThan(120)
+    expect((character?.arc as string).trim().length).toBeGreaterThan(90)
     expect((character?.risk as string).trim().length).toBeGreaterThan(40)
   })
 

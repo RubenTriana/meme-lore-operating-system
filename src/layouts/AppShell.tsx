@@ -8,12 +8,15 @@ import { useUniverseModel } from '@/app/useUniverseModel'
 import { DynamicIcon } from '@/components/icon'
 import { SearchPalette } from '@/components/SearchPalette'
 import { useStudioStore } from '@/store/useStudioStore'
+import { canonicalModules } from '@/utils/canon-policy'
 
 export function AppShell() {
   const { universe, validation, workspaceState, workspaceProposalId, restoreBase } = useUniverseModel()
   const { sidebarCollapsed, toggleSidebar, setSearchOpen, developerMode } = useStudioStore()
   if (!validation.valid || !universe) return null
-  const modules = universe.modules.filter((module) => module.visibility === 'navigation').sort((a, b) => a.order - b.order)
+  const modules = canonicalModules(universe)
+    .filter((module) => module.visibility === 'navigation')
+    .sort((a, b) => a.order - b.order)
   return <div className={`app-shell ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
     <aside className="sidebar">
       <div className="brand"><div className="brand-mark">M</div>{!sidebarCollapsed && <div><strong>MEME</strong><span>Lore Operating System</span></div>}<button onClick={toggleSidebar} aria-label="Collapse navigation">{sidebarCollapsed ? <Menu size={17} /> : <ChevronLeft size={17} />}</button></div>

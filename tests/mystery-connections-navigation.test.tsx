@@ -4,12 +4,13 @@ import { MemoryRouter } from 'react-router-dom'
 import universeData from '../data/universe_master.json'
 import { buildSemanticGraphModel } from '../src/graph/semantic-graph-model'
 import { MysteryRenderer } from '../src/renderer/renderers/MysteryRenderer'
+import { canonicalModuleItems } from '../src/utils/canon-policy'
 import { createSemanticIndex } from '../src/utils/semantic-index'
 import type { Universe } from '../src/types/universe'
 
 const universe = universeData as unknown as Universe
 const mysteriesModule = universe.modules.find((module) => module.id === 'mysteries')!
-const mysteries = mysteriesModule.content.items ?? []
+const mysteries = canonicalModuleItems(universe, mysteriesModule)
 const index = createSemanticIndex(universe)
 
 async function renderMysteries(): Promise<{ container: HTMLDivElement; root: Root }> {
@@ -23,11 +24,11 @@ async function renderMysteries(): Promise<{ container: HTMLDivElement; root: Roo
 describe('mystery connection navigation', () => {
   beforeEach(() => { ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true })
 
-  it('publishes sixteen mysteries, four for each novel', () => {
+  it('publishes only mysteries admitted by canonPolicy', () => {
     expect(mysteriesModule.renderer).toBe('mysteries')
-    expect(mysteries).toHaveLength(16)
+    expect(mysteries).toHaveLength(14)
     const counts = mysteries.reduce<Record<string, number>>((result, mystery) => ({ ...result, [mystery.novelRef ?? 'none']: (result[mystery.novelRef ?? 'none'] ?? 0) + 1 }), {})
-    expect(Object.values(counts).sort()).toEqual([4, 4, 4, 4])
+    expect(counts).toEqual({ 'meme-novela-uno': 7, 'meme-novela-dos': 4, 'meme-novela-cuatro': 1, none: 2 })
   })
 
   it('adds a focused graph button to every mystery card', async () => {
@@ -48,7 +49,7 @@ describe('mystery connection navigation', () => {
 
   it('builds an exact focused graph for every mystery', () => {
     for (const mystery of mysteries) {
-      const count = new Set(index.references.get(mystery.id) ?? []).size
+      const count = new Set((index.references.get(mystery.id) ?? []).filter((id) => index.entities.has(id))).size
       const model = buildSemanticGraphModel(index, mystery.id)
       expect(count).toBeGreaterThan(0)
       expect(model.nodes).toHaveLength(count + 1)

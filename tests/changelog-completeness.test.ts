@@ -5,16 +5,17 @@ import type { Universe } from '../src/types/universe'
 const universe = universeData as unknown as Universe
 
 describe('canonical changelog completeness', () => {
-  it('keeps a unique and uninterrupted change identifier sequence', () => {
+  it('keeps the historical sequence plus the explicit canon approval entry', () => {
     const ids = universe.changelog.map((entry) => entry.id)
-    const expected = Array.from({ length: 16 }, (_, index) => `change-${String(index + 1).padStart(3, '0')}`)
-    expect(ids).toEqual(expected)
+    const expected = Array.from({ length: 17 }, (_, index) => `change-${String(index + 1).padStart(3, '0')}`)
+    expect(ids.slice(0, 17)).toEqual(expected)
+    expect(ids.at(-1)).toBe('change-011-canon-escaleta-v05')
     expect(new Set(ids).size).toBe(ids.length)
   })
 
   it('represents the official tetralogy canon and current build', () => {
-    expect(universe.metadata).toMatchObject({ version: '0.9.0', build: 'canon-0.9.0-opening-vicente-ruth' })
-    expect(universe.changelog.at(-1)).toMatchObject({ id: 'change-016', version: universe.metadata.version })
+    expect(universe.metadata).toMatchObject({ version: '0.11.0', build: 'canon-0.11.0-escaleta-0.5', canonStatus: 'CANON' })
+    expect(universe.changelog.at(-1)).toMatchObject({ id: 'change-011-canon-escaleta-v05', version: universe.metadata.version })
   })
 
   it('records the reconstruction, consolidation and asymmetric-cruelty pass', () => {

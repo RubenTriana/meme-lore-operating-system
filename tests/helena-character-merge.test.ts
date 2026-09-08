@@ -6,13 +6,13 @@ const universe = universeData as unknown as Universe
 const entities = universe.modules.flatMap((module) => module.content.items ?? [])
 const characters = universe.modules.find((module) => module.id === 'characters')?.content.items ?? []
 
-describe('Helena in canon 0.8.0', () => {
+describe('Helena in canon 0.11.0', () => {
   const helena = characters.find((entity) => entity.id === 'meme-helena')
 
   it('keeps one definitive Helena without the retired prototype card', () => {
     expect(characters.filter((entity) => entity.id === 'meme-helena')).toHaveLength(1)
     expect(entities.some((entity) => entity.id === 'meme-captive-who-refuses-rescue')).toBe(false)
-    expect(helena).toMatchObject({ title: 'Helena', type: 'character', status: 'locked', priority: 'critical' })
+    expect(helena).toMatchObject({ title: 'Helena', type: 'character', status: 'developing', priority: 'high', canonStatus: 'OPEN_QUESTION' })
   })
 
   it('anchors her conflict in family substitution and material survival', () => {

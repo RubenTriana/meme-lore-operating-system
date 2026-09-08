@@ -32,7 +32,7 @@ describe('character connection navigation', () => {
     const rendered = await renderCharacters()
     try {
       const links = rendered.container.querySelectorAll<HTMLAnchorElement>('.character-connections-link')
-      expect(links).toHaveLength(13)
+      expect(links).toHaveLength(22)
       const clayConnections = new Set(index.references.get('meme-clay') ?? []).size
       const clayLink = [...links].find((link) => link.getAttribute('href') === '/module/relationships?focus=meme-clay')
       expect(clayLink?.textContent).toContain(`Conexiones ${clayConnections}`)

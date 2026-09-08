@@ -47,14 +47,13 @@ describe('Genius insights', () => {
 
   it('surfaces the deliberate development gaps in the current canon', async () => {
     expect(analyzeNarrative(universe).map((insight) => insight.id)).toEqual([
-      'development-meme-ruth',
-      'foreshadowing-meme-ruth',
-      'development-meme-vicente',
+      'mystery-meme-misterio-muerte-fabricada-harry',
+      'mystery-meme-misterio-abstencion-meme',
     ])
     const rendered = await renderInsights(universe)
-    expect(rendered.container.querySelectorAll('.genius-button')).toHaveLength(3)
-    expect(rendered.container.textContent).toContain('Ruth needs development')
-    expect(rendered.container.textContent).toContain('Vicente needs development')
+    expect(rendered.container.querySelectorAll('.genius-button')).toHaveLength(2)
+    expect(rendered.container.textContent).toContain('¿Cómo y por qué MEME fabricó la muerte de Harry?')
+    expect(rendered.container.textContent).toContain('¿Qué hace posible que MEME se abstenga?')
     await act(async () => rendered.root.unmount())
     rendered.container.remove()
   })

@@ -1,12 +1,53 @@
 export type EntityStatus = 'outline' | 'draft' | 'seeded' | 'active' | 'locked' | string
+export type CanonStatus =
+  | 'CANON'
+  | 'INHERITED_CANON'
+  | 'CANON_DIRECTION'
+  | 'CANON_CATEGORY'
+  | 'CANON_SCRIPTURE'
+  | 'PROPOSAL'
+  | 'OPEN_QUESTION'
+  | 'SUPERSEDED'
+  | 'PLANNING_SOURCE_NOT_CANON'
+  | 'COUNTERFACTUAL'
 export type Priority = 'low' | 'medium' | 'high' | 'critical' | string
 export type TemporalPrecision = 'exact' | 'day' | 'month' | 'year' | 'relative' | 'unknown'
 export type StateValue = string | number | boolean
-export type ContinuityRuleId = 'character-dead-acting' | 'incompatible-simultaneous-locations' | 'incompatible-age' | 'effect-before-cause'
-export type CausalityRuleId = 'missing-cause-reference' | 'effect-before-cause' | 'undeclared-causal-cycle' | 'important-event-without-cause' | 'declared-cause-without-consequence' | 'broken-causal-chain'
-export type KnowledgeRuleId = 'knowledge-used-before-learning' | 'remembered-after-forgetting' | 'revelation-received-after-acting' | 'knowledge-attributed-to-missing-character' | 'temporally-ambiguous-knowledge-change'
+export type ContinuityRuleId =
+  | 'character-dead-acting'
+  | 'incompatible-simultaneous-locations'
+  | 'incompatible-age'
+  | 'effect-before-cause'
+export type CausalityRuleId =
+  | 'missing-cause-reference'
+  | 'effect-before-cause'
+  | 'undeclared-causal-cycle'
+  | 'important-event-without-cause'
+  | 'declared-cause-without-consequence'
+  | 'broken-causal-chain'
+export type KnowledgeRuleId =
+  | 'knowledge-used-before-learning'
+  | 'remembered-after-forgetting'
+  | 'revelation-received-after-acting'
+  | 'knowledge-attributed-to-missing-character'
+  | 'temporally-ambiguous-knowledge-change'
 export type AnalysisRuleId = ContinuityRuleId | CausalityRuleId | KnowledgeRuleId
-export type ContinuityExceptionKind = 'resurrection' | 'copy' | 'simulation' | 'flashback' | 'vision' | 'non-physical-appearance' | 'travel' | 'duplication' | 'teleportation' | 'projection' | 'prophecy' | 'time-travel' | 'retrocausality' | 'causal-loop' | 'world-exception'
+export type ContinuityExceptionKind =
+  | 'resurrection'
+  | 'copy'
+  | 'simulation'
+  | 'flashback'
+  | 'vision'
+  | 'non-physical-appearance'
+  | 'travel'
+  | 'duplication'
+  | 'teleportation'
+  | 'projection'
+  | 'prophecy'
+  | 'time-travel'
+  | 'retrocausality'
+  | 'causal-loop'
+  | 'world-exception'
 
 export interface AnalysisEngines {
   continuity: boolean
@@ -81,6 +122,12 @@ export interface UniverseMetadata {
   updated: string
   author: string
   description?: string
+  releaseStatus?: CanonStatus
+  sourceManifest?: Array<Record<string, unknown>>
+  canonStatus?: CanonStatus
+  approvedBy?: string
+  approvedAt?: string
+  [key: string]: unknown
 }
 
 export interface UniverseEntity {
@@ -155,6 +202,7 @@ export interface ChangeLogEntry {
   author: string
   changes: string[]
   modules: string[]
+  [key: string]: unknown
 }
 
 export interface Universe {
@@ -163,6 +211,7 @@ export interface Universe {
   settings?: Record<string, unknown>
   modules: UniverseModule[]
   changelog: ChangeLogEntry[]
+  [key: string]: unknown
 }
 
 export interface ValidationIssue {

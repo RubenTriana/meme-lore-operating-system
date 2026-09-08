@@ -45,7 +45,7 @@ describe('JANO character entity', () => {
     ]))
   })
 
-  it('renders JANO as an individual character card with its connection control', async () => {
+  it('keeps JANO out of the canonical character view while its status remains open', async () => {
     const container = document.createElement('div')
     document.body.append(container)
     const root = createRoot(container)
@@ -58,11 +58,8 @@ describe('JANO character entity', () => {
     ))
 
     const janoHeading = [...container.querySelectorAll('h2')].find((heading) => heading.textContent === 'JANO')
-    const janoCard = janoHeading?.closest('.character-card')
-    expect(janoCard).not.toBeNull()
-    expect(janoCard?.textContent).toContain('Entidad sintético-interdimensional')
-    expect(janoCard?.textContent).toContain('Conexiones')
-    expect(janoCard?.querySelector('a')?.getAttribute('href')).toBe('/module/relationships?focus=meme-jano-entidad')
+    expect(jano?.canonStatus).toBe('OPEN_QUESTION')
+    expect(janoHeading).toBeUndefined()
 
     await act(async () => root.unmount())
     container.remove()

@@ -13,6 +13,7 @@ interface CanonModule extends JsonRecord {
 
 interface CanonDocument extends JsonRecord {
   metadata?: JsonRecord
+  settings?: JsonRecord
   modules?: CanonModule[]
   changelog?: JsonRecord[]
 }
@@ -48,18 +49,54 @@ interface ContextAudit {
 }
 
 export class TantaloContextError extends Error {
-  constructor(public statusCode: number, public code: string, message: string) {
+  constructor(
+    public statusCode: number,
+    public code: string,
+    message: string,
+  ) {
     super(message)
   }
 }
 
 const MODULE_ALIASES: Record<string, string[]> = {
-  canon: ['bible', 'lore'],
+  canon: ['bible', 'lore', 'canon-current'],
   lore: ['lore'],
-  continuity: ['bible', 'lore', 'relationships', 'timeline', 'save-the-cat', 'mysteries'],
-  continuidad: ['bible', 'lore', 'relationships', 'timeline', 'save-the-cat', 'mysteries'],
-  compatibility: ['bible', 'lore', 'relationships', 'timeline', 'save-the-cat', 'mysteries'],
-  compatibilidad: ['bible', 'lore', 'relationships', 'timeline', 'save-the-cat', 'mysteries'],
+  continuity: [
+    'bible',
+    'lore',
+    'relationships',
+    'timeline',
+    'save-the-cat',
+    'mysteries',
+    'canon-current',
+  ],
+  continuidad: [
+    'bible',
+    'lore',
+    'relationships',
+    'timeline',
+    'save-the-cat',
+    'mysteries',
+    'canon-current',
+  ],
+  compatibility: [
+    'bible',
+    'lore',
+    'relationships',
+    'timeline',
+    'save-the-cat',
+    'mysteries',
+    'canon-current',
+  ],
+  compatibilidad: [
+    'bible',
+    'lore',
+    'relationships',
+    'timeline',
+    'save-the-cat',
+    'mysteries',
+    'canon-current',
+  ],
   characters: ['characters', 'relationships'],
   personajes: ['characters', 'relationships'],
   psychology: ['characters', 'relationships'],
@@ -74,6 +111,14 @@ const MODULE_ALIASES: Record<string, string[]> = {
   versions: ['changelog'],
   versiones: ['changelog'],
   changelog: ['changelog'],
+  rio: ['rio'],
+  'modificadores de probabilidades': ['rio'],
+  'reserva de indeterminacion organica': ['rio'],
+  'aliento increado': ['rio'],
+  'nombres increados': ['rio'],
+  codex: ['codex-approved'],
+  codice: ['codex-approved'],
+  'novena costura': ['codex-approved'],
 }
 
 const FULL_CONTEXT_WORKFLOWS = new Set([
@@ -88,36 +133,150 @@ const FULL_CONTEXT_WORKFLOWS = new Set([
 ])
 
 const DEPTH_LIMITS = [0, 6, 12, 20, 32, 250] as const
-const BASE_FIELDS = ['id', 'type', 'title', 'summary', 'tags', 'status', 'development', 'priority']
+const BASE_FIELDS = [
+  'id',
+  'type',
+  'title',
+  'summary',
+  'tags',
+  'status',
+  'canonStatus',
+  'approvalScope',
+  'development',
+  'priority',
+]
 const CONTINUITY_FIELDS = [
-  'refs', 'foreshadowing', 'novelRef', 'novelRefs', 'primaryNovelRef', 'fromRef', 'toRef',
-  'relationshipType', 'sequence', 'temporal', 'era', 'act', 'plotline', 'sagaRef', 'causedByRefs',
-  'effects', 'resolutionWindow',
+  'refs',
+  'foreshadowing',
+  'novelRef',
+  'novelRefs',
+  'primaryNovelRef',
+  'fromRef',
+  'toRef',
+  'relationshipType',
+  'sequence',
+  'temporal',
+  'era',
+  'act',
+  'plotline',
+  'sagaRef',
+  'causedByRefs',
+  'effects',
+  'resolutionWindow',
 ]
 const DEEP_FIELDS = [
-  'desire', 'need', 'wound', 'contradiction', 'goal', 'risk', 'irreversibleChoice', 'moralLimit',
-  'arc', 'crueltyProfile', 'analysis', 'authorAnswer', 'openQuestions', 'function', 'appearances',
-  'usageLimit', 'axis', 'cruelty', 'beatNumber', 'fullName', 'alias',
+  'desire',
+  'need',
+  'wound',
+  'contradiction',
+  'goal',
+  'risk',
+  'irreversibleChoice',
+  'moralLimit',
+  'arc',
+  'crueltyProfile',
+  'analysis',
+  'authorAnswer',
+  'openQuestions',
+  'function',
+  'appearances',
+  'usageLimit',
+  'axis',
+  'cruelty',
+  'beatNumber',
+  'fullName',
+  'alias',
+  'aliases',
+  'canonLevel',
+  'plainExplanation',
+  'before',
+  'activation',
+  'effect',
+  'price',
+  'biologicalBasis',
+  'spiritualBasis',
+  'counterTo',
+  'hardLimits',
+  'enemyCounter',
+  'evolution',
+  'sourceHash',
+  'sourceExcerpt',
+  'truthPlane',
+  'book',
+  'bookTitle',
+  'section',
+  'sourceParagraphStart',
+  'sourceParagraphEnd',
 ]
 
 function normalize(value: unknown): string {
-  return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+  return String(value ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
 }
 
 function uniqueStrings(value: unknown, limit = 40): string[] {
   if (!Array.isArray(value)) return []
-  return [...new Set(value.filter((item): item is string => typeof item === 'string').map((item) => item.trim()).filter(Boolean))].slice(0, limit)
+  return [
+    ...new Set(
+      value
+        .filter((item): item is string => typeof item === 'string')
+        .map((item) => item.trim())
+        .filter(Boolean),
+    ),
+  ].slice(0, limit)
+}
+
+function canonPolicy(document: CanonDocument): JsonRecord | undefined {
+  const value = document.settings?.canonPolicy
+  return value && typeof value === 'object' ? (value as JsonRecord) : undefined
+}
+
+function canonStrings(value: unknown): string[] {
+  return Array.isArray(value)
+    ? value.filter((item): item is string => typeof item === 'string')
+    : []
+}
+
+function moduleAllowed(document: CanonDocument, moduleId: string): boolean {
+  const policy = canonPolicy(document)
+  if (!policy) return true
+  return !new Set(canonStrings(policy.excludeModulesByDefault)).has(moduleId)
+}
+
+function entityAllowed(document: CanonDocument, entity: JsonRecord): boolean {
+  const policy = canonPolicy(document)
+  if (!policy) return true
+  const status = typeof entity.canonStatus === 'string' ? entity.canonStatus : ''
+  const scripture =
+    typeof policy.scriptureStatus === 'string' ? policy.scriptureStatus : 'CANON_SCRIPTURE'
+  if (status === scripture) return true
+  if (!status || new Set(canonStrings(policy.defaultExcludeCanonStatuses)).has(status)) return false
+  return new Set(canonStrings(policy.defaultIncludeCanonStatuses)).has(status)
 }
 
 function validateRequest(value: unknown): TantaloContextRequest {
-  if (!value || typeof value !== 'object') throw new TantaloContextError(400, 'INVALID_REQUEST', 'La consulta debe ser un objeto JSON.')
+  if (!value || typeof value !== 'object')
+    throw new TantaloContextError(400, 'INVALID_REQUEST', 'La consulta debe ser un objeto JSON.')
   const input = value as Partial<TantaloContextRequest>
   const query = typeof input.query === 'string' ? input.query.trim() : ''
   const domains = uniqueStrings(input.domains, 12)
   const depth = Number.isInteger(input.depth) ? Number(input.depth) : 1
-  if (!query || query.length > 500) throw new TantaloContextError(400, 'QUERY_REQUIRED', 'Se requiere una consulta concreta de hasta 500 caracteres.')
-  if (!domains.length) throw new TantaloContextError(400, 'DOMAIN_REQUIRED', 'La consulta debe declarar al menos un dominio concreto.')
-  if (depth < 1 || depth > 5) throw new TantaloContextError(400, 'INVALID_DEPTH', 'La profundidad debe estar entre 1 y 5.')
+  if (!query || query.length > 500)
+    throw new TantaloContextError(
+      400,
+      'QUERY_REQUIRED',
+      'Se requiere una consulta concreta de hasta 500 caracteres.',
+    )
+  if (!domains.length)
+    throw new TantaloContextError(
+      400,
+      'DOMAIN_REQUIRED',
+      'La consulta debe declarar al menos un dominio concreto.',
+    )
+  if (depth < 1 || depth > 5)
+    throw new TantaloContextError(400, 'INVALID_DEPTH', 'La profundidad debe estar entre 1 y 5.')
   return {
     query,
     domains,
@@ -137,7 +296,8 @@ function resolveModules(domains: string[], available: Set<string>): string[] {
   for (const rawDomain of domains) {
     const domain = normalize(rawDomain)
     const mapped = MODULE_ALIASES[domain] ?? (available.has(domain) ? [domain] : null)
-    if (!mapped) throw new TantaloContextError(400, 'UNKNOWN_DOMAIN', `Dominio no permitido: ${rawDomain}.`)
+    if (!mapped)
+      throw new TantaloContextError(400, 'UNKNOWN_DOMAIN', `Dominio no permitido: ${rawDomain}.`)
     mapped.forEach((moduleId) => resolved.add(moduleId))
   }
   return [...resolved]
@@ -152,10 +312,16 @@ function contextFields(depth: number): Set<string> | null {
   ])
 }
 
-function sanitizeEntity(entity: JsonRecord, depth: number): JsonRecord {
+function sanitizeEntity(document: CanonDocument, entity: JsonRecord, depth: number): JsonRecord {
+  const hiddenNestedFields = new Set(
+    canonStrings(canonPolicy(document)?.proposedNestedFieldsMustRemainExcluded),
+  )
   const fields = contextFields(depth)
-  if (!fields) return structuredClone(entity)
-  return Object.fromEntries(Object.entries(entity).filter(([key]) => fields.has(key)))
+  return Object.fromEntries(
+    Object.entries(entity)
+      .filter(([key]) => !hiddenNestedFields.has(key))
+      .filter(([key]) => !fields || fields.has(key)),
+  )
 }
 
 function searchableText(entity: JsonRecord): string {
@@ -182,13 +348,22 @@ function entityScore(entity: JsonRecord, terms: string[], entityIds: Set<string>
 }
 
 function fullAccessAllowed(request: TantaloContextRequest): boolean {
-  return request.depth === 5
-    && request.mode === 'Profundo'
-    && FULL_CONTEXT_WORKFLOWS.has(request.workflowId ?? '')
-    && request.allowFullContext === true
+  return (
+    request.depth === 5 &&
+    request.mode === 'Profundo' &&
+    FULL_CONTEXT_WORKFLOWS.has(request.workflowId ?? '') &&
+    request.allowFullContext === true
+  )
 }
 
-function auditBase(document: CanonDocument, request: TantaloContextRequest, timestamp: string): Omit<ContextAudit, 'resolvedModules' | 'recordsConsidered' | 'recordsReturned' | 'truncated' | 'fullContext'> {
+function auditBase(
+  document: CanonDocument,
+  request: TantaloContextRequest,
+  timestamp: string,
+): Omit<
+  ContextAudit,
+  'resolvedModules' | 'recordsConsidered' | 'recordsReturned' | 'truncated' | 'fullContext'
+> {
   return {
     requestId: `tantalo-${Date.parse(timestamp).toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
     timestamp,
@@ -202,8 +377,17 @@ function auditBase(document: CanonDocument, request: TantaloContextRequest, time
   }
 }
 
-export function queryTantaloContext(documentValue: unknown, requestValue: unknown, timestamp = new Date().toISOString()): { context: JsonRecord; audit: ContextAudit } {
-  if (!documentValue || typeof documentValue !== 'object') throw new TantaloContextError(500, 'INVALID_CANON', 'LoreSystem no contiene un documento canónico válido.')
+export function queryTantaloContext(
+  documentValue: unknown,
+  requestValue: unknown,
+  timestamp = new Date().toISOString(),
+): { context: JsonRecord; audit: ContextAudit } {
+  if (!documentValue || typeof documentValue !== 'object')
+    throw new TantaloContextError(
+      500,
+      'INVALID_CANON',
+      'LoreSystem no contiene un documento canónico válido.',
+    )
   const document = documentValue as CanonDocument
   const modules = Array.isArray(document.modules) ? document.modules : []
   const request = validateRequest(requestValue)
@@ -212,12 +396,28 @@ export function queryTantaloContext(documentValue: unknown, requestValue: unknow
 
   if (request.allowFullContext) {
     if (!fullAccessAllowed(request)) {
-      throw new TantaloContextError(403, 'FULL_CONTEXT_FORBIDDEN', 'El contexto integral exige profundidad 5, modo Profundo y una skill autorizada.')
+      throw new TantaloContextError(
+        403,
+        'FULL_CONTEXT_FORBIDDEN',
+        'El contexto integral exige profundidad 5, modo Profundo y una skill autorizada.',
+      )
     }
-    const records = modules.reduce((sum, module) => sum + (Array.isArray(module.content?.items) ? module.content.items.length : 0), 0) + (document.changelog?.length ?? 0)
+    const records =
+      modules.reduce(
+        (sum, module) =>
+          sum + (Array.isArray(module.content?.items) ? module.content.items.length : 0),
+        0,
+      ) + (document.changelog?.length ?? 0)
     return {
       context: { fullDocument: structuredClone(document) },
-      audit: { ...auditBase(document, request, timestamp), resolvedModules: ['*'], recordsConsidered: records, recordsReturned: records, truncated: false, fullContext: true },
+      audit: {
+        ...auditBase(document, request, timestamp),
+        resolvedModules: ['*'],
+        recordsConsidered: records,
+        recordsReturned: records,
+        truncated: false,
+        fullContext: true,
+      },
     }
   }
 
@@ -225,19 +425,33 @@ export function queryTantaloContext(documentValue: unknown, requestValue: unknow
   const requestedLimit = request.maxItems ?? DEPTH_LIMITS[depth]
   const limit = Math.max(1, Math.min(requestedLimit, DEPTH_LIMITS[depth]))
   const rawTerms = [request.query, ...(request.terms ?? [])]
-  const terms = [...new Set(rawTerms.flatMap((term) => normalize(term).split(/[^a-z0-9]+/)).filter((term) => term.length >= 3))]
+  const terms = [
+    ...new Set(
+      rawTerms
+        .flatMap((term) => normalize(term).split(/[^a-z0-9]+/))
+        .filter((term) => term.length >= 3),
+    ),
+  ]
   const entityIds = new Set(request.entityIds ?? [])
-  const candidates: Array<{ moduleId: string; moduleTitle: string; entity: JsonRecord; score: number }> = []
+  const candidates: Array<{
+    moduleId: string
+    moduleTitle: string
+    entity: JsonRecord
+    score: number
+  }> = []
   let recordsConsidered = 0
 
-  for (const moduleId of resolvedModules.filter((id) => id !== 'changelog')) {
+  for (const moduleId of resolvedModules.filter(
+    (id) => id !== 'changelog' && moduleAllowed(document, id),
+  )) {
     const module = modules.find((entry) => entry.id === moduleId)
     if (!module) continue
     const items = Array.isArray(module.content?.items) ? module.content.items : []
     recordsConsidered += items.length
-    for (const entity of items) {
+    for (const entity of items.filter((item) => entityAllowed(document, item))) {
       const score = entityScore(entity, terms, entityIds)
-      if (score > 0) candidates.push({ moduleId, moduleTitle: String(module.title ?? moduleId), entity, score })
+      if (score > 0)
+        candidates.push({ moduleId, moduleTitle: String(module.title ?? moduleId), entity, score })
     }
   }
 
@@ -245,19 +459,45 @@ export function queryTantaloContext(documentValue: unknown, requestValue: unknow
     const entries = Array.isArray(document.changelog) ? document.changelog : []
     recordsConsidered += entries.length
     for (const entry of entries) {
-      const score = entityScore({ ...entry, id: entry.id ?? entry.version, title: `Versión ${String(entry.version ?? '')}`, summary: entry.changes }, terms, entityIds)
-      if (score > 0) candidates.push({ moduleId: 'changelog', moduleTitle: 'Versiones', entity: entry, score })
+      const score = entityScore(
+        {
+          ...entry,
+          id: entry.id ?? entry.version,
+          title: `Versión ${String(entry.version ?? '')}`,
+          summary: entry.changes,
+        },
+        terms,
+        entityIds,
+      )
+      if (score > 0)
+        candidates.push({ moduleId: 'changelog', moduleTitle: 'Versiones', entity: entry, score })
     }
   }
 
-  candidates.sort((a, b) => b.score - a.score || String(a.entity.title ?? a.entity.id).localeCompare(String(b.entity.title ?? b.entity.id), 'es'))
+  candidates.sort(
+    (a, b) =>
+      b.score - a.score ||
+      String(a.entity.title ?? a.entity.id).localeCompare(
+        String(b.entity.title ?? b.entity.id),
+        'es',
+      ),
+  )
   const selected = candidates.slice(0, limit)
   const grouped = new Map<string, { id: string; title: string; items: JsonRecord[] }>()
   for (const candidate of selected) {
-    const group = grouped.get(candidate.moduleId) ?? { id: candidate.moduleId, title: candidate.moduleTitle, items: [] }
-    const entity = candidate.moduleId === 'changelog'
-      ? Object.fromEntries(Object.entries(candidate.entity).filter(([key]) => ['id', 'version', 'date', 'changes', 'modules'].includes(key)))
-      : sanitizeEntity(candidate.entity, depth)
+    const group = grouped.get(candidate.moduleId) ?? {
+      id: candidate.moduleId,
+      title: candidate.moduleTitle,
+      items: [],
+    }
+    const entity =
+      candidate.moduleId === 'changelog'
+        ? Object.fromEntries(
+            Object.entries(candidate.entity).filter(([key]) =>
+              ['id', 'version', 'date', 'changes', 'modules'].includes(key),
+            ),
+          )
+        : sanitizeEntity(document, candidate.entity, depth)
     group.items.push(entity)
     grouped.set(candidate.moduleId, group)
   }
@@ -308,7 +548,12 @@ async function readJsonBody(request: IncomingMessage): Promise<unknown> {
   for await (const chunk of request) {
     const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk)
     size += buffer.length
-    if (size > 65_536) throw new TantaloContextError(413, 'REQUEST_TOO_LARGE', 'La consulta supera el tamaño permitido.')
+    if (size > 65_536)
+      throw new TantaloContextError(
+        413,
+        'REQUEST_TOO_LARGE',
+        'La consulta supera el tamaño permitido.',
+      )
     chunks.push(buffer)
   }
   try {
@@ -320,8 +565,34 @@ async function readJsonBody(request: IncomingMessage): Promise<unknown> {
 
 export function tantaloContextPlugin(rootDirectory = process.cwd()): Plugin {
   const masterPath = resolve(rootDirectory, 'data', 'universe_master.json')
+  const privateRoot = resolve(rootDirectory, '.meme-private', 'derived')
+  const rioCatalogPath = resolve(privateRoot, 'rio-catalog.json')
+  const codexSectionsPath = resolve(privateRoot, 'codex-sections.json')
+  const approvedCodexPath = resolve(privateRoot, 'CODICE_NOVENA_COSTURA_APROBADA.md')
   let cachedMtime = -1
   let cachedDocument: unknown
+
+  const readOptionalJson = async (path: string): Promise<JsonRecord | null> => {
+    try {
+      return JSON.parse(await readFile(path, 'utf8')) as JsonRecord
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code === 'ENOENT') return null
+      throw error
+    }
+  }
+
+  const privateAvailability = async () => {
+    const exists = async (path: string) => {
+      try {
+        await stat(path)
+        return true
+      } catch {
+        return false
+      }
+    }
+    const [codex, rio] = await Promise.all([exists(approvedCodexPath), exists(rioCatalogPath)])
+    return { codex, rio }
+  }
 
   const loadDocument = async () => {
     const info = await stat(masterPath)
@@ -329,7 +600,34 @@ export function tantaloContextPlugin(rootDirectory = process.cwd()): Plugin {
       cachedDocument = JSON.parse(await readFile(masterPath, 'utf8')) as unknown
       cachedMtime = info.mtimeMs
     }
-    return cachedDocument
+    const document = structuredClone(cachedDocument) as CanonDocument
+    const modules = Array.isArray(document.modules) ? document.modules : []
+    const [rioCatalog, codexSections] = await Promise.all([
+      readOptionalJson(rioCatalogPath),
+      readOptionalJson(codexSectionsPath),
+    ])
+    if (rioCatalog && Array.isArray(rioCatalog.items)) {
+      modules.push({
+        id: 'rio',
+        title: 'Modificadores de probabilidades — RÍO',
+        type: 'private-review',
+        visibility: 'hidden',
+        renderer: 'knowledge',
+        content: { items: rioCatalog.items as JsonRecord[] },
+      })
+    }
+    if (codexSections && Array.isArray(codexSections.items)) {
+      modules.push({
+        id: 'codex-approved',
+        title: 'Códice · Novena Costura aprobada',
+        type: 'private-editorial',
+        visibility: 'hidden',
+        renderer: 'knowledge',
+        content: { items: codexSections.items as JsonRecord[] },
+      })
+    }
+    document.modules = modules
+    return document
   }
 
   return {
@@ -337,36 +635,101 @@ export function tantaloContextPlugin(rootDirectory = process.cwd()): Plugin {
     apply: 'serve',
     configureServer(server) {
       server.middlewares.use('/api/tantalo/context/health', async (request, response) => {
-        if (!allowLocalCors(request, response)) return sendJson(response, 403, { error: 'Solo se permiten conexiones locales.' })
+        if (!allowLocalCors(request, response))
+          return sendJson(response, 403, { error: 'Solo se permiten conexiones locales.' })
         if (request.method === 'OPTIONS') return sendJson(response, 204, {})
-        if (request.method !== 'GET') return sendJson(response, 405, { error: 'Método no permitido.' })
+        if (request.method !== 'GET')
+          return sendJson(response, 405, { error: 'Método no permitido.' })
         try {
-          const document = await loadDocument() as CanonDocument
+          const document = (await loadDocument()) as CanonDocument
           sendJson(response, 200, {
             status: 'ready',
             readOnly: true,
             canonVersion: document.metadata?.version ?? null,
             schemaVersion: document.metadata?.schemaVersion ?? null,
             selectiveByDefault: true,
-            fullContextGate: { depth: 5, mode: 'Profundo', explicitPermission: true, workflows: [...FULL_CONTEXT_WORKFLOWS] },
+            fullContextGate: {
+              depth: 5,
+              mode: 'Profundo',
+              explicitPermission: true,
+              workflows: [...FULL_CONTEXT_WORKFLOWS],
+            },
             domains: Object.keys(MODULE_ALIASES),
+            privateSources: await privateAvailability(),
           })
         } catch (error) {
-          sendJson(response, 500, { error: error instanceof Error ? error.message : 'No se pudo abrir el canon.' })
+          sendJson(response, 500, {
+            error: error instanceof Error ? error.message : 'No se pudo abrir el canon.',
+          })
+        }
+      })
+
+      server.middlewares.use('/api/tantalo/private/codex', async (request, response) => {
+        if (!allowLocalCors(request, response))
+          return sendJson(response, 403, { error: 'Solo se permiten conexiones locales.' })
+        if (request.method === 'OPTIONS') return sendJson(response, 204, {})
+        if (request.method !== 'GET')
+          return sendJson(response, 405, { error: 'Método no permitido.' })
+        response.setHeader('Cache-Control', 'no-store')
+        try {
+          const [markdown, metadata] = await Promise.all([
+            readFile(approvedCodexPath, 'utf8'),
+            readOptionalJson(codexSectionsPath),
+          ])
+          sendJson(response, 200, { available: true, metadata, markdown })
+        } catch (error) {
+          if ((error as NodeJS.ErrnoException).code === 'ENOENT')
+            return sendJson(response, 404, {
+              available: false,
+              error: 'La edición aprobada no está importada en la capa privada local.',
+            })
+          sendJson(response, 500, {
+            available: false,
+            error: error instanceof Error ? error.message : 'No se pudo abrir la edición aprobada.',
+          })
+        }
+      })
+
+      server.middlewares.use('/api/tantalo/private/rio', async (request, response) => {
+        if (!allowLocalCors(request, response))
+          return sendJson(response, 403, { error: 'Solo se permiten conexiones locales.' })
+        if (request.method === 'OPTIONS') return sendJson(response, 204, {})
+        if (request.method !== 'GET')
+          return sendJson(response, 405, { error: 'Método no permitido.' })
+        response.setHeader('Cache-Control', 'no-store')
+        try {
+          const catalog = await readOptionalJson(rioCatalogPath)
+          if (!catalog)
+            return sendJson(response, 404, {
+              available: false,
+              error: 'El catálogo RÍO no está importado en la capa privada local.',
+            })
+          sendJson(response, 200, { available: true, ...catalog })
+        } catch (error) {
+          sendJson(response, 500, {
+            available: false,
+            error: error instanceof Error ? error.message : 'No se pudo abrir el catálogo RÍO.',
+          })
         }
       })
 
       server.middlewares.use('/api/tantalo/context/query', async (request, response) => {
-        if (!allowLocalCors(request, response)) return sendJson(response, 403, { error: 'Solo se permiten conexiones locales.' })
+        if (!allowLocalCors(request, response))
+          return sendJson(response, 403, { error: 'Solo se permiten conexiones locales.' })
         if (request.method === 'OPTIONS') return sendJson(response, 204, {})
-        if (request.method !== 'POST') return sendJson(response, 405, { error: 'Método no permitido.' })
-        if (!String(request.headers['content-type'] ?? '').startsWith('application/json')) return sendJson(response, 415, { error: 'El contenido debe ser JSON.' })
+        if (request.method !== 'POST')
+          return sendJson(response, 405, { error: 'Método no permitido.' })
+        if (!String(request.headers['content-type'] ?? '').startsWith('application/json'))
+          return sendJson(response, 415, { error: 'El contenido debe ser JSON.' })
         try {
           const result = queryTantaloContext(await loadDocument(), await readJsonBody(request))
           sendJson(response, 200, result)
         } catch (error) {
-          if (error instanceof TantaloContextError) return sendJson(response, error.statusCode, { code: error.code, error: error.message })
-          sendJson(response, 500, { error: error instanceof Error ? error.message : 'No se pudo consultar LoreSystem.' })
+          if (error instanceof TantaloContextError)
+            return sendJson(response, error.statusCode, { code: error.code, error: error.message })
+          sendJson(response, 500, {
+            error: error instanceof Error ? error.message : 'No se pudo consultar LoreSystem.',
+          })
         }
       })
     },

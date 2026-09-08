@@ -7,6 +7,7 @@ import type { Universe } from '../src/types/universe'
 
 const universe = master as Universe
 const entities = new Map(universe.modules.flatMap((module) => module.content.items ?? []).map((entity) => [entity.id, entity]))
+const canonicalStatuses = new Set(['CANON', 'INHERITED_CANON', 'CANON_DIRECTION', 'CANON_CATEGORY', 'CANON_SCRIPTURE'])
 
 function contextFor(value: Universe): AnalysisContext {
   const normalized = normalizeUniverse(value)
@@ -53,6 +54,7 @@ describe('canon 0.8.0 unified human-compute economy', () => {
     const validation = validateUniverse(universe)
     expect(validation.valid).toBe(true)
     expect(validation.errors).toEqual([])
-    expect(analyzeCausality(contextFor(universe)).issues).toEqual([])
+    const issues = analyzeCausality(contextFor(universe)).issues
+    expect(issues.every((issue) => issue.entityIds.some((id) => !canonicalStatuses.has(String(entities.get(id)?.canonStatus))))).toBe(true)
   })
 })

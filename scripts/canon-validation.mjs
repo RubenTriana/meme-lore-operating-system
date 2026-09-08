@@ -32,7 +32,7 @@ const vite = await createServer({
 })
 try {
   const raw = JSON.parse(await readFile(inputPath, 'utf8'))
-  const [{ migrateUniverse }, { validateUniverse }, derived, continuity, causality, knowledge, connections] = await Promise.all([
+  const [{ migrateUniverse }, { validateUniverse }, derived, continuity, causality, knowledge, connections, canonPolicy] = await Promise.all([
     vite.ssrLoadModule('/src/services/migrations/index.ts'),
     vite.ssrLoadModule('/src/schemas/universe.ts'),
     vite.ssrLoadModule('/src/analysis/derived.ts'),
@@ -40,6 +40,7 @@ try {
     vite.ssrLoadModule('/src/analysis/causality/index.ts'),
     vite.ssrLoadModule('/src/analysis/knowledge/index.ts'),
     vite.ssrLoadModule('/src/analysis/connections/index.ts'),
+    vite.ssrLoadModule('/src/utils/canon-policy.ts'),
   ])
   const migrated = migrateUniverse(raw)
   const validation = validateUniverse(migrated.data)
@@ -57,6 +58,12 @@ try {
   const byId = new Map(entities.map((entry) => [entry.entity.id, entry]))
   const events = entities.filter(({ entity }) => entity.type === 'event')
   const narrativeIssues = [...continuityResult.issues, ...causalityResult.issues, ...knowledgeResult.issues]
+  const activeModules = canonPolicy.canonicalModules(universe)
+  const activeEntities = activeModules.flatMap((module) => canonPolicy.canonicalModuleItems(universe, module))
+  const activeEntityIds = new Set(activeEntities.map((entity) => entity.id))
+  const activeNarrativeIssues = narrativeIssues.filter((issue) =>
+    [...issue.entityIds, ...issue.sourceIds].every((id) => activeEntityIds.has(id)),
+  )
 
   const manualVerification = targetIds.map((id) => {
     const entry = byId.get(id)
@@ -99,6 +106,14 @@ try {
       duplicateEntityIds: entities.map(({ entity }) => entity.id).filter((id, index, ids) => ids.indexOf(id) !== index),
       validationErrors: validation.errors,
       validationWarnings: validation.warnings.length,
+    },
+    canonPolicy: {
+      activeModules: activeModules.length,
+      activeEntities: activeEntities.length,
+      excludedModules: universe.modules.filter((module) => !canonPolicy.isCanonicalModule(universe, module)).map((module) => module.id),
+      activeStatusCounts: orderedCounts(activeEntities.map((entity) => entity.canonStatus ?? 'UNSPECIFIED')),
+      activeNarrativeIssues: activeNarrativeIssues.length,
+      historicalOrExcludedNarrativeIssues: narrativeIssues.length - activeNarrativeIssues.length,
     },
     derived: {
       relationEdges: compilation.manifest.counts.relationEdges,

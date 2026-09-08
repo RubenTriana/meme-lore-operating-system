@@ -1,4 +1,5 @@
 import type { SemanticIndex, Universe, UniverseEntity, UniverseModule } from '@/types/universe'
+import { canonicalModuleItems, canonicalModules } from '@/utils/canon-policy'
 
 export function getModuleItems(module: UniverseModule): UniverseEntity[] {
   return module.content.items ?? []
@@ -11,23 +12,25 @@ export function createSemanticIndex(universe: Universe): SemanticIndex {
   const backlinks = new Map<string, string[]>()
   const tags = new Map<string, string[]>()
 
-  universe.modules.forEach((module) => {
-    getModuleItems(module).forEach((entity) => {
+  canonicalModules(universe).forEach((module) => {
+    canonicalModuleItems(universe, module).forEach((entity) => {
       entities.set(entity.id, entity)
       moduleByEntity.set(entity.id, module)
-      const refs = [...new Set([
-        ...(entity.refs ?? []),
-        ...(entity.foreshadowing ?? []),
-        ...(entity.locationRefs ?? []),
-        ...(entity.participantRefs ?? []),
-        ...(entity.causes ?? []),
-        ...(entity.causedByRefs ?? []),
-        ...(entity.effects ?? []),
-        ...(entity.novelRefs ?? []),
-        ...(entity.novelRef ? [entity.novelRef] : []),
-        ...(entity.primaryNovelRef ? [entity.primaryNovelRef] : []),
-        ...(entity.sagaRef ? [entity.sagaRef] : []),
-      ])]
+      const refs = [
+        ...new Set([
+          ...(entity.refs ?? []),
+          ...(entity.foreshadowing ?? []),
+          ...(entity.locationRefs ?? []),
+          ...(entity.participantRefs ?? []),
+          ...(entity.causes ?? []),
+          ...(entity.causedByRefs ?? []),
+          ...(entity.effects ?? []),
+          ...(entity.novelRefs ?? []),
+          ...(entity.novelRef ? [entity.novelRef] : []),
+          ...(entity.primaryNovelRef ? [entity.primaryNovelRef] : []),
+          ...(entity.sagaRef ? [entity.sagaRef] : []),
+        ]),
+      ]
       references.set(entity.id, refs)
       refs.forEach((ref) => backlinks.set(ref, [...(backlinks.get(ref) ?? []), entity.id]))
       entity.tags?.forEach((tag) => tags.set(tag, [...(tags.get(tag) ?? []), entity.id]))
@@ -46,7 +49,7 @@ export function getEntityConnections(index: SemanticIndex, entityId: string): Un
 }
 
 export function getAllEntities(universe: Universe): UniverseEntity[] {
-  return universe.modules.flatMap(getModuleItems)
+  return canonicalModules(universe).flatMap((module) => canonicalModuleItems(universe, module))
 }
 
 export function searchUniverse(universe: Universe, term: string): UniverseEntity[] {
@@ -58,7 +61,15 @@ export function searchUniverse(universe: Universe, term: string): UniverseEntity
       const alias = entity.alias?.toLocaleLowerCase() ?? ''
       const tags = (entity.tags ?? []).join(' ').toLocaleLowerCase()
       const detail = [entity.summary, entity.type].filter(Boolean).join(' ').toLocaleLowerCase()
-      const score = title.includes(query) ? title.indexOf(query) : alias.includes(query) ? 10 + alias.indexOf(query) : tags.includes(query) ? 20 + tags.indexOf(query) : detail.includes(query) ? 40 + detail.indexOf(query) : Number.POSITIVE_INFINITY
+      const score = title.includes(query)
+        ? title.indexOf(query)
+        : alias.includes(query)
+          ? 10 + alias.indexOf(query)
+          : tags.includes(query)
+            ? 20 + tags.indexOf(query)
+            : detail.includes(query)
+              ? 40 + detail.indexOf(query)
+              : Number.POSITIVE_INFINITY
       return { entity, score }
     })
     .filter(({ score }) => Number.isFinite(score))

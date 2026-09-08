@@ -20,8 +20,19 @@
       "scope": "escena",
       "agents": [],
       "extent": "400 palabras",
+      "entityIds": [
+        "meme-estado-escritura-actual",
+        "meme-escaleta-n1-canon",
+        "meme-n1-escena-07",
+        "meme-administrador",
+        "meme-abelardo",
+        "meme-clay"
+      ],
+      "monitorControls": {
+        "requestedDepth": 2
+      },
       "options": { "web": false, "additionalFiles": false, "propose": false, "write": false, "memory": false, "candidates": 0, "blind": false },
-      "intent": "Ayúdame a continuar desde el punto registrado. Sitúa brevemente la tarea y formula una sola pregunta de alto impacto antes de que yo escriba."
+      "intent": "Consulta la escaleta canónica y el estado independiente del manuscrito. Ayúdame a continuar desde el punto registrado sin convertir muestras en prosa ya escrita. Sitúa brevemente la tarea y formula una sola pregunta de alto impacto antes de que yo escriba."
     },
     {
       "id": "diagnostico-rapido",
