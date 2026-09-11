@@ -25,6 +25,24 @@
       "status": "APROBADO_POR_AUTOR",
       "statement": "El Códice es paratexto primario y huella diegética secundaria, no una cronología factual ni una misión de Clay.",
       "source": "source-brief-compatibilidad"
+    },
+    {
+      "id": "constraint-ninth-stitch-editorial",
+      "status": "APROBADO_EDITORIAL_POR_AUTOR",
+      "statement": "La Edición de la Novena Costura es la referencia editorial vigente del Códice completo.",
+      "source": "source-codice-novena-costura-approved"
+    },
+    {
+      "id": "constraint-old-ending-conflict",
+      "status": "CONFLICTO_CANON_TECNICO_PENDIENTE_DE_LOTE",
+      "statement": "El canon técnico 0.9.0 conserva Partición, borrado de Harry y extinción de la Gracia, mientras la edición literaria aprobada desarrolla una tercera vía voluntaria, reversible y distribuida. No mezclar ni promover sin lote específico.",
+      "source": "source-codice-novena-costura-approved"
+    },
+    {
+      "id": "constraint-rio-scope",
+      "status": "CATEGORIA_APROBADA_DETALLES_PROPUESTOS",
+      "statement": "RÍO organiza modificadores de probabilidades de los descendientes de las doce tribus frente a MEME; poderes, portadores, ejemplos y retcons continúan propuestos.",
+      "source": "source-rio-mechanics-0-1-0"
     }
   ]
 }

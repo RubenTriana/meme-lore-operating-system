@@ -9,6 +9,7 @@ data/universe_master.backup-*.json
 .env
 .env.*
 !.env.example
+.meme-private/
 .DS_Store
 Thumbs.db
 .vscode/

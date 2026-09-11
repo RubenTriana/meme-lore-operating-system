@@ -11,7 +11,7 @@
 
 Las 42 unidades narrativas identificadas desde `meme-n1-escena-01` hasta `meme-n1-escena-36` sustituyen como canon activo las fichas anteriores de la escaleta 0.5 en el módulo Cronología. Se restauran U10 y U11, ausentes de la vista activa, y se incorporan títulos, hitos, etapas, líneas narrativas, posiciones temporales, cambios dramáticos, directrices de prosa, intervenciones de Palimpsesto y la decisión irreversible incluida en la fuente.
 
-Las fichas anteriores no se borran de manera irreversible: el universo completo previo permanece en el historial de Git y en los respaldos editoriales locales de `data/editorial-backups/`. La aprobación no declara que estas unidades sean prosa ya incorporada al manuscrito de Scrivener.
+Las fichas anteriores no se borran de manera irreversible: el universo completo previo se conserva en `data/editorial-backups/`. La aprobación no declara que estas unidades sean prosa ya incorporada al manuscrito de Scrivener.
 
 ## Presentación
 

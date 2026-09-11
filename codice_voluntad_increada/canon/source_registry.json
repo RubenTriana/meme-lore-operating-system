@@ -20,6 +20,24 @@
       "path": "codice_voluntad_increada/BRIEF_COMPATIBILIDAD.md",
       "authority": "HIPOTESIS_DE_DISENO_APROBADA",
       "use": "Contrato editorial y límites del artefacto"
+    },
+    {
+      "id": "source-codice-novena-costura-approved",
+      "path": ".meme-private/derived/CODICE_NOVENA_COSTURA_APROBADA.md",
+      "authority": "APROBADO_EDITORIAL_POR_AUTOR",
+      "version": "Edición de la Novena Costura",
+      "updated": "2026-09-07",
+      "sha256": "82132c3511f8da8122cf5b78b63240193a39d6a65da444becd5a48eb7a595d0f",
+      "use": "Referencia editorial vigente; sus voces no equivalen automáticamente a hechos del canon técnico"
+    },
+    {
+      "id": "source-rio-mechanics-0-1-0",
+      "path": ".meme-private/derived/rio-catalog.json",
+      "authority": "CATEGORIA_APROBADA_CONTENIDO_PROPUESTO",
+      "version": "0.1.0",
+      "updated": "2026-09-07",
+      "sha256": "689c64ae7fe48047a6e66ca1317ce12743bbde9769a3e7dfb6301d77a14474eb",
+      "use": "Consulta de RÍO con estado editorial por ficha; no es canon técnico"
     }
   ]
 }

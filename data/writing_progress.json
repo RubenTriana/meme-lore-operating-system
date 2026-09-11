@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "DERIVED_EDITORIAL_METRIC",
+  "novel": {
+    "id": "meme-novela-uno",
+    "title": "Operación Tántalo",
+    "totalUnits": 42,
+    "reachedUnits": 8,
+    "completeUnits": 5,
+    "completeUnitNumbers": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "partialUnits": 3,
+    "partialUnitNumbers": [
+      1,
+      2,
+      8
+    ],
+    "untouchedUnits": 34,
+    "partialWeight": 0.5,
+    "unitIds": [
+      "meme-n1-escena-01",
+      "meme-n1-escena-02",
+      "meme-n1-escena-03",
+      "meme-n1-escena-04",
+      "meme-n1-escena-05",
+      "meme-n1-escena-06",
+      "meme-n1-escena-07",
+      "meme-n1-escena-08",
+      "meme-n1-escena-09",
+      "meme-n1-escena-10",
+      "meme-n1-escena-11",
+      "meme-n1-escena-12",
+      "meme-n1-escena-13",
+      "meme-n1-escena-14",
+      "meme-n1-escena-15",
+      "meme-n1-escena-16",
+      "meme-n1-escena-17",
+      "meme-n1-escena-18",
+      "meme-n1-escena-18a",
+      "meme-n1-escena-19",
+      "meme-n1-escena-20",
+      "meme-n1-escena-21",
+      "meme-n1-escena-21a",
+      "meme-n1-escena-22",
+      "meme-n1-escena-23",
+      "meme-n1-escena-23a",
+      "meme-n1-escena-24",
+      "meme-n1-escena-24a",
+      "meme-n1-escena-25",
+      "meme-n1-escena-26",
+      "meme-n1-escena-27",
+      "meme-n1-escena-28",
+      "meme-n1-escena-28a",
+      "meme-n1-escena-29",
+      "meme-n1-escena-30",
+      "meme-n1-escena-31",
+      "meme-n1-escena-32",
+      "meme-n1-escena-33",
+      "meme-n1-escena-34",
+      "meme-n1-escena-35",
+      "meme-n1-escena-35a",
+      "meme-n1-escena-36"
+    ]
+  },
+  "source": {
+    "label": "Scrivener · Cap 1",
+    "binderTitle": "Cap 1",
+    "verifiedAt": "2026-09-09",
+    "lastContentDate": "2026-09-08",
+    "includesPlanningNotes": true
+  },
+  "snapshots": [
+    {
+      "date": "2026-08-31",
+      "words": 3014,
+      "label": "Checkpoint verificado"
+    },
+    {
+      "date": "2026-09-08",
+      "words": 4054,
+      "characters": 23209,
+      "label": "Cierre del capítulo 1"
+    },
+    {
+      "date": "2026-09-10",
+      "words": 11088,
+      "label": "Conteo actualizado por el autor",
+      "source": "manual"
+    }
+  ],
+  "forecast": {
+    "editorialTargetWords": 110000,
+    "projectStartedAt": "2026-07-28",
+    "confidence": "low",
+    "confidenceReason": "Solo existen dos checkpoints comparables y el conteo actual incluye notas de planificación.",
+    "weeklyReviewDay": "monday",
+    "nextReviewDate": "2026-09-14"
+  }
+}

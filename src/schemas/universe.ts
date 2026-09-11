@@ -5,7 +5,7 @@ import type {
   Universe,
   ValidationIssue,
   ValidationResult,
-} from '@/types/universe'
+} from '../types/universe'
 
 const id = z.string().regex(/^[a-z][a-z0-9-]*$/, 'Use lowercase kebab-case ids.')
 const nonEmptyString = z.string().min(1)

@@ -12,10 +12,42 @@ if (-not (Test-Path -LiteralPath $panelIndex -PathType Leaf)) {
     exit 1
 }
 
-$npmCommand = Get-Command "npm.cmd" -ErrorAction SilentlyContinue
+function Find-NpmCommand {
+    $pathCommand = Get-Command "npm.cmd" -ErrorAction SilentlyContinue
+    if ($pathCommand) { return $pathCommand.Source }
+
+    $directCandidates = @(
+        (Join-Path $env:ProgramFiles "nodejs\npm.cmd"),
+        (Join-Path $env:LOCALAPPDATA "Programs\nodejs\npm.cmd")
+    )
+
+    foreach ($candidate in $directCandidates) {
+        if (Test-Path -LiteralPath $candidate -PathType Leaf) { return $candidate }
+    }
+
+    $codexToolchain = Join-Path $env:LOCALAPPDATA "CodexToolchain"
+    if (Test-Path -LiteralPath $codexToolchain -PathType Container) {
+        $toolchainNpm = Get-ChildItem -LiteralPath $codexToolchain -Directory -ErrorAction SilentlyContinue |
+            Sort-Object LastWriteTime -Descending |
+            ForEach-Object { Join-Path $_.FullName "npm.cmd" } |
+            Where-Object { Test-Path -LiteralPath $_ -PathType Leaf } |
+            Select-Object -First 1
+        if ($toolchainNpm) { return $toolchainNpm }
+    }
+
+    return $null
+}
+
+$npmCommand = Find-NpmCommand
 if (-not $npmCommand) {
-    Write-Error "No se encontró npm. Sistema Tántalo necesita Node.js y npm disponibles."
+    Write-Error "No se encontró npm.cmd en PATH, Program Files, LocalAppData\Programs ni CodexToolchain. Instala Node.js o vuelve a abrir Codex para restaurar su toolchain."
     exit 1
+}
+
+$nodeDirectory = Split-Path -Parent $npmCommand
+$pathEntries = $env:Path -split ";"
+if ($pathEntries -notcontains $nodeDirectory) {
+    $env:Path = "$nodeDirectory;$env:Path"
 }
 
 function Get-FreeLoopbackPort {
@@ -70,7 +102,7 @@ if (-not $loreReady) {
     }
 
     $loreArguments = @("run", "dev", "--", "--host", "127.0.0.1", "--port", "$lorePort", "--strictPort")
-    $loreServer = Start-Process -FilePath $npmCommand.Source -ArgumentList $loreArguments -WorkingDirectory $repoRoot -WindowStyle Hidden -PassThru
+    $loreServer = Start-Process -FilePath $npmCommand -ArgumentList $loreArguments -WorkingDirectory $repoRoot -WindowStyle Hidden -PassThru
     $loreReady = Wait-LoreSystem -TargetPort $lorePort -TargetProcess $loreServer
 
     if (-not $loreReady) {

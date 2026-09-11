@@ -8,9 +8,11 @@ Este repositorio combina un entorno editorial persistente con MEME Lore Operatin
 
 1. Leer [AGENTS.md](AGENTS.md), [ESTADO_DEL_PROYECTO.md](ESTADO_DEL_PROYECTO.md) y [PROXIMA_SESION.md](PROXIMA_SESION.md).
 2. Invocar `$sistema-tantalo` o pedir en lenguaje natural continuar la novela, preparar un capítulo o revisar un fragmento.
-3. Para el capítulo 1, completar primero `03_saga/novelas/01-operacion-tantalo/capitulos/capitulo-01/brief.md`.
-4. Escribir exclusivamente el borrador del autor en `original.md`; candidatos y diagnósticos viven en archivos separados.
+3. El manuscrito activo está en Scrivener. El repositorio conserva únicamente checkpoints, hashes, decisiones y materiales derivados; no duplica el texto inédito en una ruta pública.
+4. Abrir `/rio` para consultar RÍO con estados editoriales y `/codice` para la Novena Costura aprobada. Las fuentes completas viven en `.meme-private/`, excluida de Git.
 5. Verificar el sistema con `npm.cmd run validate:system`. La comprobación adicional en Python es opcional cuando ese runtime está instalado.
+
+Si falta la capa privada local, reconstruirla con `scripts/import-private-literary-sources.py` y las tres fuentes verificadas. El importador no modifica `data/universe_master.json` ni los proyectos de Scrivener.
 
 ## Centro de Control Tántalo
 

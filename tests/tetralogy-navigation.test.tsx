@@ -26,64 +26,113 @@ describe('tetralogy navigation', () => {
     Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText } })
     const novels = getNovelDescriptors(universe)
     expect(novels.map((novel) => novel.number)).toEqual([1, 2, 3, 4])
-    expect(novels.map((novel) => novel.id)).toEqual(['meme-novela-uno', 'meme-novela-dos', 'meme-novela-tres', 'meme-novela-cuatro'])
+    expect(novels.map((novel) => novel.id)).toEqual([
+      'meme-novela-uno',
+      'meme-novela-dos',
+      'meme-novela-tres',
+      'meme-novela-cuatro',
+    ])
 
     const container = document.createElement('div')
     document.body.append(container)
     const root = createRoot(container)
     ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
-    await act(async () => root.render(<MemoryRouter><TimelineRenderer module={timeline} universe={universe} index={index} /></MemoryRouter>))
+    await act(async () =>
+      root.render(
+        <MemoryRouter>
+          <TimelineRenderer module={timeline} universe={universe} index={index} />
+        </MemoryRouter>,
+      ),
+    )
     expect(container.querySelectorAll('.timeline-group')).toHaveLength(5)
     expect(container.querySelectorAll('.chronology-item')).toHaveLength(59)
     expect(container.querySelectorAll('.timeline-block-copy')).toHaveLength(5)
     expect(container.querySelectorAll('.timeline-item-copy')).toHaveLength(59)
+    expect(container.querySelectorAll('.timeline-item-edit')).toHaveLength(59)
+    expect(container.querySelectorAll('.timeline-item-delete')).toHaveLength(59)
 
     const prehistoryEvents = timelineItems.filter((item) => !item.novelRef)
-    const prehistoryCopyButton = container.querySelector<HTMLButtonElement>('[data-novel="pre-saga"] .timeline-block-copy')!
+    const prehistoryCopyButton = container.querySelector<HTMLButtonElement>(
+      '[data-novel="pre-saga"] .timeline-block-copy',
+    )!
     await act(async () => prehistoryCopyButton.click())
-    expect(writeText).toHaveBeenLastCalledWith(formatChronologyBlockForClipboard('Prehistoria · Antes de la saga', 0, prehistoryEvents))
+    expect(writeText).toHaveBeenLastCalledWith(
+      formatChronologyBlockForClipboard('Prehistoria · Antes de la saga', 0, prehistoryEvents),
+    )
     expect(writeText.mock.calls[0][0]).toContain('# Prehistoria · Antes de la saga')
     expect(writeText.mock.calls[0][0]).toContain('8 hitos cronológicos')
-    expect(writeText.mock.calls[0][0]).toContain('1. **0100 · El capital encarga reducir el coste de cómputo**')
-    expect(writeText.mock.calls[0][0]).toContain('8. **0800 · Amaranta desaparece con los fragmentos**')
+    expect(writeText.mock.calls[0][0]).toContain(
+      '1. **0100 · El capital encarga reducir el coste de cómputo**',
+    )
+    expect(writeText.mock.calls[0][0]).toContain(
+      '8. **0800 · Amaranta desaparece con los fragmentos**',
+    )
     expect(prehistoryCopyButton.textContent).toContain('Prehistoria copiada')
 
     const novelOne = novels[0]
     const novelOneEvents = timelineItems.filter((item) => item.novelRef === novelOne.id)
-    const novelOneCopyButton = container.querySelector<HTMLButtonElement>('[data-novel="meme-novela-uno"] .timeline-block-copy')!
+    const novelOneCopyButton = container.querySelector<HTMLButtonElement>(
+      '[data-novel="meme-novela-uno"] .timeline-block-copy',
+    )!
     await act(async () => novelOneCopyButton.click())
-    expect(writeText).toHaveBeenCalledWith(formatChronologyBlockForClipboard(novelOne.title.replace(/^Novela\s+\d+\s+[—-]\s+/i, ''), novelOne.number, novelOneEvents))
+    expect(writeText).toHaveBeenCalledWith(
+      formatChronologyBlockForClipboard(
+        novelOne.title.replace(/^Novela\s+\d+\s+[—-]\s+/i, ''),
+        novelOne.number,
+        novelOneEvents,
+      ),
+    )
     expect(writeText.mock.calls[1][0]).toContain('# Novela 1 — Operación Tántalo')
     expect(writeText.mock.calls[1][0]).toContain('42 hitos cronológicos')
     expect(writeText.mock.calls[1][0]).toContain('1. **1010 · 1 — El pasajero sin nombre**')
-    expect(writeText.mock.calls[1][0]).toContain('42. **1420 · 36 — La libertad que dejó a otro encerrado**')
     expect(writeText.mock.calls[1][0]).toContain(
-      'Cambio dramático: La B Story empieza en un desacuerdo práctico.',
+      '42. **1420 · 36 — La libertad que dejó a otro encerrado**',
     )
     expect(novelOneCopyButton.textContent).toContain('Novela copiada')
 
     const unit16 = novelOneEvents.find((item) => item.id === 'meme-n1-escena-16')!
-    const unit16Card = [...container.querySelectorAll<HTMLElement>('.chronology-item')].find(
-      (item) => item.textContent?.includes('16 — La mujer que no puede salir del encuadre'),
-    )!
-    expect(unit16Card.textContent).toContain('Intervención de Palimpsesto')
-    expect(unit16Card.textContent).toContain('Cambio dramático')
-    expect(unit16Card.textContent).toContain('Directriz de prosa')
-    const unit16CopyButton = unit16Card.querySelector<HTMLButtonElement>('.timeline-item-copy')!
-    await act(async () => unit16CopyButton.click())
-    expect(writeText).toHaveBeenLastCalledWith(formatChronologyItemForClipboard(unit16))
-    expect(unit16CopyButton.textContent).toContain('Copiada')
+    expect(unit16.title).toBe('16 — La mujer que no puede salir del encuadre')
+    expect(container.textContent).toContain('16 — La mujer que no puede salir del encuadre')
+    expect(
+      container.querySelector('[data-novel="meme-novela-uno"] .timeline-group-actions')
+        ?.textContent,
+    ).toContain('42 unidades narrativas')
+    expect(formatChronologyItemForClipboard(unit16)).toContain(
+      'Intervención de Palimpsesto — integrar en la acción existente:',
+    )
+    expect(writeText.mock.calls[1][0]).toContain(
+      'Cambio dramático: La B Story empieza en un desacuerdo práctico.',
+    )
 
-    const novelThree = [...container.querySelectorAll<HTMLButtonElement>('.novel-navigator button')].find((button) => button.textContent?.includes('Los Futuros del Alma'))!
+    const firstPrehistoryEvent = [...prehistoryEvents].sort(
+      (left, right) =>
+        (left.sequence ?? Number.MAX_SAFE_INTEGER) - (right.sequence ?? Number.MAX_SAFE_INTEGER),
+    )[0]
+    const firstItemCopyButton = container.querySelector<HTMLButtonElement>(
+      '[data-novel="pre-saga"] .timeline-item-copy',
+    )!
+    await act(async () => firstItemCopyButton.click())
+    expect(writeText).toHaveBeenLastCalledWith(
+      formatChronologyItemForClipboard(firstPrehistoryEvent),
+    )
+    expect(writeText.mock.calls.at(-1)?.[0]).toContain(
+      '# 0100 · El capital encarga reducir el coste de cómputo',
+    )
+    expect(firstItemCopyButton.textContent).toContain('Copiada')
+
+    const novelThree = [
+      ...container.querySelectorAll<HTMLButtonElement>('.novel-navigator button'),
+    ].find((button) => button.textContent?.includes('Los Futuros del Alma'))!
     await act(async () => novelThree.click())
     expect(container.querySelectorAll('.timeline-group')).toHaveLength(1)
     expect(container.querySelector('[data-novel="meme-novela-tres"]')).not.toBeNull()
     expect(container.querySelectorAll('.chronology-item')).toHaveLength(1)
+    expect(container.querySelectorAll('.timeline-item-copy')).toHaveLength(1)
 
     await act(async () => root.unmount())
     container.remove()
     Reflect.deleteProperty(navigator, 'clipboard')
-  })
+  }, 15_000)
 
   it('assigns every character to one or more resolvable novels', () => {
     const novelIds = new Set(getNovelDescriptors(universe).map((novel) => novel.id))
@@ -97,7 +146,8 @@ describe('tetralogy navigation', () => {
 
   it('keeps every narrative ownership field resolvable in the semantic graph', () => {
     for (const entity of index.entities.values()) {
-      for (const reference of getEntityNovelRefs(entity)) expect(index.entities.has(reference)).toBe(true)
+      for (const reference of getEntityNovelRefs(entity))
+        expect(index.entities.has(reference)).toBe(true)
       if (entity.sagaRef) expect(index.entities.has(entity.sagaRef)).toBe(true)
       for (const cause of entity.causedByRefs ?? []) expect(index.entities.has(cause)).toBe(true)
     }

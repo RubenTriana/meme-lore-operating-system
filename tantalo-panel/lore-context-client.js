@@ -40,6 +40,8 @@
     if (has("version", "candidato", "comparacion", "defensor-original", "integrador-editorial", "torneo")) domains.add("versions");
     if (has("cronologia", "temporal", "secuencia")) domains.add("chronology");
     if (has("misterio", "simbolo", "presagio")) domains.add("mysteries");
+    if (has("rio", "reserva de indeterminacion organica", "aliento increado", "nombres increados", "modificadores de probabilidades")) domains.add("rio");
+    if (has("codice", "novena costura", "profecia", "glosa")) domains.add("codice");
 
     if (flow.id === "auditoria-canon") { domains.add("canon"); domains.add("versions"); }
     if (["torneo-versiones", "torneo", "comparacion-ciega", "candidatos-abcd", "integrar-finalistas"].includes(flow.id)) {

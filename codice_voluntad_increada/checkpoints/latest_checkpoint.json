@@ -1,8 +1,10 @@
 {
-  "checkpoint": "2026-08-18-codice-candidate-complete",
-  "status": "RECUPERABLE_CANDIDATE_COMPLETE",
-  "currentUnit": "compiled",
-  "currentStage": "PENDING_AUTHOR_FINAL",
+  "checkpoint": "2026-09-07-ninth-stitch-approved-local",
+  "status": "APPROVED_EDITORIAL_PRIVATE_SOURCE_ACTIVE",
+  "currentUnit": "private-derived-and-reader",
+  "currentStage": "TEXT_APPROVED_VISUAL_SYSTEM_STILL_CANDIDATE",
   "canonChanged": false,
-  "nextAction": "Leer CODICE_MASTER y aprobar, rechazar o ajustar los bloques candidatos 03–09."
+  "sourceHash": "82132c3511f8da8122cf5b78b63240193a39d6a65da444becd5a48eb7a595d0f",
+  "bundleId": "meme-continuity-2026-09-07-r2",
+  "nextAction": "Comparar la edición aprobada en /codice con el sistema material y tipográfico candidato sin reabrir la aprobación textual."
 }

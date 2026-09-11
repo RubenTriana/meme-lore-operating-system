@@ -14,23 +14,54 @@ export function loadUniverse(raw: unknown = source): LoadResult {
   return { validation: validateUniverse(data), migrated: applied.map((migration) => migration.id) }
 }
 
+export async function loadCurrentUniverse(): Promise<LoadResult> {
+  try {
+    const response = await fetch('/api/canon/universe', { cache: 'no-store' })
+    if (response.ok) {
+      const payload = (await response.json()) as { universe?: unknown }
+      if (payload.universe) return loadUniverse(payload.universe)
+    }
+  } catch {
+    // Exported static builds can still open their bundled universe for reading.
+  }
+  return loadUniverse()
+}
+
 export async function readUniverseFile(file: File): Promise<LoadResult> {
   const raw = JSON.parse(await file.text()) as unknown
   return loadUniverse(raw)
 }
 
 export function exportUniverse(universe: Universe, format: 'json' | 'markdown' | 'csv'): Blob {
-  if (format === 'json') return new Blob([JSON.stringify(universe, null, 2)], { type: 'application/json' })
+  if (format === 'json')
+    return new Blob([JSON.stringify(universe, null, 2)], { type: 'application/json' })
   const entities = universe.modules.flatMap((module) => module.content.items ?? [])
   if (format === 'csv') {
     const escape = (value: unknown) => `"${String(value ?? '').replaceAll('"', '""')}"`
-    const rows = [['id', 'type', 'title', 'status', 'development', 'tags'], ...entities.map((item) => [item.id, item.type, item.title, item.status, item.development, item.tags?.join(',')])]
+    const rows = [
+      ['id', 'type', 'title', 'status', 'development', 'tags'],
+      ...entities.map((item) => [
+        item.id,
+        item.type,
+        item.title,
+        item.status,
+        item.development,
+        item.tags?.join(','),
+      ]),
+    ]
     return new Blob([rows.map((row) => row.map(escape).join(',')).join('\n')], { type: 'text/csv' })
   }
-  const document = [`# ${universe.metadata.title} — Universe export`, '', `Version: ${universe.metadata.version}`, '']
+  const document = [
+    `# ${universe.metadata.title} — Universe export`,
+    '',
+    `Version: ${universe.metadata.version}`,
+    '',
+  ]
   universe.modules.forEach((module) => {
     document.push(`## ${module.title}`, '')
-    ;(module.content.items ?? []).forEach((item) => document.push(`### ${item.title}`, item.summary ?? '', ''))
+    ;(module.content.items ?? []).forEach((item) =>
+      document.push(`### ${item.title}`, item.summary ?? '', ''),
+    )
   })
   return new Blob([document.join('\n')], { type: 'text/markdown' })
 }

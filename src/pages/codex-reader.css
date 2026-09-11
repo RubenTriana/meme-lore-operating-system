@@ -16,6 +16,10 @@
     #0d0b09;
 }
 
+.codex-source-state { min-height: 100vh; display: grid; align-content: center; justify-items: center; gap: 10px; padding: 32px; color: #d8c8a6; background: #0d0b09; text-align: center; }
+.codex-source-state h1 { max-width: 760px; margin: 0; font-family: Georgia, serif; font-size: clamp(32px, 5vw, 62px); font-weight: 500; }
+.codex-source-state p { max-width: 650px; margin: 0; color: #95866f; }
+
 .codex-archive-header {
   width: min(1260px, 100%);
   display: grid;
@@ -107,6 +111,10 @@
 .artifact-book-heading p { color: var(--ink-rubric-faded); font: italic 500 9.5px var(--font-exegete); }
 
 .artifact-columns { column-count: 2; column-gap: clamp(32px, 3.6vw, 52px); column-rule: 1px solid rgba(70, 46, 25, .22); text-align: left; hyphens: auto; orphans: 3; widows: 3; }
+.artifact-section-heading { column-span: all; break-after: avoid; margin: 1.65em 0 .75em; color: #2a1b11; font-family: var(--font-exegete); font-weight: 650; line-height: 1.08; letter-spacing: .015em; text-align: center; }
+.artifact-section-heading.level-3 { font-size: 1.42em; font-variant-caps: small-caps; }
+.artifact-section-heading.level-4 { font-size: 1.2em; }
+.artifact-section-heading.level-5, .artifact-section-heading.level-6 { font-size: 1.05em; font-style: italic; }
 .artifact-columns > p { position: relative; break-inside: avoid; margin: 0 0 1.03em; color: var(--ink-carbon-soft); font-family: var(--font-ancient-body); font-size: var(--type-body-size); line-height: var(--type-body-leading); letter-spacing: .002em; }
 .artifact-columns > p.hand-custodio:nth-of-type(3n + 1) { transform: translateY(.35px) rotate(-.055deg); }
 .artifact-columns > p.hand-custodio:nth-of-type(4n + 2) { transform: translateX(1px) rotate(.04deg); }

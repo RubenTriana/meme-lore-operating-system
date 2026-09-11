@@ -1,0 +1,115 @@
+.timeline-item-actions {
+  flex-wrap: wrap;
+}
+.timeline-item-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.timeline-item-copy:focus-visible {
+  outline: 2px solid #f5aa24;
+  outline-offset: 3px;
+}
+.timeline-item-copy.editorial-delete {
+  color: #ef9a9a;
+}
+.timeline-unit-editor {
+  margin-top: 16px;
+  padding: 18px;
+  border: 1px solid #51402a;
+  border-radius: 10px;
+  background: #161513;
+}
+.timeline-unit-editor fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.timeline-unit-editor label {
+  display: block;
+  margin-bottom: 7px;
+  color: #bbb;
+  font-size: 12px;
+}
+.timeline-unit-editor input,
+.timeline-unit-editor textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 15px;
+  border: 1px solid #45413a;
+  border-radius: 7px;
+  background: #101010;
+  color: #e5e5e5;
+  padding: 10px 12px;
+  font: inherit;
+  line-height: 1.65;
+}
+.timeline-unit-editor textarea {
+  resize: vertical;
+  min-height: 180px;
+}
+.timeline-unit-editor input:focus,
+.timeline-unit-editor textarea:focus {
+  outline: 2px solid #ac7d30;
+  outline-offset: 1px;
+}
+.timeline-unit-editor summary {
+  cursor: pointer;
+  color: #c7a46b;
+  font-size: 12px;
+  padding: 5px 0 15px;
+}
+.timeline-editor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 14px;
+}
+.timeline-editor-grid input {
+  display: block;
+  margin-top: 7px;
+}
+.timeline-editor-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+.timeline-editor-footer .editorial-delete {
+  border-color: #984a4a;
+  background: #542626;
+  color: #ffcece;
+}
+.timeline-delete-notice strong {
+  color: #f1c2ad;
+}
+.timeline-delete-notice p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.timeline-save-notice {
+  margin: 14px 0;
+  padding: 12px 15px;
+  border: 1px solid #35593d;
+  border-radius: 8px;
+  background: #18261b;
+  color: #99d6a9;
+  font-size: 13px;
+}
+.timeline-draft-note {
+  color: #dfb774 !important;
+  font-size: 12px;
+  margin-top: 10px;
+}
+.editorial-error {
+  color: #ffb0a6 !important;
+  margin-top: 12px;
+  font-size: 12px;
+}
+@media (max-width: 680px) {
+  .timeline-editor-grid {
+    grid-template-columns: 1fr;
+  }
+  .timeline-unit-editor {
+    padding: 12px;
+  }
+}

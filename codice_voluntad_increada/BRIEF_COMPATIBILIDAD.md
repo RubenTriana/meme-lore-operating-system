@@ -4,6 +4,12 @@
 
 **Autoridad:** este brief no modifica `data/universe_master.json`. El canon técnico activo conserva prioridad sobre cualquier afirmación del Códice.
 
+## Advertencia de vigencia 2026 09 07
+
+La *Edición de la Novena Costura*, SHA-256 `82132c3511f8da8122cf5b78b63240193a39d6a65da444becd5a48eb7a595d0f`, fue aprobada integralmente por el autor como referencia editorial del Códice. Por tanto, las prohibiciones de este brief que excluyen Palimpsesto, el Hombre de Barro, la Devolución de lo Posible, la Causa Abierta o la tercera vía ya no gobiernan la edición literaria vigente.
+
+Se conserva el texto inferior como historial del contrato anterior. Las afirmaciones que todavía contradicen `data/universe_master.json` se clasifican `CONFLICTO_CANON_TECNICO_PENDIENTE_DE_LOTE`: la aprobación literaria permite corregir el Códice y sus derivados, pero no convierte automáticamente toda profecía en hecho literal ni autoriza una promoción técnica sin simulación y aprobación del lote.
+
 ## Función aprobada
 
 El Códice es un artefacto narrativo de voz múltiple: profetiza, comunica visiones y pone en resonancia filosofías del universo. Añade espesor, misterio y posibilidad de relectura a las cuatro novelas.

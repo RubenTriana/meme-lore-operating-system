@@ -7,7 +7,7 @@ import { AppShell } from '@/layouts/AppShell'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { ValidationScreen } from '@/components/ValidationScreen'
 import { HomePage } from '@/pages/HomePage'
-import { analysisRoute, codexRoute, connectionsRoute, extractionRoute, plausibilityRoute, proposalsRoute } from './routes'
+import { analysisRoute, codexRoute, connectionsRoute, extractionRoute, plausibilityRoute, proposalsRoute, rioRoute, writingProgressRoute } from './routes'
 
 const ModulePage = lazy(() => import('@/pages/ModulePage').then((module) => ({ default: module.ModulePage })))
 const InsightsPage = lazy(() => import('@/pages/InsightsPage').then((module) => ({ default: module.InsightsPage })))
@@ -22,6 +22,8 @@ const ProposalListPage = lazy(() => import('@/pages/ProposalListPage').then((mod
 const ProposalDetailPage = lazy(() => import('@/pages/ProposalDetailPage').then((module) => ({ default: module.ProposalDetailPage })))
 const CodexReaderPage = lazy(() => import('@/pages/CodexReaderPage').then((module) => ({ default: module.CodexReaderPage })))
 const CodexTypographySpecimen = lazy(() => import('@/pages/CodexTypographySpecimen').then((module) => ({ default: module.CodexTypographySpecimen })))
+const RioSystemPage = lazy(() => import('@/pages/RioSystemPage').then((module) => ({ default: module.RioSystemPage })))
+const WritingProgressPage = lazy(() => import('@/pages/WritingProgressPage').then((module) => ({ default: module.WritingProgressPage })))
 const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } } })
 
 function Loading() { return <main className="app-loading"><span className="loading-mark">M</span><p>Loading canonical universe…</p></main> }
@@ -30,7 +32,7 @@ function AppRoutes() {
   const { isLoading, validation } = useUniverseModel()
   if (isLoading) return <Loading />
   if (!validation.valid) return <ValidationScreen />
-  return <BrowserRouter><Suspense fallback={<Loading />}><Routes><Route path={codexRoute.slice(1)} element={<CodexReaderPage />} /><Route path={`${codexRoute.slice(1)}/tipografia`} element={<CodexTypographySpecimen />} /><Route element={<AppShell />}><Route index element={<HomePage />} /><Route path="module/:moduleId" element={<ModulePage />} /><Route path="insights" element={<InsightsPage />} /><Route path={analysisRoute.slice(1)} element={<AnalysisPage />} /><Route path={connectionsRoute.slice(1)} element={<ConnectionsPage />} /><Route path={plausibilityRoute.slice(1)} element={<PlausibilityPage />} /><Route path={extractionRoute.slice(1)} element={<ExtractionPage />} /><Route path={proposalsRoute.slice(1)} element={<ProposalListPage />} /><Route path={`${proposalsRoute.slice(1)}/:proposalId`} element={<ProposalDetailPage />} /><Route path="changelog" element={<ChangelogPage />} /><Route path="settings" element={<SettingsPage />} /><Route path="developer" element={<DeveloperPage />} /><Route path="*" element={<Navigate to="/" replace />} /></Route></Routes></Suspense></BrowserRouter>
+  return <BrowserRouter><Suspense fallback={<Loading />}><Routes><Route path={codexRoute.slice(1)} element={<CodexReaderPage />} /><Route path={`${codexRoute.slice(1)}/tipografia`} element={<CodexTypographySpecimen />} /><Route element={<AppShell />}><Route index element={<HomePage />} /><Route path={writingProgressRoute.slice(1)} element={<WritingProgressPage />} /><Route path="module/:moduleId" element={<ModulePage />} /><Route path={rioRoute.slice(1)} element={<RioSystemPage />} /><Route path="insights" element={<InsightsPage />} /><Route path={analysisRoute.slice(1)} element={<AnalysisPage />} /><Route path={connectionsRoute.slice(1)} element={<ConnectionsPage />} /><Route path={plausibilityRoute.slice(1)} element={<PlausibilityPage />} /><Route path={extractionRoute.slice(1)} element={<ExtractionPage />} /><Route path={proposalsRoute.slice(1)} element={<ProposalListPage />} /><Route path={`${proposalsRoute.slice(1)}/:proposalId`} element={<ProposalDetailPage />} /><Route path="changelog" element={<ChangelogPage />} /><Route path="settings" element={<SettingsPage />} /><Route path="developer" element={<DeveloperPage />} /><Route path="*" element={<Navigate to="/" replace />} /></Route></Routes></Suspense></BrowserRouter>
 }
 
 export function App() {

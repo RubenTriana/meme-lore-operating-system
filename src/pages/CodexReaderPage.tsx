@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight, Eye, Layers3, Printer, ScrollText, Type } from 'lucide-react'
-import { Fragment, useMemo, useState, type ReactNode } from 'react'
+import { Fragment, useEffect, useMemo, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { CodexDropCap } from '@/components/codex/CodexDropCap'
 import { DROP_CAP_MOTIFS } from '@/components/codex/codexDropCapMotifs'
@@ -14,10 +14,10 @@ import './codex-reader.css'
 
 type ReadingLayer = 'complete' | 'copy' | 'hands'
 type FontScale = 'compact' | 'regular' | 'large'
-type CodexEdition = 'artifact' | 'master' | 'clay-memoir'
+type CodexEdition = 'approved' | 'artifact' | 'master' | 'clay-memoir'
 type HandId = 'anterior' | 'custodio' | 'exegeta' | 'raspada' | 'imposible'
 
-interface CodexBlock { text: string; isGloss: boolean; isDialogue: boolean }
+interface CodexBlock { text: string; isGloss: boolean; isDialogue: boolean; kind: 'paragraph' | 'heading'; level: number; anchor?: string }
 interface CodexBook { roman: string; title: string; blocks: CodexBlock[] }
 interface MarginNote { anchor: number; label: string; title: string; text: string; alternative: string; side: 'left' | 'right' }
 interface ArtifactFragment {
@@ -28,8 +28,9 @@ interface SeedOccurrence { book: number; anchor: number; operator: 'bind' | 'inv
 interface MathematicalEntry { id: string; book: number; mark: string; title: string; explanation: string; postulate: string }
 
 const EDITIONS: Record<CodexEdition, { label: string; source: string; note: string }> = {
+  approved: { label: 'Novena Costura aprobada', source: '', note: 'Referencia editorial vigente · aprobada el 07-09-2026' },
   artifact: { label: 'Reconstrucción material', source: codexSource, note: 'Facsímil candidato · capas históricas hipotéticas' },
-  master: { label: 'Transcripción diplomática', source: codexSource, note: 'Texto maestro conservado sin atribución material' },
+  master: { label: 'Maestro anterior', source: codexSource, note: 'Candidato del 18-08-2026 · sustituido como referencia vigente' },
   'clay-memoir': { label: 'Escolio matemático atribuido a Clay', source: clayMemoirSource, note: 'Transcripción moderna apócrifa · separada del artefacto' },
 }
 
@@ -89,9 +90,26 @@ function parseCodex(source: string): CodexBook[] {
   const firstBook = source.indexOf('## I.')
   if (firstBook < 0) return []
   return source.slice(firstBook).split(/\n(?=##\s+[IVX]+\.)/).map((section) => {
-    const [heading, ...body] = section.trim().split('\n')
+    const [headingLine, ...body] = section.trim().split(/\r?\n/)
+    const heading = headingLine.trim()
     const match = heading.match(/^##\s+([IVX]+)\.\s+(.+)$/)
-    const blocks = body.join('\n').trim().split(/\n\s*\n/).map((text) => text.trim()).filter(Boolean).map((text) => ({ text, isGloss: /^\*[^*]+\*$/.test(text), isDialogue: text.startsWith('—') }))
+    let pendingAnchor: string | undefined
+    const blocks = body.join('\n').trim().split(/\n\s*\n/).map((text) => text.trim()).filter(Boolean).flatMap((raw) => {
+      const anchor = raw.match(/^<span id="([^"]+)"><\/span>$/)
+      if (anchor) { pendingAnchor = anchor[1]; return [] }
+      const internalHeading = raw.match(/^(#{3,6})\s+(.+)$/)
+      const text = internalHeading?.[2] ?? raw
+      const block: CodexBlock = {
+        text,
+        isGloss: /^\*[^*]+\*$/.test(text),
+        isDialogue: text.startsWith('—'),
+        kind: internalHeading ? 'heading' : 'paragraph',
+        level: internalHeading ? internalHeading[1].length : 0,
+        anchor: pendingAnchor,
+      }
+      pendingAnchor = undefined
+      return [block]
+    })
     return { roman: match?.[1] ?? '', title: match?.[2] ?? heading, blocks }
   })
 }
@@ -159,21 +177,43 @@ function visibleByLayer(hand: HandId, layer: ReadingLayer) {
 function romanFolio(index: number) { return ['III','VII','XIII','XVII','XXI','XXV','XXIX','XXXIII','XXXIX'][index] ?? String(index + 1) }
 
 export function CodexReaderPage() {
-  const [edition, setEdition] = useState<CodexEdition>('artifact')
+  const [edition, setEdition] = useState<CodexEdition>('approved')
+  const [approvedSource, setApprovedSource] = useState('')
+  const [approvedSourceState, setApprovedSourceState] = useState<'loading' | 'ready' | 'missing'>('loading')
   const [bookIndex, setBookIndex] = useState(0)
   const [layer, setLayer] = useState<ReadingLayer>('complete')
   const [fontScale, setFontScale] = useState<FontScale>('regular')
   const [selectedNote, setSelectedNote] = useState(0)
+  useEffect(() => {
+    const controller = new AbortController()
+    fetch('/api/tantalo/private/codex', { signal: controller.signal, cache: 'no-store' })
+      .then(async (response) => {
+        if (!response.ok) throw new Error('missing')
+        return response.json() as Promise<{ markdown?: string }>
+      })
+      .then((payload) => {
+        if (!payload.markdown) throw new Error('missing')
+        setApprovedSource(payload.markdown)
+        setApprovedSourceState('ready')
+      })
+      .catch((error) => {
+        if (error instanceof DOMException && error.name === 'AbortError') return
+        setApprovedSourceState('missing')
+      })
+    return () => controller.abort()
+  }, [])
+
   const editionDetails = EDITIONS[edition]
-  const books = useMemo(() => parseCodex(editionDetails.source), [editionDetails.source])
+  const editionSource = edition === 'approved' ? approvedSource : editionDetails.source
+  const books = useMemo(() => parseCodex(editionSource), [editionSource])
   const book = books[bookIndex]
   const fragment = FRAGMENTS[bookIndex]
-  const notes = BOOK_NOTES[bookIndex] ?? []
+  const notes = edition === 'artifact' ? BOOK_NOTES[bookIndex] ?? [] : []
   const activeNote = notes[selectedNote] ?? notes[0]
   const seedOccurrence = edition === 'artifact' ? SEED_OCCURRENCES.find((entry) => entry.book === bookIndex) : undefined
   const modernMath = edition === 'clay-memoir' ? MATHEMATICAL_ENTRIES.filter((entry) => entry.book === bookIndex) : []
 
-  if (!book || !fragment) return null
+  if (!book || !fragment) return <div className="codex-source-state"><h1>El Códice de la Voluntad Increada</h1><p>{approvedSourceState === 'loading' ? 'Abriendo la edición aprobada local…' : 'La edición aprobada no está importada en la capa privada local.'}</p>{approvedSourceState === 'missing' && <p>Ejecuta el importador de fuentes privadas para restaurar el acceso sin publicar el manuscrito.</p>}</div>
 
   const goToBook = (next: number) => { setBookIndex((next + books.length) % books.length); setSelectedNote(0) }
   const changeEdition = (next: CodexEdition) => { setEdition(next); setBookIndex(0); setSelectedNote(0) }
@@ -182,7 +222,7 @@ export function CodexReaderPage() {
     <header className="codex-archive-header">
       <Link to="/" className="codex-return">← Archivo general</Link>
       <div className="codex-title-seal" aria-hidden="true"><SeedGlyph id="S15" /><SeedGlyph id="S02" /></div>
-      <div><p>Reconstrucción incompleta · consulta restringida</p><h1>El Códice de la Voluntad Increada</h1><span>Ninguna mano conserva autoridad final</span></div>
+      <div><p>{edition === 'approved' ? 'Edición privada verificada · consulta local' : 'Reconstrucción incompleta · consulta restringida'}</p><h1>El Códice de la Voluntad Increada</h1><span>{edition === 'approved' ? 'Novena Costura · referencia editorial vigente' : 'Ninguna mano conserva autoridad final'}</span></div>
     </header>
 
     <details className="codex-collation">
@@ -211,16 +251,17 @@ export function CodexReaderPage() {
         <aside className="artifact-margin margin-left" aria-label="Glosas del margen izquierdo">{notes.map((note, index) => note.side === 'left' && <button key={note.label} onClick={() => setSelectedNote(index)} className={selectedNote === index ? 'selected' : ''}><sup>{note.label}</sup><strong>{note.title}</strong><span>{note.text}</span></button>)}</aside>
 
         <article className="artifact-copy">
-          <header className="artifact-book-heading"><small>{edition === 'artifact' ? 'Concordancia tardía de la Mano del Exégeta' : 'Transcripción editorial separada'}</small><span>LIBER {book.roman}</span><h2>{book.title}</h2><p>{edition === 'artifact' ? 'Rúbrica del copista · ausente en las capas anteriores' : editionDetails.note}</p></header>
+          <header className="artifact-book-heading"><small>{edition === 'approved' ? 'Texto aprobado · procedencia verificada por hash' : edition === 'artifact' ? 'Concordancia tardía de la Mano del Exégeta' : 'Transcripción editorial separada'}</small><span>LIBER {book.roman}</span><h2>{book.title}</h2><p>{edition === 'artifact' ? 'Rúbrica del copista · ausente en las capas anteriores' : editionDetails.note}</p></header>
           {DIAGRAM_ANCHORS[bookIndex] === 0 && edition === 'artifact' && <RitualDiagram bookIndex={bookIndex} />}
           <div className="artifact-columns">
             {book.blocks.map((block, originalIndex) => {
-              const hand = blockHand(block, originalIndex, fragment)
+              const hand = edition === 'artifact' ? blockHand(block, originalIndex, fragment) : 'custodio'
               if (!visibleByLayer(hand, layer)) return null
               const anchors = notes.map((note, index) => ({ ...note, index })).filter((note) => note.anchor === originalIndex)
               const displayText = edition === 'artifact' ? artifactText(block.text) : block.text
+              if (block.kind === 'heading') return <h3 key={`${originalIndex}-${block.text}`} id={block.anchor} className={`artifact-section-heading level-${block.level}`}>{renderInline(displayText)}</h3>
               return <Fragment key={`${originalIndex}-${block.text.slice(0, 18)}`}>
-                <p className={`hand-${hand} ${block.isDialogue ? 'is-dialogue' : ''} ${originalIndex === 0 ? 'is-opening' : ''}`} data-hand={HAND_NAMES[hand]}>
+                <p id={block.anchor} className={`hand-${hand} ${block.isDialogue ? 'is-dialogue' : ''} ${originalIndex === 0 ? 'is-opening' : ''}`} data-hand={HAND_NAMES[hand]}>
                   {originalIndex === 0 ? renderOpening(displayText, bookIndex) : renderInline(displayText)}
                   {anchors.map((note) => <button key={note.label} className="artifact-note-anchor" onClick={() => setSelectedNote(note.index)} aria-label={`Abrir glosa ${note.label}`}>{note.label}</button>)}
                 </p>

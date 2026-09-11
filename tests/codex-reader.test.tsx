@@ -14,22 +14,30 @@ describe('Codex stratified artifact', () => {
 
   beforeEach(async () => {
     ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ markdown: '# El Códice\n\n## I. El Silencio Anterior\n\n### I. Apertura\n\n<span id="cvi-nc-l01-p0001"></span>\n\n1. Texto aprobado de prueba.' }),
+    }))
     container = document.createElement('div')
     document.body.append(container)
     root = createRoot(container)
-    await act(async () => root.render(<MemoryRouter><CodexReaderPage /></MemoryRouter>))
+    await act(async () => {
+      root.render(<MemoryRouter><CodexReaderPage /></MemoryRouter>)
+      await Promise.resolve()
+    })
   })
 
   afterEach(async () => {
     await act(async () => root.unmount())
+    vi.unstubAllGlobals()
     container.remove()
   })
 
-  it('opens as a material reconstruction with a native Seed Language fragment', () => {
+  it('opens the approved private edition by default with stable passage anchors', () => {
     expect(container.querySelector('.codex-artifact')?.getAttribute('data-fragment')).toBe('CVI-F01')
-    expect(container.querySelector('.codex-drop-cap')?.getAttribute('data-motif')).toBe('water')
-    expect(container.querySelectorAll('.seed-inscription')).toHaveLength(1)
-    expect(container.querySelectorAll('.seed-glyph').length).toBeGreaterThan(8)
+    expect(container.querySelectorAll('.seed-inscription')).toHaveLength(0)
+    expect(container.querySelector('#cvi-nc-l01-p0001')).not.toBeNull()
+    expect(container.textContent).toContain('Texto aprobado de prueba')
     expect(container.textContent).toContain('Mano del Custodio')
     expect(container.textContent).toContain('LIBER I')
     expect(container.querySelector<HTMLAnchorElement>('a[href="/codice/tipografia"]')).not.toBeNull()
@@ -39,6 +47,7 @@ describe('Codex stratified artifact', () => {
 
   it('varies the page archetype and separates Clay mathematics into modern scholia', async () => {
     const [editionSelect, bookSelect] = [...container.querySelectorAll<HTMLSelectElement>('select')]
+    await act(async () => selectValue(editionSelect, 'artifact'))
     await act(async () => selectValue(bookSelect, '1'))
     expect(container.querySelector('.codex-artifact')?.classList.contains('archetype-ritual-diagram')).toBe(true)
     expect(container.querySelectorAll('.ritual-diagram')).toHaveLength(1)
@@ -51,7 +60,8 @@ describe('Codex stratified artifact', () => {
   })
 
   it('translates anachronisms in the artifact layer and exposes print export', async () => {
-    const [, bookSelect] = [...container.querySelectorAll<HTMLSelectElement>('select')]
+    const [editionSelect, bookSelect] = [...container.querySelectorAll<HTMLSelectElement>('select')]
+    await act(async () => selectValue(editionSelect, 'artifact'))
     await act(async () => selectValue(bookSelect, '8'))
     expect(container.textContent).toContain('tres dientes en una caja sin aliento')
     expect(container.textContent).not.toContain('tres interruptores')
