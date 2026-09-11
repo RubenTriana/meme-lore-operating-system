@@ -21,6 +21,6 @@ describe('retired Yellow King branch', () => {
   })
 
   it('keeps the retired branch absent from the current canon', () => {
-    expect(universe.metadata).toMatchObject({ version: '0.11.0', build: 'canon-0.11.0-escaleta-0.5' })
+    expect(universe.metadata).toMatchObject({ version: '0.11.1', build: 'canon-0.11.1-operacion-tantalo-unidades-v2' })
   })
 })

@@ -8,7 +8,7 @@ describe('universe validation', () => {
     expect(result.valid).toBe(true)
     expect(result.errors).toHaveLength(0)
     expect(result.data?.metadata.releaseStatus).toBe('CANON')
-    expect(result.data?.metadata.sourceManifest).toHaveLength(9)
+    expect(result.data?.metadata.sourceManifest).toHaveLength(10)
     expect(result.data?.settings?.canonApproval).toBeDefined()
     expect(result.data?.changelog.find((entry) => entry.id === 'change-017')?.status).toBe(
       'CANDIDATO_PARA_APROBACION',

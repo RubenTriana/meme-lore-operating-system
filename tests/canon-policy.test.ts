@@ -10,7 +10,7 @@ import type { Universe } from '../src/types/universe'
 
 const universe = source as unknown as Universe
 
-describe('canon 0.11.0 visibility policy', () => {
+describe('canon 0.11.1 visibility policy', () => {
   it('excludes planning, superseded material, proposals and open questions by default', () => {
     const modules = canonicalModules(universe)
     const entities = getAllEntities(universe)
@@ -18,7 +18,7 @@ describe('canon 0.11.0 visibility policy', () => {
     expect(modules).toHaveLength(17)
     expect(modules.map((module) => module.id)).not.toContain('plottr-import')
     expect(modules.map((module) => module.id)).not.toContain('canon-history')
-    expect(entities).toHaveLength(231)
+    expect(entities).toHaveLength(232)
     expect(entities.some((entity) => entity.canonStatus === 'PROPOSAL')).toBe(false)
     expect(entities.some((entity) => entity.canonStatus === 'OPEN_QUESTION')).toBe(false)
     expect(entities.some((entity) => entity.canonStatus === 'CANON_SCRIPTURE')).toBe(true)

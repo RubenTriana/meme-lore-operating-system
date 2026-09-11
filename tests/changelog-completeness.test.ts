@@ -9,13 +9,14 @@ describe('canonical changelog completeness', () => {
     const ids = universe.changelog.map((entry) => entry.id)
     const expected = Array.from({ length: 17 }, (_, index) => `change-${String(index + 1).padStart(3, '0')}`)
     expect(ids.slice(0, 17)).toEqual(expected)
-    expect(ids.at(-1)).toBe('change-011-canon-escaleta-v05')
+    expect(ids.at(-1)).toBe('change-012-canon-unidades-operacion-tantalo-v2')
     expect(new Set(ids).size).toBe(ids.length)
   })
 
   it('represents the official tetralogy canon and current build', () => {
-    expect(universe.metadata).toMatchObject({ version: '0.11.0', build: 'canon-0.11.0-escaleta-0.5', canonStatus: 'CANON' })
-    expect(universe.changelog.at(-1)).toMatchObject({ id: 'change-011-canon-escaleta-v05', version: universe.metadata.version })
+    expect(universe.metadata).toMatchObject({ version: '0.11.1', build: 'canon-0.11.1-operacion-tantalo-unidades-v2', canonStatus: 'CANON' })
+    expect(universe.changelog.at(-1)).toMatchObject({ id: 'change-012-canon-unidades-operacion-tantalo-v2', version: universe.metadata.version })
+    expect(universe.changelog.at(-1)?.changes.join(' ')).toContain('42 unidades narrativas')
   })
 
   it('records the reconstruction, consolidation and asymmetric-cruelty pass', () => {

@@ -4,7 +4,10 @@ import { MemoryRouter } from 'react-router-dom'
 import { vi } from 'vitest'
 import master from '../data/universe_master.json'
 import { TimelineRenderer } from '../src/renderer/renderers/TimelineRenderer'
-import { formatChronologyBlockForClipboard } from '../src/timeline/format'
+import {
+  formatChronologyBlockForClipboard,
+  formatChronologyItemForClipboard,
+} from '../src/timeline/format'
 import { canonicalModuleItems } from '../src/utils/canon-policy'
 import { createSemanticIndex } from '../src/utils/semantic-index'
 import { getEntityNovelRefs, getNovelDescriptors } from '../src/utils/novels'
@@ -33,6 +36,7 @@ describe('tetralogy navigation', () => {
     expect(container.querySelectorAll('.timeline-group')).toHaveLength(5)
     expect(container.querySelectorAll('.chronology-item')).toHaveLength(59)
     expect(container.querySelectorAll('.timeline-block-copy')).toHaveLength(5)
+    expect(container.querySelectorAll('.timeline-item-copy')).toHaveLength(59)
 
     const prehistoryEvents = timelineItems.filter((item) => !item.novelRef)
     const prehistoryCopyButton = container.querySelector<HTMLButtonElement>('[data-novel="pre-saga"] .timeline-block-copy')!
@@ -52,8 +56,23 @@ describe('tetralogy navigation', () => {
     expect(writeText.mock.calls[1][0]).toContain('# Novela 1 — Operación Tántalo')
     expect(writeText.mock.calls[1][0]).toContain('42 hitos cronológicos')
     expect(writeText.mock.calls[1][0]).toContain('1. **1010 · 1 — El pasajero sin nombre**')
-    expect(writeText.mock.calls[1][0]).toContain('42. **1420 · 36 — Buscar sin reclamar: la voz de este lado**')
+    expect(writeText.mock.calls[1][0]).toContain('42. **1420 · 36 — La libertad que dejó a otro encerrado**')
+    expect(writeText.mock.calls[1][0]).toContain(
+      'Cambio dramático: La B Story empieza en un desacuerdo práctico.',
+    )
     expect(novelOneCopyButton.textContent).toContain('Novela copiada')
+
+    const unit16 = novelOneEvents.find((item) => item.id === 'meme-n1-escena-16')!
+    const unit16Card = [...container.querySelectorAll<HTMLElement>('.chronology-item')].find(
+      (item) => item.textContent?.includes('16 — La mujer que no puede salir del encuadre'),
+    )!
+    expect(unit16Card.textContent).toContain('Intervención de Palimpsesto')
+    expect(unit16Card.textContent).toContain('Cambio dramático')
+    expect(unit16Card.textContent).toContain('Directriz de prosa')
+    const unit16CopyButton = unit16Card.querySelector<HTMLButtonElement>('.timeline-item-copy')!
+    await act(async () => unit16CopyButton.click())
+    expect(writeText).toHaveBeenLastCalledWith(formatChronologyItemForClipboard(unit16))
+    expect(unit16CopyButton.textContent).toContain('Copiada')
 
     const novelThree = [...container.querySelectorAll<HTMLButtonElement>('.novel-navigator button')].find((button) => button.textContent?.includes('Los Futuros del Alma'))!
     await act(async () => novelThree.click())

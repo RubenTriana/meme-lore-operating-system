@@ -89,7 +89,11 @@ export function TimelineRenderer({ module, universe, index }: RendererProps) {
                 <h2>{group.title.replace(/^Novela\s+\d+\s+[—-]\s+/i, '')}</h2>
               </div>
               <div className="timeline-group-actions">
-                <strong>{group.items.length} eventos</strong>
+                <strong>
+                  {group.items.every((item) => item.unidadNarrativa)
+                    ? `${group.items.length} unidades narrativas`
+                    : `${group.items.length} eventos`}
+                </strong>
                 <button
                   className={`timeline-block-copy ${copyState?.id === group.id ? copyState.status : ''}`}
                   type="button"
