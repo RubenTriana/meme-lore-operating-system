@@ -25,10 +25,6 @@ interface TimelineUnitDraft {
 }
 
 const narrativeFieldLabels = [
-  ['principioTematico', 'Principio temático'],
-  ['informacionReservada', 'Información reservada'],
-  ['semillaDeLargoPlazo', 'Semilla de largo plazo'],
-  ['remate', 'Remate'],
   ['intervencionPalimpsesto', 'Intervención de Palimpsesto'],
   ['cambioDramatico', 'Cambio dramático'],
   ['funcionDeCadena', 'Función de cadena'],

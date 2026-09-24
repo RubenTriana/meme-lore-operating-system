@@ -35,10 +35,6 @@ function chronologyDetails(item: UniverseEntity) {
 
 function narrativeUnitDetails(item: UniverseEntity) {
   return [
-    stringField(item, 'principioTematico') ? `Principio temático: ${stringField(item, 'principioTematico')}` : undefined,
-    stringField(item, 'informacionReservada') ? `Información reservada: ${stringField(item, 'informacionReservada')}` : undefined,
-    stringField(item, 'semillaDeLargoPlazo') ? `Semilla de largo plazo: ${stringField(item, 'semillaDeLargoPlazo')}` : undefined,
-    stringField(item, 'remate') ? `Remate: ${stringField(item, 'remate')}` : undefined,
     stringField(item, 'funcionDeCadena') ? `Función de cadena: ${stringField(item, 'funcionDeCadena')}` : undefined,
     stringField(item, 'mensajeAmaranta') ? `Fragmento del mensaje de Amaranta: ${stringField(item, 'mensajeAmaranta')}` : undefined,
     stringField(item, 'intervencionPalimpsesto')

@@ -25,14 +25,8 @@ interface TimelineUnitDraft {
 }
 
 const narrativeFieldLabels = [
-  ['principioTematico', 'Principio temático'],
-  ['informacionReservada', 'Información reservada'],
-  ['semillaDeLargoPlazo', 'Semilla de largo plazo'],
-  ['remate', 'Remate'],
   ['intervencionPalimpsesto', 'Intervención de Palimpsesto'],
   ['cambioDramatico', 'Cambio dramático'],
-  ['funcionDeCadena', 'Función de cadena'],
-  ['mensajeAmaranta', 'Fragmento del mensaje de Amaranta'],
   ['directrizDeProsa', 'Directriz de prosa'],
   ['decisionIrreversible', 'Decisión irreversible dentro del hito'],
 ] as const
@@ -209,7 +203,7 @@ export function Chronology({
         <article className="chronology-item" key={item.id}>
           <div className="chronology-date">
             <span>
-              {typeof item.readerUnit === 'number' ? item.readerUnit : item.sequence !== undefined
+              {item.sequence !== undefined
                 ? String(item.sequence).padStart(4, '0')
                 : (item.date?.slice(0, 4) ?? '—')}
             </span>

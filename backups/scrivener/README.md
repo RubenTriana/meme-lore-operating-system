@@ -1,6 +1,19 @@
 # Respaldo de Scrivener — Operación Tántalo
 
-## Copia vigente
+## Copia vigente — 2026-09-24
+
+- Archivo: `Operacion-Tantalo-Scrivener-2026-09-24.zip`.
+- Fuente local: `D:\Proyecto Evangelio\Operacion Tántalo.scriv`.
+- Proyecto modificado: 2026-09-23 18:13:39 -0500. Último contenido: 2026-09-23 18:13:36.
+- 17 documentos compilables con texto: `Intro`, `Cap 1`–`Cap 11`, con `Cap 7a`–`Cap 7d`, y dos sin título.
+- Recuento técnico: 57.793 palabras y 351.170 caracteres. RTF decodificado con Windows RichTextBox; palabras contadas como secuencias no blancas. Incluye notas y no reproduce necesariamente el contador nativo de Scrivener. Los conteos históricos no son directamente comparables sin unificar el método.
+- 33 archivos incluidos, cotejados individualmente por SHA-256 con la fuente antes y después de crear el ZIP. Se excluye únicamente `Files/user.lock`.
+- SHA-256 del ZIP: `9ac206c6ecf187452c470afb74b9b570beee7d594dbf4721ddd692753e513dd6`.
+- Inventario y métricas por documento: `Operacion-Tantalo-Scrivener-2026-09-24.manifest.json`.
+
+Para restaurar la versión vigente, comprobar el archivo `.zip.sha256`, extraer el ZIP en una carpeta nueva y abrir el `.scrivx` contenido. Conservar el proyecto original hasta verificar la copia restaurada.
+
+## Copia histórica — 2026-09-21
 
 - Archivo: `Operacion-Tantalo-Scrivener-2026-09-21.zip`
 - Fecha del respaldo: 2026-09-21 (America/Bogota)

@@ -17,7 +17,6 @@ function compareChronologyItems(a: UniverseEntity, b: UniverseEntity) {
 }
 
 function chronologySequence(item: UniverseEntity) {
-  if (typeof item.readerUnit === 'number') return String(item.readerUnit)
   return item.sequence !== undefined
     ? String(item.sequence).padStart(4, '0')
     : (item.date?.slice(0, 4) ?? '—')
@@ -35,12 +34,6 @@ function chronologyDetails(item: UniverseEntity) {
 
 function narrativeUnitDetails(item: UniverseEntity) {
   return [
-    stringField(item, 'principioTematico') ? `Principio temático: ${stringField(item, 'principioTematico')}` : undefined,
-    stringField(item, 'informacionReservada') ? `Información reservada: ${stringField(item, 'informacionReservada')}` : undefined,
-    stringField(item, 'semillaDeLargoPlazo') ? `Semilla de largo plazo: ${stringField(item, 'semillaDeLargoPlazo')}` : undefined,
-    stringField(item, 'remate') ? `Remate: ${stringField(item, 'remate')}` : undefined,
-    stringField(item, 'funcionDeCadena') ? `Función de cadena: ${stringField(item, 'funcionDeCadena')}` : undefined,
-    stringField(item, 'mensajeAmaranta') ? `Fragmento del mensaje de Amaranta: ${stringField(item, 'mensajeAmaranta')}` : undefined,
     stringField(item, 'intervencionPalimpsesto')
       ? `Intervención de Palimpsesto — integrar en la acción existente: ${stringField(item, 'intervencionPalimpsesto')}`
       : undefined,

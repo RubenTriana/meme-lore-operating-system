@@ -78,9 +78,9 @@ describe('manual writing progress', () => {
 
     expect(unitNine().getAttribute('aria-label')).toContain('completa')
     expect(container.querySelector('.unit-map')?.getAttribute('aria-label')).toBe(
-      '6 unidades completas, 3 parciales y 33 sin iniciar',
+      '6 unidades completas, 3 parciales y 34 sin iniciar',
     )
-    expect(container.querySelector('.forecast-orb strong')?.textContent).toBe('17,9%')
+    expect(container.querySelector('.forecast-orb strong')?.textContent).toBe('17,4%')
     expect(container.querySelector('.forecast-progress-line')?.textContent).toContain(
       `${latestSavedWords} palabras ${latestSavedSource}`,
     )
@@ -96,12 +96,15 @@ describe('manual writing progress', () => {
       'input[aria-label="Marcar unidad 9 como completada"]',
     )!
     await act(async () => restoredCompleted.click())
-    expect(container.querySelector('.forecast-orb strong')?.textContent).toBe('16,7%')
+    expect(container.querySelector('.forecast-orb strong')?.textContent).toBe('16,3%')
     expect(JSON.parse(localStorage.getItem(storageKey)!)[8]).toBe('partial')
   })
 
   it('shows an empty map without a fabricated forecast after reloading saved states', async () => {
-    localStorage.setItem(storageKey, JSON.stringify(Array(42).fill('untouched')))
+    localStorage.setItem(
+      storageKey,
+      JSON.stringify(Array(progress.novel.totalUnits).fill('untouched')),
+    )
     await act(async () => root.render(<WritingProgressPage />))
 
     expect(container.querySelector('.forecast-orb strong')?.textContent).toBe('0%')
@@ -110,7 +113,39 @@ describe('manual writing progress', () => {
     )
     expect(container.querySelector('.forecast-copy')?.textContent).not.toContain('Proyección de')
     expect(container.querySelector('.unit-map')?.getAttribute('aria-label')).toBe(
-      '0 unidades completas, 0 parciales y 42 sin iniciar',
+      '0 unidades completas, 0 parciales y 43 sin iniciar',
+    )
+  })
+
+  it('inserts the new canonical unit without shifting legacy local marks', async () => {
+    const legacyStatuses = Array(progress.novel.totalUnits - 1).fill('untouched')
+    const legacyWords = Array(progress.novel.totalUnits - 1).fill(0)
+    legacyStatuses[19] = 'complete'
+    legacyWords[19] = 777
+    localStorage.setItem(storageKey, JSON.stringify(legacyStatuses))
+    localStorage.setItem(wordsStorageKey, JSON.stringify(legacyWords))
+
+    await act(async () => root.render(<WritingProgressPage />))
+
+    expect(
+      container
+        .querySelector<HTMLButtonElement>('button[aria-label^="Unidad 20:"]')
+        ?.getAttribute('aria-label'),
+    ).toContain('sin iniciar')
+    const shiftedUnit = container.querySelector<HTMLButtonElement>(
+      'button[aria-label^="Unidad 21:"]',
+    )!
+    expect(shiftedUnit.getAttribute('aria-label')).toContain('completa')
+    await act(async () => shiftedUnit.click())
+    expect(
+      container.querySelector<HTMLInputElement>('input[aria-label="Palabras escritas en unidad 21"]')
+        ?.value,
+    ).toBe('777')
+    expect(JSON.parse(localStorage.getItem(storageKey)!)).toHaveLength(
+      progress.novel.totalUnits,
+    )
+    expect(JSON.parse(localStorage.getItem(wordsStorageKey)!)).toHaveLength(
+      progress.novel.totalUnits,
     )
   })
 
@@ -120,7 +155,7 @@ describe('manual writing progress', () => {
     await act(async () => {
       Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')!.set!.call(
         input,
-        '11000',
+        '55000',
       )
       input.dispatchEvent(new Event('input', { bubbles: true }))
     })
@@ -132,8 +167,11 @@ describe('manual writing progress', () => {
           snapshots: [
             ...progress.snapshots,
             {
-              date: '2026-09-10',
-              words: 11000,
+              date: new Date(
+                Math.max(...progress.snapshots.map((snapshot) => Date.parse(snapshot.date))) +
+                  86_400_000,
+              ).toISOString().slice(0, 10),
+              words: 55000,
               source: 'manual',
               label: 'Conteo actualizado por el autor',
             },
@@ -151,16 +189,16 @@ describe('manual writing progress', () => {
       '/api/writing-progress',
       expect.objectContaining({
         method: 'PATCH',
-        body: JSON.stringify({ words: 11000, expectedRevision: 'a'.repeat(64) }),
+        body: JSON.stringify({ words: 55000, expectedRevision: 'a'.repeat(64) }),
       }),
     )
     expect(container.querySelector('.writing-word-comparison')?.textContent).toContain(
-      '10% de la meta',
+      '50% de la meta',
     )
-    expect(container.textContent).toContain('Faltan 99.000 palabras')
+    expect(container.textContent).toContain('Faltan 55.000 palabras')
     expect(container.querySelector('[role="status"]')?.textContent).toContain('Conteo guardado')
     expect(container.querySelector('.forecast-progress-line')?.textContent).toContain(
-      '11.000 palabras registradas por ti',
+      '55.000 palabras registradas por ti',
     )
   })
 
@@ -210,7 +248,9 @@ describe('manual writing progress', () => {
         </UniverseContext.Provider>,
       ),
     )
-    expect(container.querySelectorAll('.unit-map button')).toHaveLength(42)
+    expect(container.querySelectorAll('.unit-map button')).toHaveLength(
+      progress.novel.totalUnits,
+    )
     const deletedUnit = container.querySelector<HTMLButtonElement>(
       'button[aria-label="Unidad 2: borrada u oculta."]',
     )!
@@ -221,7 +261,7 @@ describe('manual writing progress', () => {
       container.querySelector('button[aria-label^="Unidad 3:"]')?.classList.contains('complete'),
     ).toBe(true)
     expect(container.querySelector('.unit-map')?.getAttribute('aria-label')).toBe(
-      '5 unidades completas, 2 parciales y 34 sin iniciar, 1 unidad borrada u oculta',
+      '5 unidades completas, 2 parciales y 35 sin iniciar, 1 unidad borrada u oculta',
     )
   })
 

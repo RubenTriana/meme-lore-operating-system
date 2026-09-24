@@ -47,6 +47,7 @@ const initialProgressData = progressSource as WritingProgressData
 const unitStatusStorageKey = `meme-lore:writing-progress:${initialProgressData.novel.id}:unit-statuses:v1`
 
 const unitWordsStorageKey = `meme-lore:writing-progress:${initialProgressData.novel.id}:unit-words:v1`
+const insertedUnitId = 'meme-n1-escena-20-ultimo-oficio-roma'
 const compactNumber = new Intl.NumberFormat('es-CO', {
   notation: 'compact',
   maximumFractionDigits: 1,
@@ -72,13 +73,31 @@ const unitStatusLabels: Record<WritingUnitStatus, string> = {
   untouched: 'sin iniciar',
 }
 
+function migrateLegacyUnitVector<T>(value: unknown, insertedValue: T) {
+  const unitIds = initialProgressData.novel.unitIds
+  const insertionIndex = unitIds?.indexOf(insertedUnitId) ?? -1
+  if (
+    !Array.isArray(value) ||
+    insertionIndex < 0 ||
+    value.length !== initialProgressData.novel.totalUnits - 1
+  ) {
+    return value
+  }
+  return [...value.slice(0, insertionIndex), insertedValue, ...value.slice(insertionIndex)]
+}
+
 function initialWritingUnitStatuses() {
   const fallback = createWritingUnitStatuses(initialProgressData)
   if (typeof localStorage === 'undefined') return fallback
 
   try {
     const stored = JSON.parse(localStorage.getItem(unitStatusStorageKey) ?? 'null')
-    return parseWritingUnitStatuses(stored, initialProgressData.novel.totalUnits) ?? fallback
+    return (
+      parseWritingUnitStatuses(
+        migrateLegacyUnitVector(stored, 'untouched'),
+        initialProgressData.novel.totalUnits,
+      ) ?? fallback
+    )
   } catch {
     return fallback
   }
@@ -90,7 +109,12 @@ function initialWritingUnitWords() {
 
   try {
     const stored = JSON.parse(localStorage.getItem(unitWordsStorageKey) ?? 'null')
-    return parseWritingUnitWords(stored, initialProgressData.novel.totalUnits) ?? fallback
+    return (
+      parseWritingUnitWords(
+        migrateLegacyUnitVector(stored, 0),
+        initialProgressData.novel.totalUnits,
+      ) ?? fallback
+    )
   } catch {
     return fallback
   }

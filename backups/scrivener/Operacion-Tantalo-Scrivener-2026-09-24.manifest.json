@@ -1,0 +1,304 @@
+{
+  "verifiedAt": "2026-09-24",
+  "status": "BACKUP_VERIFIED_NOT_EDITORIAL_APPROVAL",
+  "sourcePath": "D:\\Proyecto Evangelio\\Operacion Tántalo.scriv",
+  "projectIdentifier": "BEA4EDCF-A447-4822-9DDE-D495BF3091F2",
+  "projectModified": "2026-09-23 18:13:39 -0500",
+  "zipSha256": "9ac206c6ecf187452c470afb74b9b570beee7d594dbf4721ddd692753e513dd6",
+  "fileCount": 33,
+  "documentCount": 17,
+  "words": 57793.0,
+  "characters": 351170.0,
+  "countMethod": "RTF decoded with Windows RichTextBox; words are non-whitespace sequences (regex \\S+). Includes planning notes; not native Scrivener statistics. Previous 46,958 reference uses an unspecified method and is not directly comparable.",
+  "excluded": [
+    "Files/user.lock"
+  ],
+  "documents": [
+    {
+      "title": "Intro",
+      "uuid": "ED32D58C-D541-4AFE-B8C7-38450E0E9226",
+      "words": 293,
+      "characters": 1675,
+      "modified": "2026-07-28 15:41:38"
+    },
+    {
+      "title": "Cap 1",
+      "uuid": "863F4B02-F416-438F-937A-002CF9C88693",
+      "words": 4259,
+      "characters": 23980,
+      "modified": "2026-09-11 09:46:40"
+    },
+    {
+      "title": "Cap 2",
+      "uuid": "BACBBD17-EDD6-418D-B28B-0A80FC4D2FEF",
+      "words": 5698,
+      "characters": 34812,
+      "modified": "2026-09-11 10:11:26"
+    },
+    {
+      "title": "Cap 3",
+      "uuid": "C3A666AA-B9A4-44F7-9256-3AAE2A5A6A40",
+      "words": 2802,
+      "characters": 16561,
+      "modified": "2026-09-15 12:55:08"
+    },
+    {
+      "title": "Cap 4",
+      "uuid": "E3224AE3-69E9-4F0C-98E1-E9BD72241CBD",
+      "words": 3024,
+      "characters": 18366,
+      "modified": "2026-09-15 15:24:14"
+    },
+    {
+      "title": "Cap 5",
+      "uuid": "BB10AE8F-1FA0-4939-8EA6-0B3B95B17ECE",
+      "words": 3407,
+      "characters": 20261,
+      "modified": "2026-09-15 16:08:40"
+    },
+    {
+      "title": "Cap 6",
+      "uuid": "6FFBAD96-7DAD-4E10-9C97-C66782352F67",
+      "words": 6645,
+      "characters": 40565,
+      "modified": "2026-09-15 20:30:54"
+    },
+    {
+      "title": "Cap 7a",
+      "uuid": "9CAEBFD0-ACD4-4C56-A2B4-059A9CC17E30",
+      "words": 1735,
+      "characters": 11085,
+      "modified": "2026-09-16 16:19:30"
+    },
+    {
+      "title": "Cap 7b",
+      "uuid": "3726FF5A-1098-4E79-8736-68865E1BED5C",
+      "words": 2425,
+      "characters": 15072,
+      "modified": "2026-09-16 16:37:14"
+    },
+    {
+      "title": "Cap 7c",
+      "uuid": "75D854D2-83B2-4F43-877E-0E1EC64D7E5D",
+      "words": 2707,
+      "characters": 17098,
+      "modified": "2026-09-16 18:16:34"
+    },
+    {
+      "title": "Cap 7d",
+      "uuid": "054E2DDC-4D40-461D-AE0F-C1093A0B8EA5",
+      "words": 2749,
+      "characters": 17023,
+      "modified": "2026-09-16 17:55:14"
+    },
+    {
+      "title": "Cap 8",
+      "uuid": "6B4B908F-D5FD-4E68-B63E-7AC063EB40CE",
+      "words": 1845,
+      "characters": 11407,
+      "modified": "2026-09-20 13:57:10"
+    },
+    {
+      "title": "Cap 9",
+      "uuid": "0991D46E-3EFB-43EC-8604-22C1DF3F804E",
+      "words": 6536,
+      "characters": 40409,
+      "modified": "2026-09-20 20:11:40"
+    },
+    {
+      "title": "Cap 10",
+      "uuid": "FAC0CC2A-AA44-422A-BDEE-AF8101FC6CED",
+      "words": 2953,
+      "characters": 17683,
+      "modified": "2026-09-20 20:15:48"
+    },
+    {
+      "title": "Cap 11",
+      "uuid": "B4EDF522-1254-4666-B234-E156E70974F9",
+      "words": 3495,
+      "characters": 21142,
+      "modified": "2026-09-21 17:11:56"
+    },
+    {
+      "title": "",
+      "uuid": "D5E146C9-49B4-4535-9D0F-BF2BB1B3A3C9",
+      "words": 3979,
+      "characters": 24125,
+      "modified": "2026-09-23 16:14:12"
+    },
+    {
+      "title": "",
+      "uuid": "1F32B5F1-8C27-4737-B45F-64E961B39AB9",
+      "words": 3241,
+      "characters": 19906,
+      "modified": "2026-09-23 18:13:36"
+    }
+  ],
+  "files": [
+    {
+      "path": "Operacion Tántalo.scrivx",
+      "sha256": "4552529453af2510232626f7df51e7e8c7a7713f85fc95f91ffaf069dd2e7064",
+      "bytes": 19085
+    },
+    {
+      "path": "Settings/recents.txt",
+      "sha256": "9464041bb907ce38b3752e93c280b2c2556a0dee4702df2420141a845ee33ba6",
+      "bytes": 887
+    },
+    {
+      "path": "Settings/ui-common.xml",
+      "sha256": "3dd21afa98055df931df7c6037f45c3745cd8ff410234e02e5b5ca46ac0d984a",
+      "bytes": 25627
+    },
+    {
+      "path": "Settings/ui.ini",
+      "sha256": "04f8e274aae595c0b789604b8226f74b61f5aef825b4de673d2f7744e0349118",
+      "bytes": 45157
+    },
+    {
+      "path": "Files/binder.autosave",
+      "sha256": "1643bace823041885ac6a0c4fa878a06c0a5c02b789edf059c07dc54d29eae05",
+      "bytes": 3345
+    },
+    {
+      "path": "Files/binder.backup",
+      "sha256": "8b9a24637d19cf6aa10865f8cf1f825217fcace1966a75cbb59e4f042e80c6dc",
+      "bytes": 3345
+    },
+    {
+      "path": "Files/search.indexes",
+      "sha256": "8db84450777af39015dc7b63ec5680fb9d8f7a7edefa4ed617e08056defab755",
+      "bytes": 384942
+    },
+    {
+      "path": "Files/styles.xml",
+      "sha256": "49b503f0edbe3a8f4510c2ee1ae6b0839c1df2ce8e834c0c09711018267bce8a",
+      "bytes": 6055
+    },
+    {
+      "path": "Files/version.txt",
+      "sha256": "535fa30d7e25dd8a49f1536779734ec8286108d115da5045d77f3b4185d8f790",
+      "bytes": 2
+    },
+    {
+      "path": "Files/writing.history",
+      "sha256": "c082124f831cf5168885472fb602464021a92176bbf44fc8600824152a3ede6e",
+      "bytes": 1295
+    },
+    {
+      "path": "Files/Data/docs.checksum",
+      "sha256": "72190a0364328ec21eb382ac311cc60454f31595ebd528005e80fb5d5dcd3a98",
+      "bytes": 1979
+    },
+    {
+      "path": "Files/Data/ED32D58C-D541-4AFE-B8C7-38450E0E9226/content.rtf",
+      "sha256": "280d4e3db75792de3a34dac9ab55568afa791d0127465f1a445bb4ee40509a5d",
+      "bytes": 2952
+    },
+    {
+      "path": "Files/Data/ED32D58C-D541-4AFE-B8C7-38450E0E9226/notes.rtf",
+      "sha256": "47bd01dd5fdd924e92554417121b554477a83c4a0e38f0aa50e1c8e372408e90",
+      "bytes": 2426
+    },
+    {
+      "path": "Files/Data/ED32D58C-D541-4AFE-B8C7-38450E0E9226/synopsis.txt",
+      "sha256": "0f1bfdd584658e316ad8653e1f333d6508ac15fd749ecaac40626dcd210bcb0e",
+      "bytes": 12564
+    },
+    {
+      "path": "Files/Data/863F4B02-F416-438F-937A-002CF9C88693/content.rtf",
+      "sha256": "9a14423976ee36891558c014573b62fa04e2a763cdbf40dea2d58c2d17cb6725",
+      "bytes": 39217
+    },
+    {
+      "path": "Files/Data/863F4B02-F416-438F-937A-002CF9C88693/notes.rtf",
+      "sha256": "5188e17d4c7ee479a2b01e2f74d82685e731ed8b97ac03b6daddfcc00a7c2d93",
+      "bytes": 3957
+    },
+    {
+      "path": "Files/Data/863F4B02-F416-438F-937A-002CF9C88693/synopsis.txt",
+      "sha256": "2b9fa5d4f85e12b25aecf2db84e75b8ca841ed620d4e3548106186a83a33d525",
+      "bytes": 454
+    },
+    {
+      "path": "Files/Data/BACBBD17-EDD6-418D-B28B-0A80FC4D2FEF/content.rtf",
+      "sha256": "0e80450b790650a01c36b36f278aa6124ea89787a1c531ee751f2bf3ee2ad4ea",
+      "bytes": 80062
+    },
+    {
+      "path": "Files/Data/BACBBD17-EDD6-418D-B28B-0A80FC4D2FEF/synopsis.txt",
+      "sha256": "27a8137b54b2e91c72416d24aeb6a630746480dc8da724a7325063fd2fd585b4",
+      "bytes": 640
+    },
+    {
+      "path": "Files/Data/C3A666AA-B9A4-44F7-9256-3AAE2A5A6A40/content.rtf",
+      "sha256": "0ea997ef2192a38a6abdee39e23d81fac192ae4c5f1b1f57d5eb8d49f9005a2b",
+      "bytes": 29159
+    },
+    {
+      "path": "Files/Data/E3224AE3-69E9-4F0C-98E1-E9BD72241CBD/content.rtf",
+      "sha256": "3cea85218e94ad500df8b65bb81382a3c44434742fbf9cf6e5968c5802f18766",
+      "bytes": 45300
+    },
+    {
+      "path": "Files/Data/BB10AE8F-1FA0-4939-8EA6-0B3B95B17ECE/content.rtf",
+      "sha256": "74c53c9b46d8705552726460e8fb859a9c80dd34d0919146e908f9419fcf5268",
+      "bytes": 50423
+    },
+    {
+      "path": "Files/Data/6FFBAD96-7DAD-4E10-9C97-C66782352F67/content.rtf",
+      "sha256": "47e9fc4678d1e99a0a5da3b51838655cf84b5faa66b7a2d64f6798625a25d6db",
+      "bytes": 95880
+    },
+    {
+      "path": "Files/Data/9CAEBFD0-ACD4-4C56-A2B4-059A9CC17E30/content.rtf",
+      "sha256": "0d19b2cc40f1166272746128e0ad49f7ababaa6235e21a8f9bb1a578a9283a82",
+      "bytes": 24402
+    },
+    {
+      "path": "Files/Data/3726FF5A-1098-4E79-8736-68865E1BED5C/content.rtf",
+      "sha256": "8f51da460767fee49b7b8b4159ba98483b9f7a2585f8b3f4e535694f29e203e4",
+      "bytes": 40381
+    },
+    {
+      "path": "Files/Data/75D854D2-83B2-4F43-877E-0E1EC64D7E5D/content.rtf",
+      "sha256": "3b4fb66708a48c8e89b6643623ef42260f8827e96bf48b6acc85418906d75b82",
+      "bytes": 36846
+    },
+    {
+      "path": "Files/Data/054E2DDC-4D40-461D-AE0F-C1093A0B8EA5/content.rtf",
+      "sha256": "23d545b28751239c4a94cb207c65d502dd3e3d707d9915158d6f2f4285be816b",
+      "bytes": 37999
+    },
+    {
+      "path": "Files/Data/6B4B908F-D5FD-4E68-B63E-7AC063EB40CE/content.rtf",
+      "sha256": "43b88f00d551ba66d09dca8eb5154c8d125f5ac3354e55c5b5113c4fd41593c2",
+      "bytes": 24733
+    },
+    {
+      "path": "Files/Data/0991D46E-3EFB-43EC-8604-22C1DF3F804E/content.rtf",
+      "sha256": "e0ea9db2bfb5a3e93c4270133f27031fd3646c32e5b57696f687cb8e9db1b9e4",
+      "bytes": 97439
+    },
+    {
+      "path": "Files/Data/FAC0CC2A-AA44-422A-BDEE-AF8101FC6CED/content.rtf",
+      "sha256": "0cdfbd32ea65537c3460a668b08c72c0764563966ba713ed3d7bdc48448ab0c2",
+      "bytes": 45727
+    },
+    {
+      "path": "Files/Data/B4EDF522-1254-4666-B234-E156E70974F9/content.rtf",
+      "sha256": "a8cc1bd9e26bb7340ab3c861c67c4505880fd130b9fbe30c7a7e246a70eebd7a",
+      "bytes": 49304
+    },
+    {
+      "path": "Files/Data/D5E146C9-49B4-4535-9D0F-BF2BB1B3A3C9/content.rtf",
+      "sha256": "ac3e00c1398543df917b6d72973bb5ce972b97c423403c6c95cc56efa0667159",
+      "bytes": 63943
+    },
+    {
+      "path": "Files/Data/1F32B5F1-8C27-4737-B45F-64E961B39AB9/content.rtf",
+      "sha256": "0f41fa212ab1ab7856630a227aa9f5516d2a22c5d38fb2bee99ae98c7094e313",
+      "bytes": 52725
+    }
+  ]
+}

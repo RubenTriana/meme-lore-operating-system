@@ -1,5 +1,17 @@
 # Próxima sesión
 
+## Reanudación vigente — 2026-09-24
+
+- **Abrir:** `D:\Proyecto Evangelio\Operacion Tántalo.scriv\Operacion Tántalo.scrivx`.
+- **Último documento con texto:** sin título, UUID `1F32B5F1-8C27-4737-B45F-64E961B39AB9`, guardado el 2026-09-23 a las 18:13:36.
+- **Documento anterior sin título:** UUID `D5E146C9-49B4-4535-9D0F-BF2BB1B3A3C9`. Ambos aparecen después de `Cap 11`.
+- **Acción:** leer el cierre de estos documentos y decidir sus títulos y el punto narrativo de continuación. Este punto queda PENDIENTE; no se ha revisado ni reescrito su prosa durante la sincronización.
+- **Avance verificado:** 17 documentos compilables con texto, 57.793 palabras por recuento técnico RTF. No asignar números de capítulo a los documentos sin título sin decisión del autor.
+- **Referencia técnica:** canon local existente 0.13.0. El cotejo entre manuscrito y unidades narrativas sigue pendiente.
+- **Respaldo recuperable:** `backups/scrivener/Operacion-Tantalo-Scrivener-2026-09-24.zip` y su manifiesto de integridad.
+
+## Plan histórico del capítulo 2 — conservado, no vigente
+
 - **Punto de reanudación:** después de que Clay comprende que El Administrador ha abierto la única compuerta que él no podía cerrar. El contenedor ya está siendo preparado o sellado mientras Clay recupera su disciplina.
 - **Archivo principal:** proyecto local de Scrivener `Operacion Tántalo.scriv`, Binder `863F4B02-F416-438F-937A-002CF9C88693`.
 - **Escaleta vigente:** canon 0.11.0, escaleta 0.5; continuar la transición de la unidad 7 hacia la unidad 8 sin cambiar la numeración canónica.

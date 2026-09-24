@@ -1,5 +1,19 @@
 # Estado del proyecto
 
+## Estado vigente — 2026-09-24
+
+- **Novela:** _Operación Tántalo_, borrador en Scrivener con 17 documentos compilables con texto: hasta `Cap 11` y dos sin título.
+- **Fuente:** `D:\Proyecto Evangelio\Operacion Tántalo.scriv`; último contenido guardado el 23 de septiembre de 2026.
+- **Métrica:** 57.793 palabras y 351.170 caracteres mediante extracción RTF y conteo por espacios; incluye notas y no equivale necesariamente al contador nativo de Scrivener.
+- **Respaldo:** ZIP del 24 de septiembre, 33 archivos cotejados mediante SHA-256, conservando el ZIP anterior.
+- **Sistema local sincronizado:** canon existente 0.13.0, esquema 3.5.0, 19 módulos y 558 entidades; cambios existentes del panel de progreso y cronología.
+- **Estado editorial:** borrador; la sincronización no acredita aprobación de capítulos ni finalización de unidades narrativas.
+- **Siguiente paso:** revisar y titular los dos documentos sin título, después cotejar el avance con la escaleta.
+
+## Estado histórico anterior
+
+El bloque siguiente se conserva para trazabilidad y ha sido sustituido por el estado del 24 de septiembre.
+
 - **Sistema:** Sistema Tántalo — Laboratorio de creación y continuidad de _El Evangelio del Azar_.
 - **Fase actual:** capítulo 1 cerrado en borrador local y transición hacia el capítulo 2.
 - **Novela activa:** _Operación Tántalo_.

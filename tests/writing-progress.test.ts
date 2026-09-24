@@ -24,13 +24,13 @@ describe('writing progress forecast', () => {
   it('keeps complete, partial and untouched units distinct', () => {
     const metrics = calculateWritingMetrics(progress)
 
-    expect(progress.novel.totalUnits).toBe(42)
+    expect(progress.novel.totalUnits).toBe(43)
     expect(progress.novel.completeUnits).toBe(5)
     expect(progress.novel.completeUnitNumbers).toEqual([3, 4, 5, 6, 7])
     expect(progress.novel.partialUnits).toBe(3)
     expect(progress.novel.partialUnitNumbers).toEqual([1, 2, 8])
-    expect(progress.novel.untouchedUnits).toBe(34)
-    expect(metrics.strictRemainingUnits).toBe(37)
+    expect(progress.novel.untouchedUnits).toBe(35)
+    expect(metrics.strictRemainingUnits).toBe(38)
     expect(metrics.weightedCompletedUnits).toBe(6.5)
   })
 
@@ -46,9 +46,9 @@ describe('writing progress forecast', () => {
   it('keeps the structural forecast separate from an editable editorial target', () => {
     const metrics = calculateWritingMetrics(progress, 80000)
 
-    expect(metrics.structuralTargetWords).toBe(26195)
-    expect(metrics.structuralDaysRemaining).toBe(171)
-    expect(metrics.structuralWeeksRemaining).toBe(25)
+    expect(metrics.structuralTargetWords).toBe(26819)
+    expect(metrics.structuralDaysRemaining).toBe(176)
+    expect(metrics.structuralWeeksRemaining).toBe(26)
     expect(metrics.editorialTargetWords).toBe(80000)
     expect(metrics.editorialDaysRemaining).toBeGreaterThan(metrics.structuralDaysRemaining ?? 0)
   })
@@ -68,11 +68,11 @@ describe('writing progress forecast', () => {
     expect(edited.novel.completeUnits).toBe(6)
     expect(edited.novel.partialUnits).toBe(3)
     expect(edited.novel.reachedUnits).toBe(9)
-    expect(edited.novel.untouchedUnits).toBe(33)
-    expect(metrics.strictRemainingUnits).toBe(36)
+    expect(edited.novel.untouchedUnits).toBe(34)
+    expect(metrics.strictRemainingUnits).toBe(37)
     expect(metrics.weightedCompletedUnits).toBe(7.5)
-    expect(metrics.completionPercent).toBeCloseTo(17.857)
-    expect(metrics.structuralTargetWords).toBe(22702)
+    expect(metrics.completionPercent).toBeCloseTo(17.442)
+    expect(metrics.structuralTargetWords).toBe(23243)
   })
 
   it('rejects stored unit states that do not match the configured map', () => {
@@ -98,11 +98,14 @@ describe('writing progress forecast', () => {
   })
 
   it('does not forecast a manuscript size before any unit is started', () => {
-    const edited = applyWritingUnitStatuses(progress, Array(42).fill('untouched'))
+    const edited = applyWritingUnitStatuses(
+      progress,
+      Array(progress.novel.totalUnits).fill('untouched'),
+    )
     const metrics = calculateWritingMetrics(edited)
 
     expect(metrics.completionPercent).toBe(0)
-    expect(metrics.strictRemainingUnits).toBe(42)
+    expect(metrics.strictRemainingUnits).toBe(43)
     expect(metrics.wordsPerWeightedUnit).toBeNull()
     expect(metrics.structuralTargetWords).toBeNull()
     expect(metrics.structuralWeeksRemaining).toBeNull()
@@ -118,11 +121,14 @@ describe('writing progress forecast', () => {
 
     expect(metrics.weightedCompletedUnits).toBe(0.5)
     expect(metrics.wordsPerWeightedUnit).toBe(8108)
-    expect(metrics.structuralTargetWords).toBe(340536)
+    expect(metrics.structuralTargetWords).toBe(348644)
   })
 
   it('reports completed goals even without a recent writing pace', () => {
-    const edited = applyWritingUnitStatuses(progress, Array(42).fill('complete'))
+    const edited = applyWritingUnitStatuses(
+      progress,
+      Array(progress.novel.totalUnits).fill('complete'),
+    )
     edited.snapshots = [progress.snapshots[1]]
     const metrics = calculateWritingMetrics(edited, 4054)
 

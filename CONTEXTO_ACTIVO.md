@@ -1,5 +1,20 @@
 # Contexto activo
 
+## Estado vigente verificado — 2026-09-24
+
+- **Novela:** _Operación Tántalo_. Fuente de escritura: `D:\Proyecto Evangelio\Operacion Tántalo.scriv`.
+- **Avance material:** 17 documentos compilables con texto: `Intro`, `Cap 1`–`Cap 11` (con `Cap 7a`–`Cap 7d`) y dos documentos sin título. Último texto guardado: 2026-09-23 18:13:36, America/Bogota.
+- **Recuento técnico:** 57.793 palabras y 351.170 caracteres, obtenido decodificando los RTF con Windows RichTextBox y contando secuencias no blancas. Incluye notas; puede diferir del contador nativo de Scrivener y de los checkpoints anteriores.
+- **Respaldo vigente:** `backups/scrivener/Operacion-Tantalo-Scrivener-2026-09-24.zip`, con inventario y SHA-256 verificados. Conserva 33 archivos; excluye únicamente `Files/user.lock`. El respaldo del 21 de septiembre permanece disponible.
+- **Panel y canon local:** se sincroniza la versión local existente 0.13.0, esquema 3.5.0, 19 módulos y 558 entidades, junto con los cambios existentes del panel. Esta operación no añade decisiones narrativas ni convierte el manuscrito en versión editorial aprobada.
+- **Reanudación:** revisar el último documento sin título, UUID `1F32B5F1-8C27-4737-B45F-64E961B39AB9`, y decidir su título y continuidad. El punto narrativo exacto queda PENDIENTE de lectura del autor; no se infiere a partir de metadatos.
+- **Pendiente editorial:** cotejar capítulos y unidades de la escaleta. Los porcentajes por unidades no se deducen del número de capítulos ni del total de palabras.
+- **Registro:** `05_decisiones/2026-09-24-sincronizacion-scrivener.md`.
+
+## Contexto histórico anterior — conservado como referencia
+
+Las indicaciones siguientes sobre capítulo activo, conteos, fuente vigente y próxima acción describen checkpoints anteriores. Para el estado material actual prevalece el bloque del 24 de septiembre. Las decisiones narrativas conservan su alcance original.
+
 - **Novela activa:** _Operación Tántalo_.
 - **Capítulo activo:** capítulo 1 cerrado en borrador; transición hacia la secuencia siguiente del capítulo 2.
 - **Punto del proceso:** cierre narrativo verificado directamente en Scrivener el 2026-09-09. `Cap 1` contiene 4.054 palabras y 23.209 caracteres, incluidas notas de planificación incrustadas; aún no es una versión editorial aprobada. `Cap 2` conserva la semilla de 6 palabras.
